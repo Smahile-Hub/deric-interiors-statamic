@@ -1,0 +1,37 @@
+<section class="hero" style="background:#1a1b21;min-height:440px;padding:180px 0 4rem;">
+  <div class="hero-inner shell">
+    <h1 class="hero-title" style="font-size:clamp(3rem,6vw,6rem);">{{ hero_heading }}</h1>
+    <p class="hero-sub">{{ hero_subtext }}</p>
+  </div>
+</section>
+
+<section style="padding:5rem 0;" data-reveal>
+  <div class="shell">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:2rem;">
+      {{ testimonials_list }}
+        <div style="background:#1a1b21;border:1px solid rgba(80,69,51,0.2);border-radius:8px;padding:2.5rem;display:grid;gap:1.25rem;">
+          <div style="color:rgba(240,206,151,0.2);font-size:4rem;font-style:italic;line-height:.75;font-family:var(--font-display);">&ldquo;</div>
+          <blockquote style="color:#e5e1ea;font-size:1rem;font-style:italic;line-height:1.8;font-weight:300;">{{ quote }}</blockquote>
+          <div style="border-top:1px solid rgba(80,69,51,0.2);padding-top:1rem;">
+            <strong style="color:var(--gold-light);font-size:.82rem;font-weight:700;letter-spacing:.08em;display:block;">{{ author }}</strong>
+            <span style="color:#8c867d;font-size:.78rem;">{{ role }}{{ if location }} &mdash; {{ location }}{{ /if }}</span>
+            {{ if project }}
+              <span style="color:#6b6560;font-size:.72rem;display:block;margin-top:.25rem;font-style:italic;">{{ project }}</span>
+            {{ /if }}
+          </div>
+        </div>
+      {{ /testimonials_list }}
+    </div>
+  </div>
+</section>
+
+<section class="final-cta-section" data-reveal>
+  <div class="shell" style="padding:5rem 0;text-align:center;">
+    <h2>Ready to Add Your Story?</h2>
+    <p>Join our growing family of satisfied clients across Nigeria and beyond.</p>
+    <div class="cta-actions">
+      <a href="/contact" class="btn-primary">Book a Consultation</a>
+      <a href="/projects" class="btn-secondary">View Our Work</a>
+    </div>
+  </div>
+</section>

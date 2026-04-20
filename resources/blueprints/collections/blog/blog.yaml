@@ -1,0 +1,26 @@
+title: Blog Post
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field: { type: text, display: Title, required: true }
+      -
+        handle: category
+        field: { type: text, display: Category }
+      -
+        handle: image
+        field: { type: text, display: "Featured Image URL" }
+      -
+        handle: excerpt
+        field: { type: textarea, display: Excerpt }
+      -
+        handle: author
+        field: { type: text, display: Author }
+      -
+        handle: reading_time
+        field: { type: text, display: "Reading Time" }
+      -
+        handle: content
+        field: { type: markdown, display: Content }

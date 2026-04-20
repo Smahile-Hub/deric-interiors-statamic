@@ -1,0 +1,118 @@
+title: About Page
+sections:
+  hero:
+    display: Hero
+    fields:
+      -
+        handle: about_hero_eyebrow
+        field: { type: text, display: Eyebrow }
+      -
+        handle: about_hero_title_line_one
+        field: { type: text, display: "Title Line One" }
+      -
+        handle: about_hero_accent_word
+        field: { type: text, display: "Accent Word" }
+      -
+        handle: about_hero_background_image
+        field: { type: text, display: "Background Image URL" }
+      -
+        handle: about_hero_background_alt
+        field: { type: text, display: "Background Image Alt" }
+  story:
+    display: Story
+    fields:
+      -
+        handle: about_story_eyebrow
+        field: { type: text, display: Eyebrow }
+      -
+        handle: about_story_heading_line_one
+        field: { type: text, display: "Heading Line One" }
+      -
+        handle: about_story_heading_line_two
+        field: { type: text, display: "Heading Line Two" }
+      -
+        handle: about_story_heading_line_three
+        field: { type: text, display: "Heading Line Three" }
+      -
+        handle: about_story_body
+        field: { type: textarea, display: Body }
+      -
+        handle: about_story_tall_image
+        field: { type: text, display: "Tall Image URL" }
+      -
+        handle: about_story_tall_image_alt
+        field: { type: text, display: "Tall Image Alt" }
+      -
+        handle: about_story_square_image
+        field: { type: text, display: "Square Image URL" }
+      -
+        handle: about_story_square_image_alt
+        field: { type: text, display: "Square Image Alt" }
+  milestones:
+    display: Milestones
+    fields:
+      -
+        handle: about_milestones_title
+        field: { type: text, display: Title }
+      -
+        handle: about_milestones_description
+        field: { type: textarea, display: Description }
+      -
+        handle: about_milestones_items
+        field:
+          type: grid
+          display: Milestone Items
+          add_row: Add Milestone
+          fields:
+            -
+              handle: value
+              field: { type: text, display: Value }
+            -
+              handle: label
+              field: { type: text, display: Label }
+            -
+              handle: description
+              field: { type: textarea, display: Description }
+            -
+              handle: highlighted
+              field: { type: toggle, display: Highlighted }
+  values:
+    display: Values
+    fields:
+      -
+        handle: about_values_title
+        field: { type: text, display: Title }
+      -
+        handle: about_values_items
+        field:
+          type: grid
+          display: Value Items
+          add_row: Add Value
+          fields:
+            -
+              handle: number
+              field: { type: text, display: Number }
+            -
+              handle: title
+              field: { type: text, display: Title }
+            -
+              handle: description
+              field: { type: textarea, display: Description }
+  cta:
+    display: Final CTA
+    fields:
+      -
+        handle: about_cta_title
+        field: { type: text, display: Title }
+      -
+        handle: about_cta_button_label
+        field: { type: text, display: "Button Label" }
+      -
+        handle: about_cta_button_href
+        field: { type: text, display: "Button URL" }
+      -
+        handle: about_cta_background_image
+        field: { type: text, display: "Background Image URL" }
+      -
+        handle: about_cta_background_alt
+        field: { type: text, display: "Background Image Alt" }

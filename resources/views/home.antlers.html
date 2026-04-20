@@ -1,0 +1,314 @@
+{{# HERO #}}
+<style>
+  :root {
+    --hero-overlay-start: {{ hero_overlay_start ?? 'rgba(11,12,16,0.82)' }};
+    --hero-overlay-end: {{ hero_overlay_end ?? 'rgba(31,20,13,0.35)' }};
+  }
+</style>
+<section class="hero" id="hero-section" style="--section-bg:#12131a;">
+  <div class="hero-image-wrap">
+    <img
+      src="{{ hero_image }}"
+      alt="{{ hero_image_alt ?? 'Luxury living room with layered lighting and sculptural furnishings' }}"
+      class="hero-image"
+      loading="eager"
+      fetchpriority="high"
+    >
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-shell">
+    <div class="hero-content">
+      {{ if hero_eyebrow }}
+        <span class="eyebrow" data-reveal>{{ hero_eyebrow }}</span>
+      {{ /if }}
+      <h1 class="hero-title">
+        {{ hero_heading_lines }}
+          <span class="hero-title-line" style="--line-index:{{ index }};"><span>{{ line }}</span></span>
+        {{ /hero_heading_lines }}
+      </h1>
+      <p class="hero-description" data-reveal>{{ hero_subtext }}</p>
+      <div class="hero-actions" data-reveal>
+        <a href="{{ hero_cta_href }}" class="btn-primary">{{ hero_cta_label }}</a>
+        {{ if hero_secondary_href }}
+          <a href="{{ hero_secondary_href }}" class="inline-link">
+            <span>{{ hero_secondary_label }}</span>
+            <span aria-hidden="true">-&gt;</span>
+          </a>
+        {{ /if }}
+      </div>
+    </div>
+    <span class="scroll-label">Scroll</span>
+  </div>
+</section>
+
+{{# ABOUT #}}
+<section class="about-section" data-reveal style="--section-bg:{{ about_bg ?? '#1a1b21' }};--panel-bg:{{ about_panel_bg ?? '#292a30' }};">
+  <div class="shell">
+    <div class="about-grid">
+      <div class="about-visual">
+        <div class="about-visual-inner">
+          <img src="{{ about_image }}" alt="{{ about_heading }}" loading="lazy">
+        </div>
+        <div class="stat-card">
+          <strong id="years-counter">{{ about_years_value ?? '18+' }}</strong>
+          <span>{{ about_years_label ?? 'Years of Excellence' }}</span>
+        </div>
+      </div>
+      <div class="about-content">
+        <div>
+          <span class="eyebrow">{{ about_eyebrow }}</span>
+          <h2 style="font-family:var(--font-display);font-size:clamp(2rem,3.5vw,3rem);color:#e5e1ea;font-weight:400;margin:.5rem 0 1rem;line-height:1.1;white-space:pre-line;">{{ about_heading }}</h2>
+          <p style="color:#b1a18d;line-height:1.8;">{{ about_body }}</p>
+        </div>
+        {{ if about_features }}
+          <div class="about-features">
+            {{ about_features }}
+              <div>
+                <h3>{{ title }}</h3>
+                <p>{{ description }}</p>
+              </div>
+            {{ /about_features }}
+          </div>
+        {{ /if }}
+        <div>
+          <a href="{{ about_cta_href ?? '/about' }}" class="btn-secondary">{{ about_cta_label ?? 'Our Story' }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{# SERVICES #}}
+<section class="services-section" data-reveal style="--section-bg:{{ services_bg ?? '#111317' }};">
+  <div class="shell">
+    <div class="services-header">
+      <div>
+        <span class="eyebrow">{{ services_eyebrow }}</span>
+        <h2 style="font-family:var(--font-display);font-size:clamp(3rem,5vw,3.9rem);color:#e5e1ea;font-weight:400;margin:.5rem 0;line-height:1.05;transform:scaleY(1.25);transform-origin:left top;display:block;margin-bottom:3.5rem;">{{ services_heading }}</h2>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-btn" data-carousel-prev="services" aria-label="Previous">&lt;-</button>
+        <button class="carousel-btn" data-carousel-next="services" aria-label="Next">-&gt;</button>
+      </div>
+    </div>
+    <div class="services-rail" data-carousel="services">
+      {{ services_items }}
+        <a href="{{ href }}" class="service-card" data-carousel-item>
+          <div class="service-media" style="--service-overlay:{{ overlay ?? 'rgba(15,18,23,0.7)' }};">
+            <img src="{{ image }}" alt="{{ title }}" loading="lazy">
+          </div>
+          <div class="service-copy">
+            <h3>{{ title }}</h3>
+            <p>{{ description }}</p>
+          </div>
+        </a>
+      {{ /services_items }}
+    </div>
+  </div>
+</section>
+
+{{# PORTFOLIO #}}
+<section class="portfolio-section" data-reveal style="--section-bg:{{ portfolio_bg ?? '#0d1016' }};">
+  <div class="shell">
+    <div class="section-header">
+      <span class="eyebrow">{{ portfolio_eyebrow }}</span>
+      <h2 style="font-family:var(--font-display);font-size:clamp(3rem,5vw,3.9rem);color:#e5e1ea;font-weight:400;line-height:1.05;transform:scaleY(1.25);transform-origin:left top;display:block;margin-bottom:3.5rem;">{{ portfolio_heading }}</h2>
+    </div>
+    <div class="portfolio-grid">
+      <div class="featured-project">
+        {{ if portfolio_featured_image }}
+          <a href="{{ portfolio_featured_href ?? '/projects' }}" class="featured-project-media">
+            <img src="{{ portfolio_featured_image }}" alt="{{ portfolio_featured_title }}" loading="lazy">
+            <div class="featured-project-overlay"></div>
+          </a>
+          <div class="featured-project-copy">
+            <span class="eyebrow project-category">{{ portfolio_featured_category }}</span>
+            <h3>{{ portfolio_featured_title }}</h3>
+            <p>{{ portfolio_featured_description }}</p>
+            <a href="{{ portfolio_featured_href ?? '/projects' }}" class="inline-link">View Project -&gt;</a>
+          </div>
+        {{ /if }}
+      </div>
+      <div class="side-projects">
+        {{ portfolio_side_items }}
+          <div class="side-project" data-reveal>
+            <a href="{{ href }}" class="side-project-media">
+              <img src="{{ image }}" alt="{{ title }}" loading="lazy">
+            </a>
+            <div class="side-project-copy">
+              <span class="eyebrow project-category">{{ category }}</span>
+              <h3>{{ title }}</h3>
+              <p>{{ description }}</p>
+            </div>
+          </div>
+        {{ /portfolio_side_items }}
+      </div>
+    </div>
+    <div class="section-cta">
+      <a href="/projects" class="btn-secondary">View All Projects</a>
+    </div>
+  </div>
+</section>
+
+{{# PRODUCTS #}}
+<section class="product-section" data-reveal style="--section-bg:{{ products_bg ?? '#0d0e12' }};">
+  <div class="shell">
+    <div class="product-header">
+      <div>
+        <span class="eyebrow">{{ products_eyebrow }}</span>
+        <h2 style="font-family:var(--font-display);font-size:clamp(3rem,5vw,3.9rem);color:#e5e1ea;font-weight:400;line-height:1.05;transform:scaleY(1.25);transform-origin:left top;display:block;margin-bottom:3.5rem;">{{ products_heading }}</h2>
+      </div>
+      <div style="display:flex;align-items:center;gap:2rem;flex-shrink:0;">
+        <a href="/shop" style="font-size:0.82rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#c9a96e;">View All</a>
+        <div class="carousel-controls">
+          <button class="carousel-btn" data-carousel-prev="products" aria-label="Previous">&lt;-</button>
+          <button class="carousel-btn" data-carousel-next="products" aria-label="Next">-&gt;</button>
+        </div>
+      </div>
+    </div>
+    <div class="products-rail" data-carousel="products">
+      {{ products_items }}
+        <a href="{{ href ?? '/shop' }}" class="product-card" data-carousel-item>
+          <div class="product-img-wrap">
+            <div class="product-overlay"></div>
+            {{ if category }}
+              <span class="product-category-badge">{{ category }}</span>
+            {{ /if }}
+            <img src="{{ image }}" alt="{{ title }}" loading="lazy">
+          </div>
+          <div class="product-copy">
+            <span class="product-title">{{ title }}</span>
+            <span class="product-price">{{ price }}</span>
+          </div>
+        </a>
+      {{ /products_items }}
+    </div>
+  </div>
+</section>
+
+{{# MISSION #}}
+<section class="mission-section" data-reveal style="--section-bg:{{ mission_bg ?? '#161a20' }};">
+  <div class="shell">
+    <div class="mission-icon-row">
+      <span></span>
+      <strong>{{ mission_eyebrow }}</strong>
+      <span></span>
+    </div>
+    <div class="mission-statement">
+      <p>{{ mission_body_top }}</p>
+      <h2>{{ mission_heading }}</h2>
+    </div>
+    {{ if mission_items }}
+      <div class="mission-grid">
+        {{ mission_items }}
+          <div class="mission-card">
+            <h3>{{ title }}</h3>
+            <p>{{ description }}</p>
+          </div>
+        {{ /mission_items }}
+      </div>
+    {{ /if }}
+    <div style="display:flex;justify-content:center;margin-top:3rem;">
+      <a href="{{ mission_cta_href ?? '/about' }}" class="btn-primary">{{ mission_cta_label ?? 'Our Approach' }}</a>
+    </div>
+  </div>
+</section>
+
+{{# TESTIMONIALS #}}
+<section class="testimonials-section" data-reveal style="--section-bg:{{ testimonials_bg ?? '#111217' }};">
+  <div class="shell">
+    <div class="section-header section-header-center" style="text-align:center;">
+      <span class="eyebrow">{{ testimonials_eyebrow }}</span>
+      <h2 style="font-family:var(--font-display);font-size:clamp(3rem,5vw,3.9rem);color:#e5e1ea;font-weight:400;line-height:1.05;transform:scaleY(1.25);transform-origin:center top;display:block;margin-bottom:3.5rem;">{{ testimonials_heading }}</h2>
+    </div>
+    <div class="testimonials-rail-wrap">
+      <button class="carousel-btn" data-carousel-prev="testimonials" aria-label="Previous">&lt;-</button>
+      <div class="testimonials-rail" data-carousel="testimonials">
+        {{ testimonials_items }}
+          <div class="testimonial-card" data-carousel-item>
+            <div class="quote-mark">"</div>
+            <blockquote>{{ quote }}</blockquote>
+            <cite>
+              <strong>{{ author }}</strong>
+              <span>{{ role }}</span>
+            </cite>
+          </div>
+        {{ /testimonials_items }}
+      </div>
+      <button class="carousel-btn" data-carousel-next="testimonials" aria-label="Next">-&gt;</button>
+    </div>
+  </div>
+</section>
+
+{{# FINAL CTA #}}
+<section class="final-cta-section" data-reveal>
+  <div class="shell">
+    <div class="final-cta-panel">
+      <span class="eyebrow">{{ cta_eyebrow }}</span>
+      <h2 class="final-cta-title">{{ cta_heading }}</h2>
+      <p class="final-cta-description">{{ cta_subtext }}</p>
+      <div class="cta-actions">
+        <a href="{{ cta_primary_href }}" class="btn-primary">{{ cta_primary_label }}</a>
+        {{ if cta_secondary_href }}
+          <a href="{{ cta_secondary_href }}" class="btn-secondary">{{ cta_secondary_label }}</a>
+        {{ /if }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  // Hero parallax
+  var hero = document.getElementById('hero-section');
+  if (hero) {
+    var ticking = false;
+    function updateHeroParallax() {
+      var progress = Math.min(window.scrollY / 720, 1);
+      hero.style.setProperty('--hero-image-shift', (progress * -72) + 'px');
+      hero.style.setProperty('--hero-content-shift', (progress * -118) + 'px');
+      hero.style.setProperty('--hero-content-opacity', (1 - progress * 0.58).toString());
+      hero.style.setProperty('--hero-image-scale', (1.08 - progress * 0.08).toString());
+      hero.style.setProperty('--hero-overlay-opacity', (0.68 + progress * 0.2).toString());
+      hero.style.setProperty('--hero-scroll-opacity', (1 - progress * 1.8).toString());
+      ticking = false;
+    }
+    window.addEventListener('scroll', function() {
+      if (!ticking) { requestAnimationFrame(updateHeroParallax); ticking = true; }
+    }, { passive: true });
+    updateHeroParallax();
+  }
+
+  // Casino counter for years stat
+  var counterEl = document.getElementById('years-counter');
+  if (counterEl) {
+    var finalText = counterEl.textContent.trim();
+    var finalNum = parseInt(finalText.replace(/\D/g, ''), 10) || 18;
+    var suffix = finalText.replace(/[0-9]/g, '');
+    var observed = false;
+    var counterObs = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting && !observed) {
+        observed = true;
+        counterObs.disconnect();
+        var ticks = 30;
+        var tick = 0;
+        function step() {
+          var progress = tick / ticks;
+          var eased = Math.pow(progress, 2.2);
+          var current = Math.round(eased * finalNum);
+          counterEl.textContent = current + suffix;
+          if (tick < ticks) {
+            tick++;
+            setTimeout(step, 40 + Math.pow(progress, 2.2) * 310);
+          } else {
+            counterEl.textContent = finalText;
+          }
+        }
+        step();
+      }
+    }, { threshold: 0.6 });
+    counterObs.observe(counterEl);
+  }
+
+})();
+</script>

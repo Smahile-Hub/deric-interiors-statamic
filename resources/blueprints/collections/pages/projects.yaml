@@ -1,0 +1,103 @@
+title: Projects Page
+sections:
+  hero:
+    display: Hero
+    fields:
+      -
+        handle: projects_hero_eyebrow
+        field: { type: text, display: Eyebrow }
+      -
+        handle: projects_hero_title_line_one
+        field: { type: text, display: "Title Line One" }
+      -
+        handle: projects_hero_title_line_two
+        field: { type: text, display: "Title Line Two" }
+      -
+        handle: projects_hero_description
+        field: { type: textarea, display: Description }
+      -
+        handle: projects_hero_background_image
+        field: { type: text, display: "Background Image URL" }
+      -
+        handle: projects_hero_background_alt
+        field: { type: text, display: "Background Image Alt" }
+  filters:
+    display: Filters
+    fields:
+      -
+        handle: projects_filters
+        field:
+          type: list
+          display: Filter Labels
+          instructions: One filter label per line.
+  gallery:
+    display: Gallery
+    fields:
+      -
+        handle: project_items
+        field:
+          type: grid
+          display: Project Items
+          add_row: Add Project
+          fields:
+            -
+              handle: id
+              field: { type: text, display: ID }
+            -
+              handle: title
+              field: { type: text, display: Title }
+            -
+              handle: excerpt
+              field: { type: textarea, display: Excerpt }
+            -
+              handle: category
+              field:
+                type: select
+                display: Category
+                options:
+                  Residential: Residential
+                  Commercial: Commercial
+                  Workplace: Workplace
+            -
+              handle: size
+              field:
+                type: select
+                display: Card Size
+                default: medium
+                options:
+                  large: Large
+                  medium: Medium
+                  small: Small
+            -
+              handle: image
+              field: { type: text, display: "Image URL" }
+            -
+              handle: image_alt
+              field: { type: text, display: "Image Alt" }
+            -
+              handle: link_label
+              field: { type: text, display: "Link Label" }
+            -
+              handle: link_href
+              field: { type: text, display: "Link URL" }
+      -
+        handle: projects_empty_state
+        field: { type: text, display: "Empty State Message" }
+  cta:
+    display: Final CTA
+    fields:
+      -
+        handle: projects_cta_title_line_one
+        field: { type: text, display: "CTA Title Line One" }
+      -
+        handle: projects_cta_title_line_two
+        field: { type: text, display: "CTA Title Line Two" }
+      -
+        handle: projects_cta_title_line_three
+        field: { type: text, display: "CTA Title Line Three" }
+      -
+        handle: projects_cta_button_label
+        field: { type: text, display: "CTA Button Label" }
+      -
+        handle: projects_cta_button_href
+        field: { type: text, display: "CTA Button URL" }

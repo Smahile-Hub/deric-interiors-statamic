@@ -1,0 +1,16 @@
+tree:
+  -
+    title: Projects
+    url: /projects
+  -
+    title: Services
+    url: /services
+  -
+    title: About
+    url: /about
+  -
+    title: Blog
+    url: /blog
+  -
+    title: Contact
+    url: /contact

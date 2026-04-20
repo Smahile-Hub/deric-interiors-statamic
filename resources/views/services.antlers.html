@@ -1,0 +1,177 @@
+<div class="services-page">
+  <section class="services-hero">
+    <div class="hero-image-wrap">
+      <img
+        class="hero-image"
+        src="{{ services_hero_background_image }}"
+        alt="{{ services_hero_background_alt }}"
+        loading="eager"
+      >
+    </div>
+    <div class="services-hero-overlay"></div>
+
+    <div class="services-hero-shell">
+      <p class="services-hero-eyebrow" data-reveal>{{ services_hero_eyebrow }}</p>
+      <h1 class="services-hero-title" data-reveal>
+        {{ services_hero_title_prefix }} <span class="services-hero-accent">{{ services_hero_title_accent }}</span><br>
+        {{ services_hero_title_suffix }}
+      </h1>
+      <p class="services-hero-description" data-reveal>{{ services_hero_description }}</p>
+      <a href="{{ services_hero_cta_href }}" class="services-hero-cta" data-reveal>
+        {{ services_hero_cta_label }}
+      </a>
+    </div>
+  </section>
+
+  <section class="services-stats-section" data-reveal>
+    <div class="services-stats-shell">
+      {{ services_stats }}
+        <div class="services-stat-item" data-reveal style="--stagger-index: {{ index ?? 0 }};">
+          <strong>{{ value }}</strong>
+          <span>{{ label }}</span>
+        </div>
+      {{ /services_stats }}
+    </div>
+  </section>
+
+  <section class="services-cards-section">
+    <div class="services-shell">
+      <div class="services-section-header" data-reveal>
+        <h2 class="services-section-heading">{{ services_intro_title }}</h2>
+        <p class="services-section-description">{{ services_intro_description }}</p>
+      </div>
+
+      <div class="services-rows">
+        {{ service_rows }}
+          <div class="services-row" data-reveal style="--stagger-index: {{ index ?? 0 }};">
+            {{ services_cards }}
+              <article
+                id="{{ id }}"
+                class="services-card{{ if wide }} is-wide{{ /if }}"
+              >
+                <div class="services-card-body">
+                  <span class="services-card-number">{{ number }}</span>
+                  <div class="services-card-text">
+                    <h3>{{ title }}</h3>
+                    <p>{{ description }}</p>
+                  </div>
+                  <a href="{{ link_href }}" class="services-card-link">
+                    {{ link_label }} <span aria-hidden="true">-&gt;</span>
+                  </a>
+                </div>
+
+                <div class="services-card-media">
+                  <img
+                    class="services-card-image"
+                    src="{{ image }}"
+                    alt="{{ image_alt }}"
+                    loading="lazy"
+                  >
+                  <div class="services-card-overlay"></div>
+                </div>
+              </article>
+            {{ /services_cards }}
+          </div>
+        {{ /service_rows }}
+      </div>
+    </div>
+  </section>
+
+  <section class="services-process-section">
+    <div class="services-shell">
+      <h2 class="services-process-title" data-reveal>{{ services_process_title }}</h2>
+
+      <div class="services-process-grid">
+        {{ services_process_items }}
+          <div class="services-process-step" data-reveal style="--stagger-index: {{ index ?? 0 }};">
+            <span class="services-process-number">{{ number }}</span>
+            <h3>{{ title }}</h3>
+            <p>{{ description }}</p>
+          </div>
+        {{ /services_process_items }}
+      </div>
+    </div>
+  </section>
+
+  <section class="services-cta-section" data-reveal>
+    <div class="services-cta-shell">
+      <h2 class="services-cta-title">
+        {{ services_cta_title_line_one }}<br>
+        {{ services_cta_title_line_two }}
+      </h2>
+      <p class="services-cta-description">{{ services_cta_description }}</p>
+      <div class="services-cta-actions">
+        <a href="{{ services_cta_primary_href }}" class="services-cta-button">
+          {{ services_cta_primary_label }}
+        </a>
+        <a href="{{ services_cta_secondary_href }}" class="services-cta-link">
+          {{ services_cta_secondary_label }}
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  (() => {
+    const pageRoot = document.querySelector('.services-page');
+    const hero = document.querySelector('.services-hero');
+
+    if (!pageRoot || !hero) {
+      return;
+    }
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const applyHeroParallax = () => {
+      if (reduceMotion) {
+        return;
+      }
+
+      const progress = Math.max(0, Math.min(window.scrollY / 620, 1));
+      hero.style.setProperty('--hero-image-shift', `${progress * -56}px`);
+      hero.style.setProperty('--hero-image-scale', `${1.08 - progress * 0.06}`);
+      hero.style.setProperty('--hero-shell-shift', `${progress * -82}px`);
+      hero.style.setProperty('--hero-shell-opacity', `${1 - progress * 0.42}`);
+      hero.style.setProperty('--hero-overlay-opacity', `${0.84 + progress * 0.1}`);
+    };
+
+    let frame = 0;
+    const onScroll = () => {
+      if (frame) {
+        return;
+      }
+
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+        applyHeroParallax();
+      });
+    };
+
+    applyHeroParallax();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    if (typeof IntersectionObserver === 'undefined') {
+      document.querySelectorAll('.services-page [data-reveal]').forEach((element) => {
+        element.dataset.visible = 'true';
+      });
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.dataset.visible = 'true';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.16,
+      rootMargin: '0px 0px -12% 0px'
+    });
+
+    document.querySelectorAll('.services-page [data-reveal]').forEach((element) => {
+      observer.observe(element);
+    });
+  })();
+</script>

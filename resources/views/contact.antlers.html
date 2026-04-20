@@ -1,0 +1,78 @@
+<section class="hero" style="background:#1a1b21;min-height:400px;padding:180px 0 3rem;">
+  <div class="hero-inner shell">
+    <h1 class="hero-title" style="font-size:clamp(3rem,6vw,6rem);">{{ hero_heading }}</h1>
+    <p class="hero-sub">{{ hero_subtext }}</p>
+  </div>
+</section>
+
+<section style="padding:5rem 0;" data-reveal>
+  <div class="shell">
+    <div style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:5rem;align-items:start;">
+
+      <div>
+        <h2 style="font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.4rem);color:#e5e1ea;font-weight:400;margin-bottom:2rem;">Send Us a Message</h2>
+        {{ form:create handle="contact" }}
+          {{ if success }}
+            <div style="background:rgba(247,181,31,0.1);border:1px solid rgba(247,181,31,0.3);border-radius:8px;padding:1.5rem;color:var(--gold-light);">
+              Thank you! We will be in touch within 24 hours.
+            </div>
+          {{ else }}
+            <div class="form-field">
+              <label class="form-label" for="name">Full Name *</label>
+              <input class="form-input" type="text" id="name" name="name" value="{{ old:name }}" required>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="email">Email Address *</label>
+              <input class="form-input" type="email" id="email" name="email" value="{{ old:email }}" required>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="phone">Phone Number</label>
+              <input class="form-input" type="tel" id="phone" name="phone" value="{{ old:phone }}">
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="service">Service of Interest</label>
+              <select class="form-select" id="service" name="service">
+                <option value="">Select a service...</option>
+                <option value="residential">Residential Design</option>
+                <option value="commercial">Commercial Design</option>
+                <option value="space-planning">Space Planning</option>
+                <option value="furniture">Furniture Sourcing</option>
+                <option value="project-management">Project Management</option>
+                <option value="styling">Styling &amp; Staging</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="message">Your Message *</label>
+              <textarea class="form-textarea" id="message" name="message" rows="5" required>{{ old:message }}</textarea>
+            </div>
+            <input type="hidden" name="_token" value="{{ csrf_token }}">
+            <button type="submit" class="btn-primary" style="width:100%;margin-top:.5rem;">Send Message</button>
+          {{ /if }}
+        {{ /form:create }}
+      </div>
+
+      <div style="display:grid;gap:2.5rem;padding-top:1rem;">
+        <div>
+          <h3 style="color:var(--gold-light);font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1rem;">Contact Details</h3>
+          <div style="display:grid;gap:.75rem;">
+            <p style="color:#d4c0ab;font-size:.95rem;">{{ address }}</p>
+            <p><a href="tel:{{ phone }}" style="color:#d4c0ab;font-size:.95rem;">{{ phone }}</a></p>
+            <p><a href="mailto:{{ email }}" style="color:#d4c0ab;font-size:.95rem;">{{ email }}</a></p>
+            <p style="color:#b1a18d;font-size:.9rem;">{{ hours }}</p>
+          </div>
+        </div>
+        <div>
+          <h3 style="color:var(--gold-light);font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1rem;">Follow Us</h3>
+          {{ globals:settings }}
+            <div style="display:flex;gap:1.2rem;flex-wrap:wrap;">
+              {{ social_links }}
+                <a href="{{ href }}" target="{{ target }}" rel="noreferrer" style="color:#d4c0ab;font-size:.88rem;text-transform:uppercase;letter-spacing:.08em;font-weight:600;">{{ label }}</a>
+              {{ /social_links }}
+            </div>
+          {{ /globals:settings }}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

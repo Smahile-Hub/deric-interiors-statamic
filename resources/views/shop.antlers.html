@@ -1,0 +1,65 @@
+<section class="hero" style="background:#1a1b21;min-height:440px;padding:180px 0 4rem;">
+  <div class="hero-inner shell">
+    <h1 class="hero-title" style="font-size:clamp(3rem,6vw,6rem);">{{ hero_heading }}</h1>
+    <p class="hero-sub">{{ hero_subtext }}</p>
+  </div>
+</section>
+
+<section style="padding:5rem 0;" data-reveal>
+  <div class="shell">
+
+    <div class="projects-filter" id="shop-filter">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="Seating">Seating</button>
+      <button class="filter-btn" data-filter="Tables">Tables</button>
+      <button class="filter-btn" data-filter="Lighting">Lighting</button>
+      <button class="filter-btn" data-filter="Accessories">Accessories</button>
+      <button class="filter-btn" data-filter="Art & Decor">Art &amp; Decor</button>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem;margin-top:2rem;" id="shop-grid">
+      {{ products }}
+        <div class="product-card" data-category="{{ category }}" style="display:block;">
+          <div class="product-img-wrap">
+            <img src="{{ image }}" alt="{{ title }}" loading="lazy">
+          </div>
+          <div style="padding:.75rem 0;">
+            <span style="color:var(--gold-light);font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:.3rem;">{{ category }}</span>
+            <h3 style="color:#f0ece4;font-size:1rem;font-weight:500;margin-bottom:.4rem;">{{ title }}</h3>
+            <p style="color:#b1a18d;font-size:.82rem;line-height:1.6;margin-bottom:.6rem;">{{ description }}</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:.5rem;">
+              <span class="product-price" style="font-size:1rem;font-weight:700;">{{ price }}</span>
+              <a href="/contact" class="btn-primary" style="min-height:40px;padding:.5rem 1rem;font-size:.7rem;">Enquire</a>
+            </div>
+          </div>
+        </div>
+      {{ /products }}
+    </div>
+
+  </div>
+</section>
+
+<section class="final-cta-section" data-reveal>
+  <div class="shell" style="padding:5rem 0;text-align:center;">
+    <h2>Looking for Something Specific?</h2>
+    <p>Our team can source bespoke furniture and decor pieces tailored to your exact brief.</p>
+    <div class="cta-actions">
+      <a href="/contact" class="btn-primary">Speak to Our Team</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  const filterBtns = document.querySelectorAll('#shop-filter .filter-btn');
+  const items = document.querySelectorAll('#shop-grid .product-card');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      items.forEach(item => {
+        item.style.display = (filter === 'all' || item.dataset.category === filter) ? '' : 'none';
+      });
+    });
+  });
+</script>

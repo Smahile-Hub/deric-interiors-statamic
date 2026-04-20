@@ -1,0 +1,98 @@
+title: Home Page
+sections:
+  hero:
+    display: Hero Section
+    fields:
+      -
+        handle: hero_heading_line1
+        field: { type: text, display: "Heading Line 1" }
+      -
+        handle: hero_heading_line2
+        field: { type: text, display: "Heading Line 2" }
+      -
+        handle: hero_heading_line3
+        field: { type: text, display: "Heading Line 3" }
+      -
+        handle: hero_subtext
+        field: { type: textarea, display: "Hero Subtext" }
+      -
+        handle: hero_cta_label
+        field: { type: text, display: "CTA Button Label" }
+      -
+        handle: hero_cta_href
+        field: { type: text, display: "CTA Button Link" }
+      -
+        handle: hero_image
+        field: { type: text, display: "Hero Image URL" }
+  about:
+    display: About Section
+    fields:
+      -
+        handle: about_eyebrow
+        field: { type: text, display: Eyebrow }
+      -
+        handle: about_heading
+        field: { type: text, display: Heading }
+      -
+        handle: about_body
+        field: { type: textarea, display: Body Text }
+      -
+        handle: about_image
+        field: { type: text, display: "Image URL" }
+      -
+        handle: about_cta_label
+        field: { type: text, display: "CTA Label" }
+      -
+        handle: about_cta_href
+        field: { type: text, display: "CTA Link" }
+  services:
+    display: Services Section
+    fields:
+      -
+        handle: services_eyebrow
+        field: { type: text, display: Eyebrow }
+      -
+        handle: services_heading
+        field: { type: text, display: Heading }
+      -
+        handle: services_subtext
+        field: { type: textarea, display: Subtext }
+  mission:
+    display: Mission Section
+    fields:
+      -
+        handle: mission_eyebrow
+        field: { type: text, display: Eyebrow }
+      -
+        handle: mission_heading
+        field: { type: text, display: Heading }
+      -
+        handle: mission_body
+        field: { type: textarea, display: Body }
+      -
+        handle: mission_cta_label
+        field: { type: text, display: "CTA Label" }
+      -
+        handle: mission_cta_href
+        field: { type: text, display: "CTA Link" }
+  cta:
+    display: Final CTA Section
+    fields:
+      -
+        handle: cta_heading
+        field: { type: text, display: Heading }
+      -
+        handle: cta_subtext
+        field: { type: textarea, display: Subtext }
+      -
+        handle: cta_primary_label
+        field: { type: text, display: "Primary Button Label" }
+      -
+        handle: cta_primary_href
+        field: { type: text, display: "Primary Button Link" }
+      -
+        handle: cta_secondary_label
+        field: { type: text, display: "Secondary Button Label" }
+      -
+        handle: cta_secondary_href
+        field: { type: text, display: "Secondary Button Link" }

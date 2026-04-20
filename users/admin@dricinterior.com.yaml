@@ -1,0 +1,7 @@
+super: true
+id: d6dd0a8a-7ca8-4a10-a604-4db11f80080e
+password_hash: $2y$12$EDNdeepJHn5QkiWKiQikeevOJ.H5UI9P/O5xae15NZoO4dqOh7W7C
+preferences:
+  collections:
+    pages:
+      view: tree

@@ -1,0 +1,6 @@
+title: Blog
+route: /blog/{slug}
+revisions: false
+sort_field: date
+sort_direction: desc
+dated: true

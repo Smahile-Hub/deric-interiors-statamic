@@ -1,0 +1,74 @@
+site_title: Dric Interior
+site_description: Bespoke interior design studio creating timeless, highly tailored living spaces.
+top_bar_email: hello@dricinterior.com
+top_bar_phone: "+234 813 533 3616"
+primary_cta_label: Consultation
+primary_cta_href: /contact
+footer_blurb: We are about creating exceptional, smart and beautifully designed spaces which reflect your character and bring each area to life.
+copyright_text: "© Copyright 2025 DRIC INTERIOR. All rights reserved."
+social_links:
+  -
+    label: Facebook
+    icon: facebook
+    href: "https://facebook.com"
+    target: _blank
+  -
+    label: X (Twitter)
+    icon: x-twitter
+    href: "https://x.com"
+    target: _blank
+  -
+    label: Instagram
+    icon: instagram
+    href: "https://instagram.com"
+    target: _blank
+  -
+    label: YouTube
+    icon: youtube
+    href: "https://youtube.com"
+    target: _blank
+  -
+    label: WhatsApp
+    icon: whatsapp
+    href: "https://wa.me/2348135333616"
+    target: _blank
+footer_columns:
+  -
+    title: Shop from us
+    links:
+      -
+        label: Sofa
+        href: /shop
+      -
+        label: Vanity
+        href: /shop
+      -
+        label: Fittings
+        href: /shop
+      -
+        label: Decor pieces
+        href: /shop
+  -
+    title: Who we are
+    links:
+      -
+        label: About us
+        href: /about
+      -
+        label: Our projects
+        href: /projects
+      -
+        label: Testimonials
+        href: /testimonials
+      -
+        label: Services
+        href: /services
+  -
+    title: Information
+    links:
+      -
+        label: Privacy Policy
+        href: /privacy-policy
+      -
+        label: Return and Refund Policy
+        href: /return-and-refund-policy

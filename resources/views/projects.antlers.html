@@ -1,0 +1,226 @@
+<div class="projects-page">
+  <section class="projects-hero">
+    <div class="hero-image-wrap">
+      <img
+        class="hero-image"
+        src="{{ projects_hero_background_image }}"
+        alt="{{ projects_hero_background_alt }}"
+        loading="eager"
+      >
+    </div>
+    <div class="hero-overlay projects-hero-overlay"></div>
+
+    <div class="projects-hero-shell">
+      {{ if projects_hero_eyebrow }}
+        <div class="projects-eyebrow-row" data-reveal>
+          <span class="projects-eyebrow-line"></span>
+          <p class="projects-eyebrow">{{ projects_hero_eyebrow }}</p>
+        </div>
+      {{ /if }}
+
+      <h1
+        class="projects-hero-title"
+        aria-label="{{ projects_hero_title_line_one }} {{ projects_hero_title_line_two }}"
+      >
+        <span class="projects-hero-title-line" style="--line-index: 0;">
+          <span>{{ projects_hero_title_line_one }}</span>
+        </span>
+        <span class="projects-hero-title-line" style="--line-index: 1;">
+          <span>{{ projects_hero_title_line_two }}</span>
+        </span>
+      </h1>
+
+      <p class="projects-hero-description" data-reveal style="--stagger-index: 1;">
+        {{ projects_hero_description }}
+      </p>
+    </div>
+  </section>
+
+  <section class="projects-filter-section" data-reveal>
+    <div class="projects-filter-shell">
+      <div class="projects-filter-row" id="projects-filter-row">
+        {{ projects_filters }}
+          <button
+            class="projects-filter-btn{{ if first }} is-active{{ /if }}"
+            data-filter="{{ value }}"
+            type="button"
+          >
+            {{ value }}
+          </button>
+        {{ /projects_filters }}
+      </div>
+    </div>
+  </section>
+
+  <section class="projects-gallery-section">
+    <div class="projects-gallery-shell" data-reveal>
+      <div class="projects-gallery-grid" id="projects-gallery-grid">
+        {{ project_items }}
+          <article
+            class="projects-gallery-card{{ if count == 2 }} is-stagger{{ /if }}"
+            data-project-card
+            data-category="{{ category }}"
+          >
+            <div class="projects-gallery-media{{ if size == 'large' }} is-large{{ elseif size == 'small' }} is-small{{ else }} is-medium{{ /if }}">
+              <img
+                class="projects-gallery-image"
+                src="{{ image }}"
+                alt="{{ image_alt }}"
+                loading="lazy"
+              >
+              <div class="projects-gallery-overlay"></div>
+            </div>
+
+            <div class="projects-gallery-copy">
+              <div>
+                <p class="projects-gallery-category">{{ category }}</p>
+                <h3 class="projects-gallery-title">{{ title }}</h3>
+                <p class="projects-gallery-excerpt">{{ excerpt }}</p>
+              </div>
+
+              <a href="{{ link_href }}" class="projects-gallery-link">
+                {{ link_label }} <span aria-hidden="true">-&gt;</span>
+              </a>
+            </div>
+          </article>
+        {{ /project_items }}
+      </div>
+
+      <p class="projects-empty-state" id="projects-empty-state" hidden>
+        {{ projects_empty_state }}
+      </p>
+    </div>
+  </section>
+
+  <section class="projects-cta-section" data-reveal>
+    <div class="projects-cta-shell">
+      <h2 class="projects-cta-title">
+        {{ projects_cta_title_line_one }}<br>
+        {{ projects_cta_title_line_two }}<br>
+        {{ projects_cta_title_line_three }}
+      </h2>
+
+      <a href="{{ projects_cta_button_href }}" class="projects-cta-button">
+        {{ projects_cta_button_label }}
+      </a>
+    </div>
+  </section>
+</div>
+
+<script>
+  (() => {
+    const pageRoot = document.querySelector('.projects-page');
+    const hero = document.querySelector('.projects-hero');
+    const filterButtons = Array.from(document.querySelectorAll('.projects-filter-btn'));
+    const galleryGrid = document.getElementById('projects-gallery-grid');
+    const cards = Array.from(document.querySelectorAll('[data-project-card]'));
+    const emptyState = document.getElementById('projects-empty-state');
+
+    if (!pageRoot || !hero || !galleryGrid || !filterButtons.length || !cards.length) {
+      return;
+    }
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const applyHeroParallax = () => {
+      if (reduceMotion) {
+        return;
+      }
+
+      const progress = Math.max(0, Math.min(window.scrollY / 620, 1));
+      hero.style.setProperty('--hero-image-shift', `${progress * -68}px`);
+      hero.style.setProperty('--hero-image-scale', `${1.1 - progress * 0.08}`);
+      hero.style.setProperty('--hero-shell-shift', `${progress * -96}px`);
+      hero.style.setProperty('--hero-shell-opacity', `${1 - progress * 0.5}`);
+      hero.style.setProperty('--hero-overlay-opacity', `${0.76 + progress * 0.12}`);
+    };
+
+    let heroFrame = 0;
+    const onScroll = () => {
+      if (heroFrame) {
+        return;
+      }
+
+      heroFrame = window.requestAnimationFrame(() => {
+        heroFrame = 0;
+        applyHeroParallax();
+      });
+    };
+
+    applyHeroParallax();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    const revealObserver = typeof IntersectionObserver === 'undefined'
+      ? null
+      : new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.dataset.visible = 'true';
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.18,
+          rootMargin: '0px 0px -10% 0px'
+        });
+
+    const observeVisibleCards = () => {
+      cards.forEach((card) => {
+        if (card.hidden) {
+          card.removeAttribute('data-visible');
+          return;
+        }
+
+        if (!revealObserver || reduceMotion) {
+          card.dataset.visible = 'true';
+          return;
+        }
+
+        card.removeAttribute('data-visible');
+        revealObserver.observe(card);
+      });
+    };
+
+    const setActiveFilter = (filter) => {
+      filterButtons.forEach((button) => {
+        button.classList.toggle('is-active', button.dataset.filter === filter);
+      });
+
+      galleryGrid.classList.add('is-transitioning');
+
+      window.setTimeout(() => {
+        let visibleCount = 0;
+
+        cards.forEach((card) => {
+          const matches = filter === 'All Projects' || card.dataset.category === filter;
+          card.hidden = !matches;
+
+          if (matches) {
+            visibleCount += 1;
+          }
+        });
+
+        if (emptyState) {
+          emptyState.hidden = visibleCount > 0;
+        }
+
+        observeVisibleCards();
+        galleryGrid.classList.remove('is-transitioning');
+      }, 180);
+    };
+
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const nextFilter = button.dataset.filter;
+
+        if (!nextFilter || button.classList.contains('is-active')) {
+          return;
+        }
+
+        setActiveFilter(nextFilter);
+      });
+    });
+
+    observeVisibleCards();
+  })();
+</script>

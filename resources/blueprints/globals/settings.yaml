@@ -1,0 +1,85 @@
+title: Site Settings
+sections:
+  main:
+    display: Site Settings
+    fields:
+      -
+        handle: site_title
+        field:
+          type: text
+          display: Site Title
+          required: true
+      -
+        handle: site_description
+        field:
+          type: textarea
+          display: Site Description
+      -
+        handle: top_bar_email
+        field:
+          type: text
+          display: Email (Top Bar)
+      -
+        handle: top_bar_phone
+        field:
+          type: text
+          display: Phone (Top Bar)
+      -
+        handle: primary_cta_label
+        field:
+          type: text
+          display: Header CTA Button Label
+      -
+        handle: primary_cta_href
+        field:
+          type: text
+          display: Header CTA Button Link
+      -
+        handle: footer_blurb
+        field:
+          type: textarea
+          display: Footer Description
+      -
+        handle: copyright_text
+        field:
+          type: text
+          display: Copyright Text
+      -
+        handle: social_links
+        field:
+          type: grid
+          display: Social Links
+          fields:
+            -
+              handle: label
+              field: { type: text, display: Label }
+            -
+              handle: icon
+              field: { type: text, display: Icon (facebook/x-twitter/instagram/youtube/whatsapp) }
+            -
+              handle: href
+              field: { type: text, display: URL }
+            -
+              handle: target
+              field: { type: text, display: Target, default: _blank }
+      -
+        handle: footer_columns
+        field:
+          type: grid
+          display: Footer Columns
+          fields:
+            -
+              handle: title
+              field: { type: text, display: Column Title }
+            -
+              handle: links
+              field:
+                type: grid
+                display: Links
+                fields:
+                  -
+                    handle: label
+                    field: { type: text, display: Label }
+                  -
+                    handle: href
+                    field: { type: text, display: URL }

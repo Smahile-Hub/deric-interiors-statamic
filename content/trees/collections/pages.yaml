@@ -1,0 +1,21 @@
+tree:
+  -
+    entry: home
+  -
+    entry: about
+  -
+    entry: services
+  -
+    entry: projects
+  -
+    entry: blog-index
+  -
+    entry: shop
+  -
+    entry: testimonials
+  -
+    entry: contact
+  -
+    entry: privacy-policy
+  -
+    entry: return-and-refund-policy
