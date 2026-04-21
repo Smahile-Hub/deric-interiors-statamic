@@ -1,0 +1,60 @@
+title: Testimonials Page
+sections:
+  hero:
+    display: Hero
+    fields:
+      -
+        handle: title
+        field: { type: text, display: "Page Title", required: true }
+      -
+        handle: hero_heading
+        field: { type: text, display: Heading }
+      -
+        handle: hero_subtext
+        field: { type: textarea, display: Subtext }
+  testimonials:
+    display: Testimonials
+    fields:
+      -
+        handle: testimonials_list
+        field:
+          type: grid
+          display: Testimonials
+          add_row: "Add Testimonial"
+          fields:
+            -
+              handle: quote
+              field: { type: textarea, display: Quote }
+            -
+              handle: author
+              field: { type: text, display: Author }
+            -
+              handle: role
+              field: { type: text, display: Role }
+            -
+              handle: location
+              field: { type: text, display: Location }
+            -
+              handle: project
+              field: { type: text, display: Project }
+  cta:
+    display: Final CTA
+    fields:
+      -
+        handle: testimonials_cta_title
+        field: { type: text, display: Title }
+      -
+        handle: testimonials_cta_description
+        field: { type: textarea, display: Description }
+      -
+        handle: testimonials_cta_primary_label
+        field: { type: text, display: "Primary Label" }
+      -
+        handle: testimonials_cta_primary_href
+        field: { type: text, display: "Primary URL" }
+      -
+        handle: testimonials_cta_secondary_label
+        field: { type: text, display: "Secondary Label" }
+      -
+        handle: testimonials_cta_secondary_href
+        field: { type: text, display: "Secondary URL" }

@@ -1,0 +1,69 @@
+title: Shop Page
+sections:
+  hero:
+    display: Hero
+    fields:
+      -
+        handle: title
+        field: { type: text, display: "Page Title", required: true }
+      -
+        handle: hero_heading
+        field: { type: text, display: Heading }
+      -
+        handle: hero_subtext
+        field: { type: textarea, display: Subtext }
+  filters:
+    display: Filters
+    fields:
+      -
+        handle: shop_filters
+        field:
+          type: list
+          display: "Filter Categories"
+          instructions: "Use product category names. The template adds All automatically."
+  products:
+    display: Products
+    fields:
+      -
+        handle: products
+        field:
+          type: grid
+          display: Products
+          add_row: "Add Product"
+          fields:
+            -
+              handle: title
+              field: { type: text, display: Title }
+            -
+              handle: price
+              field: { type: text, display: Price }
+            -
+              handle: category
+              field: { type: text, display: Category }
+            -
+              handle: image
+              field: { type: assets, display: "Image", container: assets, max_files: 1 }
+            -
+              handle: description
+              field: { type: textarea, display: Description }
+            -
+              handle: cta_label
+              field: { type: text, display: "CTA Label" }
+            -
+              handle: cta_href
+              field: { type: text, display: "CTA URL" }
+  cta:
+    display: Final CTA
+    fields:
+      -
+        handle: shop_cta_title
+        field: { type: text, display: Title }
+      -
+        handle: shop_cta_description
+        field: { type: textarea, display: Description }
+      -
+        handle: shop_cta_button_label
+        field: { type: text, display: "Button Label" }
+      -
+        handle: shop_cta_button_href
+        field: { type: text, display: "Button URL" }

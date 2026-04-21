@@ -4,33 +4,45 @@ fields:
     handle: name
     field:
       type: text
-      display: Name
+      display: Full Name
       validate:
         - required
   -
     handle: email
     field:
       type: text
-      display: Email
+      display: Private Email
       input_type: email
       validate:
         - required
         - email
   -
+    handle: project_type
+    field:
+      type: text
+      display: Project Type
+      validate:
+        - required
+  -
+    handle: investment_range
+    field:
+      type: text
+      display: Investment Range
+      validate:
+        - required
+  -
+    handle: preferred_date
+    field:
+      type: date
+      display: Preferred Date
+  -
     handle: phone
     field:
       type: text
-      display: Phone
-  -
-    handle: service
-    field:
-      type: text
-      display: Service
+      display: Phone Number
   -
     handle: message
     field:
       type: textarea
-      display: Message
-      validate:
-        - required
+      display: Your Vision
 honeypot: gotcha

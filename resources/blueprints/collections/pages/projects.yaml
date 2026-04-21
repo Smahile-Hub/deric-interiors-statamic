@@ -4,6 +4,9 @@ sections:
     display: Hero
     fields:
       -
+        handle: title
+        field: { type: text, display: "Page Title", required: true }
+      -
         handle: projects_hero_eyebrow
         field: { type: text, display: Eyebrow }
       -
@@ -17,7 +20,7 @@ sections:
         field: { type: textarea, display: Description }
       -
         handle: projects_hero_background_image
-        field: { type: text, display: "Background Image URL" }
+        field: { type: assets, display: "Background Image", container: assets, max_files: 1 }
       -
         handle: projects_hero_background_alt
         field: { type: text, display: "Background Image Alt" }
@@ -70,7 +73,7 @@ sections:
                   small: Small
             -
               handle: image
-              field: { type: text, display: "Image URL" }
+              field: { type: assets, display: "Image", container: assets, max_files: 1 }
             -
               handle: image_alt
               field: { type: text, display: "Image Alt" }

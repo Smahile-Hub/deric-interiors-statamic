@@ -4,6 +4,9 @@ sections:
     display: Hero
     fields:
       -
+        handle: title
+        field: { type: text, display: "Page Title", required: true }
+      -
         handle: about_hero_eyebrow
         field: { type: text, display: Eyebrow }
       -
@@ -14,7 +17,7 @@ sections:
         field: { type: text, display: "Accent Word" }
       -
         handle: about_hero_background_image
-        field: { type: text, display: "Background Image URL" }
+        field: { type: assets, display: "Background Image", container: assets, max_files: 1 }
       -
         handle: about_hero_background_alt
         field: { type: text, display: "Background Image Alt" }
@@ -38,13 +41,13 @@ sections:
         field: { type: textarea, display: Body }
       -
         handle: about_story_tall_image
-        field: { type: text, display: "Tall Image URL" }
+        field: { type: assets, display: "Tall Image", container: assets, max_files: 1 }
       -
         handle: about_story_tall_image_alt
         field: { type: text, display: "Tall Image Alt" }
       -
         handle: about_story_square_image
-        field: { type: text, display: "Square Image URL" }
+        field: { type: assets, display: "Square Image", container: assets, max_files: 1 }
       -
         handle: about_story_square_image_alt
         field: { type: text, display: "Square Image Alt" }
@@ -112,7 +115,7 @@ sections:
         field: { type: text, display: "Button URL" }
       -
         handle: about_cta_background_image
-        field: { type: text, display: "Background Image URL" }
+        field: { type: assets, display: "Background Image", container: assets, max_files: 1 }
       -
         handle: about_cta_background_alt
         field: { type: text, display: "Background Image Alt" }

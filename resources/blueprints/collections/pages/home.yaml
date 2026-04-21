@@ -1,53 +1,103 @@
 title: Home Page
 sections:
   hero:
-    display: Hero Section
+    display: Hero
     fields:
       -
-        handle: hero_heading_line1
-        field: { type: text, display: "Heading Line 1" }
+        handle: title
+        field: { type: text, display: "Page Title", required: true }
       -
-        handle: hero_heading_line2
-        field: { type: text, display: "Heading Line 2" }
+        handle: hero_eyebrow
+        field: { type: text, display: Eyebrow }
       -
-        handle: hero_heading_line3
-        field: { type: text, display: "Heading Line 3" }
+        handle: hero_heading_lines
+        field:
+          type: grid
+          display: "Heading Lines"
+          add_row: "Add Line"
+          fields:
+            -
+              handle: line
+              field: { type: text, display: Line }
       -
         handle: hero_subtext
-        field: { type: textarea, display: "Hero Subtext" }
+        field: { type: textarea, display: Subtext }
       -
         handle: hero_cta_label
-        field: { type: text, display: "CTA Button Label" }
+        field: { type: text, display: "Primary Button Label" }
       -
         handle: hero_cta_href
-        field: { type: text, display: "CTA Button Link" }
+        field: { type: text, display: "Primary Button URL" }
+      -
+        handle: hero_secondary_label
+        field: { type: text, display: "Secondary Link Label" }
+      -
+        handle: hero_secondary_href
+        field: { type: text, display: "Secondary Link URL" }
       -
         handle: hero_image
-        field: { type: text, display: "Hero Image URL" }
+        field: { type: assets, display: "Hero Image", container: assets, max_files: 1 }
+      -
+        handle: hero_image_alt
+        field: { type: text, display: "Hero Image Alt" }
+      -
+        handle: hero_overlay_start
+        field: { type: text, display: "Overlay Start" }
+      -
+        handle: hero_overlay_end
+        field: { type: text, display: "Overlay End" }
   about:
-    display: About Section
+    display: About
     fields:
+      -
+        handle: about_bg
+        field: { type: text, display: "Background Colour" }
+      -
+        handle: about_panel_bg
+        field: { type: text, display: "Panel Colour" }
       -
         handle: about_eyebrow
         field: { type: text, display: Eyebrow }
       -
         handle: about_heading
-        field: { type: text, display: Heading }
+        field: { type: textarea, display: Heading }
       -
         handle: about_body
-        field: { type: textarea, display: Body Text }
+        field: { type: textarea, display: Body }
+      -
+        handle: about_years_value
+        field: { type: text, display: "Years Value" }
+      -
+        handle: about_years_label
+        field: { type: text, display: "Years Label" }
       -
         handle: about_image
-        field: { type: text, display: "Image URL" }
+        field: { type: assets, display: "Image", container: assets, max_files: 1 }
+      -
+        handle: about_features
+        field:
+          type: grid
+          display: Features
+          add_row: "Add Feature"
+          fields:
+            -
+              handle: title
+              field: { type: text, display: Title }
+            -
+              handle: description
+              field: { type: textarea, display: Description }
       -
         handle: about_cta_label
-        field: { type: text, display: "CTA Label" }
+        field: { type: text, display: "Button Label" }
       -
         handle: about_cta_href
-        field: { type: text, display: "CTA Link" }
+        field: { type: text, display: "Button URL" }
   services:
-    display: Services Section
+    display: Services
     fields:
+      -
+        handle: services_bg
+        field: { type: text, display: "Background Colour" }
       -
         handle: services_eyebrow
         field: { type: text, display: Eyebrow }
@@ -55,44 +105,193 @@ sections:
         handle: services_heading
         field: { type: text, display: Heading }
       -
-        handle: services_subtext
-        field: { type: textarea, display: Subtext }
-  mission:
-    display: Mission Section
+        handle: services_items
+        field:
+          type: grid
+          display: Services
+          add_row: "Add Service"
+          fields:
+            -
+              handle: title
+              field: { type: text, display: Title }
+            -
+              handle: description
+              field: { type: text, display: Description }
+            -
+              handle: image
+              field: { type: assets, display: "Image", container: assets, max_files: 1 }
+            -
+              handle: overlay
+              field: { type: text, display: Overlay }
+            -
+              handle: href
+              field: { type: text, display: URL }
+  portfolio:
+    display: Portfolio
     fields:
+      -
+        handle: portfolio_bg
+        field: { type: text, display: "Background Colour" }
+      -
+        handle: portfolio_eyebrow
+        field: { type: text, display: Eyebrow }
+      -
+        handle: portfolio_heading
+        field: { type: text, display: Heading }
+      -
+        handle: portfolio_featured_image
+        field: { type: assets, display: "Featured Image", container: assets, max_files: 1 }
+      -
+        handle: portfolio_featured_href
+        field: { type: text, display: "Featured URL" }
+      -
+        handle: portfolio_featured_title
+        field: { type: text, display: "Featured Title" }
+      -
+        handle: portfolio_featured_category
+        field: { type: text, display: "Featured Category" }
+      -
+        handle: portfolio_featured_description
+        field: { type: textarea, display: "Featured Description" }
+      -
+        handle: portfolio_side_items
+        field:
+          type: grid
+          display: "Side Projects"
+          add_row: "Add Project"
+          fields:
+            -
+              handle: title
+              field: { type: text, display: Title }
+            -
+              handle: category
+              field: { type: text, display: Category }
+            -
+              handle: image
+              field: { type: assets, display: "Image", container: assets, max_files: 1 }
+            -
+              handle: href
+              field: { type: text, display: URL }
+            -
+              handle: description
+              field: { type: textarea, display: Description }
+  products:
+    display: Products
+    fields:
+      -
+        handle: products_bg
+        field: { type: text, display: "Background Colour" }
+      -
+        handle: products_eyebrow
+        field: { type: text, display: Eyebrow }
+      -
+        handle: products_heading
+        field: { type: text, display: Heading }
+      -
+        handle: products_items
+        field:
+          type: grid
+          display: "Featured Products"
+          add_row: "Add Product"
+          fields:
+            -
+              handle: title
+              field: { type: text, display: Title }
+            -
+              handle: price
+              field: { type: text, display: Price }
+            -
+              handle: category
+              field: { type: text, display: Category }
+            -
+              handle: image
+              field: { type: assets, display: "Image", container: assets, max_files: 1 }
+            -
+              handle: href
+              field: { type: text, display: URL }
+  mission:
+    display: Mission
+    fields:
+      -
+        handle: mission_bg
+        field: { type: text, display: "Background Colour" }
       -
         handle: mission_eyebrow
         field: { type: text, display: Eyebrow }
       -
-        handle: mission_heading
-        field: { type: text, display: Heading }
+        handle: mission_body_top
+        field: { type: text, display: "Small Text" }
       -
-        handle: mission_body
-        field: { type: textarea, display: Body }
+        handle: mission_heading
+        field: { type: textarea, display: Heading }
       -
         handle: mission_cta_label
-        field: { type: text, display: "CTA Label" }
+        field: { type: text, display: "Button Label" }
       -
         handle: mission_cta_href
-        field: { type: text, display: "CTA Link" }
-  cta:
-    display: Final CTA Section
+        field: { type: text, display: "Button URL" }
+      -
+        handle: mission_items
+        field:
+          type: grid
+          display: Pillars
+          add_row: "Add Pillar"
+          fields:
+            -
+              handle: title
+              field: { type: text, display: Title }
+            -
+              handle: description
+              field: { type: textarea, display: Description }
+  testimonials:
+    display: Testimonials
     fields:
       -
+        handle: testimonials_bg
+        field: { type: text, display: "Background Colour" }
+      -
+        handle: testimonials_eyebrow
+        field: { type: text, display: Eyebrow }
+      -
+        handle: testimonials_heading
+        field: { type: textarea, display: Heading }
+      -
+        handle: testimonials_items
+        field:
+          type: grid
+          display: Testimonials
+          add_row: "Add Testimonial"
+          fields:
+            -
+              handle: quote
+              field: { type: textarea, display: Quote }
+            -
+              handle: author
+              field: { type: text, display: Author }
+            -
+              handle: role
+              field: { type: text, display: Role }
+  cta:
+    display: Final CTA
+    fields:
+      -
+        handle: cta_eyebrow
+        field: { type: text, display: Eyebrow }
+      -
         handle: cta_heading
-        field: { type: text, display: Heading }
+        field: { type: textarea, display: Heading }
       -
         handle: cta_subtext
         field: { type: textarea, display: Subtext }
       -
         handle: cta_primary_label
-        field: { type: text, display: "Primary Button Label" }
+        field: { type: text, display: "Primary Label" }
       -
         handle: cta_primary_href
-        field: { type: text, display: "Primary Button Link" }
+        field: { type: text, display: "Primary URL" }
       -
         handle: cta_secondary_label
-        field: { type: text, display: "Secondary Button Label" }
+        field: { type: text, display: "Secondary Label" }
       -
         handle: cta_secondary_href
-        field: { type: text, display: "Secondary Button Link" }
+        field: { type: text, display: "Secondary URL" }

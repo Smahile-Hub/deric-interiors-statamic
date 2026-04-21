@@ -1,0 +1,23 @@
+title: Blog Index Page
+sections:
+  hero:
+    display: Hero
+    fields:
+      -
+        handle: title
+        field: { type: text, display: "Page Title", required: true }
+      -
+        handle: blog_hero_eyebrow
+        field: { type: text, display: Eyebrow }
+      -
+        handle: blog_hero_title
+        field: { type: textarea, display: Title }
+      -
+        handle: blog_hero_description
+        field: { type: textarea, display: Description }
+  seo:
+    display: SEO
+    fields:
+      -
+        handle: meta_description
+        field: { type: textarea, display: "Meta Description" }

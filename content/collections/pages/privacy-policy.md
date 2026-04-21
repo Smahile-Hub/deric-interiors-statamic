@@ -1,6 +1,7 @@
 ---
 id: privacy-policy
 title: Privacy Policy
+blueprint: policy
 template: policy
 slug: privacy-policy
 last_updated: "January 2025"

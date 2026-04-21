@@ -10,11 +10,15 @@ tree:
   -
     entry: blog-index
   -
+    entry: catalogue
+  -
     entry: shop
   -
     entry: testimonials
   -
     entry: contact
+  -
+    entry: book-appointment
   -
     entry: privacy-policy
   -

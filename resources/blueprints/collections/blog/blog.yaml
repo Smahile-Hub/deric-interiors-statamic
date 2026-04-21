@@ -10,17 +10,37 @@ sections:
         handle: category
         field: { type: text, display: Category }
       -
-        handle: image
-        field: { type: text, display: "Featured Image URL" }
-      -
         handle: excerpt
         field: { type: textarea, display: Excerpt }
+      -
+        handle: content
+        field: { type: markdown, display: Article Body }
+  details:
+    display: Details
+    fields:
       -
         handle: author
         field: { type: text, display: Author }
       -
-        handle: reading_time
+        handle: reading_minutes
         field: { type: text, display: "Reading Time" }
       -
-        handle: content
-        field: { type: markdown, display: Content }
+        handle: cover_image_url
+        field: { type: assets, display: "Cover Image", container: assets, max_files: 1 }
+      -
+        handle: cover_image_alt
+        field: { type: text, display: "Cover Image Alt" }
+  seo:
+    display: SEO
+    fields:
+      -
+        handle: seo_title
+        field: { type: text, display: "SEO Title" }
+      -
+        handle: meta_description
+        field: { type: textarea, display: "Meta Description" }
+      -
+        handle: seo_keywords
+        field:
+          type: list
+          display: "SEO Keywords"

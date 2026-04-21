@@ -1,0 +1,192 @@
+title: Book Appointment Page
+sections:
+  hero:
+    display: Hero
+    fields:
+      -
+        handle: title
+        field: { type: text, display: "Page Title", required: true }
+      -
+        handle: book_hero_eyebrow
+        field: { type: text, display: Eyebrow }
+      -
+        handle: book_hero_title_top
+        field: { type: text, display: "Title Top" }
+      -
+        handle: book_hero_title_bottom
+        field: { type: text, display: "Title Bottom" }
+      -
+        handle: book_hero_description
+        field: { type: textarea, display: Description }
+      -
+        handle: book_hero_background_image
+        field: { type: assets, display: "Background Image", container: assets, max_files: 1 }
+      -
+        handle: book_hero_background_alt
+        field: { type: text, display: "Background Image Alt" }
+      -
+        handle: book_hero_button_label
+        field: { type: text, display: "Button Label" }
+  expectation:
+    display: What To Expect
+    fields:
+      -
+        handle: book_expect_eyebrow
+        field: { type: text, display: Eyebrow }
+      -
+        handle: book_expect_title
+        field: { type: text, display: Title }
+      -
+        handle: book_expect_items
+        field:
+          type: grid
+          display: Items
+          add_row: Add Item
+          fields:
+            -
+              handle: icon
+              field:
+                type: select
+                display: Icon
+                options:
+                  user: User
+                  clock: Clock
+                  layout: Layout
+                  message: Message
+            -
+              handle: title
+              field: { type: text, display: Title }
+            -
+              handle: body
+              field: { type: textarea, display: Body }
+  form:
+    display: Booking Form
+    fields:
+      -
+        handle: book_form_eyebrow
+        field: { type: text, display: Eyebrow }
+      -
+        handle: book_form_title
+        field: { type: text, display: Title }
+      -
+        handle: book_success_icon
+        field: { type: text, display: "Success Icon" }
+      -
+        handle: book_success_title
+        field: { type: text, display: "Success Title" }
+      -
+        handle: book_success_body
+        field: { type: textarea, display: "Success Body" }
+        instructions: "Use {name} where the visitor's name should appear."
+      -
+        handle: book_reset_button_label
+        field: { type: text, display: "Reset Button Label" }
+      -
+        handle: book_submit_label
+        field: { type: text, display: "Submit Label" }
+      -
+        handle: book_loading_label
+        field: { type: text, display: "Loading Label" }
+      -
+        handle: book_whatsapp_phone
+        field: { type: text, display: "WhatsApp Phone" }
+        instructions: "Use digits only or an international number. Example: 2348135333616"
+      -
+        handle: book_whatsapp_intro
+        field: { type: textarea, display: "WhatsApp Message Intro" }
+      -
+        handle: book_name_label
+        field: { type: text, display: "Name Label" }
+      -
+        handle: book_name_placeholder
+        field: { type: text, display: "Name Placeholder" }
+      -
+        handle: book_email_label
+        field: { type: text, display: "Email Label" }
+      -
+        handle: book_email_placeholder
+        field: { type: text, display: "Email Placeholder" }
+      -
+        handle: book_phone_label
+        field: { type: text, display: "Phone Label" }
+      -
+        handle: book_phone_placeholder
+        field: { type: text, display: "Phone Placeholder" }
+      -
+        handle: book_project_type_label
+        field: { type: text, display: "Project Type Label" }
+      -
+        handle: book_project_type_placeholder
+        field: { type: text, display: "Project Type Placeholder" }
+      -
+        handle: book_project_type_options
+        field: { type: list, display: "Project Type Options" }
+      -
+        handle: book_preferred_date_label
+        field: { type: text, display: "Preferred Date Label" }
+      -
+        handle: book_preferred_time_label
+        field: { type: text, display: "Preferred Time Label" }
+      -
+        handle: book_preferred_time_placeholder
+        field: { type: text, display: "Preferred Time Placeholder" }
+      -
+        handle: book_time_slot_options
+        field: { type: list, display: "Time Slot Options" }
+      -
+        handle: book_location_label
+        field: { type: text, display: "Location Label" }
+      -
+        handle: book_location_placeholder
+        field: { type: text, display: "Location Placeholder" }
+      -
+        handle: book_message_label
+        field: { type: text, display: "Message Label" }
+      -
+        handle: book_message_placeholder
+        field: { type: textarea, display: "Message Placeholder" }
+  aside:
+    display: Aside
+    fields:
+      -
+        handle: book_aside_image
+        field: { type: assets, display: "Aside Image", container: assets, max_files: 1 }
+      -
+        handle: book_aside_image_alt
+        field: { type: text, display: "Aside Image Alt" }
+      -
+        handle: book_aside_note_eyebrow
+        field: { type: text, display: "Note Eyebrow" }
+      -
+        handle: book_aside_note_text
+        field: { type: textarea, display: "Note Text" }
+      -
+        handle: book_aside_phone_label
+        field: { type: text, display: "Phone Label" }
+      -
+        handle: book_aside_phone_href
+        field: { type: text, display: "Phone Href Number" }
+  cta:
+    display: Final CTA
+    fields:
+      -
+        handle: book_cta_background_image
+        field: { type: assets, display: "Background Image", container: assets, max_files: 1 }
+      -
+        handle: book_cta_background_alt
+        field: { type: text, display: "Background Image Alt" }
+      -
+        handle: book_cta_eyebrow
+        field: { type: text, display: Eyebrow }
+      -
+        handle: book_cta_title_prefix
+        field: { type: text, display: "Title Prefix" }
+      -
+        handle: book_cta_title_accent
+        field: { type: text, display: "Title Accent" }
+      -
+        handle: book_cta_button_label
+        field: { type: text, display: "Button Label" }
+      -
+        handle: book_cta_button_href
+        field: { type: text, display: "Button URL" }

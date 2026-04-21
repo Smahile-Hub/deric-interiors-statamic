@@ -1,6 +1,7 @@
 ---
 id: testimonials
 title: Testimonials
+blueprint: testimonials
 template: testimonials
 slug: testimonials
 hero_heading: What Our Clients Say
@@ -42,4 +43,10 @@ testimonials_list:
     role: Homeowners
     location: GRA, Port Harcourt
     project: Family Home Renovation
+testimonials_cta_title: Ready to Add Your Story?
+testimonials_cta_description: Join our growing family of satisfied clients across Nigeria and beyond.
+testimonials_cta_primary_label: Book a Consultation
+testimonials_cta_primary_href: /contact
+testimonials_cta_secondary_label: View Our Work
+testimonials_cta_secondary_href: /projects
 ---

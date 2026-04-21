@@ -1,0 +1,14 @@
+title: Policy Page
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field: { type: text, display: Title, required: true }
+      -
+        handle: last_updated
+        field: { type: text, display: "Last Updated" }
+      -
+        handle: content
+        field: { type: markdown, display: Content }

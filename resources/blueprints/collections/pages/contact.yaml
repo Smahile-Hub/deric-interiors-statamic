@@ -1,0 +1,153 @@
+title: Contact Page
+sections:
+  hero:
+    display: Hero
+    fields:
+      -
+        handle: title
+        field: { type: text, display: "Page Title", required: true }
+      -
+        handle: contact_hero_eyebrow
+        field: { type: text, display: Eyebrow }
+      -
+        handle: contact_hero_title_top
+        field: { type: text, display: "Title Top" }
+      -
+        handle: contact_hero_title_bottom
+        field: { type: text, display: "Title Bottom" }
+      -
+        handle: contact_hero_description
+        field: { type: textarea, display: Description }
+      -
+        handle: contact_hero_background_image
+        field: { type: assets, display: "Background Image", container: assets, max_files: 1 }
+      -
+        handle: contact_hero_background_alt
+        field: { type: text, display: "Background Image Alt" }
+  form:
+    display: Form
+    fields:
+      -
+        handle: contact_form_title
+        field: { type: text, display: Title }
+      -
+        handle: contact_form_success_icon
+        field: { type: text, display: "Success Icon" }
+      -
+        handle: contact_form_success_title
+        field: { type: text, display: "Success Title" }
+      -
+        handle: contact_form_success_body
+        field: { type: textarea, display: "Success Body" }
+      -
+        handle: contact_form_reset_label
+        field: { type: text, display: "Reset Label" }
+      -
+        handle: contact_form_submit_idle_label
+        field: { type: text, display: "Submit Label" }
+      -
+        handle: contact_form_submit_loading_label
+        field: { type: text, display: "Loading Label" }
+      -
+        handle: contact_form_name_label
+        field: { type: text, display: "Name Label" }
+      -
+        handle: contact_form_name_placeholder
+        field: { type: text, display: "Name Placeholder" }
+      -
+        handle: contact_form_email_label
+        field: { type: text, display: "Email Label" }
+      -
+        handle: contact_form_email_placeholder
+        field: { type: text, display: "Email Placeholder" }
+      -
+        handle: contact_form_project_type_label
+        field: { type: text, display: "Project Type Label" }
+      -
+        handle: contact_form_project_type_placeholder
+        field: { type: text, display: "Project Type Placeholder" }
+      -
+        handle: contact_project_type_options
+        field: { type: list, display: "Project Type Options" }
+      -
+        handle: contact_form_investment_range_label
+        field: { type: text, display: "Investment Range Label" }
+      -
+        handle: contact_form_investment_range_placeholder
+        field: { type: text, display: "Investment Range Placeholder" }
+      -
+        handle: contact_investment_range_options
+        field: { type: list, display: "Investment Range Options" }
+      -
+        handle: contact_form_preferred_date_label
+        field: { type: text, display: "Preferred Date Label" }
+      -
+        handle: contact_form_phone_label
+        field: { type: text, display: "Phone Label" }
+      -
+        handle: contact_form_phone_placeholder
+        field: { type: text, display: "Phone Placeholder" }
+      -
+        handle: contact_form_message_label
+        field: { type: text, display: "Message Label" }
+      -
+        handle: contact_form_message_placeholder
+        field: { type: textarea, display: "Message Placeholder" }
+  info:
+    display: Contact Info
+    fields:
+      -
+        handle: contact_info_eyebrow
+        field: { type: text, display: Eyebrow }
+      -
+        handle: contact_info_address_line_one
+        field: { type: text, display: "Address Line One" }
+      -
+        handle: contact_info_address_line_two
+        field: { type: text, display: "Address Line Two" }
+      -
+        handle: contact_info_phone
+        field: { type: text, display: Phone }
+      -
+        handle: contact_info_whatsapp_label
+        field: { type: text, display: "WhatsApp Label" }
+      -
+        handle: contact_info_whatsapp_href
+        field: { type: text, display: "WhatsApp URL" }
+      -
+        handle: contact_studio_image
+        field: { type: assets, display: "Studio Image", container: assets, max_files: 1 }
+      -
+        handle: contact_studio_image_alt
+        field: { type: text, display: "Studio Image Alt" }
+      -
+        handle: contact_locations
+        field:
+          type: grid
+          display: Locations
+          add_row: Add Location
+          fields:
+            -
+              handle: city
+              field: { type: text, display: City }
+            -
+              handle: address
+              field: { type: text, display: Address }
+            -
+              handle: state
+              field: { type: text, display: State }
+            -
+              handle: phone
+              field: { type: text, display: Phone }
+            -
+              handle: whatsapp
+              field: { type: text, display: WhatsApp }
+  map:
+    display: Map
+    fields:
+      -
+        handle: contact_map_title
+        field: { type: text, display: "Map Title" }
+      -
+        handle: contact_map_embed_url
+        field: { type: text, display: "Map Embed URL" }

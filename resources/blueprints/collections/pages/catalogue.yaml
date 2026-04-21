@@ -1,0 +1,81 @@
+title: Catalogue Page
+sections:
+  hero:
+    display: Hero
+    fields:
+      -
+        handle: title
+        field: { type: text, display: "Page Title", required: true }
+      -
+        handle: hero_eyebrow
+        field: { type: text, display: Eyebrow }
+      -
+        handle: hero_title_line_one
+        field: { type: text, display: "Title Line One" }
+      -
+        handle: hero_title_line_two
+        field: { type: text, display: "Title Line Two (Italic/Accent)" }
+      -
+        handle: hero_description
+        field: { type: textarea, display: Description }
+      -
+        handle: hero_background_image
+        field: { type: assets, display: "Background Image", container: assets, max_files: 1 }
+      -
+        handle: hero_background_alt
+        field: { type: text, display: "Background Image Alt" }
+  intro:
+    display: Intro
+    fields:
+      -
+        handle: intro_title
+        field: { type: text, display: Title }
+      -
+        handle: intro_description
+        field: { type: textarea, display: Description }
+  catalogs:
+    display: Catalogue Items
+    fields:
+      -
+        handle: catalog_items
+        field:
+          type: grid
+          display: Catalogues
+          add_row: "Add Catalogue"
+          fields:
+            -
+              handle: title
+              field: { type: text, display: Title }
+            -
+              handle: description
+              field: { type: textarea, display: Description }
+            -
+              handle: badge
+              field: { type: text, display: "Badge (e.g. New)" }
+            -
+              handle: cover_image
+              field: { type: assets, display: "Cover Image", container: assets, max_files: 1 }
+            -
+              handle: cover_image_alt
+              field: { type: text, display: "Cover Image Alt" }
+            -
+              handle: file_url
+              field: { type: text, display: "PDF / File URL" }
+            -
+              handle: file_label
+              field: { type: text, display: "Download Button Label" }
+  cta:
+    display: Final CTA
+    fields:
+      -
+        handle: cta_title
+        field: { type: text, display: Title }
+      -
+        handle: cta_description
+        field: { type: textarea, display: Description }
+      -
+        handle: cta_button_label
+        field: { type: text, display: "Button Label" }
+      -
+        handle: cta_button_href
+        field: { type: text, display: "Button URL" }

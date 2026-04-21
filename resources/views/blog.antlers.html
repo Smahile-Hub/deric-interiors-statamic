@@ -1,40 +1,90 @@
-<section style="padding:160px 0 3rem;background:#1a1b21;">
-  <div class="shell">
-    <span class="eyebrow">{{ category }}</span>
-    <h1 style="font-family:var(--font-display);font-size:clamp(2.4rem,5vw,4.5rem);color:#e5e1ea;font-weight:400;margin:.5rem 0 1rem;line-height:1.1;">{{ title }}</h1>
-    <div style="display:flex;gap:1.5rem;align-items:center;color:#8c867d;font-size:.88rem;margin-top:1rem;">
-      <span>By {{ author }}</span>
-      <span>{{ date format="d F Y" }}</span>
-      <span>{{ reading_time }}</span>
-    </div>
-  </div>
-</section>
+{{ current_entry_id = id }}
 
-{{ if image }}
-  <div style="max-height:600px;overflow:hidden;">
-    <img src="{{ image }}" alt="{{ title }}" style="width:100%;height:600px;object-fit:cover;">
-  </div>
-{{ /if }}
+<div class="journal-post-page">
+  <article>
+    <section class="journal-post-hero">
+      <div class="journal-post-hero-copy" data-reveal>
+        <p>{{ category }}</p>
+        <h1>{{ title }}</h1>
+        <span>{{ excerpt }}</span>
 
-<section style="padding:4rem 0 6rem;" data-reveal>
-  <div class="shell">
-    <div style="max-width:740px;margin:0 auto;">
-      <div class="blog-content" style="color:#d4c0ab;line-height:1.8;font-size:1.05rem;">
+        <div class="journal-post-meta">
+          <strong>{{ author }}</strong>
+          <span>{{ date format="F j, Y" }}</span>
+          <span>{{ reading_minutes ?? reading_time }}</span>
+        </div>
+      </div>
+
+      <div class="journal-post-hero-media" data-reveal>
+        <img
+          class="journal-post-cover-image"
+          src="{{ cover_image_url ?? image }}"
+          alt="{{ cover_image_alt ?? title }}"
+          loading="eager"
+        >
+      </div>
+    </section>
+
+    <section class="journal-post-content-wrap" data-reveal>
+      <div class="journal-post-prose">
         {{ content }}
       </div>
-      <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(80,69,51,0.2);">
-        <a href="/blog" class="btn-secondary">&#8592; Back to Blog</a>
+    </section>
+  </article>
+
+  <section class="journal-related-section">
+    <div class="journal-related-inner">
+      <div class="journal-related-heading" data-reveal>
+        <p>Continue Reading</p>
+        <h2>More from the journal</h2>
+      </div>
+
+      <div class="journal-related-grid">
+        {{ collection:blog sort="date:desc" limit="3" }}
+          {{ if id != current_entry_id }}
+            <article class="journal-related-card" data-reveal style="--stagger-index: {{ index }};">
+              <h3>{{ title }}</h3>
+              <p>{{ excerpt }}</p>
+              <a href="{{ url }}">Read article</a>
+            </article>
+          {{ /if }}
+        {{ /collection:blog }}
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 
-<style>
-.blog-content h2 { font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);color:#e5e1ea;font-weight:400;margin:2.5rem 0 1rem; }
-.blog-content h3 { font-family:var(--font-display);font-size:1.4rem;color:#e5e1ea;font-weight:400;margin:2rem 0 .75rem; }
-.blog-content p { margin-bottom:1.5rem; }
-.blog-content ul, .blog-content ol { padding-left:1.5rem;margin-bottom:1.5rem; }
-.blog-content li { margin-bottom:.5rem; }
-.blog-content strong { color:#f0ece4; }
-.blog-content blockquote { border-left:3px solid var(--gold);padding-left:1.5rem;margin:2rem 0;font-style:italic;color:#b1a18d; }
-</style>
+<script>
+  (() => {
+    const pageRoot = document.querySelector('.journal-post-page');
+
+    if (!pageRoot) {
+      return;
+    }
+
+    const revealItems = pageRoot.querySelectorAll('[data-reveal]');
+
+    if (typeof IntersectionObserver === 'undefined') {
+      revealItems.forEach((element) => {
+        element.dataset.visible = 'true';
+      });
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.dataset.visible = 'true';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.16,
+      rootMargin: '0px 0px -12% 0px'
+    });
+
+    revealItems.forEach((element) => {
+      observer.observe(element);
+    });
+  })();
+</script>

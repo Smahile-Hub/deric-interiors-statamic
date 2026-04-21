@@ -1,74 +1,129 @@
-site_title: Dric Interior
-site_description: Bespoke interior design studio creating timeless, highly tailored living spaces.
+site_title: 'Dric Interior'
+site_description: 'Bespoke interior design studio creating timeless, highly tailored living spaces.'
+logo_url: golden-dric-logo-r6k1seya9172a7vhr2uxfqz5gnu7hd3xzglz41mfkc.png
+logo_alt: 'Dric Interior logo'
+logo_width: 280
+logo_height: 96
 top_bar_email: hello@dricinterior.com
-top_bar_phone: "+234 813 533 3616"
+top_bar_phone: '+234 813 533 3616'
+nav_items:
+  -
+    id: DP3rHIUx
+    label: Projects
+    href: /projects
+  -
+    id: BlgPtmIt
+    label: Services
+    href: /services
+  -
+    id: MOCDWQ4n
+    label: Blog
+    href: /blog
+  -
+    id: MlTZlpCQ
+    label: About
+    href: /about
+action_links:
+  -
+    id: BC8UGOmK
+    label: Shop
+    href: /shop
+    icon: shopping-cart
+  -
+    id: K5EoJ3og
+    label: Catalogue
+    href: /catalogue
+    icon: grid
+  -
+    id: CBU9Ul8T
+    label: Cart
+    href: /shop
+    icon: shopping-bag
 primary_cta_label: Consultation
-primary_cta_href: /contact
-footer_blurb: We are about creating exceptional, smart and beautifully designed spaces which reflect your character and bring each area to life.
-copyright_text: "© Copyright 2025 DRIC INTERIOR. All rights reserved."
+primary_cta_href: /book-appointment
+footer_blurb: 'We are about creating exceptional, smart and beautifully designed spaces which reflect your character and bring each area to life.'
+copyright_text: '© Copyright 2025 DRIC INTERIOR. All rights reserved.'
 social_links:
   -
+    id: POoH7aP3
     label: Facebook
     icon: facebook
-    href: "https://facebook.com"
+    href: 'https://facebook.com'
     target: _blank
   -
-    label: X (Twitter)
+    id: DxAPiPBj
+    label: 'X (Twitter)'
     icon: x-twitter
-    href: "https://x.com"
+    href: 'https://x.com'
     target: _blank
   -
+    id: lMq8jCIq
     label: Instagram
     icon: instagram
-    href: "https://instagram.com"
+    href: 'https://instagram.com'
     target: _blank
   -
+    id: C7zbz4He
     label: YouTube
     icon: youtube
-    href: "https://youtube.com"
+    href: 'https://youtube.com'
     target: _blank
   -
+    id: SKmsJm7r
     label: WhatsApp
     icon: whatsapp
-    href: "https://wa.me/2348135333616"
+    href: 'https://wa.me/2348135333616'
     target: _blank
 footer_columns:
   -
-    title: Shop from us
+    id: alxEqf5n
+    title: 'Shop from us'
     links:
       -
+        id: ztIyzGwi
         label: Sofa
         href: /shop
       -
+        id: iEFACk5k
         label: Vanity
         href: /shop
       -
+        id: 9we1vKsU
         label: Fittings
         href: /shop
       -
-        label: Decor pieces
+        id: dy9mWSSd
+        label: 'Decor pieces'
         href: /shop
   -
-    title: Who we are
+    id: KQaBWK29
+    title: 'Who we are'
     links:
       -
-        label: About us
+        id: xDWSsCWv
+        label: 'About us'
         href: /about
       -
-        label: Our projects
+        id: m0CV42VR
+        label: 'Our projects'
         href: /projects
       -
+        id: Wkjbn6IE
         label: Testimonials
         href: /testimonials
       -
+        id: dUbV2jtq
         label: Services
         href: /services
   -
+    id: 9YtnesDk
     title: Information
     links:
       -
-        label: Privacy Policy
+        id: HHVpwDn0
+        label: 'Privacy Policy'
         href: /privacy-policy
       -
-        label: Return and Refund Policy
+        id: q0MOD24F
+        label: 'Return and Refund Policy'
         href: /return-and-refund-policy

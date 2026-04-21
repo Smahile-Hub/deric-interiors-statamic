@@ -15,6 +15,28 @@ sections:
           type: textarea
           display: Site Description
       -
+        handle: logo_url
+        field:
+          type: assets
+          display: Logo
+          container: assets
+          max_files: 1
+      -
+        handle: logo_alt
+        field:
+          type: text
+          display: Logo Alt Text
+      -
+        handle: logo_width
+        field:
+          type: integer
+          display: Logo Width
+      -
+        handle: logo_height
+        field:
+          type: integer
+          display: Logo Height
+      -
         handle: top_bar_email
         field:
           type: text
@@ -24,6 +46,36 @@ sections:
         field:
           type: text
           display: Phone (Top Bar)
+      -
+        handle: nav_items
+        field:
+          type: grid
+          display: Header Navigation
+          add_row: Add Nav Item
+          fields:
+            -
+              handle: label
+              field: { type: text, display: Label }
+            -
+              handle: href
+              field: { type: text, display: URL }
+      -
+        handle: action_links
+        field:
+          type: grid
+          display: Header Action Icons
+          add_row: Add Action
+          instructions: "Supported icons: aperture, grid, shopping-bag, shopping-cart, mail, phone."
+          fields:
+            -
+              handle: label
+              field: { type: text, display: Label }
+            -
+              handle: href
+              field: { type: text, display: URL }
+            -
+              handle: icon
+              field: { type: text, display: Icon }
       -
         handle: primary_cta_label
         field:

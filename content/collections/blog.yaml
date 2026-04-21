@@ -1,5 +1,6 @@
 title: Blog
 route: /blog/{slug}
+template: blog
 revisions: false
 sort_field: date
 sort_direction: desc

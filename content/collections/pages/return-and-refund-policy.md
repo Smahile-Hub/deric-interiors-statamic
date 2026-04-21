@@ -1,6 +1,7 @@
 ---
 id: return-and-refund-policy
 title: Return and Refund Policy
+blueprint: policy
 template: policy
 slug: return-and-refund-policy
 last_updated: "January 2025"

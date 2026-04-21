@@ -1,1 +1,7 @@
 title: Site Settings
+logo_url: golden-dric-logo.png
+logo_alt: Dric Interiors
+logo_width: 280
+logo_height: 96
+primary_cta_label: Book Consultation
+primary_cta_href: /book-appointment

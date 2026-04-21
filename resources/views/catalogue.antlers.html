@@ -1,0 +1,156 @@
+<div class="catalogue-page" id="catalogue-root">
+
+  {{# ── HERO ── #}}
+  <section class="cat-hero" id="cat-hero">
+    {{ if hero_background_image }}
+      <div class="cat-hero-bg-wrap">
+        <img
+          class="cat-hero-bg"
+          src="{{ hero_background_image }}"
+          alt="{{ hero_background_alt }}"
+          loading="eager"
+        >
+      </div>
+    {{ /if }}
+    <div class="cat-hero-overlay"></div>
+    <div class="cat-hero-shell">
+      {{ if hero_eyebrow }}
+        <p class="cat-eyebrow" data-reveal>{{ hero_eyebrow }}</p>
+      {{ /if }}
+      <h1 class="cat-hero-title" data-reveal>
+        <span class="cat-hero-title-top">{{ hero_title_line_one }}</span>
+        <span class="cat-hero-title-bottom">{{ hero_title_line_two }}</span>
+      </h1>
+      {{ if hero_description }}
+        <p class="cat-hero-desc" data-reveal>{{ hero_description }}</p>
+      {{ /if }}
+    </div>
+  </section>
+
+  {{# ── INTRO ── #}}
+  {{ if intro_title or intro_description }}
+    <section class="cat-intro-section">
+      <div class="shell">
+        <div class="cat-intro-inner" data-reveal>
+          {{ if intro_title }}
+            <h2 class="cat-intro-title">{{ intro_title }}</h2>
+          {{ /if }}
+          <span class="cat-title-rule" aria-hidden="true"></span>
+          {{ if intro_description }}
+            <p class="cat-intro-desc">{{ intro_description }}</p>
+          {{ /if }}
+        </div>
+      </div>
+    </section>
+  {{ /if }}
+
+  {{# ── CATALOGUE GRID ── #}}
+  {{ if catalog_items }}
+    <section class="cat-grid-section">
+      <div class="shell">
+        <div class="cat-catalog-grid">
+          {{ catalog_items }}
+            <article class="cat-card" data-reveal style="--stagger-index: {{ index - 1 }};">
+              <div class="cat-card-img-wrap">
+                {{ if cover_image }}
+                  <img
+                    class="cat-card-img"
+                    src="{{ cover_image }}"
+                    alt="{{ cover_image_alt }}"
+                    loading="lazy"
+                  >
+                {{ /if }}
+                <div class="cat-card-img-overlay"></div>
+                {{ if badge }}
+                  <span class="cat-badge">{{ badge }}</span>
+                {{ /if }}
+              </div>
+              <div class="cat-card-body">
+                <h3 class="cat-card-title">{{ title }}</h3>
+                <p class="cat-card-desc">{{ description }}</p>
+                {{ if file_url }}
+                  <a
+                    href="{{ file_url }}"
+                    class="cat-download-btn"
+                    download
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                      <polyline points="7 10 12 15 17 10"/>
+                      <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    {{ file_label ?? 'Download PDF' }}
+                  </a>
+                {{ /if }}
+              </div>
+            </article>
+          {{ /catalog_items }}
+        </div>
+      </div>
+    </section>
+  {{ /if }}
+
+  {{# ── CTA ── #}}
+  {{ if cta_title or cta_description }}
+    <section class="cat-cta-section" data-reveal>
+      <div class="shell">
+        <div class="cat-cta-inner">
+          {{ if cta_title }}
+            <h2 class="cat-cta-title">{{ cta_title }}</h2>
+          {{ /if }}
+          {{ if cta_description }}
+            <p class="cat-cta-desc">{{ cta_description }}</p>
+          {{ /if }}
+          {{ if cta_button_href }}
+            <a href="{{ cta_button_href }}" class="cat-cta-btn">{{ cta_button_label }}</a>
+          {{ /if }}
+        </div>
+      </div>
+    </section>
+  {{ /if }}
+
+</div>
+
+<script>
+  (() => {
+    const root = document.getElementById('catalogue-root');
+    const hero = document.getElementById('cat-hero');
+    if (!root) return;
+
+    // Hero parallax
+    if (hero) {
+      let frame = 0;
+      const applyParallax = () => {
+        const progress = Math.max(0, Math.min(window.scrollY / 620, 1));
+        hero.style.setProperty('--hero-image-shift', `${progress * -56}px`);
+        hero.style.setProperty('--hero-image-scale', `${1.08 - progress * 0.06}`);
+        hero.style.setProperty('--hero-shell-shift', `${progress * -84}px`);
+        hero.style.setProperty('--hero-shell-opacity', `${1 - progress * 0.42}`);
+        hero.style.setProperty('--hero-overlay-opacity', `${0.84 + progress * 0.1}`);
+        frame = 0;
+      };
+      window.addEventListener('scroll', () => {
+        if (frame) return;
+        frame = window.requestAnimationFrame(applyParallax);
+      }, { passive: true });
+      applyParallax();
+    }
+
+    // Reveal on scroll
+    if (typeof IntersectionObserver === 'undefined') {
+      root.querySelectorAll('[data-reveal]').forEach(el => { el.dataset.visible = 'true'; });
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.dataset.visible = 'true';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
+    root.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+  })();
+</script>

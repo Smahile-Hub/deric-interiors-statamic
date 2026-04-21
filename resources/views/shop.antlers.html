@@ -10,11 +10,9 @@
 
     <div class="projects-filter" id="shop-filter">
       <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="Seating">Seating</button>
-      <button class="filter-btn" data-filter="Tables">Tables</button>
-      <button class="filter-btn" data-filter="Lighting">Lighting</button>
-      <button class="filter-btn" data-filter="Accessories">Accessories</button>
-      <button class="filter-btn" data-filter="Art & Decor">Art &amp; Decor</button>
+      {{ shop_filters }}
+        <button class="filter-btn" data-filter="{{ value }}">{{ value }}</button>
+      {{ /shop_filters }}
     </div>
 
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem;margin-top:2rem;" id="shop-grid">
@@ -29,7 +27,7 @@
             <p style="color:#b1a18d;font-size:.82rem;line-height:1.6;margin-bottom:.6rem;">{{ description }}</p>
             <div style="display:flex;align-items:center;justify-content:space-between;gap:.5rem;">
               <span class="product-price" style="font-size:1rem;font-weight:700;">{{ price }}</span>
-              <a href="/contact" class="btn-primary" style="min-height:40px;padding:.5rem 1rem;font-size:.7rem;">Enquire</a>
+              <a href="{{ cta_href ?? '/contact' }}" class="btn-primary" style="min-height:40px;padding:.5rem 1rem;font-size:.7rem;">{{ cta_label ?? 'Enquire' }}</a>
             </div>
           </div>
         </div>
@@ -41,10 +39,10 @@
 
 <section class="final-cta-section" data-reveal>
   <div class="shell" style="padding:5rem 0;text-align:center;">
-    <h2>Looking for Something Specific?</h2>
-    <p>Our team can source bespoke furniture and decor pieces tailored to your exact brief.</p>
+    <h2>{{ shop_cta_title }}</h2>
+    <p>{{ shop_cta_description }}</p>
     <div class="cta-actions">
-      <a href="/contact" class="btn-primary">Speak to Our Team</a>
+      <a href="{{ shop_cta_button_href }}" class="btn-primary">{{ shop_cta_button_label }}</a>
     </div>
   </div>
 </section>

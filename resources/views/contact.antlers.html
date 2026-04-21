@@ -1,78 +1,256 @@
-<section class="hero" style="background:#1a1b21;min-height:400px;padding:180px 0 3rem;">
-  <div class="hero-inner shell">
-    <h1 class="hero-title" style="font-size:clamp(3rem,6vw,6rem);">{{ hero_heading }}</h1>
-    <p class="hero-sub">{{ hero_subtext }}</p>
-  </div>
-</section>
-
-<section style="padding:5rem 0;" data-reveal>
-  <div class="shell">
-    <div style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:5rem;align-items:start;">
-
-      <div>
-        <h2 style="font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.4rem);color:#e5e1ea;font-weight:400;margin-bottom:2rem;">Send Us a Message</h2>
-        {{ form:create handle="contact" }}
-          {{ if success }}
-            <div style="background:rgba(247,181,31,0.1);border:1px solid rgba(247,181,31,0.3);border-radius:8px;padding:1.5rem;color:var(--gold-light);">
-              Thank you! We will be in touch within 24 hours.
-            </div>
-          {{ else }}
-            <div class="form-field">
-              <label class="form-label" for="name">Full Name *</label>
-              <input class="form-input" type="text" id="name" name="name" value="{{ old:name }}" required>
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="email">Email Address *</label>
-              <input class="form-input" type="email" id="email" name="email" value="{{ old:email }}" required>
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="phone">Phone Number</label>
-              <input class="form-input" type="tel" id="phone" name="phone" value="{{ old:phone }}">
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="service">Service of Interest</label>
-              <select class="form-select" id="service" name="service">
-                <option value="">Select a service...</option>
-                <option value="residential">Residential Design</option>
-                <option value="commercial">Commercial Design</option>
-                <option value="space-planning">Space Planning</option>
-                <option value="furniture">Furniture Sourcing</option>
-                <option value="project-management">Project Management</option>
-                <option value="styling">Styling &amp; Staging</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="message">Your Message *</label>
-              <textarea class="form-textarea" id="message" name="message" rows="5" required>{{ old:message }}</textarea>
-            </div>
-            <input type="hidden" name="_token" value="{{ csrf_token }}">
-            <button type="submit" class="btn-primary" style="width:100%;margin-top:.5rem;">Send Message</button>
-          {{ /if }}
-        {{ /form:create }}
-      </div>
-
-      <div style="display:grid;gap:2.5rem;padding-top:1rem;">
-        <div>
-          <h3 style="color:var(--gold-light);font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1rem;">Contact Details</h3>
-          <div style="display:grid;gap:.75rem;">
-            <p style="color:#d4c0ab;font-size:.95rem;">{{ address }}</p>
-            <p><a href="tel:{{ phone }}" style="color:#d4c0ab;font-size:.95rem;">{{ phone }}</a></p>
-            <p><a href="mailto:{{ email }}" style="color:#d4c0ab;font-size:.95rem;">{{ email }}</a></p>
-            <p style="color:#b1a18d;font-size:.9rem;">{{ hours }}</p>
-          </div>
-        </div>
-        <div>
-          <h3 style="color:var(--gold-light);font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1rem;">Follow Us</h3>
-          {{ globals:settings }}
-            <div style="display:flex;gap:1.2rem;flex-wrap:wrap;">
-              {{ social_links }}
-                <a href="{{ href }}" target="{{ target }}" rel="noreferrer" style="color:#d4c0ab;font-size:.88rem;text-transform:uppercase;letter-spacing:.08em;font-weight:600;">{{ label }}</a>
-              {{ /social_links }}
-            </div>
-          {{ /globals:settings }}
-        </div>
-      </div>
-
+<div class="contact-page">
+  <section class="contact-page-hero">
+    <div class="hero-image-wrap">
+      <img
+        class="hero-image"
+        src="{{ contact_hero_background_image }}"
+        alt="{{ contact_hero_background_alt }}"
+        loading="eager"
+      >
     </div>
+    <div class="contact-page-hero-overlay"></div>
+
+    <div class="contact-page-hero-shell">
+      <p class="contact-page-eyebrow" data-reveal>{{ contact_hero_eyebrow }}</p>
+      <h1 class="contact-page-hero-title" data-reveal>
+        <span class="contact-page-hero-title-top">{{ contact_hero_title_top }}</span>
+        <span class="contact-page-hero-title-bottom">{{ contact_hero_title_bottom }}</span>
+      </h1>
+      <p class="contact-page-hero-description" data-reveal>{{ contact_hero_description }}</p>
+    </div>
+  </section>
+
+  <section class="contact-page-section">
+    <div class="contact-page-shell">
+      <div class="contact-page-grid">
+        <div class="contact-page-form-column" data-reveal>
+          <div class="contact-page-form-header">
+            <h2 class="contact-page-form-title">{{ contact_form_title }}</h2>
+            <span class="contact-page-form-rule" aria-hidden="true"></span>
+          </div>
+
+          {{ form:create handle="contact" }}
+            {{ if success }}
+              <div class="contact-page-success-state" role="status">
+                <span class="contact-page-success-icon">{{ contact_form_success_icon }}</span>
+                <h3 class="contact-page-success-title">{{ contact_form_success_title }}</h3>
+                <p class="contact-page-success-body">{{ contact_form_success_body }}</p>
+                <a class="contact-page-reset-link" href="/contact">{{ contact_form_reset_label }}</a>
+              </div>
+            {{ else }}
+              <div class="contact-page-form">
+                <div class="contact-page-form-row">
+                  <div class="contact-page-field">
+                    <label class="contact-page-label" for="name">{{ contact_form_name_label }}</label>
+                    <input
+                      class="contact-page-input"
+                      id="name"
+                      name="name"
+                      type="text"
+                      value="{{ old:name }}"
+                      placeholder="{{ contact_form_name_placeholder }}"
+                      required
+                    >
+                  </div>
+
+                  <div class="contact-page-field">
+                    <label class="contact-page-label" for="email">{{ contact_form_email_label }}</label>
+                    <input
+                      class="contact-page-input"
+                      id="email"
+                      name="email"
+                      type="email"
+                      value="{{ old:email }}"
+                      placeholder="{{ contact_form_email_placeholder }}"
+                      required
+                    >
+                  </div>
+                </div>
+
+                <div class="contact-page-form-row">
+                  <div class="contact-page-field">
+                    <label class="contact-page-label" for="project_type">{{ contact_form_project_type_label }}</label>
+                    <div class="contact-page-select-wrap">
+                      <select class="contact-page-select" id="project_type" name="project_type" required>
+                        <option value="" disabled selected>{{ contact_form_project_type_placeholder }}</option>
+                        {{ contact_project_type_options }}
+                          <option value="{{ value }}">{{ value }}</option>
+                        {{ /contact_project_type_options }}
+                      </select>
+                      <span class="contact-page-select-arrow" aria-hidden="true">&gt;</span>
+                    </div>
+                  </div>
+
+                  <div class="contact-page-field">
+                    <label class="contact-page-label" for="investment_range">{{ contact_form_investment_range_label }}</label>
+                    <div class="contact-page-select-wrap">
+                      <select class="contact-page-select" id="investment_range" name="investment_range" required>
+                        <option value="" disabled selected>{{ contact_form_investment_range_placeholder }}</option>
+                        {{ contact_investment_range_options }}
+                          <option value="{{ value }}">{{ value }}</option>
+                        {{ /contact_investment_range_options }}
+                      </select>
+                      <span class="contact-page-select-arrow" aria-hidden="true">&gt;</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="contact-page-form-row">
+                  <div class="contact-page-field">
+                    <label class="contact-page-label" for="preferred_date">{{ contact_form_preferred_date_label }}</label>
+                    <input
+                      class="contact-page-input contact-page-input-date"
+                      id="preferred_date"
+                      name="preferred_date"
+                      type="date"
+                      value="{{ old:preferred_date }}"
+                    >
+                  </div>
+
+                  <div class="contact-page-field">
+                    <label class="contact-page-label" for="phone">{{ contact_form_phone_label }}</label>
+                    <input
+                      class="contact-page-input"
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      value="{{ old:phone }}"
+                      placeholder="{{ contact_form_phone_placeholder }}"
+                    >
+                  </div>
+                </div>
+
+                <div class="contact-page-field">
+                  <label class="contact-page-label" for="message">{{ contact_form_message_label }}</label>
+                  <textarea
+                    class="contact-page-input contact-page-textarea"
+                    id="message"
+                    name="message"
+                    rows="5"
+                    placeholder="{{ contact_form_message_placeholder }}"
+                  >{{ old:message }}</textarea>
+                </div>
+
+                <input type="hidden" name="_token" value="{{ csrf_token }}">
+                <button type="submit" class="contact-page-submit-button">
+                  {{ contact_form_submit_idle_label }}
+                </button>
+              </div>
+            {{ /if }}
+          {{ /form:create }}
+        </div>
+
+        <aside class="contact-page-info-column" data-reveal>
+          <div class="contact-page-card">
+            <p class="contact-page-card-eyebrow">{{ contact_info_eyebrow }}</p>
+            <address class="contact-page-card-address">
+              <span>{{ contact_info_address_line_one }}</span>
+              <span>{{ contact_info_address_line_two }}</span>
+            </address>
+            <div class="contact-page-card-contacts">
+              <a href="tel:{{ contact_info_phone }}" class="contact-page-card-link">{{ contact_info_phone }}</a>
+              <a href="{{ contact_info_whatsapp_href }}" target="_blank" rel="noopener noreferrer" class="contact-page-card-link">
+                {{ contact_info_whatsapp_label }}
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-page-office-image-wrap">
+            <img
+              class="contact-page-cover-image"
+              src="{{ contact_studio_image }}"
+              alt="{{ contact_studio_image_alt }}"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="contact-page-location-list">
+            {{ contact_locations }}
+              <div class="contact-page-location-item" data-reveal>
+                <p class="contact-page-location-city">{{ city }}</p>
+                <p class="contact-page-location-address">
+                  {{ address }}<br>
+                  {{ state }}
+                </p>
+                <a href="tel:{{ phone }}" class="contact-page-location-phone">{{ phone }}</a>
+              </div>
+            {{ /contact_locations }}
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <div class="contact-page-map-section" data-reveal>
+    <iframe
+      title="{{ contact_map_title }}"
+      src="{{ contact_map_embed_url }}"
+      loading="lazy"
+      class="contact-page-map-frame"
+    ></iframe>
   </div>
-</section>
+</div>
+
+<script>
+  (() => {
+    const pageRoot = document.querySelector('.contact-page');
+    const hero = document.querySelector('.contact-page-hero');
+
+    if (!pageRoot || !hero) {
+      return;
+    }
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const applyHeroParallax = () => {
+      if (reduceMotion) {
+        return;
+      }
+
+      const progress = Math.max(0, Math.min(window.scrollY / 620, 1));
+      hero.style.setProperty('--hero-image-shift', `${progress * -56}px`);
+      hero.style.setProperty('--hero-image-scale', `${1.08 - progress * 0.06}`);
+      hero.style.setProperty('--hero-shell-shift', `${progress * -84}px`);
+      hero.style.setProperty('--hero-shell-opacity', `${1 - progress * 0.42}`);
+      hero.style.setProperty('--hero-overlay-opacity', `${0.84 + progress * 0.1}`);
+    };
+
+    let frame = 0;
+    const onScroll = () => {
+      if (frame) {
+        return;
+      }
+
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+        applyHeroParallax();
+      });
+    };
+
+    applyHeroParallax();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    if (typeof IntersectionObserver === 'undefined') {
+      document.querySelectorAll('.contact-page [data-reveal]').forEach((element) => {
+        element.dataset.visible = 'true';
+      });
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.dataset.visible = 'true';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.16,
+      rootMargin: '0px 0px -12% 0px'
+    });
+
+    document.querySelectorAll('.contact-page [data-reveal]').forEach((element) => {
+      observer.observe(element);
+    });
+  })();
+</script>

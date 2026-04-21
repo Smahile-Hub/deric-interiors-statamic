@@ -7,16 +7,16 @@ slug: about
 about_hero_eyebrow: The Experience You Need
 about_hero_title_line_one: Curating Spaces
 about_hero_accent_word: Intention
-about_hero_background_image: https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1800&q=80
+about_hero_background_image: interior-about-hero.jpg
 about_hero_background_alt: Luxury interior with refined architectural detail
 about_story_eyebrow: Our Story
 about_story_heading_line_one: Architectural
 about_story_heading_line_two: Precision meets
 about_story_heading_line_three: Soulful Artistry.
 about_story_body: At Dric Interior, we specialise in creating luxurious, bespoke interiors that reflect the unique style and personality of each client. With a keen eye for detail and a passion for design excellence, our team of experts transforms spaces into sophisticated, functional works of art. Whether you're looking to revamp a single room or redesign an entire home, we deliver unparalleled quality and elegance in every project.
-about_story_tall_image: https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=700&q=80
+about_story_tall_image: interior-story-tall.jpg
 about_story_tall_image_alt: Interior detail - textured wall and sculptural lamp
-about_story_square_image: https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=700&q=80
+about_story_square_image: interior-story-square.jpg
 about_story_square_image_alt: Architecture - clean lines and natural materials
 about_milestones_title: The Legacy of Excellence
 about_milestones_description: Our journey is marked by the trust of our clients and the enduring beauty of the spaces we've realised across the globe.
@@ -57,6 +57,6 @@ about_values_items:
 about_cta_title: Experience Us
 about_cta_button_label: Contact Us
 about_cta_button_href: /book-appointment
-about_cta_background_image: https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1800&q=80
+about_cta_background_image: interior-hero.jpg
 about_cta_background_alt: Luxury interior
 ---

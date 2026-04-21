@@ -1,0 +1,315 @@
+<div class="book-page">
+  <section class="book-hero" id="book-hero" style="{{ if !book_hero_background_image }}--hero-bg-color:#1a1410;{{ /if }}">
+    <div class="book-hero-bg-wrap">
+      {{ if book_hero_background_image }}
+        <img
+          class="book-hero-bg"
+          src="{{ book_hero_background_image }}"
+          alt="{{ book_hero_background_alt }}"
+          loading="eager"
+        >
+      {{ /if }}
+    </div>
+    <div class="book-hero-overlay"></div>
+
+    <div class="book-hero-shell">
+      <p class="book-eyebrow" data-reveal>{{ book_hero_eyebrow }}</p>
+      <h1 class="book-hero-title" data-reveal>
+        <span>{{ book_hero_title_top }}</span>
+        <span class="book-hero-title-accent">{{ book_hero_title_bottom }}</span>
+      </h1>
+      <p class="book-hero-description" data-reveal>{{ book_hero_description }}</p>
+      <div data-reveal>
+        <button class="book-hero-button" type="button" data-scroll-to-book-form>
+          {{ book_hero_button_label }}
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="book-expect-section">
+    <div class="book-shell">
+      <div class="book-section-header" data-reveal>
+        <p class="book-section-eyebrow">{{ book_expect_eyebrow }}</p>
+        <h2 class="book-section-title">{{ book_expect_title }}</h2>
+        <span class="book-title-rule" aria-hidden="true"></span>
+      </div>
+
+      <div class="book-expect-grid">
+        {{ book_expect_items }}
+          <div class="book-expect-card" data-reveal style="--stagger-index: {{ index ?? 0 }};">
+            <span class="book-card-icon" aria-hidden="true">
+              {{ if icon == 'clock' }}
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              {{ elseif icon == 'layout' }}
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+              {{ elseif icon == 'message' }}
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
+              {{ else }}
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              {{ /if }}
+            </span>
+            <h3>{{ title }}</h3>
+            <p>{{ body }}</p>
+          </div>
+        {{ /book_expect_items }}
+      </div>
+    </div>
+  </section>
+
+  <section class="book-form-section" id="book-form-section">
+    <div class="book-shell">
+      <div class="book-form-grid">
+        <div class="book-form-side" data-reveal>
+          <div class="book-section-header">
+            <p class="book-section-eyebrow">{{ book_form_eyebrow }}</p>
+            <h2 class="book-form-title">{{ book_form_title }}</h2>
+            <span class="book-title-rule" aria-hidden="true"></span>
+          </div>
+
+          <div class="book-success-state" data-book-success hidden role="status">
+            <span class="book-success-icon">{{ book_success_icon }}</span>
+            <h3>{{ book_success_title }}</h3>
+            <p data-book-success-body>{{ book_success_body }}</p>
+            <button class="book-reset-button" type="button" data-book-reset>
+              {{ book_reset_button_label }}
+            </button>
+          </div>
+
+          <form class="book-form" data-book-form data-whatsapp-phone="{{ book_whatsapp_phone }}">
+            <input type="hidden" data-message-intro value="{{ book_whatsapp_intro }}">
+
+            <div class="book-form-row">
+              <div class="book-field">
+                <label class="book-label" for="book_name">{{ book_name_label }}</label>
+                <input class="book-input" id="book_name" name="name" type="text" placeholder="{{ book_name_placeholder }}" required>
+              </div>
+              <div class="book-field">
+                <label class="book-label" for="book_email">{{ book_email_label }}</label>
+                <input class="book-input" id="book_email" name="email" type="email" placeholder="{{ book_email_placeholder }}" required>
+              </div>
+            </div>
+
+            <div class="book-form-row">
+              <div class="book-field">
+                <label class="book-label" for="book_phone">{{ book_phone_label }}</label>
+                <input class="book-input" id="book_phone" name="phone" type="tel" placeholder="{{ book_phone_placeholder }}" required>
+              </div>
+              <div class="book-field">
+                <label class="book-label" for="book_project_type">{{ book_project_type_label }}</label>
+                <div class="book-select-wrap">
+                  <select class="book-select" id="book_project_type" name="project_type" required>
+                    <option value="" disabled selected>{{ book_project_type_placeholder }}</option>
+                    {{ book_project_type_options }}
+                      <option value="{{ value }}">{{ value }}</option>
+                    {{ /book_project_type_options }}
+                  </select>
+                  <span class="book-select-arrow" aria-hidden="true">&gt;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="book-form-row">
+              <div class="book-field">
+                <label class="book-label" for="book_preferred_date">{{ book_preferred_date_label }}</label>
+                <input class="book-input book-input-date" id="book_preferred_date" name="preferred_date" type="date" required>
+              </div>
+              <div class="book-field">
+                <label class="book-label" for="book_preferred_time">{{ book_preferred_time_label }}</label>
+                <div class="book-select-wrap">
+                  <select class="book-select" id="book_preferred_time" name="preferred_time" required>
+                    <option value="" disabled selected>{{ book_preferred_time_placeholder }}</option>
+                    {{ book_time_slot_options }}
+                      <option value="{{ value }}">{{ value }}</option>
+                    {{ /book_time_slot_options }}
+                  </select>
+                  <span class="book-select-arrow" aria-hidden="true">&gt;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="book-field">
+              <label class="book-label" for="book_location">{{ book_location_label }}</label>
+              <input class="book-input" id="book_location" name="location" type="text" placeholder="{{ book_location_placeholder }}">
+            </div>
+
+            <div class="book-field">
+              <label class="book-label" for="book_message">{{ book_message_label }}</label>
+              <textarea class="book-input book-textarea" id="book_message" name="message" rows="4" placeholder="{{ book_message_placeholder }}"></textarea>
+            </div>
+
+            <button class="book-submit-button" type="submit" data-submit-label="{{ book_submit_label }}" data-loading-label="{{ book_loading_label }}">
+              {{ book_submit_label }}
+            </button>
+          </form>
+        </div>
+
+        <aside class="book-aside" data-reveal>
+          {{ if book_aside_image }}
+            <div class="book-aside-image-wrap">
+              <img class="book-aside-image" src="{{ book_aside_image }}" alt="{{ book_aside_image_alt }}" loading="lazy">
+              <div class="book-aside-image-overlay"></div>
+            </div>
+          {{ /if }}
+
+          <div class="book-aside-note">
+            <p class="book-aside-note-eyebrow">{{ book_aside_note_eyebrow }}</p>
+            <p class="book-aside-note-text">
+              {{ book_aside_note_text }}
+              <a href="tel:{{ book_aside_phone_href }}" class="book-aside-note-link">{{ book_aside_phone_label }}</a>.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="book-cta-section">
+    <div class="book-cta-bg-wrap">
+      {{ if book_cta_background_image }}
+        <img class="book-cta-bg" src="{{ book_cta_background_image }}" alt="{{ book_cta_background_alt }}" loading="lazy">
+      {{ /if }}
+      <div class="book-cta-overlay"></div>
+    </div>
+
+    <div class="book-cta-shell" data-reveal>
+      <p class="book-cta-eyebrow">{{ book_cta_eyebrow }}</p>
+      <h2 class="book-cta-title">
+        {{ book_cta_title_prefix }}
+        <em>{{ book_cta_title_accent }}</em>
+      </h2>
+      <a href="{{ book_cta_button_href }}" target="_blank" rel="noopener noreferrer" class="book-cta-button">
+        {{ book_cta_button_label }}
+      </a>
+    </div>
+  </section>
+</div>
+
+<script>
+  (() => {
+    const pageRoot = document.querySelector('.book-page');
+    const hero = document.getElementById('book-hero');
+    const formSection = document.getElementById('book-form-section');
+    const form = document.querySelector('[data-book-form]');
+    const success = document.querySelector('[data-book-success]');
+    const successBody = document.querySelector('[data-book-success-body]');
+    const successBodyTemplate = successBody?.textContent || '';
+    const reset = document.querySelector('[data-book-reset]');
+    const submit = document.querySelector('.book-submit-button');
+
+    if (!pageRoot || !hero) {
+      return;
+    }
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const applyHeroParallax = () => {
+      if (reduceMotion) {
+        return;
+      }
+
+      const progress = Math.max(0, Math.min(window.scrollY / 620, 1));
+      hero.style.setProperty('--hero-image-shift', `${progress * -56}px`);
+      hero.style.setProperty('--hero-image-scale', `${1.08 - progress * 0.06}`);
+      hero.style.setProperty('--hero-shell-shift', `${progress * -84}px`);
+      hero.style.setProperty('--hero-shell-opacity', `${1 - progress * 0.42}`);
+      hero.style.setProperty('--hero-overlay-opacity', `${0.84 + progress * 0.1}`);
+    };
+
+    let frame = 0;
+    window.addEventListener('scroll', () => {
+      if (frame) {
+        return;
+      }
+
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+        applyHeroParallax();
+      });
+    }, { passive: true });
+    applyHeroParallax();
+
+    document.querySelector('[data-scroll-to-book-form]')?.addEventListener('click', () => {
+      formSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    if (typeof IntersectionObserver === 'undefined') {
+      document.querySelectorAll('.book-page [data-reveal]').forEach((element) => {
+        element.dataset.visible = 'true';
+      });
+    } else {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.dataset.visible = 'true';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+
+      document.querySelectorAll('.book-page [data-reveal]').forEach((element) => {
+        observer.observe(element);
+      });
+    }
+
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const data = new FormData(form);
+      const intro = form.querySelector('[data-message-intro]')?.value || "Hello Dric Interior! I'd like to book a design appointment.";
+      const lines = [
+        intro,
+        '',
+        `Name: ${data.get('name') || ''}`,
+        `Email: ${data.get('email') || ''}`,
+        `Phone: ${data.get('phone') || ''}`,
+        `Project Type: ${data.get('project_type') || ''}`,
+        `Preferred Date: ${data.get('preferred_date') || ''}`,
+        `Preferred Time: ${data.get('preferred_time') || ''}`,
+        data.get('location') ? `Location: ${data.get('location')}` : '',
+        data.get('message') ? `\nDetails: ${data.get('message')}` : ''
+      ].filter((line) => line !== '').join('\n');
+
+      const phone = (form.dataset.whatsappPhone || '').replace(/\D/g, '');
+      const whatsappUrl = `https://api.whatsapp.com/send/?phone=${phone}&text=${encodeURIComponent(lines)}&type=phone_number&app_absent=0`;
+
+      if (submit) {
+        submit.textContent = submit.dataset.loadingLabel || 'Submitting...';
+        submit.disabled = true;
+      }
+
+      window.setTimeout(() => {
+        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+
+        if (successBody) {
+          successBody.textContent = successBodyTemplate.replace('{name}', data.get('name') || 'there');
+        }
+
+        form.hidden = true;
+        if (success) {
+          success.hidden = false;
+        }
+
+        if (submit) {
+          submit.textContent = submit.dataset.submitLabel || 'Book My Appointment';
+          submit.disabled = false;
+        }
+      }, 180);
+    });
+
+    reset?.addEventListener('click', () => {
+      form?.reset();
+      if (success) {
+        success.hidden = true;
+      }
+      if (form) {
+        form.hidden = false;
+      }
+    });
+  })();
+</script>

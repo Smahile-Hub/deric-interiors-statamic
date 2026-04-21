@@ -9,7 +9,7 @@ services_hero_title_prefix: The Art of
 services_hero_title_accent: Spatial
 services_hero_title_suffix: Curation.
 services_hero_description: We transform architectural voids into soulful environments. Dric Interior provides a full spectrum of luxury atelier services, from bespoke furniture design to holistic exterior visions.
-services_hero_background_image: https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1800&q=80
+services_hero_background_image: interior-hero.jpg
 services_hero_background_alt: Luxury interior with warm lighting and sculptural furnishings
 services_hero_cta_label: GO TO SHOP
 services_hero_cta_href: /shop
@@ -36,7 +36,7 @@ service_rows:
         number: "01"
         title: Furniture & Fittings
         description: Bespoke furniture design and meticulous material selection, crafted to harmonise with your architectural context and personal narrative.
-        image: https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80
+        image: interior-closet.jpg
         image_alt: Curated furniture in a refined residential interior
         wide: true
         link_label: Details
@@ -46,7 +46,7 @@ service_rows:
         number: "02"
         title: Window Covering
         description: Precision-tailored treatments that modulate natural light and frame every view with intention.
-        image: https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80
+        image: interior-story-tall.jpg
         image_alt: Window treatment in a refined interior
         wide: false
         link_label: Details
@@ -58,7 +58,7 @@ service_rows:
         number: "03"
         title: Wall Covering
         description: Textural narratives rendered through artisanal wallpapers, plasters, and specialist paint finishes.
-        image: https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80
+        image: interior-story-square.jpg
         image_alt: Textured wall finish in a refined interior
         wide: false
         link_label: Details
@@ -68,7 +68,7 @@ service_rows:
         number: "04"
         title: Exterior Design
         description: Holistic exterior visions that extend the interior character outward, creating a seamless dialogue between inside and out.
-        image: https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1400&q=80
+        image: interior-kitchen.jpg
         image_alt: Exterior architecture with interior-grade detail
         wide: true
         link_label: Details
@@ -80,7 +80,7 @@ service_rows:
         number: "05"
         title: Signage & Identity
         description: Custom environmental branding and wayfinding systems crafted for commercial and hospitality spaces.
-        image: https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80
+        image: interior-contact.jpg
         image_alt: Environmental branding in a commercial interior
         wide: false
         link_label: Details
@@ -90,7 +90,7 @@ service_rows:
         number: "06"
         title: Ceiling Covering
         description: The often-overlooked fifth wall, transformed through coffered details, acoustic panels, and bespoke plasterwork.
-        image: https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80
+        image: interior-about-hero.jpg
         image_alt: Bespoke ceiling detail in a luxury interior
         wide: true
         link_label: Details

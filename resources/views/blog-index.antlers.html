@@ -1,29 +1,78 @@
-<section class="hero" style="background:#1a1b21;min-height:440px;padding:180px 0 4rem;">
-  <div class="hero-inner shell">
-    <h1 class="hero-title" style="font-size:clamp(3rem,6vw,6rem);">{{ hero_heading }}</h1>
-    <p class="hero-sub">{{ hero_subtext }}</p>
-  </div>
-</section>
+<div class="journal-page">
+  <section class="journal-hero">
+    <div class="journal-hero-inner" data-reveal>
+      <p>{{ blog_hero_eyebrow }}</p>
+      <h1>{{ blog_hero_title }}</h1>
+      <span>{{ blog_hero_description }}</span>
+    </div>
+  </section>
 
-<section style="padding:5rem 0;" data-reveal>
-  <div class="shell">
-    <div class="blog-grid">
+  <section class="journal-grid-section">
+    <div class="journal-grid">
       {{ collection:blog sort="date:desc" }}
-        <a href="{{ url }}" class="blog-card" style="display:grid;gap:1rem;color:inherit;">
-          <div class="blog-card-media">
-            <img src="{{ image }}" alt="{{ title }}" loading="lazy">
-          </div>
-          <div class="blog-card-body">
-            <span class="blog-category">{{ category }}</span>
-            <h3 class="blog-card-title">{{ title }}</h3>
-            <p class="blog-excerpt">{{ excerpt }}</p>
-            <div class="blog-meta">
-              <span style="color:#8c867d;font-size:.8rem;">{{ date format="d M Y" }}</span>
-              <span class="blog-reading-time">{{ reading_time }}</span>
+        <article class="journal-card" data-reveal style="--stagger-index: {{ index }};">
+          <a href="{{ url }}" class="journal-card-link" aria-label="Read {{ title }}">
+            <div class="journal-card-media">
+              <img
+                class="journal-cover-image"
+                src="{{ cover_image_url ?? image }}"
+                alt="{{ cover_image_alt ?? title }}"
+                loading="lazy"
+              >
             </div>
-          </div>
-        </a>
+
+            <div class="journal-card-copy">
+              <div class="journal-meta-row">
+                <span>{{ category }}</span>
+                <span>{{ date format="F j, Y" }}</span>
+              </div>
+
+              <h2>{{ title }}</h2>
+              <p>{{ excerpt }}</p>
+
+              <div class="journal-meta-footer">
+                <span>{{ reading_minutes ?? reading_time }}</span>
+                <span class="journal-read-link">Read article</span>
+              </div>
+            </div>
+          </a>
+        </article>
       {{ /collection:blog }}
     </div>
-  </div>
-</section>
+  </section>
+</div>
+
+<script>
+  (() => {
+    const pageRoot = document.querySelector('.journal-page');
+
+    if (!pageRoot) {
+      return;
+    }
+
+    const revealItems = pageRoot.querySelectorAll('[data-reveal]');
+
+    if (typeof IntersectionObserver === 'undefined') {
+      revealItems.forEach((element) => {
+        element.dataset.visible = 'true';
+      });
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.dataset.visible = 'true';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.16,
+      rootMargin: '0px 0px -12% 0px'
+    });
+
+    revealItems.forEach((element) => {
+      observer.observe(element);
+    });
+  })();
+</script>
