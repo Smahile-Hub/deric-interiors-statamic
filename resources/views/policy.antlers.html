@@ -1,23 +1,183 @@
-<section style="padding:160px 0 3rem;background:#1a1b21;">
-  <div class="shell">
-    <h1 style="font-family:var(--font-display);font-size:clamp(2rem,4vw,3.5rem);color:#e5e1ea;font-weight:400;margin-bottom:.5rem;">{{ title }}</h1>
-    <p style="color:#8c867d;font-size:.88rem;">Last updated: {{ last_updated }}</p>
-  </div>
-</section>
+{{ if policy_layout == 'return' }}
+  <section class="legal-page legal-return-page">
+    <div class="legal-return-hero-shell">
+      <div class="legal-return-hero-content">
+        <div class="legal-return-hero-copy" data-reveal>
+          <p class="legal-eyebrow">{{ return_hero_eyebrow }}</p>
+          <h1 class="legal-return-title">
+            {{ return_title_line_one }}<br>
+            {{ return_title_line_two }}<br>
+            {{ return_title_line_three }}
+          </h1>
+          <p class="legal-return-quote">{{ return_hero_quote }}</p>
+        </div>
 
-<section style="padding:4rem 0 6rem;" data-reveal>
-  <div class="shell">
-    <div style="max-width:740px;" class="policy-content">
-      {{ content | markdown }}
+        <div class="legal-return-hero-media" data-reveal>
+          {{ if return_hero_image }}
+            <img
+              class="legal-return-hero-image"
+              src="{{ return_hero_image }}"
+              alt="{{ return_hero_image_alt }}"
+              loading="eager"
+            >
+          {{ /if }}
+          <div class="legal-return-hero-overlay"></div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
 
-<style>
-.policy-content h2 { font-family:var(--font-display);font-size:clamp(1.4rem,2.5vw,1.8rem);color:#e5e1ea;font-weight:400;margin:2.5rem 0 .75rem; }
-.policy-content h3 { color:var(--gold-light);font-size:.9rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin:2rem 0 .5rem; }
-.policy-content p { color:#b1a18d;line-height:1.8;margin-bottom:1.25rem;font-size:.95rem; }
-.policy-content ul, .policy-content ol { padding-left:1.5rem;margin-bottom:1.25rem; }
-.policy-content li { color:#b1a18d;font-size:.95rem;line-height:1.8;margin-bottom:.4rem; }
-.policy-content strong { color:#d4c0ab; }
-</style>
+    <section class="legal-policy-band">
+      <div class="legal-return-policy-shell">
+        <div class="legal-policy-grid">
+          {{ return_policy_sections }}
+            <article class="legal-policy-card" data-reveal style="--stagger-index: {{ index ?? 0 }};">
+              <div class="legal-policy-icon-wrap">
+                {{ if icon == 'alert-circle' }}
+                  <svg class="legal-policy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                {{ elseif icon == 'refresh-cw' }}
+                  <svg class="legal-policy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10"/><path d="M20.49 15a9 9 0 0 1-14.85 3.36L1 14"/></svg>
+                {{ elseif icon == 'message-square' }}
+                  <svg class="legal-policy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
+                {{ else }}
+                  <svg class="legal-policy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16.5 9.4 7.5 4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" y1="22" x2="12" y2="12"/></svg>
+                {{ /if }}
+              </div>
+
+              <div class="legal-policy-body">
+                <div class="legal-policy-heading-row">
+                  <span class="legal-policy-number">{{ id }}</span>
+                  <h2>{{ section_title }}</h2>
+                </div>
+
+                <div class="legal-policy-paragraphs">
+                  {{ paragraphs }}
+                    <p>{{ value }}</p>
+                  {{ /paragraphs }}
+                </div>
+
+                {{ if protocol_title }}
+                  <div class="legal-protocol-card">
+                    <p class="legal-protocol-title">{{ protocol_title }}</p>
+                    <p>{{ protocol_body }}</p>
+                  </div>
+                {{ /if }}
+
+                {{ if support_label }}
+                  <div class="legal-support-row">
+                    <div class="legal-support-icon-circle">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
+                    </div>
+                    <div class="legal-support-copy">
+                      <p class="legal-support-label">{{ support_label }}</p>
+                      <a href="{{ support_href }}" class="legal-support-value">{{ support_value }}</a>
+                    </div>
+                  </div>
+                {{ /if }}
+              </div>
+            </article>
+          {{ /return_policy_sections }}
+        </div>
+      </div>
+    </section>
+
+    <section class="legal-standard-section" data-reveal>
+      <div class="legal-standard-shell">
+        <svg class="legal-standard-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+        <h2>{{ return_standard_title }}</h2>
+        <p>{{ return_standard_copy }}</p>
+      </div>
+    </section>
+  </section>
+{{ else }}
+  <section class="legal-page legal-privacy-page" id="legal-privacy-page">
+    <div class="legal-privacy-shell">
+      <header class="legal-privacy-header" data-reveal>
+        <p class="legal-eyebrow">{{ privacy_eyebrow }}</p>
+        <h1>{{ title }}</h1>
+        <span class="legal-header-rule" aria-hidden="true"></span>
+      </header>
+
+      <section class="legal-privacy-intro" data-reveal>
+        <div class="legal-privacy-meta">
+          <p class="legal-meta-label">{{ privacy_valid_label }}</p>
+        </div>
+
+        <div class="legal-privacy-intro-body">
+          {{ privacy_intro_paragraphs }}
+            <p>{{ value }}</p>
+          {{ /privacy_intro_paragraphs }}
+        </div>
+      </section>
+
+      {{ privacy_sections }}
+        {{ if count == 4 }}
+          <section class="legal-image-break" data-reveal>
+            <div class="legal-image-frame">
+              {{ if privacy_image_break_image }}
+                <img
+                  class="legal-break-image"
+                  src="{{ privacy_image_break_image }}"
+                  alt="{{ privacy_image_break_alt }}"
+                  loading="lazy"
+                >
+              {{ /if }}
+            </div>
+            <blockquote>{{ privacy_image_break_quote }}</blockquote>
+          </section>
+        {{ /if }}
+
+        <section class="legal-article-section" data-reveal>
+          <div class="legal-article-heading">
+            <h2>{{ id }} / {{ section_title }}</h2>
+          </div>
+
+          <div class="legal-article-body">
+            {{ paragraphs }}
+              <p>{{ value }}</p>
+            {{ /paragraphs }}
+
+            {{ if bullets }}
+              <ul>
+                {{ bullets }}
+                  <li style="--stagger-index: {{ index ?? 0 }};">{{ value }}</li>
+                {{ /bullets }}
+              </ul>
+            {{ /if }}
+
+            {{ if id == '05' }}
+              <div class="legal-contact-card">
+                <p>{{ privacy_contact_eyebrow }}</p>
+                <a href="mailto:{{ privacy_contact_email }}">{{ privacy_contact_email }}</a>
+              </div>
+            {{ /if }}
+          </div>
+        </section>
+      {{ /privacy_sections }}
+    </div>
+  </section>
+{{ /if }}
+
+<script>
+  (() => {
+    const root = document.querySelector('.legal-page');
+    if (!root) return;
+
+    if (typeof IntersectionObserver === 'undefined') {
+      root.querySelectorAll('[data-reveal]').forEach((element) => {
+        element.dataset.visible = 'true';
+      });
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.dataset.visible = 'true';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16, rootMargin: '0px 0px -12% 0px' });
+
+    root.querySelectorAll('[data-reveal]').forEach((element) => observer.observe(element));
+  })();
+</script>

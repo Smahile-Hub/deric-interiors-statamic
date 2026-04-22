@@ -4,6 +4,10 @@ title: Projects
 blueprint: projects
 template: projects
 slug: projects
+seo_title: Luxury Interior Design Projects
+meta_description: Explore Dric Interior's curated portfolio of residential, commercial, and workplace design projects crafted with architectural depth and refined detail.
+seo_image: interior-kitchen.jpg
+seo_image_alt: Dric Interior project featuring bespoke kitchen cabinetry and luxury finishes
 projects_hero_eyebrow: Portfolio Exhibition
 projects_hero_title_line_one: Curated
 projects_hero_title_line_two: Portfolio

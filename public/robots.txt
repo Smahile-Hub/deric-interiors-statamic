@@ -1,2 +1,10 @@
 User-agent: *
-Disallow:
+Disallow: /cp
+Disallow: /cp/
+Disallow: /vendor/
+Disallow: /storage/
+Disallow: /bootstrap/
+Disallow: /.env
+Allow: /
+
+Sitemap: https://dricinterior.com/sitemap.xml

@@ -1,4 +1,17 @@
 title: Site Settings
+site_title: Dric Interior
+site_description: Luxury interiors, home styling, and curated decor by Dric Interior.
+canonical_base_url: https://dricinterior.com
+site_url: https://dricinterior.com
+default_og_image: interior-hero.jpg
+business_name: Dric Interior
+business_email: admin@dricinterior.com
+business_phone: '+234 000 000 0000'
+business_street_address: Dric Interior Studio
+business_city: Lagos
+business_region: Lagos
+business_country: NG
+business_price_range: $$$
 logo_url: golden-dric-logo.png
 logo_alt: Dric Interiors
 logo_width: 280

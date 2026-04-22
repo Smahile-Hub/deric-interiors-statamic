@@ -1,14 +1,142 @@
 title: Policy Page
 sections:
   main:
-    display: Main
+    display: Page Settings
     fields:
       -
         handle: title
         field: { type: text, display: Title, required: true }
       -
-        handle: last_updated
-        field: { type: text, display: "Last Updated" }
+        handle: policy_layout
+        field:
+          type: select
+          display: "Policy Layout"
+          default: privacy
+          options:
+            privacy: "Privacy Policy"
+            return: "Return and Refund Policy"
+  privacy:
+    display: Privacy Policy Layout
+    fields:
       -
-        handle: content
-        field: { type: markdown, display: Content }
+        handle: privacy_eyebrow
+        field: { type: text, display: Eyebrow }
+      -
+        handle: privacy_valid_label
+        field: { type: text, display: "Validity Label" }
+      -
+        handle: privacy_intro_paragraphs
+        field: { type: list, display: "Intro Paragraphs" }
+      -
+        handle: privacy_sections
+        field:
+          type: grid
+          display: "Privacy Sections"
+          add_row: "Add Section"
+          fields:
+            -
+              handle: id
+              field: { type: text, display: ID }
+            -
+              handle: section_title
+              field: { type: text, display: Title }
+            -
+              handle: paragraphs
+              field: { type: list, display: Paragraphs }
+            -
+              handle: bullets
+              field: { type: list, display: Bullets }
+      -
+        handle: privacy_image_break_image
+        field: { type: assets, display: "Image Break Image", container: assets, max_files: 1 }
+      -
+        handle: privacy_image_break_alt
+        field: { type: text, display: "Image Break Alt" }
+      -
+        handle: privacy_image_break_quote
+        field: { type: textarea, display: "Image Break Quote" }
+      -
+        handle: privacy_contact_eyebrow
+        field: { type: text, display: "Contact Eyebrow" }
+      -
+        handle: privacy_contact_email
+        field: { type: text, display: "Contact Email" }
+  return_policy:
+    display: Return and Refund Layout
+    fields:
+      -
+        handle: return_hero_eyebrow
+        field: { type: text, display: "Hero Eyebrow" }
+      -
+        handle: return_title_line_one
+        field: { type: text, display: "Title Line One" }
+      -
+        handle: return_title_line_two
+        field: { type: text, display: "Title Line Two" }
+      -
+        handle: return_title_line_three
+        field: { type: text, display: "Title Line Three" }
+      -
+        handle: return_hero_quote
+        field: { type: textarea, display: "Hero Quote" }
+      -
+        handle: return_hero_image
+        field: { type: assets, display: "Hero Image", container: assets, max_files: 1 }
+      -
+        handle: return_hero_image_alt
+        field: { type: text, display: "Hero Image Alt" }
+      -
+        handle: return_policy_sections
+        field:
+          type: grid
+          display: "Policy Cards"
+          add_row: "Add Card"
+          fields:
+            -
+              handle: id
+              field: { type: text, display: ID }
+            -
+              handle: section_title
+              field: { type: text, display: Title }
+            -
+              handle: icon
+              field:
+                type: select
+                display: Icon
+                options:
+                  package: Package
+                  alert-circle: Alert
+                  refresh-cw: Refresh
+                  message-square: Message
+            -
+              handle: paragraphs
+              field: { type: list, display: Paragraphs }
+            -
+              handle: highlight
+              field: { type: text, display: "Highlighted Phrase" }
+            -
+              handle: protocol_title
+              field: { type: text, display: "Protocol Title" }
+            -
+              handle: protocol_body
+              field: { type: textarea, display: "Protocol Body" }
+            -
+              handle: support_label
+              field: { type: text, display: "Support Label" }
+            -
+              handle: support_value
+              field: { type: text, display: "Support Value" }
+            -
+              handle: support_href
+              field: { type: text, display: "Support URL" }
+      -
+        handle: return_standard_title
+        field: { type: text, display: "Standard Title" }
+      -
+        handle: return_standard_copy
+        field: { type: textarea, display: "Standard Copy" }
+  seo:
+    display: SEO
+    fields:
+      -
+        import: seo

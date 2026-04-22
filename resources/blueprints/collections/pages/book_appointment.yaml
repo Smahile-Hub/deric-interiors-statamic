@@ -190,3 +190,8 @@ sections:
       -
         handle: book_cta_button_href
         field: { type: text, display: "Button URL" }
+  seo:
+    display: SEO
+    fields:
+      -
+        import: seo

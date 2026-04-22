@@ -4,6 +4,10 @@ title: Shop
 blueprint: shop
 template: shop
 slug: shop
+seo_title: Shop Curated Furniture, Lighting & Decor
+meta_description: Shop Dric Interior's curated collection of furniture, lighting, art, and decor pieces selected for timeless luxury interiors.
+seo_image: product-sofa.jpg
+seo_image_alt: Bespoke sofa from the Dric Interior curated shop collection
 hero_heading: Shop Our Collection
 hero_subtext: Carefully curated furniture, lighting, and decor pieces — each selected for exceptional quality and timeless design.
 shop_filters:

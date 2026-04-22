@@ -4,6 +4,10 @@ title: Contact
 blueprint: contact
 template: contact
 slug: contact
+seo_title: Contact Dric Interior
+meta_description: Contact Dric Interior to begin a bespoke interior design project, request a consultation, or discuss residential and commercial design needs.
+seo_image: interior-contact.jpg
+seo_image_alt: Luxury penthouse interior with warm tones and city views
 contact_hero_eyebrow: Curated Experiences.
 contact_hero_title_top: Begin
 contact_hero_title_bottom: Transformation

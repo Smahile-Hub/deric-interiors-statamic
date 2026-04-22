@@ -295,3 +295,8 @@ sections:
       -
         handle: cta_secondary_href
         field: { type: text, display: "Secondary URL" }
+  seo:
+    display: SEO
+    fields:
+      -
+        import: seo

@@ -20,7 +20,7 @@ sections:
         field:
           type: list
           display: "Filter Categories"
-          instructions: "Use product category names. The template adds All automatically."
+          instructions: "Use product category names to control the filter order. The template adds All automatically, and any product category not listed here will still be added on the page."
   products:
     display: Products
     fields:
@@ -39,7 +39,10 @@ sections:
               field: { type: text, display: Price }
             -
               handle: category
-              field: { type: text, display: Category }
+              field:
+                type: text
+                display: "Category"
+                instructions: "Editable product category. Match a filter name above if you want it grouped under an existing filter."
             -
               handle: image
               field: { type: assets, display: "Image", container: assets, max_files: 1 }
@@ -67,3 +70,8 @@ sections:
       -
         handle: shop_cta_button_href
         field: { type: text, display: "Button URL" }
+  seo:
+    display: SEO
+    fields:
+      -
+        import: seo

@@ -151,3 +151,8 @@ sections:
       -
         handle: contact_map_embed_url
         field: { type: text, display: "Map Embed URL" }
+  seo:
+    display: SEO
+    fields:
+      -
+        import: seo

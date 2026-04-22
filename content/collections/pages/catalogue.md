@@ -4,6 +4,10 @@ title: Catalogues
 blueprint: catalogue
 template: catalogue
 slug: catalogue
+seo_title: Interior Design Catalogues
+meta_description: Browse Dric Interior catalogues featuring curated design collections, luxury materials, bespoke furniture ideas, and interior inspiration.
+seo_image: interior-story-square.jpg
+seo_image_alt: Dric Interior catalogue preview with refined architectural materials
 hero_eyebrow: Design Collections
 hero_title_line_one: Our
 hero_title_line_two: Catalogues

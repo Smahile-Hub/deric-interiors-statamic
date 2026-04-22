@@ -4,6 +4,10 @@ title: Services
 blueprint: services
 template: services
 slug: services
+seo_title: Interior Design Services
+meta_description: Discover Dric Interior services including residential design, commercial interiors, space planning, furniture sourcing, and bespoke decor curation.
+seo_image: interior-contact.jpg
+seo_image_alt: Warm luxury interior styled by Dric Interior
 services_hero_eyebrow: OUR EXPERTISE
 services_hero_title_prefix: The Art of
 services_hero_title_accent: Spatial

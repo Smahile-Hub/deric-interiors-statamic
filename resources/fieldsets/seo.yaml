@@ -1,0 +1,38 @@
+title: SEO
+fields:
+  -
+    handle: seo_title
+    field:
+      type: text
+      display: SEO Title
+      instructions: "Shown in search results and browser tabs. Keep it clear and specific."
+  -
+    handle: meta_description
+    field:
+      type: textarea
+      display: Meta Description
+      instructions: "Aim for a concise, useful search snippet that describes this page."
+  -
+    handle: seo_image
+    field:
+      type: assets
+      display: Social Share Image
+      container: assets
+      max_files: 1
+  -
+    handle: seo_image_alt
+    field:
+      type: text
+      display: Social Share Image Alt Text
+  -
+    handle: canonical_url
+    field:
+      type: text
+      display: Canonical URL
+      instructions: "Leave blank unless this page should point search engines to another preferred URL."
+  -
+    handle: noindex
+    field:
+      type: toggle
+      display: Hide From Search Engines
+      instructions: "Turn on only for pages that should not appear in Google."

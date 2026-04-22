@@ -4,6 +4,10 @@ title: Testimonials
 blueprint: testimonials
 template: testimonials
 slug: testimonials
+seo_title: Client Testimonials
+meta_description: Read client testimonials from homeowners and business leaders who trusted Dric Interior with luxury interior design transformations.
+seo_image: interior-studio.jpg
+seo_image_alt: Dric Interior studio detail for client testimonials
 hero_heading: What Our Clients Say
 hero_subtext: Real experiences from the people we have had the privilege of designing for.
 testimonials_list:

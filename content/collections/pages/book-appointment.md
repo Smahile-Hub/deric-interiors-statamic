@@ -4,7 +4,10 @@ title: Book an Appointment
 blueprint: book_appointment
 template: book-appointment
 slug: book-appointment
+seo_title: Book an Interior Design Consultation
 meta_description: Schedule a personalized interior design consultation with Dric Interior.
+seo_image: interior-hero.jpg
+seo_image_alt: Beautifully designed Dric Interior consultation space
 book_hero_eyebrow: Design Consultation
 book_hero_title_top: Book a
 book_hero_title_bottom: Design Appointment

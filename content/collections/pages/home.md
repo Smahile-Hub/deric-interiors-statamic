@@ -4,6 +4,10 @@ blueprint: home
 title: Home
 template: home
 slug: home
+seo_title: Luxury Interior Design & Bespoke Home Styling
+meta_description: Dric Interior creates refined residential and commercial interiors with bespoke furniture, thoughtful space planning, and curated decor.
+seo_image: interior-hero.jpg
+seo_image_alt: Luxury Dric Interior living room with warm lighting and bespoke furniture
 hero_heading_lines:
   -
     id: 7NX1IEs6

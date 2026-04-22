@@ -79,7 +79,7 @@ return [
     |
     */
 
-    'link_to_docs' => env('STATAMIC_LINK_TO_DOCS', true),
+    'link_to_docs' => env('STATAMIC_LINK_TO_DOCS', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -90,7 +90,7 @@ return [
     |
     */
 
-    'support_url' => env('STATAMIC_SUPPORT_URL', 'https://statamic.com/support'),
+    'support_url' => env('STATAMIC_SUPPORT_URL', 'mailto:hello@dricinterior.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -103,17 +103,17 @@ return [
     |
     */
 
-    'custom_cms_name' => env('STATAMIC_CUSTOM_CMS_NAME', 'Statamic'),
+    'custom_cms_name' => env('STATAMIC_CUSTOM_CMS_NAME', 'Dric Interior'),
 
-    'custom_logo_url' => env('STATAMIC_CUSTOM_LOGO_URL', null),
+    'custom_logo_url' => env('STATAMIC_CUSTOM_LOGO_URL', '/golden-dric-logo.png'),
 
-    'custom_dark_logo_url' => env('STATAMIC_CUSTOM_DARK_LOGO_URL', null),
+    'custom_dark_logo_url' => env('STATAMIC_CUSTOM_DARK_LOGO_URL', '/golden-dric-logo.png'),
 
-    'custom_logo_text' => env('STATAMIC_CUSTOM_LOGO_TEXT', null),
+    'custom_logo_text' => env('STATAMIC_CUSTOM_LOGO_TEXT', 'Dric Interior'),
 
-    'custom_favicon_url' => env('STATAMIC_CUSTOM_FAVICON_URL', null),
+    'custom_favicon_url' => env('STATAMIC_CUSTOM_FAVICON_URL', '/golden-dric-logo.png'),
 
-    'custom_css_url' => env('STATAMIC_CUSTOM_CSS_URL', null),
+    'custom_css_url' => env('STATAMIC_CUSTOM_CSS_URL', '/css/cp-brand.css'),
 
     /*
     |--------------------------------------------------------------------------

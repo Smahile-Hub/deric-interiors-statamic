@@ -119,3 +119,8 @@ sections:
       -
         handle: about_cta_background_alt
         field: { type: text, display: "Background Image Alt" }
+  seo:
+    display: SEO
+    fields:
+      -
+        import: seo

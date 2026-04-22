@@ -1,0 +1,17 @@
+.outside .white-label-logo {
+    max-height: 76px;
+    max-width: 220px;
+    object-fit: contain;
+}
+
+.outside .auth-card,
+.outside [class*="auth"] {
+    --tw-ring-color: rgba(196, 143, 32, 0.24);
+}
+
+.outside button[type="submit"],
+.outside .btn-primary {
+    background: linear-gradient(135deg, #f2bd20, #b77812) !important;
+    border-color: #d99b16 !important;
+    color: #151515 !important;
+}

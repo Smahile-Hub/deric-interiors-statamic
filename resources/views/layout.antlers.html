@@ -3,9 +3,224 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ title ?? site:name }} | {{ site:name }}</title>
-  <meta name="description" content="{{ meta_description ?? site:description }}">
-  <link rel="icon" href="/favicon.ico">
+  {{ if url == "/" }}
+    <title>{{ seo_title ?? settings:site_title }} — {{ settings:site_description }}</title>
+  {{ else }}
+    <title>{{ seo_title ?? title }} | {{ settings:site_title }}</title>
+  {{ /if }}
+  <meta name="description" content="{{ meta_description ?? excerpt ?? hero_subtext ?? settings:site_description }}">
+  {{ if noindex }}
+    <meta name="robots" content="noindex,nofollow">
+  {{ else }}
+    <meta name="robots" content="index,follow,max-image-preview:large">
+  {{ /if }}
+  <link rel="canonical" href="{{ canonical_url ?? settings:canonical_base_url }}{{ unless canonical_url }}{{ url }}{{ /unless }}">
+  <link rel="icon" type="image/png" href="/golden-dric-logo.png">
+  <link rel="apple-touch-icon" href="/golden-dric-logo.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0d0f14">
+  <meta property="og:site_name" content="{{ settings:site_title }}">
+  <meta property="og:title" content="{{ seo_title ?? title ?? settings:site_title }}">
+  <meta property="og:description" content="{{ meta_description ?? excerpt ?? hero_subtext ?? settings:site_description }}">
+  <meta property="og:url" content="{{ canonical_url ?? settings:canonical_base_url }}{{ unless canonical_url }}{{ url }}{{ /unless }}">
+  <meta property="og:type" content="{{ if collection == 'blog' }}article{{ else }}website{{ /if }}">
+  <meta property="og:image" content="{{ settings:canonical_base_url }}{{ seo_image ?? cover_image_url ?? hero_image ?? settings:default_og_image ?? settings:logo_url }}">
+  <meta property="og:image:alt" content="{{ seo_image_alt ?? cover_image_alt ?? hero_image_alt ?? settings:logo_alt ?? settings:site_title }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ seo_title ?? title ?? settings:site_title }}">
+  <meta name="twitter:description" content="{{ meta_description ?? excerpt ?? hero_subtext ?? settings:site_description }}">
+  <meta name="twitter:image" content="{{ settings:canonical_base_url }}{{ seo_image ?? cover_image_url ?? hero_image ?? settings:default_og_image ?? settings:logo_url }}">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  {{ if collection == "blog" }}
+    <meta property="article:published_time" content="{{ date format='c' }}">
+    <meta property="article:modified_time" content="{{ date format='c' }}">
+    <meta property="article:author" content="{{ author ?? settings:business_name }}">
+    {{ if category }}<meta property="article:section" content="{{ category }}">{{ /if }}
+    {{ seo_keywords }}<meta property="article:tag" content="{{ value }}">
+    {{ /seo_keywords }}
+    <meta name="author" content="{{ author ?? settings:business_name }}">
+    <meta name="keywords" content="{{ seo_keywords }}{{ value }}{{ unless last }}, {{ /unless }}{{ /seo_keywords }}">
+  {{ /if }}
+  <meta name="geo.region" content="{{ settings:business_country }}">
+  <meta name="geo.placename" content="{{ settings:business_city }}, {{ settings:business_region }}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
+    "@id": "{{ settings:canonical_base_url }}/#business",
+    "name": "{{ settings:business_name ?? settings:site_title }}",
+    "url": "{{ settings:canonical_base_url }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ settings:canonical_base_url }}{{ settings:logo_url }}",
+      "width": {{ settings:logo_width ?? 280 }},
+      "height": {{ settings:logo_height ?? 96 }}
+    },
+    "image": "{{ settings:canonical_base_url }}{{ settings:default_og_image ?? settings:logo_url }}",
+    "description": "{{ settings:site_description }}",
+    "telephone": "{{ settings:business_phone ?? settings:top_bar_phone }}",
+    "email": "{{ settings:business_email ?? settings:top_bar_email }}",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{ settings:business_street_address }}",
+      "addressLocality": "{{ settings:business_city }}",
+      "addressRegion": "{{ settings:business_region }}",
+      "addressCountry": "{{ settings:business_country }}"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "{{ settings:business_city }}"
+    },
+    "currenciesAccepted": "NGN",
+    "priceRange": "{{ settings:business_price_range ?? '$$$' }}",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    ],
+    "sameAs": [
+      {{ settings:social_links }}"{{ href }}"{{ unless last }},{{ /unless }}
+      {{ /settings:social_links }}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "{{ settings:site_title }}",
+    "url": "{{ settings:canonical_base_url }}",
+    "description": "{{ settings:site_description }}",
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ settings:business_name ?? settings:site_title }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ settings:canonical_base_url }}{{ settings:logo_url }}"
+      }
+    }
+  }
+  </script>
+  {{ if url != "/" }}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ settings:canonical_base_url }}/"
+        }{{ if collection == "blog" }},
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Journal",
+          "item": "{{ settings:canonical_base_url }}/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "{{ title }}",
+          "item": "{{ settings:canonical_base_url }}{{ url }}"
+        }
+        {{ else }},
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{{ title }}",
+          "item": "{{ canonical_url ?? settings:canonical_base_url }}{{ unless canonical_url }}{{ url }}{{ /unless }}"
+        }
+        {{ /if }}
+      ]
+    }
+    </script>
+  {{ /if }}
+  {{ if collection == "blog" }}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "@id": "{{ settings:canonical_base_url }}{{ url }}#article",
+      "headline": "{{ seo_title ?? title }}",
+      "description": "{{ meta_description ?? excerpt }}",
+      "image": {
+        "@type": "ImageObject",
+        "url": "{{ settings:canonical_base_url }}{{ seo_image ?? cover_image_url ?? settings:default_og_image }}",
+        "width": 1200,
+        "height": 630
+      },
+      "datePublished": "{{ date format='c' }}",
+      "dateModified": "{{ date format='c' }}",
+      "author": {
+        "@type": "Organization",
+        "@id": "{{ settings:canonical_base_url }}/#business",
+        "name": "{{ author ?? settings:business_name ?? settings:site_title }}"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "{{ settings:canonical_base_url }}/#business",
+        "name": "{{ settings:business_name ?? settings:site_title }}",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{{ settings:canonical_base_url }}{{ settings:logo_url }}"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ settings:canonical_base_url }}{{ url }}"
+      },
+      "url": "{{ settings:canonical_base_url }}{{ url }}",
+      "articleSection": "{{ category }}",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "Blog",
+        "@id": "{{ settings:canonical_base_url }}/blog#blog",
+        "name": "{{ settings:site_title }} Journal"
+      }
+    }
+    </script>
+  {{ /if }}
+  {{ if template == "shop" }}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "{{ title }}",
+      "itemListElement": [
+        {{ products }}
+          {
+            "@type": "ListItem",
+            "position": {{ count }},
+            "item": {
+              "@type": "Product",
+              "name": "{{ title }}",
+              "image": "{{ settings:canonical_base_url }}{{ image }}",
+              "description": "{{ description }}",
+              "category": "{{ category }}",
+              "brand": {
+                "@type": "Brand",
+                "name": "{{ settings:business_name ?? settings:site_title }}"
+              }
+            }
+          }{{ unless last }},{{ /unless }}
+        {{ /products }}
+      ]
+    }
+    </script>
+  {{ /if }}
+  {{ if template == "home" && hero_image }}
+    <link rel="preload" as="image" href="{{ hero_image }}" fetchpriority="high">
+  {{ /if }}
+  {{ if collection == "blog" && cover_image_url }}
+    <link rel="preload" as="image" href="{{ cover_image_url }}" fetchpriority="high">
+  {{ /if }}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="/css/site.css">
@@ -69,23 +284,28 @@
         <div class="header-actions">
           <div class="action-icons" aria-label="Action links">
             {{ settings:action_links }}
-              <a href="{{ href }}" aria-label="{{ label }}">
-                {{ if icon == 'aperture' }}
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m14.31 8 5.74 9.94"/><path d="M9.69 8h11.48"/><path d="m7.38 12 5.74-9.94"/><path d="M9.69 16 3.95 6.06"/><path d="M14.31 16H2.83"/><path d="m16.62 12-5.74 9.94"/></svg>
-                {{ elseif icon == 'grid' }}
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
-                {{ elseif icon == 'shopping-bag' }}
+              {{ if icon == 'shopping-bag' }}
+                <button type="button" class="cart-nav-btn" data-cart-open aria-label="{{ label }}">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-                {{ elseif icon == 'shopping-cart' }}
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-                {{ elseif icon == 'mail' }}
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
-                {{ elseif icon == 'phone' }}
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.05 6.05l1.22-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                {{ else }}
-                  {{ label }}
-                {{ /if }}
-              </a>
+                  <span class="cart-nav-badge" data-cart-count hidden>0</span>
+                </button>
+              {{ else }}
+                <a href="{{ href }}" aria-label="{{ label }}">
+                  {{ if icon == 'aperture' }}
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m14.31 8 5.74 9.94"/><path d="M9.69 8h11.48"/><path d="m7.38 12 5.74-9.94"/><path d="M9.69 16 3.95 6.06"/><path d="M14.31 16H2.83"/><path d="m16.62 12-5.74 9.94"/></svg>
+                  {{ elseif icon == 'grid' }}
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+                  {{ elseif icon == 'shopping-cart' }}
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                  {{ elseif icon == 'mail' }}
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+                  {{ elseif icon == 'phone' }}
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.05 6.05l1.22-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  {{ else }}
+                    {{ label }}
+                  {{ /if }}
+                </a>
+              {{ /if }}
             {{ /settings:action_links }}
           </div>
           <a href="{{ settings:primary_cta_href }}" class="btn-primary">{{ settings:primary_cta_label }}</a>
@@ -192,6 +412,47 @@
   </footer>
 
   <div
+    class="cart-backdrop"
+    data-cart-backdrop
+    hidden
+    aria-hidden="true"
+  ></div>
+
+  <aside
+    class="cart-drawer"
+    data-cart-drawer
+    data-open="false"
+    data-checkout-phone="{{ settings:top_bar_phone }}"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Shopping cart"
+  >
+    <div class="cart-drawer-inner">
+      <div class="cart-drawer-header">
+        <h2>Your Cart</h2>
+        <button type="button" class="cart-close-btn" data-cart-close aria-label="Close cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="cart-empty" data-cart-empty>
+        <p>Your cart is empty.</p>
+        <span>Browse the shop and add pieces you love.</span>
+      </div>
+
+      <ul class="cart-list" data-cart-list></ul>
+
+      <div class="cart-footer" data-cart-footer hidden>
+        <p><span data-cart-count-text>0 items</span> in your cart</p>
+        <button type="button" class="cart-whatsapp-btn" data-cart-checkout>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          Order via WhatsApp
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <div
     id="page-transition-overlay"
     class="page-transition-overlay"
     data-state="idle"
@@ -255,6 +516,184 @@
       if (prev) prev.addEventListener('click', () => rail.scrollBy({ left: -step, behavior: 'smooth' }));
       if (next) next.addEventListener('click', () => rail.scrollBy({ left: step, behavior: 'smooth' }));
     });
+
+    // Cart drawer, matching the Next.js shopping-bag behaviour.
+    (() => {
+      const STORAGE_KEY = 'dric-cart';
+      const drawer = document.querySelector('[data-cart-drawer]');
+      const backdrop = document.querySelector('[data-cart-backdrop]');
+      const list = document.querySelector('[data-cart-list]');
+      const empty = document.querySelector('[data-cart-empty]');
+      const footer = document.querySelector('[data-cart-footer]');
+      const checkout = document.querySelector('[data-cart-checkout]');
+      const countText = document.querySelector('[data-cart-count-text]');
+      const countBadges = document.querySelectorAll('[data-cart-count]');
+      const openButtons = document.querySelectorAll('[data-cart-open]');
+      const closeButtons = document.querySelectorAll('[data-cart-close]');
+
+      if (!drawer || !list || !empty || !footer) {
+        return;
+      }
+
+      const readCart = () => {
+        try {
+          return JSON.parse(window.localStorage.getItem(STORAGE_KEY) || '{}');
+        } catch (error) {
+          return {};
+        }
+      };
+
+      const writeCart = (cart) => {
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
+      };
+
+      const cartKey = (product) => (
+        product.id ||
+        `${product.category}-${product.title}`
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/^-+|-+$/g, '')
+      );
+
+      const escapeHtml = (value) => String(value || '').replace(/[&<>"']/g, (char) => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+      }[char]));
+
+      const getItems = () => Object.entries(readCart())
+        .filter(([, item]) => item && item.quantity > 0)
+        .map(([key, item]) => ({ key, ...item }));
+
+      const getCount = (items) => items.reduce((sum, item) => sum + item.quantity, 0);
+
+      const setOpen = (open) => {
+        drawer.dataset.open = open ? 'true' : 'false';
+        if (backdrop) {
+          backdrop.hidden = !open;
+        }
+        document.documentElement.classList.toggle('cart-is-open', open);
+      };
+
+      const updateQuantity = (key, delta) => {
+        const cart = readCart();
+        const item = cart[key];
+        if (!item) return;
+
+        const next = item.quantity + delta;
+        if (next <= 0) {
+          delete cart[key];
+        } else {
+          cart[key].quantity = next;
+        }
+
+        writeCart(cart);
+        renderCart();
+      };
+
+      const renderCart = () => {
+        const items = getItems();
+        const count = getCount(items);
+
+        countBadges.forEach((badge) => {
+          badge.textContent = count > 9 ? '9+' : String(count);
+          badge.hidden = count === 0;
+        });
+
+        if (countText) {
+          countText.textContent = `${count} item${count === 1 ? '' : 's'}`;
+        }
+
+        empty.hidden = items.length > 0;
+        footer.hidden = items.length === 0;
+
+        list.innerHTML = items.map((item) => `
+          <li class="cart-item">
+            <div class="cart-item-image">
+              ${item.product.image ? `<img src="${escapeHtml(item.product.image)}" alt="${escapeHtml(item.product.title)}">` : ''}
+            </div>
+            <div class="cart-item-info">
+              <p class="cart-item-category">${escapeHtml(item.product.category)}</p>
+              <p class="cart-item-title">${escapeHtml(item.product.title)}</p>
+              <p class="cart-item-price">${escapeHtml(item.product.price)}</p>
+            </div>
+            <div class="cart-item-controls">
+              <button type="button" class="cart-qty-btn" data-cart-qty="${escapeHtml(item.key)}" data-delta="-1" aria-label="Decrease quantity">-</button>
+              <span class="cart-qty-value">${item.quantity}</span>
+              <button type="button" class="cart-qty-btn" data-cart-qty="${escapeHtml(item.key)}" data-delta="1" aria-label="Increase quantity">+</button>
+            </div>
+          </li>
+        `).join('');
+      };
+
+      document.addEventListener('click', (event) => {
+        const addButton = event.target.closest('[data-cart-add]');
+        if (!addButton) return;
+
+        const product = {
+          id: addButton.dataset.productId || '',
+          title: addButton.dataset.productTitle || '',
+          category: addButton.dataset.productCategory || '',
+          price: addButton.dataset.productPrice || '',
+          image: addButton.dataset.productImage || ''
+        };
+        const key = cartKey(product);
+        const cart = readCart();
+
+        cart[key] = {
+          product,
+          quantity: (cart[key]?.quantity || 0) + 1
+        };
+
+        writeCart(cart);
+        renderCart();
+        setOpen(true);
+      });
+
+      list.addEventListener('click', (event) => {
+        const qtyButton = event.target.closest('[data-cart-qty]');
+        if (!qtyButton) return;
+        updateQuantity(qtyButton.dataset.cartQty, Number(qtyButton.dataset.delta || 0));
+      });
+
+      openButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          renderCart();
+          setOpen(true);
+        });
+      });
+
+      closeButtons.forEach((button) => button.addEventListener('click', () => setOpen(false)));
+      if (backdrop) {
+        backdrop.addEventListener('click', () => setOpen(false));
+      }
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          setOpen(false);
+        }
+      });
+
+      checkout?.addEventListener('click', () => {
+        const items = getItems();
+        if (!items.length) return;
+
+        const lines = [
+          "Hello Dric Interior! I'd like to order the following:",
+          '',
+          ...items.map((item) => `- ${item.product.title} (${item.product.category}) - ${item.product.price} x ${item.quantity}`),
+          '',
+          'Please send me payment and delivery details. Thank you!'
+        ];
+
+        const phone = (drawer.dataset.checkoutPhone || '').replace(/\D/g, '');
+        const url = `https://api.whatsapp.com/send/?phone=${phone}&text=${encodeURIComponent(lines.join('\n'))}&type=phone_number&app_absent=0`;
+        window.open(url, '_blank', 'noopener,noreferrer');
+      });
+
+      renderCart();
+    })();
 
     // Page transition overlay
     (() => {

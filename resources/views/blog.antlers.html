@@ -10,7 +10,7 @@
 
         <div class="journal-post-meta">
           <strong>{{ author }}</strong>
-          <span>{{ date format="F j, Y" }}</span>
+          <time datetime="{{ date format='Y-m-d' }}">{{ date format="F j, Y" }}</time>
           <span>{{ reading_minutes ?? reading_time }}</span>
         </div>
       </div>
@@ -21,14 +21,35 @@
           src="{{ cover_image_url ?? image }}"
           alt="{{ cover_image_alt ?? title }}"
           loading="eager"
+          fetchpriority="high"
+          decoding="async"
         >
       </div>
     </section>
 
-    <section class="journal-post-content-wrap" data-reveal>
-      <div class="journal-post-prose">
-        {{ content }}
-      </div>
+    <section class="journal-post-content-wrap">
+      {{ if content_blocks }}
+        {{ content_blocks }}
+          {{ if type == "text_block" }}
+            <div class="journal-post-prose" data-reveal>
+              {{ text }}
+            </div>
+          {{ elseif type == "image_block" }}
+            <figure class="journal-post-block-image" data-reveal>
+              {{ image }}
+                <img src="{{ url }}" alt="{{ caption ?? title }}" loading="lazy">
+              {{ /image }}
+              {{ if caption }}
+                <figcaption class="journal-post-block-caption">{{ caption }}</figcaption>
+              {{ /if }}
+            </figure>
+          {{ /if }}
+        {{ /content_blocks }}
+      {{ elseif content }}
+        <div class="journal-post-prose" data-reveal>
+          {{ content }}
+        </div>
+      {{ /if }}
     </section>
   </article>
 

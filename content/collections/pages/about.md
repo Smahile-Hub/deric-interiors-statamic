@@ -4,6 +4,10 @@ title: About
 blueprint: about
 template: about
 slug: about
+seo_title: About Dric Interior
+meta_description: Learn about Dric Interior's approach to luxury interiors, bespoke curation, material mastery, and soulful spaces designed around each client.
+seo_image: interior-about-hero.jpg
+seo_image_alt: Refined Dric Interior space with architectural detail
 about_hero_eyebrow: The Experience You Need
 about_hero_title_line_one: Curating Spaces
 about_hero_accent_word: Intention

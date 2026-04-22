@@ -15,6 +15,25 @@ sections:
           type: textarea
           display: Site Description
       -
+        handle: canonical_base_url
+        field:
+          type: text
+          display: Canonical Site URL
+          instructions: "Use the public canonical domain, for example https://dricinterior.com. No trailing slash."
+      -
+        handle: site_url
+        field:
+          type: text
+          display: Legacy Site URL
+          instructions: "Kept for compatibility. Use the Canonical Site URL field above for SEO."
+      -
+        handle: default_og_image
+        field:
+          type: assets
+          display: Default Social Share Image
+          container: assets
+          max_files: 1
+      -
         handle: logo_url
         field:
           type: assets
@@ -47,6 +66,46 @@ sections:
           type: text
           display: Phone (Top Bar)
       -
+        handle: business_name
+        field:
+          type: text
+          display: Business Name
+      -
+        handle: business_email
+        field:
+          type: text
+          display: Business Email
+      -
+        handle: business_phone
+        field:
+          type: text
+          display: Business Phone
+      -
+        handle: business_street_address
+        field:
+          type: text
+          display: Business Street Address
+      -
+        handle: business_city
+        field:
+          type: text
+          display: Business City
+      -
+        handle: business_region
+        field:
+          type: text
+          display: Business Region/State
+      -
+        handle: business_country
+        field:
+          type: text
+          display: Business Country Code
+      -
+        handle: business_price_range
+        field:
+          type: text
+          display: Business Price Range
+      -
         handle: nav_items
         field:
           type: grid
@@ -65,7 +124,7 @@ sections:
           type: grid
           display: Header Action Icons
           add_row: Add Action
-          instructions: "Supported icons: aperture, grid, shopping-bag, shopping-cart, mail, phone."
+          instructions: "Supported icons: aperture, grid, shopping-cart, shopping-bag, mail, phone. The shopping-bag icon opens the cart drawer like the Next.js site."
           fields:
             -
               handle: label

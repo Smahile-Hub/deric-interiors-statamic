@@ -13,8 +13,45 @@ sections:
         handle: excerpt
         field: { type: textarea, display: Excerpt }
       -
+        handle: content_blocks
+        field:
+          type: replicator
+          display: "Article Content"
+          button_label: "Add Block"
+          sets:
+            text_block:
+              display: "Paragraph / Text"
+              fields:
+                - handle: text
+                  field:
+                    type: markdown
+                    display: Content
+                    buttons:
+                      - bold
+                      - italic
+                      - unorderedlist
+                      - orderedlist
+                      - quote
+                      - anchor
+                      - h2
+                      - h3
+            image_block:
+              display: "Image"
+              fields:
+                - handle: image
+                  field:
+                    type: assets
+                    display: Image
+                    container: assets
+                    max_files: 1
+                    required: true
+                - handle: caption
+                  field:
+                    type: text
+                    display: "Caption (optional)"
+      -
         handle: content
-        field: { type: markdown, display: Article Body }
+        field: { type: markdown, display: "Article Body (Legacy)" }
   details:
     display: Details
     fields:
@@ -44,3 +81,15 @@ sections:
         field:
           type: list
           display: "SEO Keywords"
+      -
+        handle: seo_image
+        field: { type: assets, display: "Social Share Image", container: assets, max_files: 1 }
+      -
+        handle: seo_image_alt
+        field: { type: text, display: "Social Share Image Alt Text" }
+      -
+        handle: canonical_url
+        field: { type: text, display: "Canonical URL" }
+      -
+        handle: noindex
+        field: { type: toggle, display: "Hide From Search Engines" }

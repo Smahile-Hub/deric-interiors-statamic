@@ -1,0 +1,25 @@
+{
+  "name": "Dric Interior",
+  "short_name": "Dric",
+  "description": "Bespoke interior design studio creating timeless, highly tailored living spaces.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d0f14",
+  "theme_color": "#0d0f14",
+  "lang": "en",
+  "categories": ["lifestyle", "design", "home"],
+  "icons": [
+    {
+      "src": "/golden-dric-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/golden-dric-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -1,5 +1,16 @@
 site_title: 'Dric Interior'
 site_description: 'Bespoke interior design studio creating timeless, highly tailored living spaces.'
+canonical_base_url: 'https://dricinterior.com'
+site_url: 'https://dricinterior.com'
+default_og_image: interior-hero.jpg
+business_name: 'Dric Interior'
+business_email: hello@dricinterior.com
+business_phone: '+234 813 533 3616'
+business_street_address: 'Dric Interior Studio'
+business_city: Lagos
+business_region: Lagos
+business_country: NG
+business_price_range: $$$
 logo_url: golden-dric-logo-r6k1seya9172a7vhr2uxfqz5gnu7hd3xzglz41mfkc.png
 logo_alt: 'Dric Interior logo'
 logo_width: 280
