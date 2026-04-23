@@ -1,29 +1,76 @@
-title: Projects Page
+title: 'Projects Page'
 sections:
   hero:
     display: Hero
     fields:
       -
         handle: title
-        field: { type: text, display: "Page Title", required: true }
+        field:
+          type: text
+          display: 'Page Title'
+          required: true
+      -
+        handle: title_text_style
+        field:
+          type: text_style
+          display: 'Page Title Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: projects_hero_eyebrow
-        field: { type: text, display: Eyebrow }
+        field:
+          type: text
+          display: Eyebrow
+      -
+        handle: projects_hero_eyebrow_text_style
+        field:
+          type: text_style
+          display: 'Eyebrow Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: projects_hero_title_line_one
-        field: { type: text, display: "Title Line One" }
+        field:
+          type: text
+          display: 'Title Line One'
+      -
+        handle: projects_hero_title_line_one_text_style
+        field:
+          type: text_style
+          display: 'Title Line One Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: projects_hero_title_line_two
-        field: { type: text, display: "Title Line Two" }
+        field:
+          type: text
+          display: 'Title Line Two'
+      -
+        handle: projects_hero_title_line_two_text_style
+        field:
+          type: text_style
+          display: 'Title Line Two Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: projects_hero_description
-        field: { type: textarea, display: Description }
+        field:
+          type: textarea
+          display: Description
+      -
+        handle: projects_hero_description_text_style
+        field:
+          type: text_style
+          display: 'Description Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: projects_hero_background_image
-        field: { type: assets, display: "Background Image", container: assets, max_files: 1 }
+        field:
+          type: assets
+          display: 'Background Image'
+          container: assets
+          max_files: 1
       -
         handle: projects_hero_background_alt
-        field: { type: text, display: "Background Image Alt" }
+        field:
+          type: text
+          display: 'Background Image Alt'
   filters:
     display: Filters
     fields:
@@ -31,8 +78,14 @@ sections:
         handle: projects_filters
         field:
           type: list
-          display: Filter Labels
-          instructions: One filter label per line.
+          display: 'Filter Labels'
+          instructions: 'One filter label per line.'
+      -
+        handle: projects_filters_text_style
+        field:
+          type: text_style
+          display: 'Filter Labels Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
   gallery:
     display: Gallery
     fields:
@@ -40,18 +93,42 @@ sections:
         handle: project_items
         field:
           type: grid
-          display: Project Items
-          add_row: Add Project
+          display: 'Project Items'
+          add_row: 'Add Project'
           fields:
             -
               handle: id
-              field: { type: text, display: ID }
+              field:
+                type: text
+                display: ID
+            -
+              handle: id_text_style
+              field:
+                type: text_style
+                display: 'ID Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: title
-              field: { type: text, display: Title }
+              field:
+                type: text
+                display: Title
+            -
+              handle: title_text_style
+              field:
+                type: text_style
+                display: 'Title Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: excerpt
-              field: { type: textarea, display: Excerpt }
+              field:
+                type: textarea
+                display: Excerpt
+            -
+              handle: excerpt_text_style
+              field:
+                type: text_style
+                display: 'Excerpt Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: category
               field:
@@ -65,7 +142,7 @@ sections:
               handle: size
               field:
                 type: select
-                display: Card Size
+                display: 'Card Size'
                 default: medium
                 options:
                   large: Large
@@ -73,37 +150,95 @@ sections:
                   small: Small
             -
               handle: image
-              field: { type: assets, display: "Image", container: assets, max_files: 1 }
+              field:
+                type: assets
+                display: Image
+                container: assets
+                max_files: 1
             -
               handle: image_alt
-              field: { type: text, display: "Image Alt" }
+              field:
+                type: text
+                display: 'Image Alt'
             -
               handle: link_label
-              field: { type: text, display: "Link Label" }
+              field:
+                type: text
+                display: 'Link Label'
+            -
+              handle: link_label_text_style
+              field:
+                type: text_style
+                display: 'Link Label Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: link_href
-              field: { type: text, display: "Link URL" }
+              field:
+                type: text
+                display: 'Link URL'
       -
         handle: projects_empty_state
-        field: { type: text, display: "Empty State Message" }
+        field:
+          type: text
+          display: 'Empty State Message'
+      -
+        handle: projects_empty_state_text_style
+        field:
+          type: text_style
+          display: 'Empty State Message Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
   cta:
-    display: Final CTA
+    display: 'Final CTA'
     fields:
       -
         handle: projects_cta_title_line_one
-        field: { type: text, display: "CTA Title Line One" }
+        field:
+          type: text
+          display: 'CTA Title Line One'
+      -
+        handle: projects_cta_title_line_one_text_style
+        field:
+          type: text_style
+          display: 'CTA Title Line One Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: projects_cta_title_line_two
-        field: { type: text, display: "CTA Title Line Two" }
+        field:
+          type: text
+          display: 'CTA Title Line Two'
+      -
+        handle: projects_cta_title_line_two_text_style
+        field:
+          type: text_style
+          display: 'CTA Title Line Two Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: projects_cta_title_line_three
-        field: { type: text, display: "CTA Title Line Three" }
+        field:
+          type: text
+          display: 'CTA Title Line Three'
+      -
+        handle: projects_cta_title_line_three_text_style
+        field:
+          type: text_style
+          display: 'CTA Title Line Three Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: projects_cta_button_label
-        field: { type: text, display: "CTA Button Label" }
+        field:
+          type: text
+          display: 'CTA Button Label'
+      -
+        handle: projects_cta_button_label_text_style
+        field:
+          type: text_style
+          display: 'CTA Button Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: projects_cta_button_href
-        field: { type: text, display: "CTA Button URL" }
+        field:
+          type: text
+          display: 'CTA Button URL'
   seo:
     display: SEO
     fields:

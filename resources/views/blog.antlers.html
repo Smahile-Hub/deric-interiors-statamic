@@ -4,14 +4,14 @@
   <article>
     <section class="journal-post-hero">
       <div class="journal-post-hero-copy" data-reveal>
-        <p>{{ category }}</p>
-        <h1>{{ title }}</h1>
-        <span>{{ excerpt }}</span>
+        <p data-text-control data-text-size-step="{{ category_text_style:size }}" data-text-height-step="{{ category_text_style:height }}" data-text-width-step="{{ category_text_style:width }}">{{ category }}</p>
+        <h1 data-text-control data-text-size-step="{{ title_text_style:size }}" data-text-height-step="{{ title_text_style:height }}" data-text-width-step="{{ title_text_style:width }}">{{ title }}</h1>
+        <span data-text-control data-text-size-step="{{ excerpt_text_style:size }}" data-text-height-step="{{ excerpt_text_style:height }}" data-text-width-step="{{ excerpt_text_style:width }}">{{ excerpt }}</span>
 
         <div class="journal-post-meta">
-          <strong>{{ author }}</strong>
+          <strong data-text-control data-text-size-step="{{ author_text_style:size }}" data-text-height-step="{{ author_text_style:height }}" data-text-width-step="{{ author_text_style:width }}">{{ author }}</strong>
           <time datetime="{{ date format='Y-m-d' }}">{{ date format="F j, Y" }}</time>
-          <span>{{ reading_minutes ?? reading_time }}</span>
+          <span data-text-control data-text-size-step="{{ reading_minutes_text_style:size }}" data-text-height-step="{{ reading_minutes_text_style:height }}" data-text-width-step="{{ reading_minutes_text_style:width }}">{{ reading_minutes ?? reading_time }}</span>
         </div>
       </div>
 
@@ -31,7 +31,7 @@
       {{ if content_blocks }}
         {{ content_blocks }}
           {{ if type == "text_block" }}
-            <div class="journal-post-prose" data-reveal>
+            <div class="journal-post-prose" data-reveal data-text-control data-text-size-step="{{ text_text_style:size }}" data-text-height-step="{{ text_text_style:height }}" data-text-width-step="{{ text_text_style:width }}">
               {{ text }}
             </div>
           {{ elseif type == "image_block" }}
@@ -40,13 +40,13 @@
                 <img src="{{ url }}" alt="{{ caption ?? title }}" loading="lazy">
               {{ /image }}
               {{ if caption }}
-                <figcaption class="journal-post-block-caption">{{ caption }}</figcaption>
+                <figcaption class="journal-post-block-caption" data-text-control data-text-size-step="{{ caption_text_style:size }}" data-text-height-step="{{ caption_text_style:height }}" data-text-width-step="{{ caption_text_style:width }}">{{ caption }}</figcaption>
               {{ /if }}
             </figure>
           {{ /if }}
         {{ /content_blocks }}
       {{ elseif content }}
-        <div class="journal-post-prose" data-reveal>
+        <div class="journal-post-prose" data-reveal data-text-control data-text-size-step="{{ content_text_style:size }}" data-text-height-step="{{ content_text_style:height }}" data-text-width-step="{{ content_text_style:width }}">
           {{ content }}
         </div>
       {{ /if }}
@@ -64,8 +64,8 @@
         {{ collection:blog sort="date:desc" limit="3" }}
           {{ if id != current_entry_id }}
             <article class="journal-related-card" data-reveal style="--stagger-index: {{ index }};">
-              <h3>{{ title }}</h3>
-              <p>{{ excerpt }}</p>
+              <h3 data-text-control data-text-size-step="{{ title_text_style:size }}" data-text-height-step="{{ title_text_style:height }}" data-text-width-step="{{ title_text_style:width }}">{{ title }}</h3>
+              <p data-text-control data-text-size-step="{{ excerpt_text_style:size }}" data-text-height-step="{{ excerpt_text_style:height }}" data-text-width-step="{{ excerpt_text_style:width }}">{{ excerpt }}</p>
               <a href="{{ url }}">Read article</a>
             </article>
           {{ /if }}

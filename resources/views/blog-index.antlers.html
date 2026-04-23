@@ -1,9 +1,9 @@
 <div class="journal-page">
   <section class="journal-hero">
     <div class="journal-hero-inner" data-reveal>
-      <p>{{ blog_hero_eyebrow }}</p>
-      <h1>{{ blog_hero_title }}</h1>
-      <span>{{ blog_hero_description }}</span>
+      <p data-text-control data-text-size-step="{{ blog_hero_eyebrow_text_style:size }}" data-text-height-step="{{ blog_hero_eyebrow_text_style:height }}" data-text-width-step="{{ blog_hero_eyebrow_text_style:width }}">{{ blog_hero_eyebrow }}</p>
+      <h1 data-text-control data-text-size-step="{{ blog_hero_title_text_style:size }}" data-text-height-step="{{ blog_hero_title_text_style:height }}" data-text-width-step="{{ blog_hero_title_text_style:width }}">{{ blog_hero_title }}</h1>
+      <span data-text-control data-text-size-step="{{ blog_hero_description_text_style:size }}" data-text-height-step="{{ blog_hero_description_text_style:height }}" data-text-width-step="{{ blog_hero_description_text_style:width }}">{{ blog_hero_description }}</span>
     </div>
   </section>
 
@@ -23,15 +23,15 @@
 
             <div class="journal-card-copy">
               <div class="journal-meta-row">
-                <span>{{ category }}</span>
+                <span data-text-control data-text-size-step="{{ category_text_style:size }}" data-text-height-step="{{ category_text_style:height }}" data-text-width-step="{{ category_text_style:width }}">{{ category }}</span>
                 <span>{{ date format="F j, Y" }}</span>
               </div>
 
-              <h2>{{ title }}</h2>
-              <p>{{ excerpt }}</p>
+              <h2 data-text-control data-text-size-step="{{ title_text_style:size }}" data-text-height-step="{{ title_text_style:height }}" data-text-width-step="{{ title_text_style:width }}">{{ title }}</h2>
+              <p data-text-control data-text-size-step="{{ excerpt_text_style:size }}" data-text-height-step="{{ excerpt_text_style:height }}" data-text-width-step="{{ excerpt_text_style:width }}">{{ excerpt }}</p>
 
               <div class="journal-meta-footer">
-                <span>{{ reading_minutes ?? reading_time }}</span>
+                <span data-text-control data-text-size-step="{{ reading_minutes_text_style:size }}" data-text-height-step="{{ reading_minutes_text_style:height }}" data-text-width-step="{{ reading_minutes_text_style:width }}">{{ reading_minutes ?? reading_time }}</span>
                 <span class="journal-read-link">Read article</span>
               </div>
             </div>

@@ -1,3 +1,15 @@
 {
-    "Sign into your Statamic Control Panel": "Sign into your Dric Interior Control Panel"
+    "Sign into your Statamic Control Panel": "Sign into your Dric Interior Control Panel",
+    "Read the Documentation": "Open the Editor Guide",
+    "Enable Pro Mode": "Advanced Features",
+    "Create a Blueprint": "Manage Page Fields",
+    "Create a Collection": "Create Content Section",
+    "Create a Navigation": "Create Menu",
+    "statamic::messages.getting_started_widget_header": "Welcome to Dric Interior Admin",
+    "statamic::messages.getting_started_widget_intro": "Use the sidebar to update pages, publish journal posts, manage shop content, upload media, and review enquiries.",
+    "statamic::messages.getting_started_widget_docs": "A simple guide area for learning how to manage the website content.",
+    "statamic::messages.getting_started_widget_pro": "Advanced tools are reserved for the development team.",
+    "statamic::messages.blueprints_intro": "Page fields control how editable content is organized.",
+    "statamic::messages.getting_started_widget_collections": "Create and organize website content sections.",
+    "statamic::messages.getting_started_widget_navigation": "Create and organize menu links."
 }

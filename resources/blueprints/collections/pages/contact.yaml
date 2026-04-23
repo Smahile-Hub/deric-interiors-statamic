@@ -1,156 +1,471 @@
-title: Contact Page
+title: 'Contact Page'
 sections:
   hero:
     display: Hero
     fields:
       -
         handle: title
-        field: { type: text, display: "Page Title", required: true }
+        field:
+          type: text
+          display: 'Page Title'
+          required: true
+      -
+        handle: title_text_style
+        field:
+          type: text_style
+          display: 'Page Title Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_hero_eyebrow
-        field: { type: text, display: Eyebrow }
+        field:
+          type: text
+          display: Eyebrow
+      -
+        handle: contact_hero_eyebrow_text_style
+        field:
+          type: text_style
+          display: 'Eyebrow Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_hero_title_top
-        field: { type: text, display: "Title Top" }
+        field:
+          type: text
+          display: 'Title Top'
+      -
+        handle: contact_hero_title_top_text_style
+        field:
+          type: text_style
+          display: 'Title Top Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_hero_title_bottom
-        field: { type: text, display: "Title Bottom" }
+        field:
+          type: text
+          display: 'Title Bottom'
+      -
+        handle: contact_hero_title_bottom_text_style
+        field:
+          type: text_style
+          display: 'Title Bottom Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_hero_description
-        field: { type: textarea, display: Description }
+        field:
+          type: textarea
+          display: Description
+      -
+        handle: contact_hero_description_text_style
+        field:
+          type: text_style
+          display: 'Description Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_hero_background_image
-        field: { type: assets, display: "Background Image", container: assets, max_files: 1 }
+        field:
+          type: assets
+          display: 'Background Image'
+          container: assets
+          max_files: 1
       -
         handle: contact_hero_background_alt
-        field: { type: text, display: "Background Image Alt" }
+        field:
+          type: text
+          display: 'Background Image Alt'
   form:
     display: Form
     fields:
       -
         handle: contact_form_title
-        field: { type: text, display: Title }
+        field:
+          type: text
+          display: Title
+      -
+        handle: contact_form_title_text_style
+        field:
+          type: text_style
+          display: 'Title Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_form_success_icon
-        field: { type: text, display: "Success Icon" }
+        field:
+          type: text
+          display: 'Success Icon'
       -
         handle: contact_form_success_title
-        field: { type: text, display: "Success Title" }
+        field:
+          type: text
+          display: 'Success Title'
+      -
+        handle: contact_form_success_title_text_style
+        field:
+          type: text_style
+          display: 'Success Title Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_form_success_body
-        field: { type: textarea, display: "Success Body" }
+        field:
+          type: textarea
+          display: 'Success Body'
+      -
+        handle: contact_form_success_body_text_style
+        field:
+          type: text_style
+          display: 'Success Body Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_form_reset_label
-        field: { type: text, display: "Reset Label" }
+        field:
+          type: text
+          display: 'Reset Label'
+      -
+        handle: contact_form_reset_label_text_style
+        field:
+          type: text_style
+          display: 'Reset Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_form_submit_idle_label
-        field: { type: text, display: "Submit Label" }
+        field:
+          type: text
+          display: 'Submit Label'
+      -
+        handle: contact_form_submit_idle_label_text_style
+        field:
+          type: text_style
+          display: 'Submit Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_form_submit_loading_label
-        field: { type: text, display: "Loading Label" }
+        field:
+          type: text
+          display: 'Loading Label'
+      -
+        handle: contact_form_submit_loading_label_text_style
+        field:
+          type: text_style
+          display: 'Loading Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_form_name_label
-        field: { type: text, display: "Name Label" }
+        field:
+          type: text
+          display: 'Name Label'
+      -
+        handle: contact_form_name_label_text_style
+        field:
+          type: text_style
+          display: 'Name Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_form_name_placeholder
-        field: { type: text, display: "Name Placeholder" }
+        field:
+          type: text
+          display: 'Name Placeholder'
+      -
+        handle: contact_form_name_placeholder_text_style
+        field:
+          type: text_style
+          display: 'Name Placeholder Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_form_email_label
-        field: { type: text, display: "Email Label" }
+        field:
+          type: text
+          display: 'Email Label'
+      -
+        handle: contact_form_email_label_text_style
+        field:
+          type: text_style
+          display: 'Email Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_form_email_placeholder
-        field: { type: text, display: "Email Placeholder" }
+        field:
+          type: text
+          display: 'Email Placeholder'
+      -
+        handle: contact_form_email_placeholder_text_style
+        field:
+          type: text_style
+          display: 'Email Placeholder Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_form_project_type_label
-        field: { type: text, display: "Project Type Label" }
+        field:
+          type: text
+          display: 'Project Type Label'
+      -
+        handle: contact_form_project_type_label_text_style
+        field:
+          type: text_style
+          display: 'Project Type Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_form_project_type_placeholder
-        field: { type: text, display: "Project Type Placeholder" }
+        field:
+          type: text
+          display: 'Project Type Placeholder'
+      -
+        handle: contact_form_project_type_placeholder_text_style
+        field:
+          type: text_style
+          display: 'Project Type Placeholder Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_project_type_options
-        field: { type: list, display: "Project Type Options" }
+        field:
+          type: list
+          display: 'Project Type Options'
+      -
+        handle: contact_project_type_options_text_style
+        field:
+          type: text_style
+          display: 'Project Type Options Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_form_investment_range_label
-        field: { type: text, display: "Investment Range Label" }
+        field:
+          type: text
+          display: 'Investment Range Label'
+      -
+        handle: contact_form_investment_range_label_text_style
+        field:
+          type: text_style
+          display: 'Investment Range Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_form_investment_range_placeholder
-        field: { type: text, display: "Investment Range Placeholder" }
+        field:
+          type: text
+          display: 'Investment Range Placeholder'
+      -
+        handle: contact_form_investment_range_placeholder_text_style
+        field:
+          type: text_style
+          display: 'Investment Range Placeholder Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_investment_range_options
-        field: { type: list, display: "Investment Range Options" }
+        field:
+          type: list
+          display: 'Investment Range Options'
+      -
+        handle: contact_investment_range_options_text_style
+        field:
+          type: text_style
+          display: 'Investment Range Options Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_form_preferred_date_label
-        field: { type: text, display: "Preferred Date Label" }
+        field:
+          type: text
+          display: 'Preferred Date Label'
+      -
+        handle: contact_form_preferred_date_label_text_style
+        field:
+          type: text_style
+          display: 'Preferred Date Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_form_phone_label
-        field: { type: text, display: "Phone Label" }
+        field:
+          type: text
+          display: 'Phone Label'
+      -
+        handle: contact_form_phone_label_text_style
+        field:
+          type: text_style
+          display: 'Phone Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_form_phone_placeholder
-        field: { type: text, display: "Phone Placeholder" }
+        field:
+          type: text
+          display: 'Phone Placeholder'
+      -
+        handle: contact_form_phone_placeholder_text_style
+        field:
+          type: text_style
+          display: 'Phone Placeholder Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_form_message_label
-        field: { type: text, display: "Message Label" }
+        field:
+          type: text
+          display: 'Message Label'
+      -
+        handle: contact_form_message_label_text_style
+        field:
+          type: text_style
+          display: 'Message Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_form_message_placeholder
-        field: { type: textarea, display: "Message Placeholder" }
+        field:
+          type: textarea
+          display: 'Message Placeholder'
+      -
+        handle: contact_form_message_placeholder_text_style
+        field:
+          type: text_style
+          display: 'Message Placeholder Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
   info:
-    display: Contact Info
+    display: 'Contact Info'
     fields:
       -
         handle: contact_info_eyebrow
-        field: { type: text, display: Eyebrow }
+        field:
+          type: text
+          display: Eyebrow
+      -
+        handle: contact_info_eyebrow_text_style
+        field:
+          type: text_style
+          display: 'Eyebrow Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_info_address_line_one
-        field: { type: text, display: "Address Line One" }
+        field:
+          type: text
+          display: 'Address Line One'
+      -
+        handle: contact_info_address_line_one_text_style
+        field:
+          type: text_style
+          display: 'Address Line One Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_info_address_line_two
-        field: { type: text, display: "Address Line Two" }
+        field:
+          type: text
+          display: 'Address Line Two'
+      -
+        handle: contact_info_address_line_two_text_style
+        field:
+          type: text_style
+          display: 'Address Line Two Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_info_phone
-        field: { type: text, display: Phone }
+        field:
+          type: text
+          display: Phone
+      -
+        handle: contact_info_phone_text_style
+        field:
+          type: text_style
+          display: 'Phone Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_info_whatsapp_label
-        field: { type: text, display: "WhatsApp Label" }
+        field:
+          type: text
+          display: 'WhatsApp Label'
+      -
+        handle: contact_info_whatsapp_label_text_style
+        field:
+          type: text_style
+          display: 'WhatsApp Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_info_whatsapp_href
-        field: { type: text, display: "WhatsApp URL" }
+        field:
+          type: text
+          display: 'WhatsApp URL'
       -
         handle: contact_studio_image
-        field: { type: assets, display: "Studio Image", container: assets, max_files: 1 }
+        field:
+          type: assets
+          display: 'Studio Image'
+          container: assets
+          max_files: 1
       -
         handle: contact_studio_image_alt
-        field: { type: text, display: "Studio Image Alt" }
+        field:
+          type: text
+          display: 'Studio Image Alt'
       -
         handle: contact_locations
         field:
           type: grid
           display: Locations
-          add_row: Add Location
+          add_row: 'Add Location'
           fields:
             -
               handle: city
-              field: { type: text, display: City }
+              field:
+                type: text
+                display: City
+            -
+              handle: city_text_style
+              field:
+                type: text_style
+                display: 'City Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: address
-              field: { type: text, display: Address }
+              field:
+                type: text
+                display: Address
+            -
+              handle: address_text_style
+              field:
+                type: text_style
+                display: 'Address Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: state
-              field: { type: text, display: State }
+              field:
+                type: text
+                display: State
+            -
+              handle: state_text_style
+              field:
+                type: text_style
+                display: 'State Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: phone
-              field: { type: text, display: Phone }
+              field:
+                type: text
+                display: Phone
+            -
+              handle: phone_text_style
+              field:
+                type: text_style
+                display: 'Phone Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: whatsapp
-              field: { type: text, display: WhatsApp }
+              field:
+                type: text
+                display: WhatsApp
+            -
+              handle: whatsapp_text_style
+              field:
+                type: text_style
+                display: 'WhatsApp Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
   map:
     display: Map
     fields:
       -
         handle: contact_map_title
-        field: { type: text, display: "Map Title" }
+        field:
+          type: text
+          display: 'Map Title'
+      -
+        handle: contact_map_title_text_style
+        field:
+          type: text_style
+          display: 'Map Title Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: contact_map_embed_url
-        field: { type: text, display: "Map Embed URL" }
+        field:
+          type: text
+          display: 'Map Embed URL'
   seo:
     display: SEO
     fields:

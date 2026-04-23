@@ -4515,3 +4515,17 @@ main { flex: 1; }
     padding: 6rem 0 7rem;
   }
 }
+[data-text-control] {
+  font-size: var(--text-size, inherit);
+  line-height: var(--text-height, inherit);
+}
+
+[data-text-control][data-text-has-width="true"] {
+  width: var(--text-width);
+  max-width: 100%;
+}
+
+[data-text-control]::placeholder {
+  font-size: var(--text-size, inherit);
+  line-height: var(--text-height, inherit);
+}

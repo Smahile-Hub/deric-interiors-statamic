@@ -13,14 +13,14 @@
     <div class="book-hero-overlay"></div>
 
     <div class="book-hero-shell">
-      <p class="book-eyebrow" data-reveal>{{ book_hero_eyebrow }}</p>
+      <p class="book-eyebrow" data-reveal data-text-control data-text-size-step="{{ book_hero_eyebrow_text_style:size }}" data-text-height-step="{{ book_hero_eyebrow_text_style:height }}" data-text-width-step="{{ book_hero_eyebrow_text_style:width }}">{{ book_hero_eyebrow }}</p>
       <h1 class="book-hero-title" data-reveal>
-        <span>{{ book_hero_title_top }}</span>
-        <span class="book-hero-title-accent">{{ book_hero_title_bottom }}</span>
+        <span data-text-control data-text-size-step="{{ book_hero_title_top_text_style:size }}" data-text-height-step="{{ book_hero_title_top_text_style:height }}" data-text-width-step="{{ book_hero_title_top_text_style:width }}">{{ book_hero_title_top }}</span>
+        <span class="book-hero-title-accent" data-text-control data-text-size-step="{{ book_hero_title_bottom_text_style:size }}" data-text-height-step="{{ book_hero_title_bottom_text_style:height }}" data-text-width-step="{{ book_hero_title_bottom_text_style:width }}">{{ book_hero_title_bottom }}</span>
       </h1>
-      <p class="book-hero-description" data-reveal>{{ book_hero_description }}</p>
+      <p class="book-hero-description" data-reveal data-text-control data-text-size-step="{{ book_hero_description_text_style:size }}" data-text-height-step="{{ book_hero_description_text_style:height }}" data-text-width-step="{{ book_hero_description_text_style:width }}">{{ book_hero_description }}</p>
       <div data-reveal>
-        <button class="book-hero-button" type="button" data-scroll-to-book-form>
+        <button class="book-hero-button" type="button" data-scroll-to-book-form data-text-control data-text-size-step="{{ book_hero_button_label_text_style:size }}" data-text-height-step="{{ book_hero_button_label_text_style:height }}" data-text-width-step="{{ book_hero_button_label_text_style:width }}">
           {{ book_hero_button_label }}
         </button>
       </div>
@@ -30,8 +30,8 @@
   <section class="book-expect-section">
     <div class="book-shell">
       <div class="book-section-header" data-reveal>
-        <p class="book-section-eyebrow">{{ book_expect_eyebrow }}</p>
-        <h2 class="book-section-title">{{ book_expect_title }}</h2>
+        <p class="book-section-eyebrow" data-text-control data-text-size-step="{{ book_expect_eyebrow_text_style:size }}" data-text-height-step="{{ book_expect_eyebrow_text_style:height }}" data-text-width-step="{{ book_expect_eyebrow_text_style:width }}">{{ book_expect_eyebrow }}</p>
+        <h2 class="book-section-title" data-text-control data-text-size-step="{{ book_expect_title_text_style:size }}" data-text-height-step="{{ book_expect_title_text_style:height }}" data-text-width-step="{{ book_expect_title_text_style:width }}">{{ book_expect_title }}</h2>
         <span class="book-title-rule" aria-hidden="true"></span>
       </div>
 
@@ -49,8 +49,8 @@
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
               {{ /if }}
             </span>
-            <h3>{{ title }}</h3>
-            <p>{{ body }}</p>
+            <h3 data-text-control data-text-size-step="{{ title_text_style:size }}" data-text-height-step="{{ title_text_style:height }}" data-text-width-step="{{ title_text_style:width }}">{{ title }}</h3>
+            <p data-text-control data-text-size-step="{{ body_text_style:size }}" data-text-height-step="{{ body_text_style:height }}" data-text-width-step="{{ body_text_style:width }}">{{ body }}</p>
           </div>
         {{ /book_expect_items }}
       </div>
@@ -62,16 +62,16 @@
       <div class="book-form-grid">
         <div class="book-form-side" data-reveal>
           <div class="book-section-header">
-            <p class="book-section-eyebrow">{{ book_form_eyebrow }}</p>
-            <h2 class="book-form-title">{{ book_form_title }}</h2>
+            <p class="book-section-eyebrow" data-text-control data-text-size-step="{{ book_form_eyebrow_text_style:size }}" data-text-height-step="{{ book_form_eyebrow_text_style:height }}" data-text-width-step="{{ book_form_eyebrow_text_style:width }}">{{ book_form_eyebrow }}</p>
+            <h2 class="book-form-title" data-text-control data-text-size-step="{{ book_form_title_text_style:size }}" data-text-height-step="{{ book_form_title_text_style:height }}" data-text-width-step="{{ book_form_title_text_style:width }}">{{ book_form_title }}</h2>
             <span class="book-title-rule" aria-hidden="true"></span>
           </div>
 
           <div class="book-success-state" data-book-success hidden role="status">
             <span class="book-success-icon">{{ book_success_icon }}</span>
-            <h3>{{ book_success_title }}</h3>
-            <p data-book-success-body>{{ book_success_body }}</p>
-            <button class="book-reset-button" type="button" data-book-reset>
+            <h3 data-text-control data-text-size-step="{{ book_success_title_text_style:size }}" data-text-height-step="{{ book_success_title_text_style:height }}" data-text-width-step="{{ book_success_title_text_style:width }}">{{ book_success_title }}</h3>
+            <p data-book-success-body data-text-control data-text-size-step="{{ book_success_body_text_style:size }}" data-text-height-step="{{ book_success_body_text_style:height }}" data-text-width-step="{{ book_success_body_text_style:width }}">{{ book_success_body }}</p>
+            <button class="book-reset-button" type="button" data-book-reset data-text-control data-text-size-step="{{ book_reset_button_label_text_style:size }}" data-text-height-step="{{ book_reset_button_label_text_style:height }}" data-text-width-step="{{ book_reset_button_label_text_style:width }}">
               {{ book_reset_button_label }}
             </button>
           </div>
@@ -81,24 +81,24 @@
 
             <div class="book-form-row">
               <div class="book-field">
-                <label class="book-label" for="book_name">{{ book_name_label }}</label>
-                <input class="book-input" id="book_name" name="name" type="text" placeholder="{{ book_name_placeholder }}" required>
+                <label class="book-label" for="book_name" data-text-control data-text-size-step="{{ book_name_label_text_style:size }}" data-text-height-step="{{ book_name_label_text_style:height }}" data-text-width-step="{{ book_name_label_text_style:width }}">{{ book_name_label }}</label>
+                <input class="book-input" id="book_name" name="name" type="text" placeholder="{{ book_name_placeholder }}" required data-text-control data-text-size-step="{{ book_name_placeholder_text_style:size }}" data-text-height-step="{{ book_name_placeholder_text_style:height }}" data-text-width-step="{{ book_name_placeholder_text_style:width }}">
               </div>
               <div class="book-field">
-                <label class="book-label" for="book_email">{{ book_email_label }}</label>
-                <input class="book-input" id="book_email" name="email" type="email" placeholder="{{ book_email_placeholder }}" required>
+                <label class="book-label" for="book_email" data-text-control data-text-size-step="{{ book_email_label_text_style:size }}" data-text-height-step="{{ book_email_label_text_style:height }}" data-text-width-step="{{ book_email_label_text_style:width }}">{{ book_email_label }}</label>
+                <input class="book-input" id="book_email" name="email" type="email" placeholder="{{ book_email_placeholder }}" required data-text-control data-text-size-step="{{ book_email_placeholder_text_style:size }}" data-text-height-step="{{ book_email_placeholder_text_style:height }}" data-text-width-step="{{ book_email_placeholder_text_style:width }}">
               </div>
             </div>
 
             <div class="book-form-row">
               <div class="book-field">
-                <label class="book-label" for="book_phone">{{ book_phone_label }}</label>
-                <input class="book-input" id="book_phone" name="phone" type="tel" placeholder="{{ book_phone_placeholder }}" required>
+                <label class="book-label" for="book_phone" data-text-control data-text-size-step="{{ book_phone_label_text_style:size }}" data-text-height-step="{{ book_phone_label_text_style:height }}" data-text-width-step="{{ book_phone_label_text_style:width }}">{{ book_phone_label }}</label>
+                <input class="book-input" id="book_phone" name="phone" type="tel" placeholder="{{ book_phone_placeholder }}" required data-text-control data-text-size-step="{{ book_phone_placeholder_text_style:size }}" data-text-height-step="{{ book_phone_placeholder_text_style:height }}" data-text-width-step="{{ book_phone_placeholder_text_style:width }}">
               </div>
               <div class="book-field">
-                <label class="book-label" for="book_project_type">{{ book_project_type_label }}</label>
+                <label class="book-label" for="book_project_type" data-text-control data-text-size-step="{{ book_project_type_label_text_style:size }}" data-text-height-step="{{ book_project_type_label_text_style:height }}" data-text-width-step="{{ book_project_type_label_text_style:width }}">{{ book_project_type_label }}</label>
                 <div class="book-select-wrap">
-                  <select class="book-select" id="book_project_type" name="project_type" required>
+                  <select class="book-select" id="book_project_type" name="project_type" required data-text-control data-text-size-step="{{ book_project_type_placeholder_text_style:size }}" data-text-height-step="{{ book_project_type_placeholder_text_style:height }}" data-text-width-step="{{ book_project_type_placeholder_text_style:width }}">
                     <option value="" disabled selected>{{ book_project_type_placeholder }}</option>
                     {{ book_project_type_options }}
                       <option value="{{ value }}">{{ value }}</option>
@@ -111,13 +111,13 @@
 
             <div class="book-form-row">
               <div class="book-field">
-                <label class="book-label" for="book_preferred_date">{{ book_preferred_date_label }}</label>
+                <label class="book-label" for="book_preferred_date" data-text-control data-text-size-step="{{ book_preferred_date_label_text_style:size }}" data-text-height-step="{{ book_preferred_date_label_text_style:height }}" data-text-width-step="{{ book_preferred_date_label_text_style:width }}">{{ book_preferred_date_label }}</label>
                 <input class="book-input book-input-date" id="book_preferred_date" name="preferred_date" type="date" required>
               </div>
               <div class="book-field">
-                <label class="book-label" for="book_preferred_time">{{ book_preferred_time_label }}</label>
+                <label class="book-label" for="book_preferred_time" data-text-control data-text-size-step="{{ book_preferred_time_label_text_style:size }}" data-text-height-step="{{ book_preferred_time_label_text_style:height }}" data-text-width-step="{{ book_preferred_time_label_text_style:width }}">{{ book_preferred_time_label }}</label>
                 <div class="book-select-wrap">
-                  <select class="book-select" id="book_preferred_time" name="preferred_time" required>
+                  <select class="book-select" id="book_preferred_time" name="preferred_time" required data-text-control data-text-size-step="{{ book_preferred_time_placeholder_text_style:size }}" data-text-height-step="{{ book_preferred_time_placeholder_text_style:height }}" data-text-width-step="{{ book_preferred_time_placeholder_text_style:width }}">
                     <option value="" disabled selected>{{ book_preferred_time_placeholder }}</option>
                     {{ book_time_slot_options }}
                       <option value="{{ value }}">{{ value }}</option>
@@ -129,16 +129,16 @@
             </div>
 
             <div class="book-field">
-              <label class="book-label" for="book_location">{{ book_location_label }}</label>
-              <input class="book-input" id="book_location" name="location" type="text" placeholder="{{ book_location_placeholder }}">
+              <label class="book-label" for="book_location" data-text-control data-text-size-step="{{ book_location_label_text_style:size }}" data-text-height-step="{{ book_location_label_text_style:height }}" data-text-width-step="{{ book_location_label_text_style:width }}">{{ book_location_label }}</label>
+              <input class="book-input" id="book_location" name="location" type="text" placeholder="{{ book_location_placeholder }}" data-text-control data-text-size-step="{{ book_location_placeholder_text_style:size }}" data-text-height-step="{{ book_location_placeholder_text_style:height }}" data-text-width-step="{{ book_location_placeholder_text_style:width }}">
             </div>
 
             <div class="book-field">
-              <label class="book-label" for="book_message">{{ book_message_label }}</label>
-              <textarea class="book-input book-textarea" id="book_message" name="message" rows="4" placeholder="{{ book_message_placeholder }}"></textarea>
+              <label class="book-label" for="book_message" data-text-control data-text-size-step="{{ book_message_label_text_style:size }}" data-text-height-step="{{ book_message_label_text_style:height }}" data-text-width-step="{{ book_message_label_text_style:width }}">{{ book_message_label }}</label>
+              <textarea class="book-input book-textarea" id="book_message" name="message" rows="4" placeholder="{{ book_message_placeholder }}" data-text-control data-text-size-step="{{ book_message_placeholder_text_style:size }}" data-text-height-step="{{ book_message_placeholder_text_style:height }}" data-text-width-step="{{ book_message_placeholder_text_style:width }}"></textarea>
             </div>
 
-            <button class="book-submit-button" type="submit" data-submit-label="{{ book_submit_label }}" data-loading-label="{{ book_loading_label }}">
+            <button class="book-submit-button" type="submit" data-submit-label="{{ book_submit_label }}" data-loading-label="{{ book_loading_label }}" data-text-control data-text-size-step="{{ book_submit_label_text_style:size }}" data-text-height-step="{{ book_submit_label_text_style:height }}" data-text-width-step="{{ book_submit_label_text_style:width }}">
               {{ book_submit_label }}
             </button>
           </form>
@@ -153,10 +153,10 @@
           {{ /if }}
 
           <div class="book-aside-note">
-            <p class="book-aside-note-eyebrow">{{ book_aside_note_eyebrow }}</p>
-            <p class="book-aside-note-text">
+            <p class="book-aside-note-eyebrow" data-text-control data-text-size-step="{{ book_aside_note_eyebrow_text_style:size }}" data-text-height-step="{{ book_aside_note_eyebrow_text_style:height }}" data-text-width-step="{{ book_aside_note_eyebrow_text_style:width }}">{{ book_aside_note_eyebrow }}</p>
+            <p class="book-aside-note-text" data-text-control data-text-size-step="{{ book_aside_note_text_text_style:size }}" data-text-height-step="{{ book_aside_note_text_text_style:height }}" data-text-width-step="{{ book_aside_note_text_text_style:width }}">
               {{ book_aside_note_text }}
-              <a href="tel:{{ book_aside_phone_href }}" class="book-aside-note-link">{{ book_aside_phone_label }}</a>.
+              <a href="tel:{{ book_aside_phone_href }}" class="book-aside-note-link" data-text-control data-text-size-step="{{ book_aside_phone_label_text_style:size }}" data-text-height-step="{{ book_aside_phone_label_text_style:height }}" data-text-width-step="{{ book_aside_phone_label_text_style:width }}">{{ book_aside_phone_label }}</a>.
             </p>
           </div>
         </aside>
@@ -173,12 +173,12 @@
     </div>
 
     <div class="book-cta-shell" data-reveal>
-      <p class="book-cta-eyebrow">{{ book_cta_eyebrow }}</p>
+      <p class="book-cta-eyebrow" data-text-control data-text-size-step="{{ book_cta_eyebrow_text_style:size }}" data-text-height-step="{{ book_cta_eyebrow_text_style:height }}" data-text-width-step="{{ book_cta_eyebrow_text_style:width }}">{{ book_cta_eyebrow }}</p>
       <h2 class="book-cta-title">
-        {{ book_cta_title_prefix }}
-        <em>{{ book_cta_title_accent }}</em>
+        <span data-text-control data-text-size-step="{{ book_cta_title_prefix_text_style:size }}" data-text-height-step="{{ book_cta_title_prefix_text_style:height }}" data-text-width-step="{{ book_cta_title_prefix_text_style:width }}">{{ book_cta_title_prefix }}</span>
+        <em data-text-control data-text-size-step="{{ book_cta_title_accent_text_style:size }}" data-text-height-step="{{ book_cta_title_accent_text_style:height }}" data-text-width-step="{{ book_cta_title_accent_text_style:width }}">{{ book_cta_title_accent }}</em>
       </h2>
-      <a href="{{ book_cta_button_href }}" target="_blank" rel="noopener noreferrer" class="book-cta-button">
+      <a href="{{ book_cta_button_href }}" target="_blank" rel="noopener noreferrer" class="book-cta-button" data-text-control data-text-size-step="{{ book_cta_button_label_text_style:size }}" data-text-height-step="{{ book_cta_button_label_text_style:height }}" data-text-width-step="{{ book_cta_button_label_text_style:width }}">
         {{ book_cta_button_label }}
       </a>
     </div>

@@ -15,3 +15,8 @@
     border-color: #d99b16 !important;
     color: #151515 !important;
 }
+
+[href*="statamic.dev"],
+[href*="statamic.com"] {
+    display: none !important;
+}

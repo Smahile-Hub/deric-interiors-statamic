@@ -19,19 +19,19 @@
   <div class="hero-shell">
     <div class="hero-content">
       {{ if hero_eyebrow }}
-        <span class="eyebrow" data-reveal>{{ hero_eyebrow }}</span>
+        <span class="eyebrow" data-reveal data-text-control data-text-size-step="{{ hero_eyebrow_text_style:size }}" data-text-height-step="{{ hero_eyebrow_text_style:height }}" data-text-width-step="{{ hero_eyebrow_text_style:width }}">{{ hero_eyebrow }}</span>
       {{ /if }}
       <h1 class="hero-title">
         {{ hero_heading_lines }}
-          <span class="hero-title-line" style="--line-index:{{ index }};"><span>{{ line }}</span></span>
+          <span class="hero-title-line" style="--line-index:{{ index }};"><span data-text-control data-text-size-step="{{ line_text_style:size }}" data-text-height-step="{{ line_text_style:height }}" data-text-width-step="{{ line_text_style:width }}">{{ line }}</span></span>
         {{ /hero_heading_lines }}
       </h1>
-      <p class="hero-description" data-reveal>{{ hero_subtext }}</p>
+      <p class="hero-description" data-reveal data-text-control data-text-size-step="{{ hero_subtext_text_style:size }}" data-text-height-step="{{ hero_subtext_text_style:height }}" data-text-width-step="{{ hero_subtext_text_style:width }}">{{ hero_subtext }}</p>
       <div class="hero-actions" data-reveal>
-        <a href="{{ hero_cta_href }}" class="btn-primary">{{ hero_cta_label }}</a>
+        <a href="{{ hero_cta_href }}" class="btn-primary" data-text-control data-text-size-step="{{ hero_cta_label_text_style:size }}" data-text-height-step="{{ hero_cta_label_text_style:height }}" data-text-width-step="{{ hero_cta_label_text_style:width }}">{{ hero_cta_label }}</a>
         {{ if hero_secondary_href }}
           <a href="{{ hero_secondary_href }}" class="inline-link">
-            <span>{{ hero_secondary_label }}</span>
+            <span data-text-control data-text-size-step="{{ hero_secondary_label_text_style:size }}" data-text-height-step="{{ hero_secondary_label_text_style:height }}" data-text-width-step="{{ hero_secondary_label_text_style:width }}">{{ hero_secondary_label }}</span>
             <span aria-hidden="true">-&gt;</span>
           </a>
         {{ /if }}
@@ -53,22 +53,22 @@
       </div>
       <div class="about-content">
         <div>
-          <span class="eyebrow">{{ about_eyebrow }}</span>
-          <h2 style="font-family:var(--font-display);font-size:clamp(2rem,3.5vw,3rem);color:#e5e1ea;font-weight:400;margin:.5rem 0 1rem;line-height:1.1;white-space:pre-line;">{{ about_heading }}</h2>
-          <p style="color:#b1a18d;line-height:1.8;">{{ about_body }}</p>
+          <span class="eyebrow" data-text-control data-text-size-step="{{ about_eyebrow_text_style:size }}" data-text-height-step="{{ about_eyebrow_text_style:height }}" data-text-width-step="{{ about_eyebrow_text_style:width }}">{{ about_eyebrow }}</span>
+          <h2 style="font-family:var(--font-display);font-size:clamp(2rem,3.5vw,3rem);color:#e5e1ea;font-weight:400;margin:.5rem 0 1rem;line-height:1.1;white-space:pre-line;" data-text-control data-text-size-step="{{ about_heading_text_style:size }}" data-text-height-step="{{ about_heading_text_style:height }}" data-text-width-step="{{ about_heading_text_style:width }}">{{ about_heading }}</h2>
+          <p style="color:#b1a18d;line-height:1.8;" data-text-control data-text-size-step="{{ about_body_text_style:size }}" data-text-height-step="{{ about_body_text_style:height }}" data-text-width-step="{{ about_body_text_style:width }}">{{ about_body }}</p>
         </div>
         {{ if about_features }}
           <div class="about-features">
             {{ about_features }}
               <div>
-                <h3>{{ title }}</h3>
-                <p>{{ description }}</p>
+                <h3 data-text-control data-text-size-step="{{ title_text_style:size }}" data-text-height-step="{{ title_text_style:height }}" data-text-width-step="{{ title_text_style:width }}">{{ title }}</h3>
+                <p data-text-control data-text-size-step="{{ description_text_style:size }}" data-text-height-step="{{ description_text_style:height }}" data-text-width-step="{{ description_text_style:width }}">{{ description }}</p>
               </div>
             {{ /about_features }}
           </div>
         {{ /if }}
         <div>
-          <a href="{{ about_cta_href ?? '/about' }}" class="btn-secondary">{{ about_cta_label ?? 'Our Story' }}</a>
+          <a href="{{ about_cta_href ?? '/about' }}" class="btn-secondary" data-text-control data-text-size-step="{{ about_cta_label_text_style:size }}" data-text-height-step="{{ about_cta_label_text_style:height }}" data-text-width-step="{{ about_cta_label_text_style:width }}">{{ about_cta_label ?? 'Our Story' }}</a>
         </div>
       </div>
     </div>
@@ -80,8 +80,8 @@
   <div class="shell">
     <div class="services-header">
       <div>
-        <span class="eyebrow">{{ services_eyebrow }}</span>
-        <h2 style="font-family:var(--font-display);font-size:clamp(3rem,5vw,3.9rem);color:#e5e1ea;font-weight:400;margin:.5rem 0;line-height:1.05;transform:scaleY(1.25);transform-origin:left top;display:block;margin-bottom:3.5rem;">{{ services_heading }}</h2>
+        <span class="eyebrow" data-text-control data-text-size-step="{{ services_eyebrow_text_style:size }}" data-text-height-step="{{ services_eyebrow_text_style:height }}" data-text-width-step="{{ services_eyebrow_text_style:width }}">{{ services_eyebrow }}</span>
+        <h2 style="font-family:var(--font-display);font-size:clamp(3rem,5vw,3.9rem);color:#e5e1ea;font-weight:400;margin:.5rem 0;line-height:1.05;transform:scaleY(1.25);transform-origin:left top;display:block;margin-bottom:3.5rem;" data-text-control data-text-size-step="{{ services_heading_text_style:size }}" data-text-height-step="{{ services_heading_text_style:height }}" data-text-width-step="{{ services_heading_text_style:width }}">{{ services_heading }}</h2>
       </div>
       <div class="carousel-controls">
         <button class="carousel-btn" data-carousel-prev="services" aria-label="Previous">&lt;-</button>
@@ -95,8 +95,8 @@
             <img src="{{ image }}" alt="{{ title }}" loading="lazy">
           </div>
           <div class="service-copy">
-            <h3>{{ title }}</h3>
-            <p>{{ description }}</p>
+            <h3 data-text-control data-text-size-step="{{ title_text_style:size }}" data-text-height-step="{{ title_text_style:height }}" data-text-width-step="{{ title_text_style:width }}">{{ title }}</h3>
+            <p data-text-control data-text-size-step="{{ description_text_style:size }}" data-text-height-step="{{ description_text_style:height }}" data-text-width-step="{{ description_text_style:width }}">{{ description }}</p>
           </div>
         </a>
       {{ /services_items }}
@@ -108,8 +108,8 @@
 <section class="portfolio-section" data-reveal style="--section-bg:{{ portfolio_bg ?? '#0d1016' }};">
   <div class="shell">
     <div class="section-header">
-      <span class="eyebrow">{{ portfolio_eyebrow }}</span>
-      <h2 style="font-family:var(--font-display);font-size:clamp(3rem,5vw,3.9rem);color:#e5e1ea;font-weight:400;line-height:1.05;transform:scaleY(1.25);transform-origin:left top;display:block;margin-bottom:3.5rem;">{{ portfolio_heading }}</h2>
+      <span class="eyebrow" data-text-control data-text-size-step="{{ portfolio_eyebrow_text_style:size }}" data-text-height-step="{{ portfolio_eyebrow_text_style:height }}" data-text-width-step="{{ portfolio_eyebrow_text_style:width }}">{{ portfolio_eyebrow }}</span>
+      <h2 style="font-family:var(--font-display);font-size:clamp(3rem,5vw,3.9rem);color:#e5e1ea;font-weight:400;line-height:1.05;transform:scaleY(1.25);transform-origin:left top;display:block;margin-bottom:3.5rem;" data-text-control data-text-size-step="{{ portfolio_heading_text_style:size }}" data-text-height-step="{{ portfolio_heading_text_style:height }}" data-text-width-step="{{ portfolio_heading_text_style:width }}">{{ portfolio_heading }}</h2>
     </div>
     <div class="portfolio-grid">
       <div class="featured-project">
@@ -119,9 +119,9 @@
             <div class="featured-project-overlay"></div>
           </a>
           <div class="featured-project-copy">
-            <span class="eyebrow project-category">{{ portfolio_featured_category }}</span>
-            <h3>{{ portfolio_featured_title }}</h3>
-            <p>{{ portfolio_featured_description }}</p>
+            <span class="eyebrow project-category" data-text-control data-text-size-step="{{ portfolio_featured_category_text_style:size }}" data-text-height-step="{{ portfolio_featured_category_text_style:height }}" data-text-width-step="{{ portfolio_featured_category_text_style:width }}">{{ portfolio_featured_category }}</span>
+            <h3 data-text-control data-text-size-step="{{ portfolio_featured_title_text_style:size }}" data-text-height-step="{{ portfolio_featured_title_text_style:height }}" data-text-width-step="{{ portfolio_featured_title_text_style:width }}">{{ portfolio_featured_title }}</h3>
+            <p data-text-control data-text-size-step="{{ portfolio_featured_description_text_style:size }}" data-text-height-step="{{ portfolio_featured_description_text_style:height }}" data-text-width-step="{{ portfolio_featured_description_text_style:width }}">{{ portfolio_featured_description }}</p>
             <a href="{{ portfolio_featured_href ?? '/projects' }}" class="inline-link">View Project -&gt;</a>
           </div>
         {{ /if }}
@@ -133,9 +133,9 @@
               <img src="{{ image }}" alt="{{ title }}" loading="lazy">
             </a>
             <div class="side-project-copy">
-              <span class="eyebrow project-category">{{ category }}</span>
-              <h3>{{ title }}</h3>
-              <p>{{ description }}</p>
+              <span class="eyebrow project-category" data-text-control data-text-size-step="{{ category_text_style:size }}" data-text-height-step="{{ category_text_style:height }}" data-text-width-step="{{ category_text_style:width }}">{{ category }}</span>
+              <h3 data-text-control data-text-size-step="{{ title_text_style:size }}" data-text-height-step="{{ title_text_style:height }}" data-text-width-step="{{ title_text_style:width }}">{{ title }}</h3>
+              <p data-text-control data-text-size-step="{{ description_text_style:size }}" data-text-height-step="{{ description_text_style:height }}" data-text-width-step="{{ description_text_style:width }}">{{ description }}</p>
             </div>
           </div>
         {{ /portfolio_side_items }}
@@ -152,8 +152,8 @@
   <div class="shell">
     <div class="product-header">
       <div>
-        <span class="eyebrow">{{ products_eyebrow }}</span>
-        <h2 style="font-family:var(--font-display);font-size:clamp(3rem,5vw,3.9rem);color:#e5e1ea;font-weight:400;line-height:1.05;transform:scaleY(1.25);transform-origin:left top;display:block;margin-bottom:3.5rem;">{{ products_heading }}</h2>
+        <span class="eyebrow" data-text-control data-text-size-step="{{ products_eyebrow_text_style:size }}" data-text-height-step="{{ products_eyebrow_text_style:height }}" data-text-width-step="{{ products_eyebrow_text_style:width }}">{{ products_eyebrow }}</span>
+        <h2 style="font-family:var(--font-display);font-size:clamp(3rem,5vw,3.9rem);color:#e5e1ea;font-weight:400;line-height:1.05;transform:scaleY(1.25);transform-origin:left top;display:block;margin-bottom:3.5rem;" data-text-control data-text-size-step="{{ products_heading_text_style:size }}" data-text-height-step="{{ products_heading_text_style:height }}" data-text-width-step="{{ products_heading_text_style:width }}">{{ products_heading }}</h2>
       </div>
       <div style="display:flex;align-items:center;gap:2rem;flex-shrink:0;">
         <a href="/shop" style="font-size:0.82rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#c9a96e;">View All</a>
@@ -169,13 +169,13 @@
           <div class="product-img-wrap">
             <div class="product-overlay"></div>
             {{ if category }}
-              <span class="product-category-badge">{{ category }}</span>
+              <span class="product-category-badge" data-text-control data-text-size-step="{{ category_text_style:size }}" data-text-height-step="{{ category_text_style:height }}" data-text-width-step="{{ category_text_style:width }}">{{ category }}</span>
             {{ /if }}
             <img src="{{ image }}" alt="{{ title }}" loading="lazy">
           </div>
           <div class="product-copy">
-            <span class="product-title">{{ title }}</span>
-            <span class="product-price">{{ price }}</span>
+            <span class="product-title" data-text-control data-text-size-step="{{ title_text_style:size }}" data-text-height-step="{{ title_text_style:height }}" data-text-width-step="{{ title_text_style:width }}">{{ title }}</span>
+            <span class="product-price" data-text-control data-text-size-step="{{ price_text_style:size }}" data-text-height-step="{{ price_text_style:height }}" data-text-width-step="{{ price_text_style:width }}">{{ price }}</span>
           </div>
         </a>
       {{ /products_items }}
@@ -188,25 +188,25 @@
   <div class="shell">
     <div class="mission-icon-row">
       <span></span>
-      <strong>{{ mission_eyebrow }}</strong>
+      <strong data-text-control data-text-size-step="{{ mission_eyebrow_text_style:size }}" data-text-height-step="{{ mission_eyebrow_text_style:height }}" data-text-width-step="{{ mission_eyebrow_text_style:width }}">{{ mission_eyebrow }}</strong>
       <span></span>
     </div>
     <div class="mission-statement">
-      <p>{{ mission_body_top }}</p>
-      <h2>{{ mission_heading }}</h2>
+      <p data-text-control data-text-size-step="{{ mission_body_top_text_style:size }}" data-text-height-step="{{ mission_body_top_text_style:height }}" data-text-width-step="{{ mission_body_top_text_style:width }}">{{ mission_body_top }}</p>
+      <h2 data-text-control data-text-size-step="{{ mission_heading_text_style:size }}" data-text-height-step="{{ mission_heading_text_style:height }}" data-text-width-step="{{ mission_heading_text_style:width }}">{{ mission_heading }}</h2>
     </div>
     {{ if mission_items }}
       <div class="mission-grid">
         {{ mission_items }}
           <div class="mission-card">
-            <h3>{{ title }}</h3>
-            <p>{{ description }}</p>
+            <h3 data-text-control data-text-size-step="{{ title_text_style:size }}" data-text-height-step="{{ title_text_style:height }}" data-text-width-step="{{ title_text_style:width }}">{{ title }}</h3>
+            <p data-text-control data-text-size-step="{{ description_text_style:size }}" data-text-height-step="{{ description_text_style:height }}" data-text-width-step="{{ description_text_style:width }}">{{ description }}</p>
           </div>
         {{ /mission_items }}
       </div>
     {{ /if }}
     <div style="display:flex;justify-content:center;margin-top:3rem;">
-      <a href="{{ mission_cta_href ?? '/about' }}" class="btn-primary">{{ mission_cta_label ?? 'Our Approach' }}</a>
+      <a href="{{ mission_cta_href ?? '/about' }}" class="btn-primary" data-text-control data-text-size-step="{{ mission_cta_label_text_style:size }}" data-text-height-step="{{ mission_cta_label_text_style:height }}" data-text-width-step="{{ mission_cta_label_text_style:width }}">{{ mission_cta_label ?? 'Our Approach' }}</a>
     </div>
   </div>
 </section>
@@ -215,8 +215,8 @@
 <section class="testimonials-section" data-reveal style="--section-bg:{{ testimonials_bg ?? '#111217' }};">
   <div class="shell">
     <div class="section-header section-header-center" style="text-align:center;">
-      <span class="eyebrow">{{ testimonials_eyebrow }}</span>
-      <h2 style="font-family:var(--font-display);font-size:clamp(3rem,5vw,3.9rem);color:#e5e1ea;font-weight:400;line-height:1.05;transform:scaleY(1.25);transform-origin:center top;display:block;margin-bottom:3.5rem;">{{ testimonials_heading }}</h2>
+      <span class="eyebrow" data-text-control data-text-size-step="{{ testimonials_eyebrow_text_style:size }}" data-text-height-step="{{ testimonials_eyebrow_text_style:height }}" data-text-width-step="{{ testimonials_eyebrow_text_style:width }}">{{ testimonials_eyebrow }}</span>
+      <h2 style="font-family:var(--font-display);font-size:clamp(3rem,5vw,3.9rem);color:#e5e1ea;font-weight:400;line-height:1.05;transform:scaleY(1.25);transform-origin:center top;display:block;margin-bottom:3.5rem;" data-text-control data-text-size-step="{{ testimonials_heading_text_style:size }}" data-text-height-step="{{ testimonials_heading_text_style:height }}" data-text-width-step="{{ testimonials_heading_text_style:width }}">{{ testimonials_heading }}</h2>
     </div>
     <div class="testimonials-rail-wrap">
       <button class="carousel-btn" data-carousel-prev="testimonials" aria-label="Previous">&lt;-</button>
@@ -224,10 +224,10 @@
         {{ testimonials_items }}
           <div class="testimonial-card" data-carousel-item>
             <div class="quote-mark">"</div>
-            <blockquote>{{ quote }}</blockquote>
+            <blockquote data-text-control data-text-size-step="{{ quote_text_style:size }}" data-text-height-step="{{ quote_text_style:height }}" data-text-width-step="{{ quote_text_style:width }}">{{ quote }}</blockquote>
             <cite>
-              <strong>{{ author }}</strong>
-              <span>{{ role }}</span>
+              <strong data-text-control data-text-size-step="{{ author_text_style:size }}" data-text-height-step="{{ author_text_style:height }}" data-text-width-step="{{ author_text_style:width }}">{{ author }}</strong>
+              <span data-text-control data-text-size-step="{{ role_text_style:size }}" data-text-height-step="{{ role_text_style:height }}" data-text-width-step="{{ role_text_style:width }}">{{ role }}</span>
             </cite>
           </div>
         {{ /testimonials_items }}
@@ -241,13 +241,13 @@
 <section class="final-cta-section" data-reveal>
   <div class="shell">
     <div class="final-cta-panel">
-      <span class="eyebrow">{{ cta_eyebrow }}</span>
-      <h2 class="final-cta-title">{{ cta_heading }}</h2>
-      <p class="final-cta-description">{{ cta_subtext }}</p>
+      <span class="eyebrow" data-text-control data-text-size-step="{{ cta_eyebrow_text_style:size }}" data-text-height-step="{{ cta_eyebrow_text_style:height }}" data-text-width-step="{{ cta_eyebrow_text_style:width }}">{{ cta_eyebrow }}</span>
+      <h2 class="final-cta-title" data-text-control data-text-size-step="{{ cta_heading_text_style:size }}" data-text-height-step="{{ cta_heading_text_style:height }}" data-text-width-step="{{ cta_heading_text_style:width }}">{{ cta_heading }}</h2>
+      <p class="final-cta-description" data-text-control data-text-size-step="{{ cta_subtext_text_style:size }}" data-text-height-step="{{ cta_subtext_text_style:height }}" data-text-width-step="{{ cta_subtext_text_style:width }}">{{ cta_subtext }}</p>
       <div class="cta-actions">
-        <a href="{{ cta_primary_href }}" class="btn-primary">{{ cta_primary_label }}</a>
+        <a href="{{ cta_primary_href }}" class="btn-primary" data-text-control data-text-size-step="{{ cta_primary_label_text_style:size }}" data-text-height-step="{{ cta_primary_label_text_style:height }}" data-text-width-step="{{ cta_primary_label_text_style:width }}">{{ cta_primary_label }}</a>
         {{ if cta_secondary_href }}
-          <a href="{{ cta_secondary_href }}" class="btn-secondary">{{ cta_secondary_label }}</a>
+          <a href="{{ cta_secondary_href }}" class="btn-secondary" data-text-control data-text-size-step="{{ cta_secondary_label_text_style:size }}" data-text-height-step="{{ cta_secondary_label_text_style:height }}" data-text-width-step="{{ cta_secondary_label_text_style:width }}">{{ cta_secondary_label }}</a>
         {{ /if }}
       </div>
     </div>

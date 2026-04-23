@@ -1,20 +1,53 @@
-title: Blog Index Page
+title: 'Blog Index Page'
 sections:
   hero:
     display: Hero
     fields:
       -
         handle: title
-        field: { type: text, display: "Page Title", required: true }
+        field:
+          type: text
+          display: 'Page Title'
+          required: true
+      -
+        handle: title_text_style
+        field:
+          type: text_style
+          display: 'Page Title Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: blog_hero_eyebrow
-        field: { type: text, display: Eyebrow }
+        field:
+          type: text
+          display: Eyebrow
+      -
+        handle: blog_hero_eyebrow_text_style
+        field:
+          type: text_style
+          display: 'Eyebrow Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: blog_hero_title
-        field: { type: textarea, display: Title }
+        field:
+          type: textarea
+          display: Title
+      -
+        handle: blog_hero_title_text_style
+        field:
+          type: text_style
+          display: 'Title Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: blog_hero_description
-        field: { type: textarea, display: Description }
+        field:
+          type: textarea
+          display: Description
+      -
+        handle: blog_hero_description_text_style
+        field:
+          type: text_style
+          display: 'Description Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
   seo:
     display: SEO
     fields:

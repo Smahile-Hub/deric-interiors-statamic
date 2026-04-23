@@ -11,13 +11,13 @@
     <div class="services-hero-overlay"></div>
 
     <div class="services-hero-shell">
-      <p class="services-hero-eyebrow" data-reveal>{{ services_hero_eyebrow }}</p>
+      <p class="services-hero-eyebrow" data-reveal data-text-control data-text-size-step="{{ services_hero_eyebrow_text_style:size }}" data-text-height-step="{{ services_hero_eyebrow_text_style:height }}" data-text-width-step="{{ services_hero_eyebrow_text_style:width }}">{{ services_hero_eyebrow }}</p>
       <h1 class="services-hero-title" data-reveal>
-        {{ services_hero_title_prefix }} <span class="services-hero-accent">{{ services_hero_title_accent }}</span><br>
-        {{ services_hero_title_suffix }}
+        <span data-text-control data-text-size-step="{{ services_hero_title_prefix_text_style:size }}" data-text-height-step="{{ services_hero_title_prefix_text_style:height }}" data-text-width-step="{{ services_hero_title_prefix_text_style:width }}">{{ services_hero_title_prefix }}</span> <span class="services-hero-accent" data-text-control data-text-size-step="{{ services_hero_title_accent_text_style:size }}" data-text-height-step="{{ services_hero_title_accent_text_style:height }}" data-text-width-step="{{ services_hero_title_accent_text_style:width }}">{{ services_hero_title_accent }}</span><br>
+        <span data-text-control data-text-size-step="{{ services_hero_title_suffix_text_style:size }}" data-text-height-step="{{ services_hero_title_suffix_text_style:height }}" data-text-width-step="{{ services_hero_title_suffix_text_style:width }}">{{ services_hero_title_suffix }}</span>
       </h1>
-      <p class="services-hero-description" data-reveal>{{ services_hero_description }}</p>
-      <a href="{{ services_hero_cta_href }}" class="services-hero-cta" data-reveal>
+      <p class="services-hero-description" data-reveal data-text-control data-text-size-step="{{ services_hero_description_text_style:size }}" data-text-height-step="{{ services_hero_description_text_style:height }}" data-text-width-step="{{ services_hero_description_text_style:width }}">{{ services_hero_description }}</p>
+      <a href="{{ services_hero_cta_href }}" class="services-hero-cta" data-reveal data-text-control data-text-size-step="{{ services_hero_cta_label_text_style:size }}" data-text-height-step="{{ services_hero_cta_label_text_style:height }}" data-text-width-step="{{ services_hero_cta_label_text_style:width }}">
         {{ services_hero_cta_label }}
       </a>
     </div>
@@ -27,8 +27,8 @@
     <div class="services-stats-shell">
       {{ services_stats }}
         <div class="services-stat-item" data-reveal style="--stagger-index: {{ index ?? 0 }};">
-          <strong>{{ value }}</strong>
-          <span>{{ label }}</span>
+          <strong data-text-control data-text-size-step="{{ value_text_style:size }}" data-text-height-step="{{ value_text_style:height }}" data-text-width-step="{{ value_text_style:width }}">{{ value }}</strong>
+          <span data-text-control data-text-size-step="{{ label_text_style:size }}" data-text-height-step="{{ label_text_style:height }}" data-text-width-step="{{ label_text_style:width }}">{{ label }}</span>
         </div>
       {{ /services_stats }}
     </div>
@@ -37,8 +37,8 @@
   <section class="services-cards-section">
     <div class="services-shell">
       <div class="services-section-header" data-reveal>
-        <h2 class="services-section-heading">{{ services_intro_title }}</h2>
-        <p class="services-section-description">{{ services_intro_description }}</p>
+        <h2 class="services-section-heading" data-text-control data-text-size-step="{{ services_intro_title_text_style:size }}" data-text-height-step="{{ services_intro_title_text_style:height }}" data-text-width-step="{{ services_intro_title_text_style:width }}">{{ services_intro_title }}</h2>
+        <p class="services-section-description" data-text-control data-text-size-step="{{ services_intro_description_text_style:size }}" data-text-height-step="{{ services_intro_description_text_style:height }}" data-text-width-step="{{ services_intro_description_text_style:width }}">{{ services_intro_description }}</p>
       </div>
 
       <div class="services-rows">
@@ -50,12 +50,12 @@
                 class="services-card{{ if wide }} is-wide{{ /if }}"
               >
                 <div class="services-card-body">
-                  <span class="services-card-number">{{ number }}</span>
+                  <span class="services-card-number" data-text-control data-text-size-step="{{ number_text_style:size }}" data-text-height-step="{{ number_text_style:height }}" data-text-width-step="{{ number_text_style:width }}">{{ number }}</span>
                   <div class="services-card-text">
-                    <h3>{{ title }}</h3>
-                    <p>{{ description }}</p>
+                    <h3 data-text-control data-text-size-step="{{ title_text_style:size }}" data-text-height-step="{{ title_text_style:height }}" data-text-width-step="{{ title_text_style:width }}">{{ title }}</h3>
+                    <p data-text-control data-text-size-step="{{ description_text_style:size }}" data-text-height-step="{{ description_text_style:height }}" data-text-width-step="{{ description_text_style:width }}">{{ description }}</p>
                   </div>
-                  <a href="{{ link_href }}" class="services-card-link">
+                  <a href="{{ link_href }}" class="services-card-link" data-text-control data-text-size-step="{{ link_label_text_style:size }}" data-text-height-step="{{ link_label_text_style:height }}" data-text-width-step="{{ link_label_text_style:width }}">
                     {{ link_label }} <span aria-hidden="true">-&gt;</span>
                   </a>
                 </div>
@@ -79,14 +79,14 @@
 
   <section class="services-process-section">
     <div class="services-shell">
-      <h2 class="services-process-title" data-reveal>{{ services_process_title }}</h2>
+      <h2 class="services-process-title" data-reveal data-text-control data-text-size-step="{{ services_process_title_text_style:size }}" data-text-height-step="{{ services_process_title_text_style:height }}" data-text-width-step="{{ services_process_title_text_style:width }}">{{ services_process_title }}</h2>
 
       <div class="services-process-grid">
         {{ services_process_items }}
           <div class="services-process-step" data-reveal style="--stagger-index: {{ index ?? 0 }};">
-            <span class="services-process-number">{{ number }}</span>
-            <h3>{{ title }}</h3>
-            <p>{{ description }}</p>
+            <span class="services-process-number" data-text-control data-text-size-step="{{ number_text_style:size }}" data-text-height-step="{{ number_text_style:height }}" data-text-width-step="{{ number_text_style:width }}">{{ number }}</span>
+            <h3 data-text-control data-text-size-step="{{ title_text_style:size }}" data-text-height-step="{{ title_text_style:height }}" data-text-width-step="{{ title_text_style:width }}">{{ title }}</h3>
+            <p data-text-control data-text-size-step="{{ description_text_style:size }}" data-text-height-step="{{ description_text_style:height }}" data-text-width-step="{{ description_text_style:width }}">{{ description }}</p>
           </div>
         {{ /services_process_items }}
       </div>
@@ -96,15 +96,15 @@
   <section class="services-cta-section" data-reveal>
     <div class="services-cta-shell">
       <h2 class="services-cta-title">
-        {{ services_cta_title_line_one }}<br>
-        {{ services_cta_title_line_two }}
+        <span data-text-control data-text-size-step="{{ services_cta_title_line_one_text_style:size }}" data-text-height-step="{{ services_cta_title_line_one_text_style:height }}" data-text-width-step="{{ services_cta_title_line_one_text_style:width }}">{{ services_cta_title_line_one }}</span><br>
+        <span data-text-control data-text-size-step="{{ services_cta_title_line_two_text_style:size }}" data-text-height-step="{{ services_cta_title_line_two_text_style:height }}" data-text-width-step="{{ services_cta_title_line_two_text_style:width }}">{{ services_cta_title_line_two }}</span>
       </h2>
-      <p class="services-cta-description">{{ services_cta_description }}</p>
+      <p class="services-cta-description" data-text-control data-text-size-step="{{ services_cta_description_text_style:size }}" data-text-height-step="{{ services_cta_description_text_style:height }}" data-text-width-step="{{ services_cta_description_text_style:width }}">{{ services_cta_description }}</p>
       <div class="services-cta-actions">
-        <a href="{{ services_cta_primary_href }}" class="services-cta-button">
+        <a href="{{ services_cta_primary_href }}" class="services-cta-button" data-text-control data-text-size-step="{{ services_cta_primary_label_text_style:size }}" data-text-height-step="{{ services_cta_primary_label_text_style:height }}" data-text-width-step="{{ services_cta_primary_label_text_style:width }}">
           {{ services_cta_primary_label }}
         </a>
-        <a href="{{ services_cta_secondary_href }}" class="services-cta-link">
+        <a href="{{ services_cta_secondary_href }}" class="services-cta-link" data-text-control data-text-size-step="{{ services_cta_secondary_label_text_style:size }}" data-text-height-step="{{ services_cta_secondary_label_text_style:height }}" data-text-width-step="{{ services_cta_secondary_label_text_style:width }}">
           {{ services_cta_secondary_label }}
         </a>
       </div>

@@ -14,7 +14,7 @@
       {{ if projects_hero_eyebrow }}
         <div class="projects-eyebrow-row" data-reveal>
           <span class="projects-eyebrow-line"></span>
-          <p class="projects-eyebrow">{{ projects_hero_eyebrow }}</p>
+          <p class="projects-eyebrow" data-text-control data-text-size-step="{{ projects_hero_eyebrow_text_style:size }}" data-text-height-step="{{ projects_hero_eyebrow_text_style:height }}" data-text-width-step="{{ projects_hero_eyebrow_text_style:width }}">{{ projects_hero_eyebrow }}</p>
         </div>
       {{ /if }}
 
@@ -23,14 +23,14 @@
         aria-label="{{ projects_hero_title_line_one }} {{ projects_hero_title_line_two }}"
       >
         <span class="projects-hero-title-line" style="--line-index: 0;">
-          <span>{{ projects_hero_title_line_one }}</span>
+          <span data-text-control data-text-size-step="{{ projects_hero_title_line_one_text_style:size }}" data-text-height-step="{{ projects_hero_title_line_one_text_style:height }}" data-text-width-step="{{ projects_hero_title_line_one_text_style:width }}">{{ projects_hero_title_line_one }}</span>
         </span>
         <span class="projects-hero-title-line" style="--line-index: 1;">
-          <span>{{ projects_hero_title_line_two }}</span>
+          <span data-text-control data-text-size-step="{{ projects_hero_title_line_two_text_style:size }}" data-text-height-step="{{ projects_hero_title_line_two_text_style:height }}" data-text-width-step="{{ projects_hero_title_line_two_text_style:width }}">{{ projects_hero_title_line_two }}</span>
         </span>
       </h1>
 
-      <p class="projects-hero-description" data-reveal style="--stagger-index: 1;">
+      <p class="projects-hero-description" data-reveal style="--stagger-index: 1;" data-text-control data-text-size-step="{{ projects_hero_description_text_style:size }}" data-text-height-step="{{ projects_hero_description_text_style:height }}" data-text-width-step="{{ projects_hero_description_text_style:width }}">
         {{ projects_hero_description }}
       </p>
     </div>
@@ -45,7 +45,7 @@
             data-filter="{{ value }}"
             type="button"
           >
-            {{ value }}
+            <span data-text-control data-text-size-step="{{ projects_filters_text_style:size }}" data-text-height-step="{{ projects_filters_text_style:height }}" data-text-width-step="{{ projects_filters_text_style:width }}">{{ value }}</span>
           </button>
         {{ /projects_filters }}
       </div>
@@ -73,12 +73,12 @@
 
             <div class="projects-gallery-copy">
               <div>
-                <p class="projects-gallery-category">{{ category }}</p>
-                <h3 class="projects-gallery-title">{{ title }}</h3>
-                <p class="projects-gallery-excerpt">{{ excerpt }}</p>
+                <p class="projects-gallery-category" data-text-control data-text-size-step="{{ category_text_style:size }}" data-text-height-step="{{ category_text_style:height }}" data-text-width-step="{{ category_text_style:width }}">{{ category }}</p>
+                <h3 class="projects-gallery-title" data-text-control data-text-size-step="{{ title_text_style:size }}" data-text-height-step="{{ title_text_style:height }}" data-text-width-step="{{ title_text_style:width }}">{{ title }}</h3>
+                <p class="projects-gallery-excerpt" data-text-control data-text-size-step="{{ excerpt_text_style:size }}" data-text-height-step="{{ excerpt_text_style:height }}" data-text-width-step="{{ excerpt_text_style:width }}">{{ excerpt }}</p>
               </div>
 
-              <a href="{{ link_href }}" class="projects-gallery-link">
+              <a href="{{ link_href }}" class="projects-gallery-link" data-text-control data-text-size-step="{{ link_label_text_style:size }}" data-text-height-step="{{ link_label_text_style:height }}" data-text-width-step="{{ link_label_text_style:width }}">
                 {{ link_label }} <span aria-hidden="true">-&gt;</span>
               </a>
             </div>
@@ -86,7 +86,7 @@
         {{ /project_items }}
       </div>
 
-      <p class="projects-empty-state" id="projects-empty-state" hidden>
+      <p class="projects-empty-state" id="projects-empty-state" hidden data-text-control data-text-size-step="{{ projects_empty_state_text_style:size }}" data-text-height-step="{{ projects_empty_state_text_style:height }}" data-text-width-step="{{ projects_empty_state_text_style:width }}">
         {{ projects_empty_state }}
       </p>
     </div>
@@ -95,12 +95,12 @@
   <section class="projects-cta-section" data-reveal>
     <div class="projects-cta-shell">
       <h2 class="projects-cta-title">
-        {{ projects_cta_title_line_one }}<br>
-        {{ projects_cta_title_line_two }}<br>
-        {{ projects_cta_title_line_three }}
+        <span data-text-control data-text-size-step="{{ projects_cta_title_line_one_text_style:size }}" data-text-height-step="{{ projects_cta_title_line_one_text_style:height }}" data-text-width-step="{{ projects_cta_title_line_one_text_style:width }}">{{ projects_cta_title_line_one }}</span><br>
+        <span data-text-control data-text-size-step="{{ projects_cta_title_line_two_text_style:size }}" data-text-height-step="{{ projects_cta_title_line_two_text_style:height }}" data-text-width-step="{{ projects_cta_title_line_two_text_style:width }}">{{ projects_cta_title_line_two }}</span><br>
+        <span data-text-control data-text-size-step="{{ projects_cta_title_line_three_text_style:size }}" data-text-height-step="{{ projects_cta_title_line_three_text_style:height }}" data-text-width-step="{{ projects_cta_title_line_three_text_style:width }}">{{ projects_cta_title_line_three }}</span>
       </h2>
 
-      <a href="{{ projects_cta_button_href }}" class="projects-cta-button">
+      <a href="{{ projects_cta_button_href }}" class="projects-cta-button" data-text-control data-text-size-step="{{ projects_cta_button_label_text_style:size }}" data-text-height-step="{{ projects_cta_button_label_text_style:height }}" data-text-width-step="{{ projects_cta_button_label_text_style:width }}">
         {{ projects_cta_button_label }}
       </a>
     </div>

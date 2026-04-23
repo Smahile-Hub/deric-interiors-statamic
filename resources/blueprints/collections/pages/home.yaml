@@ -1,300 +1,743 @@
-title: Home Page
+title: 'Home Page'
 sections:
   hero:
     display: Hero
     fields:
       -
         handle: title
-        field: { type: text, display: "Page Title", required: true }
+        field:
+          type: text
+          display: 'Page Title'
+          required: true
+      -
+        handle: title_text_style
+        field:
+          type: text_style
+          display: 'Page Title Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: hero_eyebrow
-        field: { type: text, display: Eyebrow }
+        field:
+          type: text
+          display: Eyebrow
+      -
+        handle: hero_eyebrow_text_style
+        field:
+          type: text_style
+          display: 'Eyebrow Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: hero_heading_lines
         field:
           type: grid
-          display: "Heading Lines"
-          add_row: "Add Line"
+          display: 'Heading Lines'
+          add_row: 'Add Line'
           fields:
             -
               handle: line
-              field: { type: text, display: Line }
+              field:
+                type: text
+                display: Line
+            -
+              handle: line_text_style
+              field:
+                type: text_style
+                display: 'Line Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: hero_subtext
-        field: { type: textarea, display: Subtext }
+        field:
+          type: textarea
+          display: Subtext
+      -
+        handle: hero_subtext_text_style
+        field:
+          type: text_style
+          display: 'Subtext Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: hero_cta_label
-        field: { type: text, display: "Primary Button Label" }
+        field:
+          type: text
+          display: 'Primary Button Label'
+      -
+        handle: hero_cta_label_text_style
+        field:
+          type: text_style
+          display: 'Primary Button Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: hero_cta_href
-        field: { type: text, display: "Primary Button URL" }
+        field:
+          type: text
+          display: 'Primary Button URL'
       -
         handle: hero_secondary_label
-        field: { type: text, display: "Secondary Link Label" }
+        field:
+          type: text
+          display: 'Secondary Link Label'
+      -
+        handle: hero_secondary_label_text_style
+        field:
+          type: text_style
+          display: 'Secondary Link Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: hero_secondary_href
-        field: { type: text, display: "Secondary Link URL" }
+        field:
+          type: text
+          display: 'Secondary Link URL'
       -
         handle: hero_image
-        field: { type: assets, display: "Hero Image", container: assets, max_files: 1 }
+        field:
+          type: assets
+          display: 'Hero Image'
+          container: assets
+          max_files: 1
       -
         handle: hero_image_alt
-        field: { type: text, display: "Hero Image Alt" }
+        field:
+          type: text
+          display: 'Hero Image Alt'
       -
         handle: hero_overlay_start
-        field: { type: text, display: "Overlay Start" }
+        field:
+          type: text
+          display: 'Overlay Start'
       -
         handle: hero_overlay_end
-        field: { type: text, display: "Overlay End" }
+        field:
+          type: text
+          display: 'Overlay End'
   about:
     display: About
     fields:
       -
         handle: about_bg
-        field: { type: text, display: "Background Colour" }
+        field:
+          type: text
+          display: 'Background Colour'
       -
         handle: about_panel_bg
-        field: { type: text, display: "Panel Colour" }
+        field:
+          type: text
+          display: 'Panel Colour'
       -
         handle: about_eyebrow
-        field: { type: text, display: Eyebrow }
+        field:
+          type: text
+          display: Eyebrow
+      -
+        handle: about_eyebrow_text_style
+        field:
+          type: text_style
+          display: 'Eyebrow Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: about_heading
-        field: { type: textarea, display: Heading }
+        field:
+          type: textarea
+          display: Heading
+      -
+        handle: about_heading_text_style
+        field:
+          type: text_style
+          display: 'Heading Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: about_body
-        field: { type: textarea, display: Body }
+        field:
+          type: textarea
+          display: Body
+      -
+        handle: about_body_text_style
+        field:
+          type: text_style
+          display: 'Body Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: about_years_value
-        field: { type: text, display: "Years Value" }
+        field:
+          type: text
+          display: 'Years Value'
+      -
+        handle: about_years_value_text_style
+        field:
+          type: text_style
+          display: 'Years Value Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: about_years_label
-        field: { type: text, display: "Years Label" }
+        field:
+          type: text
+          display: 'Years Label'
+      -
+        handle: about_years_label_text_style
+        field:
+          type: text_style
+          display: 'Years Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: about_image
-        field: { type: assets, display: "Image", container: assets, max_files: 1 }
+        field:
+          type: assets
+          display: Image
+          container: assets
+          max_files: 1
       -
         handle: about_features
         field:
           type: grid
           display: Features
-          add_row: "Add Feature"
+          add_row: 'Add Feature'
           fields:
             -
               handle: title
-              field: { type: text, display: Title }
+              field:
+                type: text
+                display: Title
+            -
+              handle: title_text_style
+              field:
+                type: text_style
+                display: 'Title Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: description
-              field: { type: textarea, display: Description }
+              field:
+                type: textarea
+                display: Description
+            -
+              handle: description_text_style
+              field:
+                type: text_style
+                display: 'Description Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: about_cta_label
-        field: { type: text, display: "Button Label" }
+        field:
+          type: text
+          display: 'Button Label'
+      -
+        handle: about_cta_label_text_style
+        field:
+          type: text_style
+          display: 'Button Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: about_cta_href
-        field: { type: text, display: "Button URL" }
+        field:
+          type: text
+          display: 'Button URL'
   services:
     display: Services
     fields:
       -
         handle: services_bg
-        field: { type: text, display: "Background Colour" }
+        field:
+          type: text
+          display: 'Background Colour'
       -
         handle: services_eyebrow
-        field: { type: text, display: Eyebrow }
+        field:
+          type: text
+          display: Eyebrow
+      -
+        handle: services_eyebrow_text_style
+        field:
+          type: text_style
+          display: 'Eyebrow Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: services_heading
-        field: { type: text, display: Heading }
+        field:
+          type: text
+          display: Heading
+      -
+        handle: services_heading_text_style
+        field:
+          type: text_style
+          display: 'Heading Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: services_items
         field:
           type: grid
           display: Services
-          add_row: "Add Service"
+          add_row: 'Add Service'
           fields:
             -
               handle: title
-              field: { type: text, display: Title }
+              field:
+                type: text
+                display: Title
+            -
+              handle: title_text_style
+              field:
+                type: text_style
+                display: 'Title Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: description
-              field: { type: text, display: Description }
+              field:
+                type: text
+                display: Description
+            -
+              handle: description_text_style
+              field:
+                type: text_style
+                display: 'Description Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: image
-              field: { type: assets, display: "Image", container: assets, max_files: 1 }
+              field:
+                type: assets
+                display: Image
+                container: assets
+                max_files: 1
             -
               handle: overlay
-              field: { type: text, display: Overlay }
+              field:
+                type: text
+                display: Overlay
             -
               handle: href
-              field: { type: text, display: URL }
+              field:
+                type: text
+                display: URL
   portfolio:
     display: Portfolio
     fields:
       -
         handle: portfolio_bg
-        field: { type: text, display: "Background Colour" }
+        field:
+          type: text
+          display: 'Background Colour'
       -
         handle: portfolio_eyebrow
-        field: { type: text, display: Eyebrow }
+        field:
+          type: text
+          display: Eyebrow
+      -
+        handle: portfolio_eyebrow_text_style
+        field:
+          type: text_style
+          display: 'Eyebrow Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: portfolio_heading
-        field: { type: text, display: Heading }
+        field:
+          type: text
+          display: Heading
+      -
+        handle: portfolio_heading_text_style
+        field:
+          type: text_style
+          display: 'Heading Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: portfolio_featured_image
-        field: { type: assets, display: "Featured Image", container: assets, max_files: 1 }
+        field:
+          type: assets
+          display: 'Featured Image'
+          container: assets
+          max_files: 1
       -
         handle: portfolio_featured_href
-        field: { type: text, display: "Featured URL" }
+        field:
+          type: text
+          display: 'Featured URL'
       -
         handle: portfolio_featured_title
-        field: { type: text, display: "Featured Title" }
+        field:
+          type: text
+          display: 'Featured Title'
+      -
+        handle: portfolio_featured_title_text_style
+        field:
+          type: text_style
+          display: 'Featured Title Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: portfolio_featured_category
-        field: { type: text, display: "Featured Category" }
+        field:
+          type: text
+          display: 'Featured Category'
+      -
+        handle: portfolio_featured_category_text_style
+        field:
+          type: text_style
+          display: 'Featured Category Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: portfolio_featured_description
-        field: { type: textarea, display: "Featured Description" }
+        field:
+          type: textarea
+          display: 'Featured Description'
+      -
+        handle: portfolio_featured_description_text_style
+        field:
+          type: text_style
+          display: 'Featured Description Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: portfolio_side_items
         field:
           type: grid
-          display: "Side Projects"
-          add_row: "Add Project"
+          display: 'Side Projects'
+          add_row: 'Add Project'
           fields:
             -
               handle: title
-              field: { type: text, display: Title }
+              field:
+                type: text
+                display: Title
+            -
+              handle: title_text_style
+              field:
+                type: text_style
+                display: 'Title Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: category
-              field: { type: text, display: Category }
+              field:
+                type: text
+                display: Category
+            -
+              handle: category_text_style
+              field:
+                type: text_style
+                display: 'Category Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: image
-              field: { type: assets, display: "Image", container: assets, max_files: 1 }
+              field:
+                type: assets
+                display: Image
+                container: assets
+                max_files: 1
             -
               handle: href
-              field: { type: text, display: URL }
+              field:
+                type: text
+                display: URL
             -
               handle: description
-              field: { type: textarea, display: Description }
+              field:
+                type: textarea
+                display: Description
+            -
+              handle: description_text_style
+              field:
+                type: text_style
+                display: 'Description Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
   products:
     display: Products
     fields:
       -
         handle: products_bg
-        field: { type: text, display: "Background Colour" }
+        field:
+          type: text
+          display: 'Background Colour'
       -
         handle: products_eyebrow
-        field: { type: text, display: Eyebrow }
+        field:
+          type: text
+          display: Eyebrow
+      -
+        handle: products_eyebrow_text_style
+        field:
+          type: text_style
+          display: 'Eyebrow Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: products_heading
-        field: { type: text, display: Heading }
+        field:
+          type: text
+          display: Heading
+      -
+        handle: products_heading_text_style
+        field:
+          type: text_style
+          display: 'Heading Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: products_items
         field:
           type: grid
-          display: "Featured Products"
-          add_row: "Add Product"
+          display: 'Featured Products'
+          add_row: 'Add Product'
           fields:
             -
               handle: title
-              field: { type: text, display: Title }
+              field:
+                type: text
+                display: Title
+            -
+              handle: title_text_style
+              field:
+                type: text_style
+                display: 'Title Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: price
-              field: { type: text, display: Price }
+              field:
+                type: text
+                display: Price
+            -
+              handle: price_text_style
+              field:
+                type: text_style
+                display: 'Price Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: category
-              field: { type: text, display: Category }
+              field:
+                type: text
+                display: Category
+            -
+              handle: category_text_style
+              field:
+                type: text_style
+                display: 'Category Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: image
-              field: { type: assets, display: "Image", container: assets, max_files: 1 }
+              field:
+                type: assets
+                display: Image
+                container: assets
+                max_files: 1
             -
               handle: href
-              field: { type: text, display: URL }
+              field:
+                type: text
+                display: URL
   mission:
     display: Mission
     fields:
       -
         handle: mission_bg
-        field: { type: text, display: "Background Colour" }
+        field:
+          type: text
+          display: 'Background Colour'
       -
         handle: mission_eyebrow
-        field: { type: text, display: Eyebrow }
+        field:
+          type: text
+          display: Eyebrow
+      -
+        handle: mission_eyebrow_text_style
+        field:
+          type: text_style
+          display: 'Eyebrow Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: mission_body_top
-        field: { type: text, display: "Small Text" }
+        field:
+          type: text
+          display: 'Small Text'
+      -
+        handle: mission_body_top_text_style
+        field:
+          type: text_style
+          display: 'Small Text Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: mission_heading
-        field: { type: textarea, display: Heading }
+        field:
+          type: textarea
+          display: Heading
+      -
+        handle: mission_heading_text_style
+        field:
+          type: text_style
+          display: 'Heading Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: mission_cta_label
-        field: { type: text, display: "Button Label" }
+        field:
+          type: text
+          display: 'Button Label'
+      -
+        handle: mission_cta_label_text_style
+        field:
+          type: text_style
+          display: 'Button Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: mission_cta_href
-        field: { type: text, display: "Button URL" }
+        field:
+          type: text
+          display: 'Button URL'
       -
         handle: mission_items
         field:
           type: grid
           display: Pillars
-          add_row: "Add Pillar"
+          add_row: 'Add Pillar'
           fields:
             -
               handle: title
-              field: { type: text, display: Title }
+              field:
+                type: text
+                display: Title
+            -
+              handle: title_text_style
+              field:
+                type: text_style
+                display: 'Title Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: description
-              field: { type: textarea, display: Description }
+              field:
+                type: textarea
+                display: Description
+            -
+              handle: description_text_style
+              field:
+                type: text_style
+                display: 'Description Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
   testimonials:
     display: Testimonials
     fields:
       -
         handle: testimonials_bg
-        field: { type: text, display: "Background Colour" }
+        field:
+          type: text
+          display: 'Background Colour'
       -
         handle: testimonials_eyebrow
-        field: { type: text, display: Eyebrow }
+        field:
+          type: text
+          display: Eyebrow
+      -
+        handle: testimonials_eyebrow_text_style
+        field:
+          type: text_style
+          display: 'Eyebrow Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: testimonials_heading
-        field: { type: textarea, display: Heading }
+        field:
+          type: textarea
+          display: Heading
+      -
+        handle: testimonials_heading_text_style
+        field:
+          type: text_style
+          display: 'Heading Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: testimonials_items
         field:
           type: grid
           display: Testimonials
-          add_row: "Add Testimonial"
+          add_row: 'Add Testimonial'
           fields:
             -
               handle: quote
-              field: { type: textarea, display: Quote }
+              field:
+                type: textarea
+                display: Quote
+            -
+              handle: quote_text_style
+              field:
+                type: text_style
+                display: 'Quote Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: author
-              field: { type: text, display: Author }
+              field:
+                type: text
+                display: Author
+            -
+              handle: author_text_style
+              field:
+                type: text_style
+                display: 'Author Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: role
-              field: { type: text, display: Role }
+              field:
+                type: text
+                display: Role
+            -
+              handle: role_text_style
+              field:
+                type: text_style
+                display: 'Role Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
   cta:
-    display: Final CTA
+    display: 'Final CTA'
     fields:
       -
         handle: cta_eyebrow
-        field: { type: text, display: Eyebrow }
+        field:
+          type: text
+          display: Eyebrow
+      -
+        handle: cta_eyebrow_text_style
+        field:
+          type: text_style
+          display: 'Eyebrow Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: cta_heading
-        field: { type: textarea, display: Heading }
+        field:
+          type: textarea
+          display: Heading
+      -
+        handle: cta_heading_text_style
+        field:
+          type: text_style
+          display: 'Heading Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: cta_subtext
-        field: { type: textarea, display: Subtext }
+        field:
+          type: textarea
+          display: Subtext
+      -
+        handle: cta_subtext_text_style
+        field:
+          type: text_style
+          display: 'Subtext Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: cta_primary_label
-        field: { type: text, display: "Primary Label" }
+        field:
+          type: text
+          display: 'Primary Label'
+      -
+        handle: cta_primary_label_text_style
+        field:
+          type: text_style
+          display: 'Primary Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: cta_primary_href
-        field: { type: text, display: "Primary URL" }
+        field:
+          type: text
+          display: 'Primary URL'
       -
         handle: cta_secondary_label
-        field: { type: text, display: "Secondary Label" }
+        field:
+          type: text
+          display: 'Secondary Label'
+      -
+        handle: cta_secondary_label_text_style
+        field:
+          type: text_style
+          display: 'Secondary Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: cta_secondary_href
-        field: { type: text, display: "Secondary URL" }
+        field:
+          type: text
+          display: 'Secondary URL'
   seo:
     display: SEO
     fields:

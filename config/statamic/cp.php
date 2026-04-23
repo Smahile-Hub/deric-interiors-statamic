@@ -40,7 +40,7 @@ return [
     |
     */
 
-    'start_page' => 'dashboard',
+    'start_page' => env('CP_START_PAGE', 'collections/pages'),
 
     /*
     |--------------------------------------------------------------------------

@@ -1,17 +1,42 @@
-title: Shop Page
+title: 'Shop Page'
 sections:
   hero:
     display: Hero
     fields:
       -
         handle: title
-        field: { type: text, display: "Page Title", required: true }
+        field:
+          type: text
+          display: 'Page Title'
+          required: true
+      -
+        handle: title_text_style
+        field:
+          type: text_style
+          display: 'Page Title Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: hero_heading
-        field: { type: text, display: Heading }
+        field:
+          type: text
+          display: Heading
+      -
+        handle: hero_heading_text_style
+        field:
+          type: text_style
+          display: 'Heading Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: hero_subtext
-        field: { type: textarea, display: Subtext }
+        field:
+          type: textarea
+          display: Subtext
+      -
+        handle: hero_subtext_text_style
+        field:
+          type: text_style
+          display: 'Subtext Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
   filters:
     display: Filters
     fields:
@@ -19,8 +44,14 @@ sections:
         handle: shop_filters
         field:
           type: list
-          display: "Filter Categories"
-          instructions: "Use product category names to control the filter order. The template adds All automatically, and any product category not listed here will still be added on the page."
+          display: 'Filter Categories'
+          instructions: 'Use product category names to control the filter order. The template adds All automatically, and any product category not listed here will still be added on the page.'
+      -
+        handle: shop_filters_text_style
+        field:
+          type: text_style
+          display: 'Filter Categories Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
   products:
     display: Products
     fields:
@@ -29,47 +60,117 @@ sections:
         field:
           type: grid
           display: Products
-          add_row: "Add Product"
+          add_row: 'Add Product'
           fields:
             -
               handle: title
-              field: { type: text, display: Title }
+              field:
+                type: text
+                display: Title
+            -
+              handle: title_text_style
+              field:
+                type: text_style
+                display: 'Title Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: price
-              field: { type: text, display: Price }
+              field:
+                type: text
+                display: Price
+            -
+              handle: price_text_style
+              field:
+                type: text_style
+                display: 'Price Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: category
               field:
                 type: text
-                display: "Category"
-                instructions: "Editable product category. Match a filter name above if you want it grouped under an existing filter."
+                display: Category
+                instructions: 'Editable product category. Match a filter name above if you want it grouped under an existing filter.'
+            -
+              handle: category_text_style
+              field:
+                type: text_style
+                display: 'Category Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: image
-              field: { type: assets, display: "Image", container: assets, max_files: 1 }
+              field:
+                type: assets
+                display: Image
+                container: assets
+                max_files: 1
             -
               handle: description
-              field: { type: textarea, display: Description }
+              field:
+                type: textarea
+                display: Description
+            -
+              handle: description_text_style
+              field:
+                type: text_style
+                display: 'Description Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: cta_label
-              field: { type: text, display: "CTA Label" }
+              field:
+                type: text
+                display: 'CTA Label'
+            -
+              handle: cta_label_text_style
+              field:
+                type: text_style
+                display: 'CTA Label Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: cta_href
-              field: { type: text, display: "CTA URL" }
+              field:
+                type: text
+                display: 'CTA URL'
   cta:
-    display: Final CTA
+    display: 'Final CTA'
     fields:
       -
         handle: shop_cta_title
-        field: { type: text, display: Title }
+        field:
+          type: text
+          display: Title
+      -
+        handle: shop_cta_title_text_style
+        field:
+          type: text_style
+          display: 'Title Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: shop_cta_description
-        field: { type: textarea, display: Description }
+        field:
+          type: textarea
+          display: Description
+      -
+        handle: shop_cta_description_text_style
+        field:
+          type: text_style
+          display: 'Description Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: shop_cta_button_label
-        field: { type: text, display: "Button Label" }
+        field:
+          type: text
+          display: 'Button Label'
+      -
+        handle: shop_cta_button_label_text_style
+        field:
+          type: text_style
+          display: 'Button Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: shop_cta_button_href
-        field: { type: text, display: "Button URL" }
+        field:
+          type: text
+          display: 'Button URL'
   seo:
     display: SEO
     fields:

@@ -11,10 +11,10 @@
     <div class="about-page-hero-overlay"></div>
 
     <div class="about-page-hero-shell">
-      <p class="about-page-eyebrow" data-reveal>{{ about_hero_eyebrow }}</p>
+      <p class="about-page-eyebrow" data-reveal data-text-control data-text-size-step="{{ about_hero_eyebrow_text_style:size }}" data-text-height-step="{{ about_hero_eyebrow_text_style:height }}" data-text-width-step="{{ about_hero_eyebrow_text_style:width }}">{{ about_hero_eyebrow }}</p>
       <h1 class="about-page-hero-title" data-reveal>
-        {{ about_hero_title_line_one }}<br>
-        with <span class="about-page-hero-accent">{{ about_hero_accent_word }}</span>
+        <span data-text-control data-text-size-step="{{ about_hero_title_line_one_text_style:size }}" data-text-height-step="{{ about_hero_title_line_one_text_style:height }}" data-text-width-step="{{ about_hero_title_line_one_text_style:width }}">{{ about_hero_title_line_one }}</span><br>
+        with <span class="about-page-hero-accent" data-text-control data-text-size-step="{{ about_hero_accent_word_text_style:size }}" data-text-height-step="{{ about_hero_accent_word_text_style:height }}" data-text-width-step="{{ about_hero_accent_word_text_style:width }}">{{ about_hero_accent_word }}</span>
       </h1>
       <div class="about-page-hero-divider" aria-hidden="true" data-reveal></div>
     </div>
@@ -24,13 +24,13 @@
     <div class="about-page-story-shell">
       <div class="about-page-story-grid">
         <div class="about-page-story-text" data-reveal>
-          <p class="about-page-story-eyebrow">{{ about_story_eyebrow }}</p>
+          <p class="about-page-story-eyebrow" data-text-control data-text-size-step="{{ about_story_eyebrow_text_style:size }}" data-text-height-step="{{ about_story_eyebrow_text_style:height }}" data-text-width-step="{{ about_story_eyebrow_text_style:width }}">{{ about_story_eyebrow }}</p>
           <h2 class="about-page-story-heading">
-            {{ about_story_heading_line_one }}<br>
-            {{ about_story_heading_line_two }}<br>
-            {{ about_story_heading_line_three }}
+            <span data-text-control data-text-size-step="{{ about_story_heading_line_one_text_style:size }}" data-text-height-step="{{ about_story_heading_line_one_text_style:height }}" data-text-width-step="{{ about_story_heading_line_one_text_style:width }}">{{ about_story_heading_line_one }}</span><br>
+            <span data-text-control data-text-size-step="{{ about_story_heading_line_two_text_style:size }}" data-text-height-step="{{ about_story_heading_line_two_text_style:height }}" data-text-width-step="{{ about_story_heading_line_two_text_style:width }}">{{ about_story_heading_line_two }}</span><br>
+            <span data-text-control data-text-size-step="{{ about_story_heading_line_three_text_style:size }}" data-text-height-step="{{ about_story_heading_line_three_text_style:height }}" data-text-width-step="{{ about_story_heading_line_three_text_style:width }}">{{ about_story_heading_line_three }}</span>
           </h2>
-          <p class="about-page-story-body">{{ about_story_body }}</p>
+          <p class="about-page-story-body" data-text-control data-text-size-step="{{ about_story_body_text_style:size }}" data-text-height-step="{{ about_story_body_text_style:height }}" data-text-width-step="{{ about_story_body_text_style:width }}">{{ about_story_body }}</p>
         </div>
 
         <div class="about-page-story-images" data-reveal>
@@ -58,17 +58,17 @@
   <section class="about-page-milestones-section">
     <div class="about-page-milestones-shell">
       <div class="about-page-milestones-header" data-reveal>
-        <h2 class="about-page-milestones-title">{{ about_milestones_title }}</h2>
-        <p class="about-page-milestones-description">{{ about_milestones_description }}</p>
+        <h2 class="about-page-milestones-title" data-text-control data-text-size-step="{{ about_milestones_title_text_style:size }}" data-text-height-step="{{ about_milestones_title_text_style:height }}" data-text-width-step="{{ about_milestones_title_text_style:width }}">{{ about_milestones_title }}</h2>
+        <p class="about-page-milestones-description" data-text-control data-text-size-step="{{ about_milestones_description_text_style:size }}" data-text-height-step="{{ about_milestones_description_text_style:height }}" data-text-width-step="{{ about_milestones_description_text_style:width }}">{{ about_milestones_description }}</p>
       </div>
 
       <div class="about-page-milestones-grid">
         {{ about_milestones_items }}
           <div class="about-page-milestone-card{{ if highlighted }} is-highlighted{{ /if }}" data-reveal>
-            <span class="about-page-milestone-value{{ if highlighted }} is-full{{ /if }}">{{ value }}</span>
+            <span class="about-page-milestone-value{{ if highlighted }} is-full{{ /if }}" data-text-control data-text-size-step="{{ value_text_style:size }}" data-text-height-step="{{ value_text_style:height }}" data-text-width-step="{{ value_text_style:width }}">{{ value }}</span>
             <div class="about-page-milestone-text">
-              <strong class="about-page-milestone-label">{{ label }}</strong>
-              <p class="about-page-milestone-description">{{ description }}</p>
+              <strong class="about-page-milestone-label" data-text-control data-text-size-step="{{ label_text_style:size }}" data-text-height-step="{{ label_text_style:height }}" data-text-width-step="{{ label_text_style:width }}">{{ label }}</strong>
+              <p class="about-page-milestone-description" data-text-control data-text-size-step="{{ description_text_style:size }}" data-text-height-step="{{ description_text_style:height }}" data-text-width-step="{{ description_text_style:width }}">{{ description }}</p>
             </div>
           </div>
         {{ /about_milestones_items }}
@@ -78,14 +78,14 @@
 
   <section class="about-page-foundations-section">
     <div class="about-page-foundations-shell">
-      <h2 class="about-page-foundations-title" data-reveal>{{ about_values_title }}</h2>
+      <h2 class="about-page-foundations-title" data-reveal data-text-control data-text-size-step="{{ about_values_title_text_style:size }}" data-text-height-step="{{ about_values_title_text_style:height }}" data-text-width-step="{{ about_values_title_text_style:width }}">{{ about_values_title }}</h2>
 
       <div class="about-page-values-grid">
         {{ about_values_items }}
           <div class="about-page-value-card" data-reveal>
-            <span class="about-page-value-number">{{ number }}</span>
-            <h3 class="about-page-value-title">{{ title }}</h3>
-            <p class="about-page-value-description">{{ description }}</p>
+            <span class="about-page-value-number" data-text-control data-text-size-step="{{ number_text_style:size }}" data-text-height-step="{{ number_text_style:height }}" data-text-width-step="{{ number_text_style:width }}">{{ number }}</span>
+            <h3 class="about-page-value-title" data-text-control data-text-size-step="{{ title_text_style:size }}" data-text-height-step="{{ title_text_style:height }}" data-text-width-step="{{ title_text_style:width }}">{{ title }}</h3>
+            <p class="about-page-value-description" data-text-control data-text-size-step="{{ description_text_style:size }}" data-text-height-step="{{ description_text_style:height }}" data-text-width-step="{{ description_text_style:width }}">{{ description }}</p>
           </div>
         {{ /about_values_items }}
       </div>
@@ -104,8 +104,8 @@
     <div class="about-page-cta-overlay"></div>
 
     <div class="about-page-cta-shell">
-      <h2 class="about-page-cta-title">{{ about_cta_title }}</h2>
-      <a href="{{ about_cta_button_href }}" class="about-page-cta-button">
+      <h2 class="about-page-cta-title" data-text-control data-text-size-step="{{ about_cta_title_text_style:size }}" data-text-height-step="{{ about_cta_title_text_style:height }}" data-text-width-step="{{ about_cta_title_text_style:width }}">{{ about_cta_title }}</h2>
+      <a href="{{ about_cta_button_href }}" class="about-page-cta-button" data-text-control data-text-size-step="{{ about_cta_button_label_text_style:size }}" data-text-height-step="{{ about_cta_button_label_text_style:height }}" data-text-width-step="{{ about_cta_button_label_text_style:width }}">
         {{ about_cta_button_label }}
       </a>
     </div>

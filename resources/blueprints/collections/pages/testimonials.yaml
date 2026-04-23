@@ -1,17 +1,42 @@
-title: Testimonials Page
+title: 'Testimonials Page'
 sections:
   hero:
     display: Hero
     fields:
       -
         handle: title
-        field: { type: text, display: "Page Title", required: true }
+        field:
+          type: text
+          display: 'Page Title'
+          required: true
+      -
+        handle: title_text_style
+        field:
+          type: text_style
+          display: 'Page Title Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: hero_heading
-        field: { type: text, display: Heading }
+        field:
+          type: text
+          display: Heading
+      -
+        handle: hero_heading_text_style
+        field:
+          type: text_style
+          display: 'Heading Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: hero_subtext
-        field: { type: textarea, display: Subtext }
+        field:
+          type: textarea
+          display: Subtext
+      -
+        handle: hero_subtext_text_style
+        field:
+          type: text_style
+          display: 'Subtext Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
   testimonials:
     display: Testimonials
     fields:
@@ -20,44 +45,120 @@ sections:
         field:
           type: grid
           display: Testimonials
-          add_row: "Add Testimonial"
+          add_row: 'Add Testimonial'
           fields:
             -
               handle: quote
-              field: { type: textarea, display: Quote }
+              field:
+                type: textarea
+                display: Quote
+            -
+              handle: quote_text_style
+              field:
+                type: text_style
+                display: 'Quote Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: author
-              field: { type: text, display: Author }
+              field:
+                type: text
+                display: Author
+            -
+              handle: author_text_style
+              field:
+                type: text_style
+                display: 'Author Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: role
-              field: { type: text, display: Role }
+              field:
+                type: text
+                display: Role
+            -
+              handle: role_text_style
+              field:
+                type: text_style
+                display: 'Role Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: location
-              field: { type: text, display: Location }
+              field:
+                type: text
+                display: Location
+            -
+              handle: location_text_style
+              field:
+                type: text_style
+                display: 'Location Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: project
-              field: { type: text, display: Project }
+              field:
+                type: text
+                display: Project
+            -
+              handle: project_text_style
+              field:
+                type: text_style
+                display: 'Project Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
   cta:
-    display: Final CTA
+    display: 'Final CTA'
     fields:
       -
         handle: testimonials_cta_title
-        field: { type: text, display: Title }
+        field:
+          type: text
+          display: Title
+      -
+        handle: testimonials_cta_title_text_style
+        field:
+          type: text_style
+          display: 'Title Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: testimonials_cta_description
-        field: { type: textarea, display: Description }
+        field:
+          type: textarea
+          display: Description
+      -
+        handle: testimonials_cta_description_text_style
+        field:
+          type: text_style
+          display: 'Description Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: testimonials_cta_primary_label
-        field: { type: text, display: "Primary Label" }
+        field:
+          type: text
+          display: 'Primary Label'
+      -
+        handle: testimonials_cta_primary_label_text_style
+        field:
+          type: text_style
+          display: 'Primary Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: testimonials_cta_primary_href
-        field: { type: text, display: "Primary URL" }
+        field:
+          type: text
+          display: 'Primary URL'
       -
         handle: testimonials_cta_secondary_label
-        field: { type: text, display: "Secondary Label" }
+        field:
+          type: text
+          display: 'Secondary Label'
+      -
+        handle: testimonials_cta_secondary_label_text_style
+        field:
+          type: text_style
+          display: 'Secondary Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: testimonials_cta_secondary_href
-        field: { type: text, display: "Secondary URL" }
+        field:
+          type: text
+          display: 'Secondary URL'
   seo:
     display: SEO
     fields:

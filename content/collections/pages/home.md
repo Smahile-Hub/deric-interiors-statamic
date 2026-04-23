@@ -4,26 +4,24 @@ blueprint: home
 title: Home
 template: home
 slug: home
-seo_title: Luxury Interior Design & Bespoke Home Styling
-meta_description: Dric Interior creates refined residential and commercial interiors with bespoke furniture, thoughtful space planning, and curated decor.
+seo_title: 'Luxury Interior Design & Bespoke Home Styling'
+meta_description: 'Dric Interior creates refined residential and commercial interiors with bespoke furniture, thoughtful space planning, and curated decor.'
 seo_image: interior-hero.jpg
-seo_image_alt: Luxury Dric Interior living room with warm lighting and bespoke furniture
+seo_image_alt: 'Luxury Dric Interior living room with warm lighting and bespoke furniture'
 hero_heading_lines:
   -
     id: 7NX1IEs6
-    line: 'Elevated Living'
-  -
-    id: HzLkmIKi
-    line: Spaces
-  -
-    id: 16b0-ti2Xset6YjKhiJu3
-    line: wow
+    line: 'Elevated Living Space'
+    line_text_style:
+      size: 0
+      height: 0
+      width: 0
 hero_subtext: 'Crafting bespoke interiors that harmonize architectural precision with the warmth of a curated home.'
 hero_cta_label: 'View Our Portfolio'
 hero_cta_href: '/#portfolio'
 hero_secondary_label: 'The Design Philosophy'
 hero_secondary_href: '/#about'
-hero_image: elegant_master_bedroom_featuring_neutral_tones__pl_174_285.png
+hero_image: about_09.jpg
 hero_image_alt: 'Luxury living room with layered lighting and sculptural furnishings'
 hero_overlay_start: 'rgba(11,12,16,0.82)'
 hero_overlay_end: 'rgba(31,20,13,0.35)'
@@ -42,10 +40,26 @@ about_features:
     id: tStXgy80
     title: Authentic
     description: 'Every space we create is a true reflection of the people who inhabit it — never generic, always deeply personal.'
+    title_text_style:
+      size: 0
+      height: 0
+      width: 0
+    description_text_style:
+      size: 0
+      height: 0
+      width: 0
   -
     id: kcVrYk0q
     title: Innovative
     description: 'We combine timeless design principles with forward-thinking ideas to produce interiors that feel both current and enduring.'
+    title_text_style:
+      size: 0
+      height: 0
+      width: 0
+    description_text_style:
+      size: 0
+      height: 0
+      width: 0
 about_cta_label: 'Our Story'
 about_cta_href: /about
 about_image: interior-about-hero.jpg
@@ -55,32 +69,94 @@ services_heading: 'Our Services'
 services_items:
   -
     id: uHpkEhgU
-    title: 'Residential Design'
-    description: 'Full Service'
+    title: 'Furniture & Fittings'
+    description: 'We take pride in our bespoke furniture production, creating pieces that perfectly complement your space and style.'
     image: interior-hero.jpg
     overlay: 'rgba(15,18,23,0.7)'
     href: /services
+    title_text_style:
+      size: 0
+      height: 0
+      width: 0
+    description_text_style:
+      size: 0
+      height: 0
+      width: 0
   -
     id: qtExlaAK
-    title: 'Commercial Design'
-    description: 'Workspace & Retail'
+    title: 'Window Covering'
+    description: 'We offer a wide range of window covering solutions designed to enhance the beauty and functionality of your space.'
     image: interior-contact.jpg
     overlay: 'rgba(15,18,23,0.7)'
     href: /services
+    title_text_style:
+      size: 0
+      height: 0
+      width: 0
+    description_text_style:
+      size: 0
+      height: 0
+      width: 0
   -
     id: sgYpIbtM
-    title: 'Space Planning'
-    description: 'Intelligent Layouts'
+    title: 'Wall Covering'
+    description: 'We offer a diverse range of wall covering solutions to elevate the look and feel of your space.'
     image: interior-about-hero.jpg
     overlay: 'rgba(15,18,23,0.7)'
     href: /services
+    title_text_style:
+      size: 0
+      height: 0
+      width: 0
+    description_text_style:
+      size: 0
+      height: 0
+      width: 0
   -
     id: a7pL31kD
-    title: 'Furniture Sourcing'
-    description: 'Curated Pieces'
+    title: 'Ceiling Covering'
+    description: 'We offer innovative ceiling covering solutions that enhance the ambiance of your space.'
     image: interior-closet.jpg
     overlay: 'rgba(15,18,23,0.7)'
     href: /services
+    title_text_style:
+      size: 0
+      height: 0
+      width: 0
+    description_text_style:
+      size: 0
+      height: 0
+      width: 0
+  -
+    id: bR2mNxT9
+    title: 'Signage & Logo'
+    description: 'We specialize in creating custom signage and logos that make a lasting impression.'
+    image: interior-kitchen.jpg
+    overlay: 'rgba(15,18,23,0.7)'
+    href: /services
+    title_text_style:
+      size: 0
+      height: 0
+      width: 0
+    description_text_style:
+      size: 0
+      height: 0
+      width: 0
+  -
+    id: cW4kPyU6
+    title: 'Exterior Design'
+    description: 'We specialize in transforming the exterior of homes with our expert design solutions.'
+    image: interior-about-hero.jpg
+    overlay: 'rgba(15,18,23,0.7)'
+    href: /services
+    title_text_style:
+      size: 0
+      height: 0
+      width: 0
+    description_text_style:
+      size: 0
+      height: 0
+      width: 0
 portfolio_bg: '#0d1016'
 portfolio_eyebrow: 'Our Work'
 portfolio_heading: 'Recent Projects'
@@ -97,6 +173,18 @@ portfolio_side_items:
     href: /projects
     image: interior-hero.jpg
     description: 'A complete home transformation for a Lagos family.'
+    title_text_style:
+      size: 0
+      height: 0
+      width: 0
+    category_text_style:
+      size: 0
+      height: 0
+      width: 0
+    description_text_style:
+      size: 0
+      height: 0
+      width: 0
   -
     id: Oui9vJ4O
     title: 'Azure Office Hub'
@@ -104,6 +192,18 @@ portfolio_side_items:
     href: /projects
     image: interior-closet.jpg
     description: 'An inspiring workspace designed for a growing tech company.'
+    title_text_style:
+      size: 0
+      height: 0
+      width: 0
+    category_text_style:
+      size: 0
+      height: 0
+      width: 0
+    description_text_style:
+      size: 0
+      height: 0
+      width: 0
 products_bg: '#0d0e12'
 products_eyebrow: Shop
 products_heading: 'Featured Pieces'
@@ -115,6 +215,18 @@ products_items:
     category: Seating
     image: product-sofa.jpg
     href: /shop
+    title_text_style:
+      size: 0
+      height: 0
+      width: 0
+    price_text_style:
+      size: 0
+      height: 0
+      width: 0
+    category_text_style:
+      size: 0
+      height: 0
+      width: 0
   -
     id: GrK5kQQj
     title: 'Marble Coffee Table'
@@ -122,6 +234,18 @@ products_items:
     category: Tables
     image: product-dining.jpg
     href: /shop
+    title_text_style:
+      size: 0
+      height: 0
+      width: 0
+    price_text_style:
+      size: 0
+      height: 0
+      width: 0
+    category_text_style:
+      size: 0
+      height: 0
+      width: 0
   -
     id: Ypi7yuWz
     title: 'Sculptural Floor Lamp'
@@ -129,6 +253,18 @@ products_items:
     category: Lighting
     image: product-lamp.jpg
     href: /shop
+    title_text_style:
+      size: 0
+      height: 0
+      width: 0
+    price_text_style:
+      size: 0
+      height: 0
+      width: 0
+    category_text_style:
+      size: 0
+      height: 0
+      width: 0
   -
     id: LDB6uDIh
     title: 'Hand-Thrown Ceramic Vase'
@@ -136,6 +272,18 @@ products_items:
     category: Accessories
     image: product-cushions.jpg
     href: /shop
+    title_text_style:
+      size: 0
+      height: 0
+      width: 0
+    price_text_style:
+      size: 0
+      height: 0
+      width: 0
+    category_text_style:
+      size: 0
+      height: 0
+      width: 0
   -
     id: Z0cOolwL
     title: 'Abstract Canvas — Series 7'
@@ -143,6 +291,18 @@ products_items:
     category: 'Art & Decor'
     image: product-art.jpg
     href: /shop
+    title_text_style:
+      size: 0
+      height: 0
+      width: 0
+    price_text_style:
+      size: 0
+      height: 0
+      width: 0
+    category_text_style:
+      size: 0
+      height: 0
+      width: 0
 mission_bg: '#161a20'
 mission_eyebrow: 'Our Mission'
 mission_body_top: 'We create'
@@ -156,14 +316,38 @@ mission_items:
     id: vIKypA2f
     title: 'Thoughtful Design'
     description: 'Every decision is made with intention — from material selection to spatial flow, nothing is accidental.'
+    title_text_style:
+      size: 0
+      height: 0
+      width: 0
+    description_text_style:
+      size: 0
+      height: 0
+      width: 0
   -
     id: 7dowr8CX
     title: Client-Centred
     description: 'Your life, your story, your aesthetic. We listen first, then design.'
+    title_text_style:
+      size: 0
+      height: 0
+      width: 0
+    description_text_style:
+      size: 0
+      height: 0
+      width: 0
   -
     id: NnCt9mF8
     title: 'Lasting Quality'
     description: 'We source materials and craft furnishings built to age beautifully and stand the test of time.'
+    title_text_style:
+      size: 0
+      height: 0
+      width: 0
+    description_text_style:
+      size: 0
+      height: 0
+      width: 0
 testimonials_bg: '#111217'
 testimonials_eyebrow: 'Client Love'
 testimonials_heading: |-
@@ -175,16 +359,52 @@ testimonials_items:
     quote: "Dric Interior completely transformed our home. Every room feels intentional, luxurious, and deeply personal. We couldn't be happier with the result."
     author: 'Adaeze Okafor'
     role: 'Homeowner, Lagos'
+    quote_text_style:
+      size: 0
+      height: 0
+      width: 0
+    author_text_style:
+      size: 0
+      height: 0
+      width: 0
+    role_text_style:
+      size: 0
+      height: 0
+      width: 0
   -
     id: FpQ1EOD1
     quote: 'Working with Dric was effortless. They listened, they understood, and they delivered beyond our expectations. Truly world-class.'
     author: 'Tunde Adeyemi'
     role: 'CEO, Lagos'
+    quote_text_style:
+      size: 0
+      height: 0
+      width: 0
+    author_text_style:
+      size: 0
+      height: 0
+      width: 0
+    role_text_style:
+      size: 0
+      height: 0
+      width: 0
   -
     id: ZmC0oAs5
     quote: "Our office has never felt this inspiring. The team's attention to detail and design sensibility is absolutely unmatched."
     author: 'Ngozi Eze'
     role: 'Director, Abuja'
+    quote_text_style:
+      size: 0
+      height: 0
+      width: 0
+    author_text_style:
+      size: 0
+      height: 0
+      width: 0
+    role_text_style:
+      size: 0
+      height: 0
+      width: 0
 cta_eyebrow: 'Get Started'
 cta_heading: |-
   Ready to Transform
@@ -195,5 +415,130 @@ cta_primary_href: /contact
 cta_secondary_label: 'View Our Work'
 cta_secondary_href: /projects
 updated_by: d6dd0a8a-7ca8-4a10-a604-4db11f80080e
-updated_at: 1776787399
+updated_at: 1776937612
+noindex: false
+title_text_style:
+  size: 0
+  height: 0
+  width: 0
+hero_eyebrow_text_style:
+  size: 0
+  height: 0
+  width: 0
+hero_subtext_text_style:
+  size: 0
+  height: 0
+  width: 0
+hero_cta_label_text_style:
+  size: 0
+  height: 0
+  width: 0
+hero_secondary_label_text_style:
+  size: 0
+  height: 0
+  width: 0
+about_eyebrow_text_style:
+  size: 0
+  height: 0
+  width: 0
+about_heading_text_style:
+  size: 0
+  height: 0
+  width: 0
+about_body_text_style:
+  size: 0
+  height: 0
+  width: 0
+about_years_value_text_style:
+  size: 0
+  height: 0
+  width: 0
+about_years_label_text_style:
+  size: 0
+  height: 0
+  width: 0
+about_cta_label_text_style:
+  size: 0
+  height: 0
+  width: 0
+services_eyebrow_text_style:
+  size: 0
+  height: 0
+  width: 0
+services_heading_text_style:
+  size: 0
+  height: 0
+  width: 0
+portfolio_eyebrow_text_style:
+  size: 0
+  height: 0
+  width: 0
+portfolio_heading_text_style:
+  size: 0
+  height: 0
+  width: 0
+portfolio_featured_title_text_style:
+  size: 0
+  height: 0
+  width: 0
+portfolio_featured_category_text_style:
+  size: 0
+  height: 0
+  width: 0
+portfolio_featured_description_text_style:
+  size: 0
+  height: 0
+  width: 0
+products_eyebrow_text_style:
+  size: 0
+  height: 0
+  width: 0
+products_heading_text_style:
+  size: 0
+  height: 0
+  width: 0
+mission_eyebrow_text_style:
+  size: 0
+  height: 0
+  width: 0
+mission_body_top_text_style:
+  size: 0
+  height: 0
+  width: 0
+mission_heading_text_style:
+  size: 0
+  height: 0
+  width: 0
+mission_cta_label_text_style:
+  size: 0
+  height: 0
+  width: 0
+testimonials_eyebrow_text_style:
+  size: 0
+  height: 0
+  width: 0
+testimonials_heading_text_style:
+  size: 0
+  height: 0
+  width: 0
+cta_eyebrow_text_style:
+  size: 0
+  height: 0
+  width: 0
+cta_heading_text_style:
+  size: 0
+  height: 0
+  width: 0
+cta_subtext_text_style:
+  size: 0
+  height: 0
+  width: 0
+cta_primary_label_text_style:
+  size: 0
+  height: 0
+  width: 0
+cta_secondary_label_text_style:
+  size: 0
+  height: 0
+  width: 0
 ---

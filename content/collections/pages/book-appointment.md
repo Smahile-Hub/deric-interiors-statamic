@@ -53,11 +53,12 @@ book_phone_placeholder: +234 xxx xxx xxxx
 book_project_type_label: Project Type
 book_project_type_placeholder: Select type
 book_project_type_options:
-  - Residential Design
-  - Commercial Fitout
-  - Workplace
-  - Hospitality
-  - Heritage Renovation
+  - Furniture & Fittings
+  - Window Covering
+  - Wall Covering
+  - Ceiling Covering
+  - Signage & Logo
+  - Exterior Design
 book_preferred_date_label: Preferred Date
 book_preferred_time_label: Preferred Time
 book_preferred_time_placeholder: Select time

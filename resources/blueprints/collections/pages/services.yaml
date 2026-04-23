@@ -1,38 +1,103 @@
-title: Services Page
+title: 'Services Page'
 sections:
   hero:
     display: Hero
     fields:
       -
         handle: title
-        field: { type: text, display: "Page Title", required: true }
+        field:
+          type: text
+          display: 'Page Title'
+          required: true
+      -
+        handle: title_text_style
+        field:
+          type: text_style
+          display: 'Page Title Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: services_hero_eyebrow
-        field: { type: text, display: Eyebrow }
+        field:
+          type: text
+          display: Eyebrow
+      -
+        handle: services_hero_eyebrow_text_style
+        field:
+          type: text_style
+          display: 'Eyebrow Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: services_hero_title_prefix
-        field: { type: text, display: "Title Prefix" }
+        field:
+          type: text
+          display: 'Title Prefix'
+      -
+        handle: services_hero_title_prefix_text_style
+        field:
+          type: text_style
+          display: 'Title Prefix Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: services_hero_title_accent
-        field: { type: text, display: "Title Accent" }
+        field:
+          type: text
+          display: 'Title Accent'
+      -
+        handle: services_hero_title_accent_text_style
+        field:
+          type: text_style
+          display: 'Title Accent Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: services_hero_title_suffix
-        field: { type: text, display: "Title Suffix" }
+        field:
+          type: text
+          display: 'Title Suffix'
+      -
+        handle: services_hero_title_suffix_text_style
+        field:
+          type: text_style
+          display: 'Title Suffix Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: services_hero_description
-        field: { type: textarea, display: Description }
+        field:
+          type: textarea
+          display: Description
+      -
+        handle: services_hero_description_text_style
+        field:
+          type: text_style
+          display: 'Description Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: services_hero_background_image
-        field: { type: assets, display: "Background Image", container: assets, max_files: 1 }
+        field:
+          type: assets
+          display: 'Background Image'
+          container: assets
+          max_files: 1
       -
         handle: services_hero_background_alt
-        field: { type: text, display: "Background Image Alt" }
+        field:
+          type: text
+          display: 'Background Image Alt'
       -
         handle: services_hero_cta_label
-        field: { type: text, display: "Hero CTA Label" }
+        field:
+          type: text
+          display: 'Hero CTA Label'
+      -
+        handle: services_hero_cta_label_text_style
+        field:
+          type: text_style
+          display: 'Hero CTA Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: services_hero_cta_href
-        field: { type: text, display: "Hero CTA URL" }
+        field:
+          type: text
+          display: 'Hero CTA URL'
   stats:
     display: Stats
     fields:
@@ -41,113 +106,271 @@ sections:
         field:
           type: grid
           display: Stats
-          add_row: Add Stat
+          add_row: 'Add Stat'
           fields:
             -
               handle: value
-              field: { type: text, display: Value }
+              field:
+                type: text
+                display: Value
+            -
+              handle: value_text_style
+              field:
+                type: text_style
+                display: 'Value Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: label
-              field: { type: text, display: Label }
+              field:
+                type: text
+                display: Label
+            -
+              handle: label_text_style
+              field:
+                type: text_style
+                display: 'Label Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
   intro:
     display: Intro
     fields:
       -
         handle: services_intro_title
-        field: { type: text, display: Title }
+        field:
+          type: text
+          display: Title
+      -
+        handle: services_intro_title_text_style
+        field:
+          type: text_style
+          display: 'Title Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: services_intro_description
-        field: { type: textarea, display: Description }
+        field:
+          type: textarea
+          display: Description
+      -
+        handle: services_intro_description_text_style
+        field:
+          type: text_style
+          display: 'Description Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
   services:
-    display: Service Rows
+    display: 'Service Rows'
     fields:
       -
         handle: service_rows
         field:
           type: grid
           display: Rows
-          add_row: Add Row
+          add_row: 'Add Row'
           fields:
             -
               handle: services_cards
               field:
                 type: grid
                 display: Cards
-                add_row: Add Card
+                add_row: 'Add Card'
                 fields:
                   -
                     handle: id
-                    field: { type: text, display: ID }
+                    field:
+                      type: text
+                      display: ID
+                  -
+                    handle: id_text_style
+                    field:
+                      type: text_style
+                      display: 'ID Text Controls'
+                      instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
                   -
                     handle: number
-                    field: { type: text, display: Number }
+                    field:
+                      type: text
+                      display: Number
+                  -
+                    handle: number_text_style
+                    field:
+                      type: text_style
+                      display: 'Number Text Controls'
+                      instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
                   -
                     handle: title
-                    field: { type: text, display: Title }
+                    field:
+                      type: text
+                      display: Title
+                  -
+                    handle: title_text_style
+                    field:
+                      type: text_style
+                      display: 'Title Text Controls'
+                      instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
                   -
                     handle: description
-                    field: { type: textarea, display: Description }
+                    field:
+                      type: textarea
+                      display: Description
+                  -
+                    handle: description_text_style
+                    field:
+                      type: text_style
+                      display: 'Description Text Controls'
+                      instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
                   -
                     handle: image
-                    field: { type: assets, display: "Image", container: assets, max_files: 1 }
+                    field:
+                      type: assets
+                      display: Image
+                      container: assets
+                      max_files: 1
                   -
                     handle: image_alt
-                    field: { type: text, display: "Image Alt" }
+                    field:
+                      type: text
+                      display: 'Image Alt'
                   -
                     handle: wide
-                    field: { type: toggle, display: "Wide Card" }
+                    field:
+                      type: toggle
+                      display: 'Wide Card'
                   -
                     handle: link_label
-                    field: { type: text, display: "Link Label" }
+                    field:
+                      type: text
+                      display: 'Link Label'
+                  -
+                    handle: link_label_text_style
+                    field:
+                      type: text_style
+                      display: 'Link Label Text Controls'
+                      instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
                   -
                     handle: link_href
-                    field: { type: text, display: "Link URL" }
+                    field:
+                      type: text
+                      display: 'Link URL'
   process:
     display: Process
     fields:
       -
         handle: services_process_title
-        field: { type: text, display: Title }
+        field:
+          type: text
+          display: Title
+      -
+        handle: services_process_title_text_style
+        field:
+          type: text_style
+          display: 'Title Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: services_process_items
         field:
           type: grid
-          display: Process Items
-          add_row: Add Step
+          display: 'Process Items'
+          add_row: 'Add Step'
           fields:
             -
               handle: number
-              field: { type: text, display: Number }
+              field:
+                type: text
+                display: Number
+            -
+              handle: number_text_style
+              field:
+                type: text_style
+                display: 'Number Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: title
-              field: { type: text, display: Title }
+              field:
+                type: text
+                display: Title
+            -
+              handle: title_text_style
+              field:
+                type: text_style
+                display: 'Title Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: description
-              field: { type: textarea, display: Description }
+              field:
+                type: textarea
+                display: Description
+            -
+              handle: description_text_style
+              field:
+                type: text_style
+                display: 'Description Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
   cta:
-    display: Final CTA
+    display: 'Final CTA'
     fields:
       -
         handle: services_cta_title_line_one
-        field: { type: text, display: "CTA Title Line One" }
+        field:
+          type: text
+          display: 'CTA Title Line One'
+      -
+        handle: services_cta_title_line_one_text_style
+        field:
+          type: text_style
+          display: 'CTA Title Line One Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: services_cta_title_line_two
-        field: { type: text, display: "CTA Title Line Two" }
+        field:
+          type: text
+          display: 'CTA Title Line Two'
+      -
+        handle: services_cta_title_line_two_text_style
+        field:
+          type: text_style
+          display: 'CTA Title Line Two Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: services_cta_description
-        field: { type: textarea, display: Description }
+        field:
+          type: textarea
+          display: Description
+      -
+        handle: services_cta_description_text_style
+        field:
+          type: text_style
+          display: 'Description Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: services_cta_primary_label
-        field: { type: text, display: "Primary Label" }
+        field:
+          type: text
+          display: 'Primary Label'
+      -
+        handle: services_cta_primary_label_text_style
+        field:
+          type: text_style
+          display: 'Primary Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: services_cta_primary_href
-        field: { type: text, display: "Primary URL" }
+        field:
+          type: text
+          display: 'Primary URL'
       -
         handle: services_cta_secondary_label
-        field: { type: text, display: "Secondary Label" }
+        field:
+          type: text
+          display: 'Secondary Label'
+      -
+        handle: services_cta_secondary_label_text_style
+        field:
+          type: text_style
+          display: 'Secondary Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: services_cta_secondary_href
-        field: { type: text, display: "Secondary URL" }
+        field:
+          type: text
+          display: 'Secondary URL'
   seo:
     display: SEO
     fields:

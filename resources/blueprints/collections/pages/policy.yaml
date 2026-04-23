@@ -1,103 +1,254 @@
-title: Policy Page
+title: 'Policy Page'
 sections:
   main:
-    display: Page Settings
+    display: 'Page Settings'
     fields:
       -
         handle: title
-        field: { type: text, display: Title, required: true }
+        field:
+          type: text
+          display: Title
+          required: true
+      -
+        handle: title_text_style
+        field:
+          type: text_style
+          display: 'Title Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: policy_layout
         field:
           type: select
-          display: "Policy Layout"
+          display: 'Policy Layout'
           default: privacy
           options:
-            privacy: "Privacy Policy"
-            return: "Return and Refund Policy"
+            privacy: 'Privacy Policy'
+            return: 'Return and Refund Policy'
   privacy:
-    display: Privacy Policy Layout
+    display: 'Privacy Policy Layout'
     fields:
       -
         handle: privacy_eyebrow
-        field: { type: text, display: Eyebrow }
+        field:
+          type: text
+          display: Eyebrow
+      -
+        handle: privacy_eyebrow_text_style
+        field:
+          type: text_style
+          display: 'Eyebrow Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: privacy_valid_label
-        field: { type: text, display: "Validity Label" }
+        field:
+          type: text
+          display: 'Validity Label'
+      -
+        handle: privacy_valid_label_text_style
+        field:
+          type: text_style
+          display: 'Validity Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: privacy_intro_paragraphs
-        field: { type: list, display: "Intro Paragraphs" }
+        field:
+          type: list
+          display: 'Intro Paragraphs'
+      -
+        handle: privacy_intro_paragraphs_text_style
+        field:
+          type: text_style
+          display: 'Intro Paragraphs Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: privacy_sections
         field:
           type: grid
-          display: "Privacy Sections"
-          add_row: "Add Section"
+          display: 'Privacy Sections'
+          add_row: 'Add Section'
           fields:
             -
               handle: id
-              field: { type: text, display: ID }
+              field:
+                type: text
+                display: ID
+            -
+              handle: id_text_style
+              field:
+                type: text_style
+                display: 'ID Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: section_title
-              field: { type: text, display: Title }
+              field:
+                type: text
+                display: Title
+            -
+              handle: section_title_text_style
+              field:
+                type: text_style
+                display: 'Title Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: paragraphs
-              field: { type: list, display: Paragraphs }
+              field:
+                type: list
+                display: Paragraphs
+            -
+              handle: paragraphs_text_style
+              field:
+                type: text_style
+                display: 'Paragraphs Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: bullets
-              field: { type: list, display: Bullets }
+              field:
+                type: list
+                display: Bullets
+            -
+              handle: bullets_text_style
+              field:
+                type: text_style
+                display: 'Bullets Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: privacy_image_break_image
-        field: { type: assets, display: "Image Break Image", container: assets, max_files: 1 }
+        field:
+          type: assets
+          display: 'Image Break Image'
+          container: assets
+          max_files: 1
       -
         handle: privacy_image_break_alt
-        field: { type: text, display: "Image Break Alt" }
+        field:
+          type: text
+          display: 'Image Break Alt'
       -
         handle: privacy_image_break_quote
-        field: { type: textarea, display: "Image Break Quote" }
+        field:
+          type: textarea
+          display: 'Image Break Quote'
       -
         handle: privacy_contact_eyebrow
-        field: { type: text, display: "Contact Eyebrow" }
+        field:
+          type: text
+          display: 'Contact Eyebrow'
+      -
+        handle: privacy_contact_eyebrow_text_style
+        field:
+          type: text_style
+          display: 'Contact Eyebrow Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: privacy_contact_email
-        field: { type: text, display: "Contact Email" }
+        field:
+          type: text
+          display: 'Contact Email'
+      -
+        handle: privacy_contact_email_text_style
+        field:
+          type: text_style
+          display: 'Contact Email Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
   return_policy:
-    display: Return and Refund Layout
+    display: 'Return and Refund Layout'
     fields:
       -
         handle: return_hero_eyebrow
-        field: { type: text, display: "Hero Eyebrow" }
+        field:
+          type: text
+          display: 'Hero Eyebrow'
+      -
+        handle: return_hero_eyebrow_text_style
+        field:
+          type: text_style
+          display: 'Hero Eyebrow Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: return_title_line_one
-        field: { type: text, display: "Title Line One" }
+        field:
+          type: text
+          display: 'Title Line One'
+      -
+        handle: return_title_line_one_text_style
+        field:
+          type: text_style
+          display: 'Title Line One Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: return_title_line_two
-        field: { type: text, display: "Title Line Two" }
+        field:
+          type: text
+          display: 'Title Line Two'
+      -
+        handle: return_title_line_two_text_style
+        field:
+          type: text_style
+          display: 'Title Line Two Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: return_title_line_three
-        field: { type: text, display: "Title Line Three" }
+        field:
+          type: text
+          display: 'Title Line Three'
+      -
+        handle: return_title_line_three_text_style
+        field:
+          type: text_style
+          display: 'Title Line Three Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: return_hero_quote
-        field: { type: textarea, display: "Hero Quote" }
+        field:
+          type: textarea
+          display: 'Hero Quote'
+      -
+        handle: return_hero_quote_text_style
+        field:
+          type: text_style
+          display: 'Hero Quote Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: return_hero_image
-        field: { type: assets, display: "Hero Image", container: assets, max_files: 1 }
+        field:
+          type: assets
+          display: 'Hero Image'
+          container: assets
+          max_files: 1
       -
         handle: return_hero_image_alt
-        field: { type: text, display: "Hero Image Alt" }
+        field:
+          type: text
+          display: 'Hero Image Alt'
       -
         handle: return_policy_sections
         field:
           type: grid
-          display: "Policy Cards"
-          add_row: "Add Card"
+          display: 'Policy Cards'
+          add_row: 'Add Card'
           fields:
             -
               handle: id
-              field: { type: text, display: ID }
+              field:
+                type: text
+                display: ID
+            -
+              handle: id_text_style
+              field:
+                type: text_style
+                display: 'ID Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: section_title
-              field: { type: text, display: Title }
+              field:
+                type: text
+                display: Title
+            -
+              handle: section_title_text_style
+              field:
+                type: text_style
+                display: 'Title Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: icon
               field:
@@ -110,31 +261,97 @@ sections:
                   message-square: Message
             -
               handle: paragraphs
-              field: { type: list, display: Paragraphs }
+              field:
+                type: list
+                display: Paragraphs
+            -
+              handle: paragraphs_text_style
+              field:
+                type: text_style
+                display: 'Paragraphs Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: highlight
-              field: { type: text, display: "Highlighted Phrase" }
+              field:
+                type: text
+                display: 'Highlighted Phrase'
+            -
+              handle: highlight_text_style
+              field:
+                type: text_style
+                display: 'Highlighted Phrase Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: protocol_title
-              field: { type: text, display: "Protocol Title" }
+              field:
+                type: text
+                display: 'Protocol Title'
+            -
+              handle: protocol_title_text_style
+              field:
+                type: text_style
+                display: 'Protocol Title Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: protocol_body
-              field: { type: textarea, display: "Protocol Body" }
+              field:
+                type: textarea
+                display: 'Protocol Body'
+            -
+              handle: protocol_body_text_style
+              field:
+                type: text_style
+                display: 'Protocol Body Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: support_label
-              field: { type: text, display: "Support Label" }
+              field:
+                type: text
+                display: 'Support Label'
+            -
+              handle: support_label_text_style
+              field:
+                type: text_style
+                display: 'Support Label Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: support_value
-              field: { type: text, display: "Support Value" }
+              field:
+                type: text
+                display: 'Support Value'
+            -
+              handle: support_value_text_style
+              field:
+                type: text_style
+                display: 'Support Value Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: support_href
-              field: { type: text, display: "Support URL" }
+              field:
+                type: text
+                display: 'Support URL'
       -
         handle: return_standard_title
-        field: { type: text, display: "Standard Title" }
+        field:
+          type: text
+          display: 'Standard Title'
+      -
+        handle: return_standard_title_text_style
+        field:
+          type: text_style
+          display: 'Standard Title Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: return_standard_copy
-        field: { type: textarea, display: "Standard Copy" }
+        field:
+          type: textarea
+          display: 'Standard Copy'
+      -
+        handle: return_standard_copy_text_style
+        field:
+          type: text_style
+          display: 'Standard Copy Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
   seo:
     display: SEO
     fields:

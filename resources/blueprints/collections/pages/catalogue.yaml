@@ -1,84 +1,213 @@
-title: Catalogue Page
+title: 'Catalogue Page'
 sections:
   hero:
     display: Hero
     fields:
       -
         handle: title
-        field: { type: text, display: "Page Title", required: true }
+        field:
+          type: text
+          display: 'Page Title'
+          required: true
+      -
+        handle: title_text_style
+        field:
+          type: text_style
+          display: 'Page Title Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: hero_eyebrow
-        field: { type: text, display: Eyebrow }
+        field:
+          type: text
+          display: Eyebrow
+      -
+        handle: hero_eyebrow_text_style
+        field:
+          type: text_style
+          display: 'Eyebrow Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: hero_title_line_one
-        field: { type: text, display: "Title Line One" }
+        field:
+          type: text
+          display: 'Title Line One'
+      -
+        handle: hero_title_line_one_text_style
+        field:
+          type: text_style
+          display: 'Title Line One Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: hero_title_line_two
-        field: { type: text, display: "Title Line Two (Italic/Accent)" }
+        field:
+          type: text
+          display: 'Title Line Two (Italic/Accent)'
+      -
+        handle: hero_title_line_two_text_style
+        field:
+          type: text_style
+          display: 'Title Line Two (Italic/Accent) Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: hero_description
-        field: { type: textarea, display: Description }
+        field:
+          type: textarea
+          display: Description
+      -
+        handle: hero_description_text_style
+        field:
+          type: text_style
+          display: 'Description Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: hero_background_image
-        field: { type: assets, display: "Background Image", container: assets, max_files: 1 }
+        field:
+          type: assets
+          display: 'Background Image'
+          container: assets
+          max_files: 1
       -
         handle: hero_background_alt
-        field: { type: text, display: "Background Image Alt" }
+        field:
+          type: text
+          display: 'Background Image Alt'
   intro:
     display: Intro
     fields:
       -
         handle: intro_title
-        field: { type: text, display: Title }
+        field:
+          type: text
+          display: Title
+      -
+        handle: intro_title_text_style
+        field:
+          type: text_style
+          display: 'Title Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: intro_description
-        field: { type: textarea, display: Description }
+        field:
+          type: textarea
+          display: Description
+      -
+        handle: intro_description_text_style
+        field:
+          type: text_style
+          display: 'Description Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
   catalogs:
-    display: Catalogue Items
+    display: 'Catalogue Items'
     fields:
       -
         handle: catalog_items
         field:
           type: grid
           display: Catalogues
-          add_row: "Add Catalogue"
+          add_row: 'Add Catalogue'
           fields:
             -
               handle: title
-              field: { type: text, display: Title }
+              field:
+                type: text
+                display: Title
+            -
+              handle: title_text_style
+              field:
+                type: text_style
+                display: 'Title Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: description
-              field: { type: textarea, display: Description }
+              field:
+                type: textarea
+                display: Description
+            -
+              handle: description_text_style
+              field:
+                type: text_style
+                display: 'Description Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: badge
-              field: { type: text, display: "Badge (e.g. New)" }
+              field:
+                type: text
+                display: 'Badge (e.g. New)'
+            -
+              handle: badge_text_style
+              field:
+                type: text_style
+                display: 'Badge (e.g. New) Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: cover_image
-              field: { type: assets, display: "Cover Image", container: assets, max_files: 1 }
+              field:
+                type: assets
+                display: 'Cover Image'
+                container: assets
+                max_files: 1
             -
               handle: cover_image_alt
-              field: { type: text, display: "Cover Image Alt" }
+              field:
+                type: text
+                display: 'Cover Image Alt'
             -
               handle: file_url
-              field: { type: text, display: "PDF / File URL" }
+              field:
+                type: text
+                display: 'PDF / File URL'
             -
               handle: file_label
-              field: { type: text, display: "Download Button Label" }
+              field:
+                type: text
+                display: 'Download Button Label'
+            -
+              handle: file_label_text_style
+              field:
+                type: text_style
+                display: 'Download Button Label Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
   cta:
-    display: Final CTA
+    display: 'Final CTA'
     fields:
       -
         handle: cta_title
-        field: { type: text, display: Title }
+        field:
+          type: text
+          display: Title
+      -
+        handle: cta_title_text_style
+        field:
+          type: text_style
+          display: 'Title Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: cta_description
-        field: { type: textarea, display: Description }
+        field:
+          type: textarea
+          display: Description
+      -
+        handle: cta_description_text_style
+        field:
+          type: text_style
+          display: 'Description Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: cta_button_label
-        field: { type: text, display: "Button Label" }
+        field:
+          type: text
+          display: 'Button Label'
+      -
+        handle: cta_button_label_text_style
+        field:
+          type: text_style
+          display: 'Button Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: cta_button_href
-        field: { type: text, display: "Button URL" }
+        field:
+          type: text
+          display: 'Button URL'
   seo:
     display: SEO
     fields:

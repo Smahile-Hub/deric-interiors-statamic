@@ -1,7 +1,7 @@
 <section class="hero" style="background:#1a1b21;min-height:440px;padding:180px 0 4rem;">
   <div class="hero-inner shell">
-    <h1 class="hero-title" style="font-size:clamp(3rem,6vw,6rem);">{{ hero_heading }}</h1>
-    <p class="hero-sub">{{ hero_subtext }}</p>
+    <h1 class="hero-title" style="font-size:clamp(3rem,6vw,6rem);" data-text-control data-text-size-step="{{ hero_heading_text_style:size }}" data-text-height-step="{{ hero_heading_text_style:height }}" data-text-width-step="{{ hero_heading_text_style:width }}">{{ hero_heading }}</h1>
+    <p class="hero-sub" data-text-control data-text-size-step="{{ hero_subtext_text_style:size }}" data-text-height-step="{{ hero_subtext_text_style:height }}" data-text-width-step="{{ hero_subtext_text_style:width }}">{{ hero_subtext }}</p>
   </div>
 </section>
 
@@ -11,12 +11,12 @@
       {{ testimonials_list }}
         <div style="background:#1a1b21;border:1px solid rgba(80,69,51,0.2);border-radius:8px;padding:2.5rem;display:grid;gap:1.25rem;">
           <div style="color:rgba(240,206,151,0.2);font-size:4rem;font-style:italic;line-height:.75;font-family:var(--font-display);">&ldquo;</div>
-          <blockquote style="color:#e5e1ea;font-size:1rem;font-style:italic;line-height:1.8;font-weight:300;">{{ quote }}</blockquote>
+          <blockquote style="color:#e5e1ea;font-size:1rem;font-style:italic;line-height:1.8;font-weight:300;" data-text-control data-text-size-step="{{ quote_text_style:size }}" data-text-height-step="{{ quote_text_style:height }}" data-text-width-step="{{ quote_text_style:width }}">{{ quote }}</blockquote>
           <div style="border-top:1px solid rgba(80,69,51,0.2);padding-top:1rem;">
-            <strong style="color:var(--gold-light);font-size:.82rem;font-weight:700;letter-spacing:.08em;display:block;">{{ author }}</strong>
-            <span style="color:#8c867d;font-size:.78rem;">{{ role }}{{ if location }} &mdash; {{ location }}{{ /if }}</span>
+            <strong style="color:var(--gold-light);font-size:.82rem;font-weight:700;letter-spacing:.08em;display:block;" data-text-control data-text-size-step="{{ author_text_style:size }}" data-text-height-step="{{ author_text_style:height }}" data-text-width-step="{{ author_text_style:width }}">{{ author }}</strong>
+            <span style="color:#8c867d;font-size:.78rem;" data-text-control data-text-size-step="{{ role_text_style:size }}" data-text-height-step="{{ role_text_style:height }}" data-text-width-step="{{ role_text_style:width }}">{{ role }}{{ if location }} &mdash; <span data-text-control data-text-size-step="{{ location_text_style:size }}" data-text-height-step="{{ location_text_style:height }}" data-text-width-step="{{ location_text_style:width }}">{{ location }}</span>{{ /if }}</span>
             {{ if project }}
-              <span style="color:#6b6560;font-size:.72rem;display:block;margin-top:.25rem;font-style:italic;">{{ project }}</span>
+              <span style="color:#6b6560;font-size:.72rem;display:block;margin-top:.25rem;font-style:italic;" data-text-control data-text-size-step="{{ project_text_style:size }}" data-text-height-step="{{ project_text_style:height }}" data-text-width-step="{{ project_text_style:width }}">{{ project }}</span>
             {{ /if }}
           </div>
         </div>
@@ -27,11 +27,11 @@
 
 <section class="final-cta-section" data-reveal>
   <div class="shell" style="padding:5rem 0;text-align:center;">
-    <h2>{{ testimonials_cta_title }}</h2>
-    <p>{{ testimonials_cta_description }}</p>
+    <h2 data-text-control data-text-size-step="{{ testimonials_cta_title_text_style:size }}" data-text-height-step="{{ testimonials_cta_title_text_style:height }}" data-text-width-step="{{ testimonials_cta_title_text_style:width }}">{{ testimonials_cta_title }}</h2>
+    <p data-text-control data-text-size-step="{{ testimonials_cta_description_text_style:size }}" data-text-height-step="{{ testimonials_cta_description_text_style:height }}" data-text-width-step="{{ testimonials_cta_description_text_style:width }}">{{ testimonials_cta_description }}</p>
     <div class="cta-actions">
-      <a href="{{ testimonials_cta_primary_href }}" class="btn-primary">{{ testimonials_cta_primary_label }}</a>
-      <a href="{{ testimonials_cta_secondary_href }}" class="btn-secondary">{{ testimonials_cta_secondary_label }}</a>
+      <a href="{{ testimonials_cta_primary_href }}" class="btn-primary" data-text-control data-text-size-step="{{ testimonials_cta_primary_label_text_style:size }}" data-text-height-step="{{ testimonials_cta_primary_label_text_style:height }}" data-text-width-step="{{ testimonials_cta_primary_label_text_style:width }}">{{ testimonials_cta_primary_label }}</a>
+      <a href="{{ testimonials_cta_secondary_href }}" class="btn-secondary" data-text-control data-text-size-step="{{ testimonials_cta_secondary_label_text_style:size }}" data-text-height-step="{{ testimonials_cta_secondary_label_text_style:height }}" data-text-width-step="{{ testimonials_cta_secondary_label_text_style:width }}">{{ testimonials_cta_secondary_label }}</a>
     </div>
   </div>
 </section>

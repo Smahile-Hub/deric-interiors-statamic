@@ -3,13 +3,13 @@
     <div class="legal-return-hero-shell">
       <div class="legal-return-hero-content">
         <div class="legal-return-hero-copy" data-reveal>
-          <p class="legal-eyebrow">{{ return_hero_eyebrow }}</p>
+          <p class="legal-eyebrow" data-text-control data-text-size-step="{{ return_hero_eyebrow_text_style:size }}" data-text-height-step="{{ return_hero_eyebrow_text_style:height }}" data-text-width-step="{{ return_hero_eyebrow_text_style:width }}">{{ return_hero_eyebrow }}</p>
           <h1 class="legal-return-title">
-            {{ return_title_line_one }}<br>
-            {{ return_title_line_two }}<br>
-            {{ return_title_line_three }}
+            <span data-text-control data-text-size-step="{{ return_title_line_one_text_style:size }}" data-text-height-step="{{ return_title_line_one_text_style:height }}" data-text-width-step="{{ return_title_line_one_text_style:width }}">{{ return_title_line_one }}</span><br>
+            <span data-text-control data-text-size-step="{{ return_title_line_two_text_style:size }}" data-text-height-step="{{ return_title_line_two_text_style:height }}" data-text-width-step="{{ return_title_line_two_text_style:width }}">{{ return_title_line_two }}</span><br>
+            <span data-text-control data-text-size-step="{{ return_title_line_three_text_style:size }}" data-text-height-step="{{ return_title_line_three_text_style:height }}" data-text-width-step="{{ return_title_line_three_text_style:width }}">{{ return_title_line_three }}</span>
           </h1>
-          <p class="legal-return-quote">{{ return_hero_quote }}</p>
+          <p class="legal-return-quote" data-text-control data-text-size-step="{{ return_hero_quote_text_style:size }}" data-text-height-step="{{ return_hero_quote_text_style:height }}" data-text-width-step="{{ return_hero_quote_text_style:width }}">{{ return_hero_quote }}</p>
         </div>
 
         <div class="legal-return-hero-media" data-reveal>
@@ -45,20 +45,20 @@
 
               <div class="legal-policy-body">
                 <div class="legal-policy-heading-row">
-                  <span class="legal-policy-number">{{ id }}</span>
-                  <h2>{{ section_title }}</h2>
+                  <span class="legal-policy-number" data-text-control data-text-size-step="{{ id_text_style:size }}" data-text-height-step="{{ id_text_style:height }}" data-text-width-step="{{ id_text_style:width }}">{{ id }}</span>
+                  <h2 data-text-control data-text-size-step="{{ section_title_text_style:size }}" data-text-height-step="{{ section_title_text_style:height }}" data-text-width-step="{{ section_title_text_style:width }}">{{ section_title }}</h2>
                 </div>
 
                 <div class="legal-policy-paragraphs">
                   {{ paragraphs }}
-                    <p>{{ value }}</p>
+                    <p data-text-control data-text-size-step="{{ paragraphs_text_style:size }}" data-text-height-step="{{ paragraphs_text_style:height }}" data-text-width-step="{{ paragraphs_text_style:width }}">{{ value }}</p>
                   {{ /paragraphs }}
                 </div>
 
                 {{ if protocol_title }}
                   <div class="legal-protocol-card">
-                    <p class="legal-protocol-title">{{ protocol_title }}</p>
-                    <p>{{ protocol_body }}</p>
+                    <p class="legal-protocol-title" data-text-control data-text-size-step="{{ protocol_title_text_style:size }}" data-text-height-step="{{ protocol_title_text_style:height }}" data-text-width-step="{{ protocol_title_text_style:width }}">{{ protocol_title }}</p>
+                    <p data-text-control data-text-size-step="{{ protocol_body_text_style:size }}" data-text-height-step="{{ protocol_body_text_style:height }}" data-text-width-step="{{ protocol_body_text_style:width }}">{{ protocol_body }}</p>
                   </div>
                 {{ /if }}
 
@@ -68,8 +68,8 @@
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
                     </div>
                     <div class="legal-support-copy">
-                      <p class="legal-support-label">{{ support_label }}</p>
-                      <a href="{{ support_href }}" class="legal-support-value">{{ support_value }}</a>
+                      <p class="legal-support-label" data-text-control data-text-size-step="{{ support_label_text_style:size }}" data-text-height-step="{{ support_label_text_style:height }}" data-text-width-step="{{ support_label_text_style:width }}">{{ support_label }}</p>
+                      <a href="{{ support_href }}" class="legal-support-value" data-text-control data-text-size-step="{{ support_value_text_style:size }}" data-text-height-step="{{ support_value_text_style:height }}" data-text-width-step="{{ support_value_text_style:width }}">{{ support_value }}</a>
                     </div>
                   </div>
                 {{ /if }}
@@ -83,8 +83,8 @@
     <section class="legal-standard-section" data-reveal>
       <div class="legal-standard-shell">
         <svg class="legal-standard-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
-        <h2>{{ return_standard_title }}</h2>
-        <p>{{ return_standard_copy }}</p>
+        <h2 data-text-control data-text-size-step="{{ return_standard_title_text_style:size }}" data-text-height-step="{{ return_standard_title_text_style:height }}" data-text-width-step="{{ return_standard_title_text_style:width }}">{{ return_standard_title }}</h2>
+        <p data-text-control data-text-size-step="{{ return_standard_copy_text_style:size }}" data-text-height-step="{{ return_standard_copy_text_style:height }}" data-text-width-step="{{ return_standard_copy_text_style:width }}">{{ return_standard_copy }}</p>
       </div>
     </section>
   </section>
@@ -92,19 +92,19 @@
   <section class="legal-page legal-privacy-page" id="legal-privacy-page">
     <div class="legal-privacy-shell">
       <header class="legal-privacy-header" data-reveal>
-        <p class="legal-eyebrow">{{ privacy_eyebrow }}</p>
-        <h1>{{ title }}</h1>
+        <p class="legal-eyebrow" data-text-control data-text-size-step="{{ privacy_eyebrow_text_style:size }}" data-text-height-step="{{ privacy_eyebrow_text_style:height }}" data-text-width-step="{{ privacy_eyebrow_text_style:width }}">{{ privacy_eyebrow }}</p>
+        <h1 data-text-control data-text-size-step="{{ title_text_style:size }}" data-text-height-step="{{ title_text_style:height }}" data-text-width-step="{{ title_text_style:width }}">{{ title }}</h1>
         <span class="legal-header-rule" aria-hidden="true"></span>
       </header>
 
       <section class="legal-privacy-intro" data-reveal>
         <div class="legal-privacy-meta">
-          <p class="legal-meta-label">{{ privacy_valid_label }}</p>
+          <p class="legal-meta-label" data-text-control data-text-size-step="{{ privacy_valid_label_text_style:size }}" data-text-height-step="{{ privacy_valid_label_text_style:height }}" data-text-width-step="{{ privacy_valid_label_text_style:width }}">{{ privacy_valid_label }}</p>
         </div>
 
         <div class="legal-privacy-intro-body">
           {{ privacy_intro_paragraphs }}
-            <p>{{ value }}</p>
+            <p data-text-control data-text-size-step="{{ privacy_intro_paragraphs_text_style:size }}" data-text-height-step="{{ privacy_intro_paragraphs_text_style:height }}" data-text-width-step="{{ privacy_intro_paragraphs_text_style:width }}">{{ value }}</p>
           {{ /privacy_intro_paragraphs }}
         </div>
       </section>
@@ -122,32 +122,32 @@
                 >
               {{ /if }}
             </div>
-            <blockquote>{{ privacy_image_break_quote }}</blockquote>
+            <blockquote data-text-control data-text-size-step="{{ privacy_image_break_quote_text_style:size }}" data-text-height-step="{{ privacy_image_break_quote_text_style:height }}" data-text-width-step="{{ privacy_image_break_quote_text_style:width }}">{{ privacy_image_break_quote }}</blockquote>
           </section>
         {{ /if }}
 
         <section class="legal-article-section" data-reveal>
           <div class="legal-article-heading">
-            <h2>{{ id }} / {{ section_title }}</h2>
+            <h2><span data-text-control data-text-size-step="{{ id_text_style:size }}" data-text-height-step="{{ id_text_style:height }}" data-text-width-step="{{ id_text_style:width }}">{{ id }}</span> / <span data-text-control data-text-size-step="{{ section_title_text_style:size }}" data-text-height-step="{{ section_title_text_style:height }}" data-text-width-step="{{ section_title_text_style:width }}">{{ section_title }}</span></h2>
           </div>
 
           <div class="legal-article-body">
             {{ paragraphs }}
-              <p>{{ value }}</p>
+              <p data-text-control data-text-size-step="{{ paragraphs_text_style:size }}" data-text-height-step="{{ paragraphs_text_style:height }}" data-text-width-step="{{ paragraphs_text_style:width }}">{{ value }}</p>
             {{ /paragraphs }}
 
             {{ if bullets }}
               <ul>
                 {{ bullets }}
-                  <li style="--stagger-index: {{ index ?? 0 }};">{{ value }}</li>
+                  <li style="--stagger-index: {{ index ?? 0 }};" data-text-control data-text-size-step="{{ bullets_text_style:size }}" data-text-height-step="{{ bullets_text_style:height }}" data-text-width-step="{{ bullets_text_style:width }}">{{ value }}</li>
                 {{ /bullets }}
               </ul>
             {{ /if }}
 
             {{ if id == '05' }}
               <div class="legal-contact-card">
-                <p>{{ privacy_contact_eyebrow }}</p>
-                <a href="mailto:{{ privacy_contact_email }}">{{ privacy_contact_email }}</a>
+                <p data-text-control data-text-size-step="{{ privacy_contact_eyebrow_text_style:size }}" data-text-height-step="{{ privacy_contact_eyebrow_text_style:height }}" data-text-width-step="{{ privacy_contact_eyebrow_text_style:width }}">{{ privacy_contact_eyebrow }}</p>
+                <a href="mailto:{{ privacy_contact_email }}" data-text-control data-text-size-step="{{ privacy_contact_email_text_style:size }}" data-text-height-step="{{ privacy_contact_email_text_style:height }}" data-text-width-step="{{ privacy_contact_email_text_style:width }}">{{ privacy_contact_email }}</a>
               </div>
             {{ /if }}
           </div>

@@ -277,7 +277,7 @@
 
         <nav class="site-nav" aria-label="Primary">
           {{ settings:nav_items }}
-            <a href="{{ href }}" class="nav-link" data-nav-link="{{ href }}">{{ label }}</a>
+            <a href="{{ href }}" class="nav-link" data-nav-link="{{ href }}" data-text-control data-text-size-step="{{ label_text_style:size }}" data-text-height-step="{{ label_text_style:height }}" data-text-width-step="{{ label_text_style:width }}">{{ label }}</a>
           {{ /settings:nav_items }}
         </nav>
 
@@ -308,7 +308,7 @@
               {{ /if }}
             {{ /settings:action_links }}
           </div>
-          <a href="{{ settings:primary_cta_href }}" class="btn-primary">{{ settings:primary_cta_label }}</a>
+          <a href="{{ settings:primary_cta_href }}" class="btn-primary" data-text-control data-text-size-step="{{ settings:primary_cta_label_text_style:size }}" data-text-height-step="{{ settings:primary_cta_label_text_style:height }}" data-text-width-step="{{ settings:primary_cta_label_text_style:width }}">{{ settings:primary_cta_label }}</a>
           <button class="mobile-toggle" id="mobile-toggle" aria-label="Open menu" aria-expanded="false">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
           </button>
@@ -318,15 +318,15 @@
         <div class="mobile-drawer" id="mobile-drawer">
           <nav class="mobile-nav">
             {{ settings:nav_items }}
-              <a href="{{ href }}" class="mobile-nav-link" data-nav-link="{{ href }}">{{ label }}</a>
+              <a href="{{ href }}" class="mobile-nav-link" data-nav-link="{{ href }}" data-text-control data-text-size-step="{{ label_text_style:size }}" data-text-height-step="{{ label_text_style:height }}" data-text-width-step="{{ label_text_style:width }}">{{ label }}</a>
             {{ /settings:nav_items }}
             {{ settings:action_links }}
               {{ if label == 'Shop' }}
-                <a href="{{ href }}" class="mobile-nav-link" data-nav-link="{{ href }}">{{ label }}</a>
+                <a href="{{ href }}" class="mobile-nav-link" data-nav-link="{{ href }}" data-text-control data-text-size-step="{{ label_text_style:size }}" data-text-height-step="{{ label_text_style:height }}" data-text-width-step="{{ label_text_style:width }}">{{ label }}</a>
               {{ /if }}
             {{ /settings:action_links }}
           </nav>
-          <a href="{{ settings:primary_cta_href }}" class="mobile-primary-btn">{{ settings:primary_cta_label }}</a>
+          <a href="{{ settings:primary_cta_href }}" class="mobile-primary-btn" data-text-control data-text-size-step="{{ settings:primary_cta_label_text_style:size }}" data-text-height-step="{{ settings:primary_cta_label_text_style:height }}" data-text-width-step="{{ settings:primary_cta_label_text_style:width }}">{{ settings:primary_cta_label }}</a>
           <div class="mobile-contact-info">
             <div class="mobile-socials">
               {{ settings:social_links }}
@@ -349,11 +349,11 @@
             </div>
             <a href="mailto:{{ settings:top_bar_email }}" class="mobile-meta-link" aria-label="Email us at {{ settings:top_bar_email }}">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
-              {{ settings:top_bar_email }}
+              <span data-text-control data-text-size-step="{{ settings:top_bar_email_text_style:size }}" data-text-height-step="{{ settings:top_bar_email_text_style:height }}" data-text-width-step="{{ settings:top_bar_email_text_style:width }}">{{ settings:top_bar_email }}</span>
             </a>
             <a href="tel:{{ settings:top_bar_phone }}" class="mobile-meta-link" aria-label="Call us at {{ settings:top_bar_phone }}">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.05 6.05l1.22-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              {{ settings:top_bar_phone }}
+              <span data-text-control data-text-size-step="{{ settings:top_bar_phone_text_style:size }}" data-text-height-step="{{ settings:top_bar_phone_text_style:height }}" data-text-width-step="{{ settings:top_bar_phone_text_style:width }}">{{ settings:top_bar_phone }}</span>
             </a>
           </div>
         </div>
@@ -370,8 +370,8 @@
     <div class="shell">
       <div class="footer-inner">
         <div class="footer-brand">
-          <h2>{{ settings:site_title }}</h2>
-          <p>{{ settings:footer_blurb }}</p>
+          <h2 data-text-control data-text-size-step="{{ settings:site_title_text_style:size }}" data-text-height-step="{{ settings:site_title_text_style:height }}" data-text-width-step="{{ settings:site_title_text_style:width }}">{{ settings:site_title }}</h2>
+          <p data-text-control data-text-size-step="{{ settings:footer_blurb_text_style:size }}" data-text-height-step="{{ settings:footer_blurb_text_style:height }}" data-text-width-step="{{ settings:footer_blurb_text_style:width }}">{{ settings:footer_blurb }}</p>
           <div class="footer-socials">
             {{ settings:social_links }}
               <a href="{{ href }}" target="{{ target ?? '_blank' }}" rel="noreferrer" aria-label="{{ label }}">
@@ -395,10 +395,10 @@
 
         {{ settings:footer_columns }}
           <div class="footer-col">
-            <h3>{{ title }}</h3>
+            <h3 data-text-control data-text-size-step="{{ title_text_style:size }}" data-text-height-step="{{ title_text_style:height }}" data-text-width-step="{{ title_text_style:width }}">{{ title }}</h3>
             <div class="footer-links">
               {{ links }}
-                <a href="{{ href }}">{{ label }}</a>
+                <a href="{{ href }}" data-text-control data-text-size-step="{{ label_text_style:size }}" data-text-height-step="{{ label_text_style:height }}" data-text-width-step="{{ label_text_style:width }}">{{ label }}</a>
               {{ /links }}
             </div>
           </div>
@@ -407,7 +407,7 @@
     </div>
 
     <div class="footer-bar shell">
-      <p>{{ settings:copyright_text }}</p>
+      <p data-text-control data-text-size-step="{{ settings:copyright_text_text_style:size }}" data-text-height-step="{{ settings:copyright_text_text_style:height }}" data-text-width-step="{{ settings:copyright_text_text_style:width }}">{{ settings:copyright_text }}</p>
     </div>
   </footer>
 
@@ -466,6 +466,74 @@
   </div>
 
   <script>
+    const applyTextControls = (root = document) => {
+      const parseStep = (value) => {
+        const parsed = Number(value);
+        return Number.isFinite(parsed) ? parsed : 0;
+      };
+
+      const resolveLineHeight = (computedStyle, baseFontSize) => {
+        const lineHeight = computedStyle.lineHeight;
+
+        if (!lineHeight || lineHeight === 'normal') {
+          return baseFontSize * 1.35;
+        }
+
+        if (lineHeight.endsWith('px')) {
+          return parseFloat(lineHeight);
+        }
+
+        const unitless = parseFloat(lineHeight);
+        return Number.isFinite(unitless) ? unitless * baseFontSize : baseFontSize * 1.35;
+      };
+
+      root.querySelectorAll('[data-text-control]').forEach((element) => {
+        const sizeStep = parseStep(element.dataset.textSizeStep);
+        const heightStep = parseStep(element.dataset.textHeightStep);
+        const widthStep = parseStep(element.dataset.textWidthStep);
+        const sizeValue = (element.dataset.textSize || '').trim();
+        const heightValue = (element.dataset.textHeight || '').trim();
+        const widthValue = (element.dataset.textWidth || '').trim();
+        const computed = window.getComputedStyle(element);
+
+        if (sizeValue) {
+          element.style.setProperty('--text-size', sizeValue);
+        } else if (sizeStep !== 0) {
+          const baseFontSize = parseFloat(computed.fontSize) || 16;
+          const nextFontSize = Math.max(10, baseFontSize + (sizeStep * 2));
+          element.style.setProperty('--text-size', `${nextFontSize}px`);
+        }
+
+        if (heightValue) {
+          element.style.setProperty('--text-height', heightValue);
+        } else if (sizeStep !== 0 || heightStep !== 0) {
+          const currentFontSize = parseFloat(element.style.getPropertyValue('--text-size')) || parseFloat(computed.fontSize) || 16;
+          const baseLineHeight = resolveLineHeight(computed, parseFloat(computed.fontSize) || 16);
+          const nextLineHeight = Math.max(currentFontSize, baseLineHeight + (heightStep * 4) + (sizeStep * 1.2));
+          element.style.setProperty('--text-height', `${nextLineHeight}px`);
+        }
+
+        if (widthValue) {
+          element.style.setProperty('--text-width', widthValue);
+          element.dataset.textHasWidth = 'true';
+        } else if (widthStep !== 0) {
+          const measuredWidth = element.getBoundingClientRect().width || parseFloat(computed.width) || 0;
+          const baseWidth = measuredWidth > 0 ? measuredWidth : 240;
+          const nextWidth = Math.max(80, baseWidth + (widthStep * 40));
+          element.style.setProperty('--text-width', `${nextWidth}px`);
+          element.dataset.textHasWidth = 'true';
+        } else {
+          element.dataset.textHasWidth = 'false';
+        }
+
+        if (element.dataset.textHasWidth === 'true' && computed.display === 'inline') {
+          element.style.display = 'inline-block';
+        }
+      });
+    };
+
+    applyTextControls();
+
     // Mobile drawer
     const toggle = document.getElementById('mobile-toggle');
     const drawer = document.getElementById('mobile-drawer');

@@ -11,12 +11,12 @@
     <div class="contact-page-hero-overlay"></div>
 
     <div class="contact-page-hero-shell">
-      <p class="contact-page-eyebrow" data-reveal>{{ contact_hero_eyebrow }}</p>
+      <p class="contact-page-eyebrow" data-reveal data-text-control data-text-size-step="{{ contact_hero_eyebrow_text_style:size }}" data-text-height-step="{{ contact_hero_eyebrow_text_style:height }}" data-text-width-step="{{ contact_hero_eyebrow_text_style:width }}">{{ contact_hero_eyebrow }}</p>
       <h1 class="contact-page-hero-title" data-reveal>
-        <span class="contact-page-hero-title-top">{{ contact_hero_title_top }}</span>
-        <span class="contact-page-hero-title-bottom">{{ contact_hero_title_bottom }}</span>
+        <span class="contact-page-hero-title-top" data-text-control data-text-size-step="{{ contact_hero_title_top_text_style:size }}" data-text-height-step="{{ contact_hero_title_top_text_style:height }}" data-text-width-step="{{ contact_hero_title_top_text_style:width }}">{{ contact_hero_title_top }}</span>
+        <span class="contact-page-hero-title-bottom" data-text-control data-text-size-step="{{ contact_hero_title_bottom_text_style:size }}" data-text-height-step="{{ contact_hero_title_bottom_text_style:height }}" data-text-width-step="{{ contact_hero_title_bottom_text_style:width }}">{{ contact_hero_title_bottom }}</span>
       </h1>
-      <p class="contact-page-hero-description" data-reveal>{{ contact_hero_description }}</p>
+      <p class="contact-page-hero-description" data-reveal data-text-control data-text-size-step="{{ contact_hero_description_text_style:size }}" data-text-height-step="{{ contact_hero_description_text_style:height }}" data-text-width-step="{{ contact_hero_description_text_style:width }}">{{ contact_hero_description }}</p>
     </div>
   </section>
 
@@ -25,7 +25,7 @@
       <div class="contact-page-grid">
         <div class="contact-page-form-column" data-reveal>
           <div class="contact-page-form-header">
-            <h2 class="contact-page-form-title">{{ contact_form_title }}</h2>
+            <h2 class="contact-page-form-title" data-text-control data-text-size-step="{{ contact_form_title_text_style:size }}" data-text-height-step="{{ contact_form_title_text_style:height }}" data-text-width-step="{{ contact_form_title_text_style:width }}">{{ contact_form_title }}</h2>
             <span class="contact-page-form-rule" aria-hidden="true"></span>
           </div>
 
@@ -33,15 +33,15 @@
             {{ if success }}
               <div class="contact-page-success-state" role="status">
                 <span class="contact-page-success-icon">{{ contact_form_success_icon }}</span>
-                <h3 class="contact-page-success-title">{{ contact_form_success_title }}</h3>
-                <p class="contact-page-success-body">{{ contact_form_success_body }}</p>
-                <a class="contact-page-reset-link" href="/contact">{{ contact_form_reset_label }}</a>
+                <h3 class="contact-page-success-title" data-text-control data-text-size-step="{{ contact_form_success_title_text_style:size }}" data-text-height-step="{{ contact_form_success_title_text_style:height }}" data-text-width-step="{{ contact_form_success_title_text_style:width }}">{{ contact_form_success_title }}</h3>
+                <p class="contact-page-success-body" data-text-control data-text-size-step="{{ contact_form_success_body_text_style:size }}" data-text-height-step="{{ contact_form_success_body_text_style:height }}" data-text-width-step="{{ contact_form_success_body_text_style:width }}">{{ contact_form_success_body }}</p>
+                <a class="contact-page-reset-link" href="/contact" data-text-control data-text-size-step="{{ contact_form_reset_label_text_style:size }}" data-text-height-step="{{ contact_form_reset_label_text_style:height }}" data-text-width-step="{{ contact_form_reset_label_text_style:width }}">{{ contact_form_reset_label }}</a>
               </div>
             {{ else }}
               <div class="contact-page-form">
                 <div class="contact-page-form-row">
                   <div class="contact-page-field">
-                    <label class="contact-page-label" for="name">{{ contact_form_name_label }}</label>
+                    <label class="contact-page-label" for="name" data-text-control data-text-size-step="{{ contact_form_name_label_text_style:size }}" data-text-height-step="{{ contact_form_name_label_text_style:height }}" data-text-width-step="{{ contact_form_name_label_text_style:width }}">{{ contact_form_name_label }}</label>
                     <input
                       class="contact-page-input"
                       id="name"
@@ -50,11 +50,15 @@
                       value="{{ old:name }}"
                       placeholder="{{ contact_form_name_placeholder }}"
                       required
+                      data-text-control
+                      data-text-size-step="{{ contact_form_name_placeholder_text_style:size }}"
+                      data-text-height-step="{{ contact_form_name_placeholder_text_style:height }}"
+                      data-text-width-step="{{ contact_form_name_placeholder_text_style:width }}"
                     >
                   </div>
 
                   <div class="contact-page-field">
-                    <label class="contact-page-label" for="email">{{ contact_form_email_label }}</label>
+                    <label class="contact-page-label" for="email" data-text-control data-text-size-step="{{ contact_form_email_label_text_style:size }}" data-text-height-step="{{ contact_form_email_label_text_style:height }}" data-text-width-step="{{ contact_form_email_label_text_style:width }}">{{ contact_form_email_label }}</label>
                     <input
                       class="contact-page-input"
                       id="email"
@@ -63,15 +67,19 @@
                       value="{{ old:email }}"
                       placeholder="{{ contact_form_email_placeholder }}"
                       required
+                      data-text-control
+                      data-text-size-step="{{ contact_form_email_placeholder_text_style:size }}"
+                      data-text-height-step="{{ contact_form_email_placeholder_text_style:height }}"
+                      data-text-width-step="{{ contact_form_email_placeholder_text_style:width }}"
                     >
                   </div>
                 </div>
 
                 <div class="contact-page-form-row">
                   <div class="contact-page-field">
-                    <label class="contact-page-label" for="project_type">{{ contact_form_project_type_label }}</label>
+                    <label class="contact-page-label" for="project_type" data-text-control data-text-size-step="{{ contact_form_project_type_label_text_style:size }}" data-text-height-step="{{ contact_form_project_type_label_text_style:height }}" data-text-width-step="{{ contact_form_project_type_label_text_style:width }}">{{ contact_form_project_type_label }}</label>
                     <div class="contact-page-select-wrap">
-                      <select class="contact-page-select" id="project_type" name="project_type" required>
+                      <select class="contact-page-select" id="project_type" name="project_type" required data-text-control data-text-size-step="{{ contact_form_project_type_placeholder_text_style:size }}" data-text-height-step="{{ contact_form_project_type_placeholder_text_style:height }}" data-text-width-step="{{ contact_form_project_type_placeholder_text_style:width }}">
                         <option value="" disabled selected>{{ contact_form_project_type_placeholder }}</option>
                         {{ contact_project_type_options }}
                           <option value="{{ value }}">{{ value }}</option>
@@ -82,9 +90,9 @@
                   </div>
 
                   <div class="contact-page-field">
-                    <label class="contact-page-label" for="investment_range">{{ contact_form_investment_range_label }}</label>
+                    <label class="contact-page-label" for="investment_range" data-text-control data-text-size-step="{{ contact_form_investment_range_label_text_style:size }}" data-text-height-step="{{ contact_form_investment_range_label_text_style:height }}" data-text-width-step="{{ contact_form_investment_range_label_text_style:width }}">{{ contact_form_investment_range_label }}</label>
                     <div class="contact-page-select-wrap">
-                      <select class="contact-page-select" id="investment_range" name="investment_range" required>
+                      <select class="contact-page-select" id="investment_range" name="investment_range" required data-text-control data-text-size-step="{{ contact_form_investment_range_placeholder_text_style:size }}" data-text-height-step="{{ contact_form_investment_range_placeholder_text_style:height }}" data-text-width-step="{{ contact_form_investment_range_placeholder_text_style:width }}">
                         <option value="" disabled selected>{{ contact_form_investment_range_placeholder }}</option>
                         {{ contact_investment_range_options }}
                           <option value="{{ value }}">{{ value }}</option>
@@ -97,7 +105,7 @@
 
                 <div class="contact-page-form-row">
                   <div class="contact-page-field">
-                    <label class="contact-page-label" for="preferred_date">{{ contact_form_preferred_date_label }}</label>
+                    <label class="contact-page-label" for="preferred_date" data-text-control data-text-size-step="{{ contact_form_preferred_date_label_text_style:size }}" data-text-height-step="{{ contact_form_preferred_date_label_text_style:height }}" data-text-width-step="{{ contact_form_preferred_date_label_text_style:width }}">{{ contact_form_preferred_date_label }}</label>
                     <input
                       class="contact-page-input contact-page-input-date"
                       id="preferred_date"
@@ -108,7 +116,7 @@
                   </div>
 
                   <div class="contact-page-field">
-                    <label class="contact-page-label" for="phone">{{ contact_form_phone_label }}</label>
+                    <label class="contact-page-label" for="phone" data-text-control data-text-size-step="{{ contact_form_phone_label_text_style:size }}" data-text-height-step="{{ contact_form_phone_label_text_style:height }}" data-text-width-step="{{ contact_form_phone_label_text_style:width }}">{{ contact_form_phone_label }}</label>
                     <input
                       class="contact-page-input"
                       id="phone"
@@ -116,23 +124,31 @@
                       type="tel"
                       value="{{ old:phone }}"
                       placeholder="{{ contact_form_phone_placeholder }}"
+                      data-text-control
+                      data-text-size-step="{{ contact_form_phone_placeholder_text_style:size }}"
+                      data-text-height-step="{{ contact_form_phone_placeholder_text_style:height }}"
+                      data-text-width-step="{{ contact_form_phone_placeholder_text_style:width }}"
                     >
                   </div>
                 </div>
 
                 <div class="contact-page-field">
-                  <label class="contact-page-label" for="message">{{ contact_form_message_label }}</label>
+                  <label class="contact-page-label" for="message" data-text-control data-text-size-step="{{ contact_form_message_label_text_style:size }}" data-text-height-step="{{ contact_form_message_label_text_style:height }}" data-text-width-step="{{ contact_form_message_label_text_style:width }}">{{ contact_form_message_label }}</label>
                   <textarea
                     class="contact-page-input contact-page-textarea"
                     id="message"
                     name="message"
                     rows="5"
                     placeholder="{{ contact_form_message_placeholder }}"
+                    data-text-control
+                    data-text-size-step="{{ contact_form_message_placeholder_text_style:size }}"
+                    data-text-height-step="{{ contact_form_message_placeholder_text_style:height }}"
+                    data-text-width-step="{{ contact_form_message_placeholder_text_style:width }}"
                   >{{ old:message }}</textarea>
                 </div>
 
                 <input type="hidden" name="_token" value="{{ csrf_token }}">
-                <button type="submit" class="contact-page-submit-button">
+                <button type="submit" class="contact-page-submit-button" data-text-control data-text-size-step="{{ contact_form_submit_idle_label_text_style:size }}" data-text-height-step="{{ contact_form_submit_idle_label_text_style:height }}" data-text-width-step="{{ contact_form_submit_idle_label_text_style:width }}">
                   {{ contact_form_submit_idle_label }}
                 </button>
               </div>
@@ -142,14 +158,14 @@
 
         <aside class="contact-page-info-column" data-reveal>
           <div class="contact-page-card">
-            <p class="contact-page-card-eyebrow">{{ contact_info_eyebrow }}</p>
+            <p class="contact-page-card-eyebrow" data-text-control data-text-size-step="{{ contact_info_eyebrow_text_style:size }}" data-text-height-step="{{ contact_info_eyebrow_text_style:height }}" data-text-width-step="{{ contact_info_eyebrow_text_style:width }}">{{ contact_info_eyebrow }}</p>
             <address class="contact-page-card-address">
-              <span>{{ contact_info_address_line_one }}</span>
-              <span>{{ contact_info_address_line_two }}</span>
+              <span data-text-control data-text-size-step="{{ contact_info_address_line_one_text_style:size }}" data-text-height-step="{{ contact_info_address_line_one_text_style:height }}" data-text-width-step="{{ contact_info_address_line_one_text_style:width }}">{{ contact_info_address_line_one }}</span>
+              <span data-text-control data-text-size-step="{{ contact_info_address_line_two_text_style:size }}" data-text-height-step="{{ contact_info_address_line_two_text_style:height }}" data-text-width-step="{{ contact_info_address_line_two_text_style:width }}">{{ contact_info_address_line_two }}</span>
             </address>
             <div class="contact-page-card-contacts">
-              <a href="tel:{{ contact_info_phone }}" class="contact-page-card-link">{{ contact_info_phone }}</a>
-              <a href="{{ contact_info_whatsapp_href }}" target="_blank" rel="noopener noreferrer" class="contact-page-card-link">
+              <a href="tel:{{ contact_info_phone }}" class="contact-page-card-link" data-text-control data-text-size-step="{{ contact_info_phone_text_style:size }}" data-text-height-step="{{ contact_info_phone_text_style:height }}" data-text-width-step="{{ contact_info_phone_text_style:width }}">{{ contact_info_phone }}</a>
+              <a href="{{ contact_info_whatsapp_href }}" target="_blank" rel="noopener noreferrer" class="contact-page-card-link" data-text-control data-text-size-step="{{ contact_info_whatsapp_label_text_style:size }}" data-text-height-step="{{ contact_info_whatsapp_label_text_style:height }}" data-text-width-step="{{ contact_info_whatsapp_label_text_style:width }}">
                 {{ contact_info_whatsapp_label }}
               </a>
             </div>
@@ -167,12 +183,12 @@
           <div class="contact-page-location-list">
             {{ contact_locations }}
               <div class="contact-page-location-item" data-reveal>
-                <p class="contact-page-location-city">{{ city }}</p>
-                <p class="contact-page-location-address">
+                <p class="contact-page-location-city" data-text-control data-text-size-step="{{ city_text_style:size }}" data-text-height-step="{{ city_text_style:height }}" data-text-width-step="{{ city_text_style:width }}">{{ city }}</p>
+                <p class="contact-page-location-address" data-text-control data-text-size-step="{{ address_text_style:size }}" data-text-height-step="{{ address_text_style:height }}" data-text-width-step="{{ address_text_style:width }}">
                   {{ address }}<br>
-                  {{ state }}
+                  <span data-text-control data-text-size-step="{{ state_text_style:size }}" data-text-height-step="{{ state_text_style:height }}" data-text-width-step="{{ state_text_style:width }}">{{ state }}</span>
                 </p>
-                <a href="tel:{{ phone }}" class="contact-page-location-phone">{{ phone }}</a>
+                <a href="tel:{{ phone }}" class="contact-page-location-phone" data-text-control data-text-size-step="{{ phone_text_style:size }}" data-text-height-step="{{ phone_text_style:height }}" data-text-width-step="{{ phone_text_style:width }}">{{ phone }}</a>
               </div>
             {{ /contact_locations }}
           </div>

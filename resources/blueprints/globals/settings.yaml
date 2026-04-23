@@ -1,36 +1,48 @@
-title: Site Settings
+title: 'Site Settings'
 sections:
   main:
-    display: Site Settings
+    display: 'Site Settings'
     fields:
       -
         handle: site_title
         field:
           type: text
-          display: Site Title
+          display: 'Site Title'
           required: true
+      -
+        handle: site_title_text_style
+        field:
+          type: text_style
+          display: 'Site Title Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: site_description
         field:
           type: textarea
-          display: Site Description
+          display: 'Site Description'
+      -
+        handle: site_description_text_style
+        field:
+          type: text_style
+          display: 'Site Description Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: canonical_base_url
         field:
           type: text
-          display: Canonical Site URL
-          instructions: "Use the public canonical domain, for example https://dricinterior.com. No trailing slash."
+          display: 'Canonical Site URL'
+          instructions: 'Use the public canonical domain, for example https://dricinterior.com. No trailing slash.'
       -
         handle: site_url
         field:
           type: text
-          display: Legacy Site URL
-          instructions: "Kept for compatibility. Use the Canonical Site URL field above for SEO."
+          display: 'Legacy Site URL'
+          instructions: 'Kept for compatibility. Use the Canonical Site URL field above for SEO.'
       -
         handle: default_og_image
         field:
           type: assets
-          display: Default Social Share Image
+          display: 'Default Social Share Image'
           container: assets
           max_files: 1
       -
@@ -44,144 +56,267 @@ sections:
         handle: logo_alt
         field:
           type: text
-          display: Logo Alt Text
+          display: 'Logo Alt Text'
       -
         handle: logo_width
         field:
           type: integer
-          display: Logo Width
+          display: 'Logo Width'
       -
         handle: logo_height
         field:
           type: integer
-          display: Logo Height
+          display: 'Logo Height'
       -
         handle: top_bar_email
         field:
           type: text
-          display: Email (Top Bar)
+          display: 'Email (Top Bar)'
+      -
+        handle: top_bar_email_text_style
+        field:
+          type: text_style
+          display: 'Email (Top Bar) Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: top_bar_phone
         field:
           type: text
-          display: Phone (Top Bar)
+          display: 'Phone (Top Bar)'
+      -
+        handle: top_bar_phone_text_style
+        field:
+          type: text_style
+          display: 'Phone (Top Bar) Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: business_name
         field:
           type: text
-          display: Business Name
+          display: 'Business Name'
+      -
+        handle: business_name_text_style
+        field:
+          type: text_style
+          display: 'Business Name Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: business_email
         field:
           type: text
-          display: Business Email
+          display: 'Business Email'
+      -
+        handle: business_email_text_style
+        field:
+          type: text_style
+          display: 'Business Email Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: business_phone
         field:
           type: text
-          display: Business Phone
+          display: 'Business Phone'
+      -
+        handle: business_phone_text_style
+        field:
+          type: text_style
+          display: 'Business Phone Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: business_street_address
         field:
           type: text
-          display: Business Street Address
+          display: 'Business Street Address'
+      -
+        handle: business_street_address_text_style
+        field:
+          type: text_style
+          display: 'Business Street Address Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: business_city
         field:
           type: text
-          display: Business City
+          display: 'Business City'
+      -
+        handle: business_city_text_style
+        field:
+          type: text_style
+          display: 'Business City Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: business_region
         field:
           type: text
-          display: Business Region/State
+          display: 'Business Region/State'
+      -
+        handle: business_region_text_style
+        field:
+          type: text_style
+          display: 'Business Region/State Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: business_country
         field:
           type: text
-          display: Business Country Code
+          display: 'Business Country Code'
+      -
+        handle: business_country_text_style
+        field:
+          type: text_style
+          display: 'Business Country Code Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: business_price_range
         field:
           type: text
-          display: Business Price Range
+          display: 'Business Price Range'
+      -
+        handle: business_price_range_text_style
+        field:
+          type: text_style
+          display: 'Business Price Range Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: nav_items
         field:
           type: grid
-          display: Header Navigation
-          add_row: Add Nav Item
+          display: 'Header Navigation'
+          add_row: 'Add Nav Item'
           fields:
             -
               handle: label
-              field: { type: text, display: Label }
+              field:
+                type: text
+                display: Label
+            -
+              handle: label_text_style
+              field:
+                type: text_style
+                display: 'Label Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: href
-              field: { type: text, display: URL }
+              field:
+                type: text
+                display: URL
       -
         handle: action_links
         field:
           type: grid
-          display: Header Action Icons
-          add_row: Add Action
-          instructions: "Supported icons: aperture, grid, shopping-cart, shopping-bag, mail, phone. The shopping-bag icon opens the cart drawer like the Next.js site."
+          display: 'Header Action Icons'
+          add_row: 'Add Action'
+          instructions: 'Supported icons: aperture, grid, shopping-cart, shopping-bag, mail, phone. The shopping-bag icon opens the cart drawer like the Next.js site.'
           fields:
             -
               handle: label
-              field: { type: text, display: Label }
+              field:
+                type: text
+                display: Label
+            -
+              handle: label_text_style
+              field:
+                type: text_style
+                display: 'Label Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: href
-              field: { type: text, display: URL }
+              field:
+                type: text
+                display: URL
             -
               handle: icon
-              field: { type: text, display: Icon }
+              field:
+                type: text
+                display: Icon
       -
         handle: primary_cta_label
         field:
           type: text
-          display: Header CTA Button Label
+          display: 'Header CTA Button Label'
+      -
+        handle: primary_cta_label_text_style
+        field:
+          type: text_style
+          display: 'Header CTA Button Label Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: primary_cta_href
         field:
           type: text
-          display: Header CTA Button Link
+          display: 'Header CTA Button Link'
       -
         handle: footer_blurb
         field:
           type: textarea
-          display: Footer Description
+          display: 'Footer Description'
+      -
+        handle: footer_blurb_text_style
+        field:
+          type: text_style
+          display: 'Footer Description Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: copyright_text
         field:
           type: text
-          display: Copyright Text
+          display: 'Copyright Text'
+      -
+        handle: copyright_text_text_style
+        field:
+          type: text_style
+          display: 'Copyright Text Text Controls'
+          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: social_links
         field:
           type: grid
-          display: Social Links
+          display: 'Social Links'
           fields:
             -
               handle: label
-              field: { type: text, display: Label }
+              field:
+                type: text
+                display: Label
+            -
+              handle: label_text_style
+              field:
+                type: text_style
+                display: 'Label Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: icon
-              field: { type: text, display: Icon (facebook/x-twitter/instagram/youtube/whatsapp) }
+              field:
+                type: text
+                display: 'Icon (facebook/x-twitter/instagram/youtube/whatsapp)'
             -
               handle: href
-              field: { type: text, display: URL }
+              field:
+                type: text
+                display: URL
             -
               handle: target
-              field: { type: text, display: Target, default: _blank }
+              field:
+                type: text
+                display: Target
+                default: _blank
       -
         handle: footer_columns
         field:
           type: grid
-          display: Footer Columns
+          display: 'Footer Columns'
           fields:
             -
               handle: title
-              field: { type: text, display: Column Title }
+              field:
+                type: text
+                display: 'Column Title'
+            -
+              handle: title_text_style
+              field:
+                type: text_style
+                display: 'Column Title Text Controls'
+                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
             -
               handle: links
               field:
@@ -190,7 +325,17 @@ sections:
                 fields:
                   -
                     handle: label
-                    field: { type: text, display: Label }
+                    field:
+                      type: text
+                      display: Label
+                  -
+                    handle: label_text_style
+                    field:
+                      type: text_style
+                      display: 'Label Text Controls'
+                      instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
                   -
                     handle: href
-                    field: { type: text, display: URL }
+                    field:
+                      type: text
+                      display: URL
