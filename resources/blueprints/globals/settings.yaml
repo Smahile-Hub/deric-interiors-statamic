@@ -13,8 +13,7 @@ sections:
         handle: site_title_text_style
         field:
           type: text_style
-          display: 'Site Title Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Site Title Style'
       -
         handle: site_description
         field:
@@ -24,8 +23,7 @@ sections:
         handle: site_description_text_style
         field:
           type: text_style
-          display: 'Site Description Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Site Description Style'
       -
         handle: canonical_base_url
         field:
@@ -76,8 +74,7 @@ sections:
         handle: top_bar_email_text_style
         field:
           type: text_style
-          display: 'Email (Top Bar) Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Email (Top Bar) Style'
       -
         handle: top_bar_phone
         field:
@@ -87,8 +84,7 @@ sections:
         handle: top_bar_phone_text_style
         field:
           type: text_style
-          display: 'Phone (Top Bar) Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Phone (Top Bar) Style'
       -
         handle: business_name
         field:
@@ -98,8 +94,7 @@ sections:
         handle: business_name_text_style
         field:
           type: text_style
-          display: 'Business Name Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Business Name Style'
       -
         handle: business_email
         field:
@@ -109,8 +104,7 @@ sections:
         handle: business_email_text_style
         field:
           type: text_style
-          display: 'Business Email Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Business Email Style'
       -
         handle: business_phone
         field:
@@ -120,8 +114,7 @@ sections:
         handle: business_phone_text_style
         field:
           type: text_style
-          display: 'Business Phone Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Business Phone Style'
       -
         handle: business_street_address
         field:
@@ -131,8 +124,7 @@ sections:
         handle: business_street_address_text_style
         field:
           type: text_style
-          display: 'Business Street Address Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Business Street Address Style'
       -
         handle: business_city
         field:
@@ -142,8 +134,7 @@ sections:
         handle: business_city_text_style
         field:
           type: text_style
-          display: 'Business City Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Business City Style'
       -
         handle: business_region
         field:
@@ -153,8 +144,7 @@ sections:
         handle: business_region_text_style
         field:
           type: text_style
-          display: 'Business Region/State Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Business Region/State Style'
       -
         handle: business_country
         field:
@@ -164,8 +154,7 @@ sections:
         handle: business_country_text_style
         field:
           type: text_style
-          display: 'Business Country Code Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Business Country Code Style'
       -
         handle: business_price_range
         field:
@@ -175,13 +164,14 @@ sections:
         handle: business_price_range_text_style
         field:
           type: text_style
-          display: 'Business Price Range Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Business Price Range Style'
       -
         handle: nav_items
         field:
           type: grid
           display: 'Header Navigation'
+          mode: stacked
+          fullscreen: true
           add_row: 'Add Nav Item'
           fields:
             -
@@ -189,22 +179,26 @@ sections:
               field:
                 type: text
                 display: Label
+                width: 50
             -
               handle: label_text_style
               field:
                 type: text_style
-                display: 'Label Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                display: 'Label Style'
+                width: 50
             -
               handle: href
               field:
                 type: text
                 display: URL
+                width: 50
       -
         handle: action_links
         field:
           type: grid
           display: 'Header Action Icons'
+          mode: stacked
+          fullscreen: true
           add_row: 'Add Action'
           instructions: 'Supported icons: aperture, grid, shopping-cart, shopping-bag, mail, phone. The shopping-bag icon opens the cart drawer like the Next.js site.'
           fields:
@@ -213,22 +207,25 @@ sections:
               field:
                 type: text
                 display: Label
+                width: 50
             -
               handle: label_text_style
               field:
                 type: text_style
-                display: 'Label Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                display: 'Label Style'
+                width: 50
             -
               handle: href
               field:
                 type: text
                 display: URL
+                width: 50
             -
               handle: icon
               field:
                 type: text
                 display: Icon
+                width: 50
       -
         handle: primary_cta_label
         field:
@@ -238,8 +235,7 @@ sections:
         handle: primary_cta_label_text_style
         field:
           type: text_style
-          display: 'Header CTA Button Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Header CTA Button Label Style'
       -
         handle: primary_cta_href
         field:
@@ -254,8 +250,7 @@ sections:
         handle: footer_blurb_text_style
         field:
           type: text_style
-          display: 'Footer Description Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Footer Description Style'
       -
         handle: copyright_text
         field:
@@ -265,77 +260,89 @@ sections:
         handle: copyright_text_text_style
         field:
           type: text_style
-          display: 'Copyright Text Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Copyright Text Style'
       -
         handle: social_links
         field:
           type: grid
           display: 'Social Links'
+          mode: stacked
+          fullscreen: true
           fields:
             -
               handle: label
               field:
                 type: text
                 display: Label
+                width: 50
             -
               handle: label_text_style
               field:
                 type: text_style
-                display: 'Label Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                display: 'Label Style'
+                width: 50
             -
               handle: icon
               field:
                 type: text
                 display: 'Icon (facebook/x-twitter/instagram/youtube/whatsapp)'
+                width: 50
             -
               handle: href
               field:
                 type: text
                 display: URL
+                width: 50
             -
               handle: target
               field:
                 type: text
                 display: Target
                 default: _blank
+                width: 50
       -
         handle: footer_columns
         field:
           type: grid
           display: 'Footer Columns'
+          mode: stacked
+          fullscreen: true
           fields:
             -
               handle: title
               field:
                 type: text
                 display: 'Column Title'
+                width: 50
             -
               handle: title_text_style
               field:
                 type: text_style
-                display: 'Column Title Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                display: 'Column Title Style'
+                width: 50
             -
               handle: links
               field:
                 type: grid
                 display: Links
+                mode: stacked
+                fullscreen: true
                 fields:
                   -
                     handle: label
                     field:
                       type: text
                       display: Label
+                      width: 50
                   -
                     handle: label_text_style
                     field:
                       type: text_style
-                      display: 'Label Text Controls'
-                      instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                      display: 'Label Style'
+                      width: 50
                   -
                     handle: href
                     field:
                       type: text
                       display: URL
+                      width: 50

@@ -13,8 +13,7 @@ sections:
         handle: title_text_style
         field:
           type: text_style
-          display: 'Title Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Title Style'
       -
         handle: policy_layout
         field:
@@ -36,35 +35,24 @@ sections:
         handle: privacy_eyebrow_text_style
         field:
           type: text_style
-          display: 'Eyebrow Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Eyebrow Style'
       -
         handle: privacy_valid_label
         field:
           type: text
           display: 'Validity Label'
       -
-        handle: privacy_valid_label_text_style
-        field:
-          type: text_style
-          display: 'Validity Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
-      -
         handle: privacy_intro_paragraphs
         field:
           type: list
           display: 'Intro Paragraphs'
       -
-        handle: privacy_intro_paragraphs_text_style
-        field:
-          type: text_style
-          display: 'Intro Paragraphs Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
-      -
         handle: privacy_sections
         field:
           type: grid
           display: 'Privacy Sections'
+          mode: stacked
+          fullscreen: true
           add_row: 'Add Section'
           fields:
             -
@@ -72,45 +60,25 @@ sections:
               field:
                 type: text
                 display: ID
-            -
-              handle: id_text_style
-              field:
-                type: text_style
-                display: 'ID Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 25
             -
               handle: section_title
               field:
                 type: text
                 display: Title
-            -
-              handle: section_title_text_style
-              field:
-                type: text_style
-                display: 'Title Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
             -
               handle: paragraphs
               field:
                 type: list
                 display: Paragraphs
-            -
-              handle: paragraphs_text_style
-              field:
-                type: text_style
-                display: 'Paragraphs Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 100
             -
               handle: bullets
               field:
                 type: list
                 display: Bullets
-            -
-              handle: bullets_text_style
-              field:
-                type: text_style
-                display: 'Bullets Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 100
       -
         handle: privacy_image_break_image
         field:
@@ -137,19 +105,12 @@ sections:
         handle: privacy_contact_eyebrow_text_style
         field:
           type: text_style
-          display: 'Contact Eyebrow Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Contact Eyebrow Style'
       -
         handle: privacy_contact_email
         field:
           type: text
           display: 'Contact Email'
-      -
-        handle: privacy_contact_email_text_style
-        field:
-          type: text_style
-          display: 'Contact Email Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
   return_policy:
     display: 'Return and Refund Layout'
     fields:
@@ -162,8 +123,7 @@ sections:
         handle: return_hero_eyebrow_text_style
         field:
           type: text_style
-          display: 'Hero Eyebrow Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Hero Eyebrow Style'
       -
         handle: return_title_line_one
         field:
@@ -173,8 +133,7 @@ sections:
         handle: return_title_line_one_text_style
         field:
           type: text_style
-          display: 'Title Line One Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Title Line One Style'
       -
         handle: return_title_line_two
         field:
@@ -184,8 +143,7 @@ sections:
         handle: return_title_line_two_text_style
         field:
           type: text_style
-          display: 'Title Line Two Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Title Line Two Style'
       -
         handle: return_title_line_three
         field:
@@ -195,8 +153,7 @@ sections:
         handle: return_title_line_three_text_style
         field:
           type: text_style
-          display: 'Title Line Three Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Title Line Three Style'
       -
         handle: return_hero_quote
         field:
@@ -206,8 +163,7 @@ sections:
         handle: return_hero_quote_text_style
         field:
           type: text_style
-          display: 'Hero Quote Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Hero Quote Style'
       -
         handle: return_hero_image
         field:
@@ -225,6 +181,8 @@ sections:
         field:
           type: grid
           display: 'Policy Cards'
+          mode: stacked
+          fullscreen: true
           add_row: 'Add Card'
           fields:
             -
@@ -232,28 +190,19 @@ sections:
               field:
                 type: text
                 display: ID
-            -
-              handle: id_text_style
-              field:
-                type: text_style
-                display: 'ID Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 25
             -
               handle: section_title
               field:
                 type: text
                 display: Title
-            -
-              handle: section_title_text_style
-              field:
-                type: text_style
-                display: 'Title Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
             -
               handle: icon
               field:
                 type: select
                 display: Icon
+                width: 25
                 options:
                   package: Package
                   alert-circle: Alert
@@ -264,72 +213,43 @@ sections:
               field:
                 type: list
                 display: Paragraphs
-            -
-              handle: paragraphs_text_style
-              field:
-                type: text_style
-                display: 'Paragraphs Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 100
             -
               handle: highlight
               field:
                 type: text
                 display: 'Highlighted Phrase'
-            -
-              handle: highlight_text_style
-              field:
-                type: text_style
-                display: 'Highlighted Phrase Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
             -
               handle: protocol_title
               field:
                 type: text
                 display: 'Protocol Title'
-            -
-              handle: protocol_title_text_style
-              field:
-                type: text_style
-                display: 'Protocol Title Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
             -
               handle: protocol_body
               field:
                 type: textarea
                 display: 'Protocol Body'
-            -
-              handle: protocol_body_text_style
-              field:
-                type: text_style
-                display: 'Protocol Body Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 100
             -
               handle: support_label
               field:
                 type: text
                 display: 'Support Label'
-            -
-              handle: support_label_text_style
-              field:
-                type: text_style
-                display: 'Support Label Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 33
             -
               handle: support_value
               field:
                 type: text
                 display: 'Support Value'
-            -
-              handle: support_value_text_style
-              field:
-                type: text_style
-                display: 'Support Value Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 33
             -
               handle: support_href
               field:
                 type: text
                 display: 'Support URL'
+                width: 33
       -
         handle: return_standard_title
         field:
@@ -339,8 +259,7 @@ sections:
         handle: return_standard_title_text_style
         field:
           type: text_style
-          display: 'Standard Title Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Standard Title Style'
       -
         handle: return_standard_copy
         field:
@@ -350,8 +269,7 @@ sections:
         handle: return_standard_copy_text_style
         field:
           type: text_style
-          display: 'Standard Copy Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Standard Copy Style'
   seo:
     display: SEO
     fields:

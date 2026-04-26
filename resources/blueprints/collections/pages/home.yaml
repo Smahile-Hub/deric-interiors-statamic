@@ -13,8 +13,7 @@ sections:
         handle: title_text_style
         field:
           type: text_style
-          display: 'Page Title Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Page Title Style'
       -
         handle: hero_eyebrow
         field:
@@ -24,8 +23,7 @@ sections:
         handle: hero_eyebrow_text_style
         field:
           type: text_style
-          display: 'Eyebrow Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Eyebrow Style'
       -
         handle: hero_heading_lines
         field:
@@ -38,12 +36,6 @@ sections:
               field:
                 type: text
                 display: Line
-            -
-              handle: line_text_style
-              field:
-                type: text_style
-                display: 'Line Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: hero_subtext
         field:
@@ -53,8 +45,7 @@ sections:
         handle: hero_subtext_text_style
         field:
           type: text_style
-          display: 'Subtext Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Subtext Style'
       -
         handle: hero_cta_label
         field:
@@ -64,8 +55,7 @@ sections:
         handle: hero_cta_label_text_style
         field:
           type: text_style
-          display: 'Primary Button Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Primary Button Label Style'
       -
         handle: hero_cta_href
         field:
@@ -80,8 +70,7 @@ sections:
         handle: hero_secondary_label_text_style
         field:
           type: text_style
-          display: 'Secondary Link Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Secondary Link Label Style'
       -
         handle: hero_secondary_href
         field:
@@ -131,8 +120,7 @@ sections:
         handle: about_eyebrow_text_style
         field:
           type: text_style
-          display: 'Eyebrow Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Eyebrow Style'
       -
         handle: about_heading
         field:
@@ -142,8 +130,7 @@ sections:
         handle: about_heading_text_style
         field:
           type: text_style
-          display: 'Heading Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Heading Style'
       -
         handle: about_body
         field:
@@ -153,8 +140,7 @@ sections:
         handle: about_body_text_style
         field:
           type: text_style
-          display: 'Body Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Body Style'
       -
         handle: about_years_value
         field:
@@ -164,8 +150,7 @@ sections:
         handle: about_years_value_text_style
         field:
           type: text_style
-          display: 'Years Value Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Years Value Style'
       -
         handle: about_years_label
         field:
@@ -175,8 +160,7 @@ sections:
         handle: about_years_label_text_style
         field:
           type: text_style
-          display: 'Years Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Years Label Style'
       -
         handle: about_image
         field:
@@ -189,6 +173,8 @@ sections:
         field:
           type: grid
           display: Features
+          mode: stacked
+          fullscreen: true
           add_row: 'Add Feature'
           fields:
             -
@@ -196,23 +182,13 @@ sections:
               field:
                 type: text
                 display: Title
-            -
-              handle: title_text_style
-              field:
-                type: text_style
-                display: 'Title Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
             -
               handle: description
               field:
                 type: textarea
                 display: Description
-            -
-              handle: description_text_style
-              field:
-                type: text_style
-                display: 'Description Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
       -
         handle: about_cta_label
         field:
@@ -222,8 +198,7 @@ sections:
         handle: about_cta_label_text_style
         field:
           type: text_style
-          display: 'Button Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Button Label Style'
       -
         handle: about_cta_href
         field:
@@ -246,8 +221,7 @@ sections:
         handle: services_eyebrow_text_style
         field:
           type: text_style
-          display: 'Eyebrow Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Eyebrow Style'
       -
         handle: services_heading
         field:
@@ -257,13 +231,14 @@ sections:
         handle: services_heading_text_style
         field:
           type: text_style
-          display: 'Heading Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Heading Style'
       -
         handle: services_items
         field:
           type: grid
           display: Services
+          mode: stacked
+          fullscreen: true
           add_row: 'Add Service'
           fields:
             -
@@ -271,23 +246,13 @@ sections:
               field:
                 type: text
                 display: Title
-            -
-              handle: title_text_style
-              field:
-                type: text_style
-                display: 'Title Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
             -
               handle: description
               field:
                 type: text
                 display: Description
-            -
-              handle: description_text_style
-              field:
-                type: text_style
-                display: 'Description Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
             -
               handle: image
               field:
@@ -295,16 +260,19 @@ sections:
                 display: Image
                 container: assets
                 max_files: 1
+                width: 50
             -
               handle: overlay
               field:
                 type: text
                 display: Overlay
+                width: 50
             -
               handle: href
               field:
                 type: text
                 display: URL
+                width: 50
   portfolio:
     display: Portfolio
     fields:
@@ -322,8 +290,7 @@ sections:
         handle: portfolio_eyebrow_text_style
         field:
           type: text_style
-          display: 'Eyebrow Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Eyebrow Style'
       -
         handle: portfolio_heading
         field:
@@ -333,8 +300,7 @@ sections:
         handle: portfolio_heading_text_style
         field:
           type: text_style
-          display: 'Heading Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Heading Style'
       -
         handle: portfolio_featured_image
         field:
@@ -356,8 +322,7 @@ sections:
         handle: portfolio_featured_title_text_style
         field:
           type: text_style
-          display: 'Featured Title Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Featured Title Style'
       -
         handle: portfolio_featured_category
         field:
@@ -367,8 +332,7 @@ sections:
         handle: portfolio_featured_category_text_style
         field:
           type: text_style
-          display: 'Featured Category Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Featured Category Style'
       -
         handle: portfolio_featured_description
         field:
@@ -378,13 +342,14 @@ sections:
         handle: portfolio_featured_description_text_style
         field:
           type: text_style
-          display: 'Featured Description Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Featured Description Style'
       -
         handle: portfolio_side_items
         field:
           type: grid
           display: 'Side Projects'
+          mode: stacked
+          fullscreen: true
           add_row: 'Add Project'
           fields:
             -
@@ -392,23 +357,13 @@ sections:
               field:
                 type: text
                 display: Title
-            -
-              handle: title_text_style
-              field:
-                type: text_style
-                display: 'Title Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
             -
               handle: category
               field:
                 type: text
                 display: Category
-            -
-              handle: category_text_style
-              field:
-                type: text_style
-                display: 'Category Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
             -
               handle: image
               field:
@@ -416,22 +371,19 @@ sections:
                 display: Image
                 container: assets
                 max_files: 1
+                width: 50
             -
               handle: href
               field:
                 type: text
                 display: URL
+                width: 50
             -
               handle: description
               field:
                 type: textarea
                 display: Description
-            -
-              handle: description_text_style
-              field:
-                type: text_style
-                display: 'Description Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 100
   products:
     display: Products
     fields:
@@ -449,8 +401,7 @@ sections:
         handle: products_eyebrow_text_style
         field:
           type: text_style
-          display: 'Eyebrow Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Eyebrow Style'
       -
         handle: products_heading
         field:
@@ -460,13 +411,14 @@ sections:
         handle: products_heading_text_style
         field:
           type: text_style
-          display: 'Heading Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Heading Style'
       -
         handle: products_items
         field:
           type: grid
           display: 'Featured Products'
+          mode: stacked
+          fullscreen: true
           add_row: 'Add Product'
           fields:
             -
@@ -474,34 +426,19 @@ sections:
               field:
                 type: text
                 display: Title
-            -
-              handle: title_text_style
-              field:
-                type: text_style
-                display: 'Title Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
             -
               handle: price
               field:
                 type: text
                 display: Price
-            -
-              handle: price_text_style
-              field:
-                type: text_style
-                display: 'Price Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
             -
               handle: category
               field:
                 type: text
                 display: Category
-            -
-              handle: category_text_style
-              field:
-                type: text_style
-                display: 'Category Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
             -
               handle: image
               field:
@@ -509,11 +446,13 @@ sections:
                 display: Image
                 container: assets
                 max_files: 1
+                width: 50
             -
               handle: href
               field:
                 type: text
                 display: URL
+                width: 50
   mission:
     display: Mission
     fields:
@@ -531,8 +470,7 @@ sections:
         handle: mission_eyebrow_text_style
         field:
           type: text_style
-          display: 'Eyebrow Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Eyebrow Style'
       -
         handle: mission_body_top
         field:
@@ -542,8 +480,7 @@ sections:
         handle: mission_body_top_text_style
         field:
           type: text_style
-          display: 'Small Text Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Small Text Style'
       -
         handle: mission_heading
         field:
@@ -553,8 +490,7 @@ sections:
         handle: mission_heading_text_style
         field:
           type: text_style
-          display: 'Heading Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Heading Style'
       -
         handle: mission_cta_label
         field:
@@ -564,8 +500,7 @@ sections:
         handle: mission_cta_label_text_style
         field:
           type: text_style
-          display: 'Button Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Button Label Style'
       -
         handle: mission_cta_href
         field:
@@ -576,6 +511,8 @@ sections:
         field:
           type: grid
           display: Pillars
+          mode: stacked
+          fullscreen: true
           add_row: 'Add Pillar'
           fields:
             -
@@ -583,23 +520,13 @@ sections:
               field:
                 type: text
                 display: Title
-            -
-              handle: title_text_style
-              field:
-                type: text_style
-                display: 'Title Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
             -
               handle: description
               field:
                 type: textarea
                 display: Description
-            -
-              handle: description_text_style
-              field:
-                type: text_style
-                display: 'Description Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
   testimonials:
     display: Testimonials
     fields:
@@ -617,8 +544,7 @@ sections:
         handle: testimonials_eyebrow_text_style
         field:
           type: text_style
-          display: 'Eyebrow Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Eyebrow Style'
       -
         handle: testimonials_heading
         field:
@@ -628,13 +554,14 @@ sections:
         handle: testimonials_heading_text_style
         field:
           type: text_style
-          display: 'Heading Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Heading Style'
       -
         handle: testimonials_items
         field:
           type: grid
           display: Testimonials
+          mode: stacked
+          fullscreen: true
           add_row: 'Add Testimonial'
           fields:
             -
@@ -642,34 +569,19 @@ sections:
               field:
                 type: textarea
                 display: Quote
-            -
-              handle: quote_text_style
-              field:
-                type: text_style
-                display: 'Quote Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
             -
               handle: author
               field:
                 type: text
                 display: Author
-            -
-              handle: author_text_style
-              field:
-                type: text_style
-                display: 'Author Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
             -
               handle: role
               field:
                 type: text
                 display: Role
-            -
-              handle: role_text_style
-              field:
-                type: text_style
-                display: 'Role Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
   cta:
     display: 'Final CTA'
     fields:
@@ -682,8 +594,7 @@ sections:
         handle: cta_eyebrow_text_style
         field:
           type: text_style
-          display: 'Eyebrow Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Eyebrow Style'
       -
         handle: cta_heading
         field:
@@ -693,8 +604,7 @@ sections:
         handle: cta_heading_text_style
         field:
           type: text_style
-          display: 'Heading Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Heading Style'
       -
         handle: cta_subtext
         field:
@@ -704,8 +614,7 @@ sections:
         handle: cta_subtext_text_style
         field:
           type: text_style
-          display: 'Subtext Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Subtext Style'
       -
         handle: cta_primary_label
         field:
@@ -715,8 +624,7 @@ sections:
         handle: cta_primary_label_text_style
         field:
           type: text_style
-          display: 'Primary Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Primary Label Style'
       -
         handle: cta_primary_href
         field:
@@ -731,8 +639,7 @@ sections:
         handle: cta_secondary_label_text_style
         field:
           type: text_style
-          display: 'Secondary Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Secondary Label Style'
       -
         handle: cta_secondary_href
         field:

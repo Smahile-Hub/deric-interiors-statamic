@@ -13,8 +13,7 @@ sections:
         handle: title_text_style
         field:
           type: text_style
-          display: 'Page Title Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Page Title Style'
       -
         handle: services_hero_eyebrow
         field:
@@ -24,8 +23,7 @@ sections:
         handle: services_hero_eyebrow_text_style
         field:
           type: text_style
-          display: 'Eyebrow Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Eyebrow Style'
       -
         handle: services_hero_title_prefix
         field:
@@ -35,8 +33,7 @@ sections:
         handle: services_hero_title_prefix_text_style
         field:
           type: text_style
-          display: 'Title Prefix Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Title Prefix Style'
       -
         handle: services_hero_title_accent
         field:
@@ -46,8 +43,7 @@ sections:
         handle: services_hero_title_accent_text_style
         field:
           type: text_style
-          display: 'Title Accent Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Title Accent Style'
       -
         handle: services_hero_title_suffix
         field:
@@ -57,8 +53,7 @@ sections:
         handle: services_hero_title_suffix_text_style
         field:
           type: text_style
-          display: 'Title Suffix Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Title Suffix Style'
       -
         handle: services_hero_description
         field:
@@ -68,8 +63,7 @@ sections:
         handle: services_hero_description_text_style
         field:
           type: text_style
-          display: 'Description Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Description Style'
       -
         handle: services_hero_background_image
         field:
@@ -91,8 +85,7 @@ sections:
         handle: services_hero_cta_label_text_style
         field:
           type: text_style
-          display: 'Hero CTA Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Hero CTA Label Style'
       -
         handle: services_hero_cta_href
         field:
@@ -113,23 +106,13 @@ sections:
               field:
                 type: text
                 display: Value
-            -
-              handle: value_text_style
-              field:
-                type: text_style
-                display: 'Value Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
             -
               handle: label
               field:
                 type: text
                 display: Label
-            -
-              handle: label_text_style
-              field:
-                type: text_style
-                display: 'Label Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
   intro:
     display: Intro
     fields:
@@ -142,8 +125,7 @@ sections:
         handle: services_intro_title_text_style
         field:
           type: text_style
-          display: 'Title Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Title Style'
       -
         handle: services_intro_description
         field:
@@ -153,8 +135,7 @@ sections:
         handle: services_intro_description_text_style
         field:
           type: text_style
-          display: 'Description Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Description Style'
   services:
     display: 'Service Rows'
     fields:
@@ -163,6 +144,8 @@ sections:
         field:
           type: grid
           display: Rows
+          mode: stacked
+          fullscreen: true
           add_row: 'Add Row'
           fields:
             -
@@ -170,6 +153,8 @@ sections:
               field:
                 type: grid
                 display: Cards
+                mode: stacked
+                fullscreen: true
                 add_row: 'Add Card'
                 fields:
                   -
@@ -177,45 +162,25 @@ sections:
                     field:
                       type: text
                       display: ID
-                  -
-                    handle: id_text_style
-                    field:
-                      type: text_style
-                      display: 'ID Text Controls'
-                      instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                      width: 25
                   -
                     handle: number
                     field:
                       type: text
                       display: Number
-                  -
-                    handle: number_text_style
-                    field:
-                      type: text_style
-                      display: 'Number Text Controls'
-                      instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                      width: 25
                   -
                     handle: title
                     field:
                       type: text
                       display: Title
-                  -
-                    handle: title_text_style
-                    field:
-                      type: text_style
-                      display: 'Title Text Controls'
-                      instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                      width: 50
                   -
                     handle: description
                     field:
                       type: textarea
                       display: Description
-                  -
-                    handle: description_text_style
-                    field:
-                      type: text_style
-                      display: 'Description Text Controls'
-                      instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                      width: 100
                   -
                     handle: image
                     field:
@@ -223,32 +188,31 @@ sections:
                       display: Image
                       container: assets
                       max_files: 1
+                      width: 50
                   -
                     handle: image_alt
                     field:
                       type: text
                       display: 'Image Alt'
+                      width: 50
                   -
                     handle: wide
                     field:
                       type: toggle
                       display: 'Wide Card'
+                      width: 33
                   -
                     handle: link_label
                     field:
                       type: text
                       display: 'Link Label'
-                  -
-                    handle: link_label_text_style
-                    field:
-                      type: text_style
-                      display: 'Link Label Text Controls'
-                      instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                      width: 33
                   -
                     handle: link_href
                     field:
                       type: text
                       display: 'Link URL'
+                      width: 33
   process:
     display: Process
     fields:
@@ -261,13 +225,14 @@ sections:
         handle: services_process_title_text_style
         field:
           type: text_style
-          display: 'Title Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Title Style'
       -
         handle: services_process_items
         field:
           type: grid
           display: 'Process Items'
+          mode: stacked
+          fullscreen: true
           add_row: 'Add Step'
           fields:
             -
@@ -275,34 +240,19 @@ sections:
               field:
                 type: text
                 display: Number
-            -
-              handle: number_text_style
-              field:
-                type: text_style
-                display: 'Number Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 25
             -
               handle: title
               field:
                 type: text
                 display: Title
-            -
-              handle: title_text_style
-              field:
-                type: text_style
-                display: 'Title Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
             -
               handle: description
               field:
                 type: textarea
                 display: Description
-            -
-              handle: description_text_style
-              field:
-                type: text_style
-                display: 'Description Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 100
   cta:
     display: 'Final CTA'
     fields:
@@ -315,8 +265,7 @@ sections:
         handle: services_cta_title_line_one_text_style
         field:
           type: text_style
-          display: 'CTA Title Line One Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'CTA Title Line One Style'
       -
         handle: services_cta_title_line_two
         field:
@@ -326,8 +275,7 @@ sections:
         handle: services_cta_title_line_two_text_style
         field:
           type: text_style
-          display: 'CTA Title Line Two Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'CTA Title Line Two Style'
       -
         handle: services_cta_description
         field:
@@ -337,8 +285,7 @@ sections:
         handle: services_cta_description_text_style
         field:
           type: text_style
-          display: 'Description Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Description Style'
       -
         handle: services_cta_primary_label
         field:
@@ -348,8 +295,7 @@ sections:
         handle: services_cta_primary_label_text_style
         field:
           type: text_style
-          display: 'Primary Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Primary Label Style'
       -
         handle: services_cta_primary_href
         field:
@@ -364,8 +310,7 @@ sections:
         handle: services_cta_secondary_label_text_style
         field:
           type: text_style
-          display: 'Secondary Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Secondary Label Style'
       -
         handle: services_cta_secondary_href
         field:

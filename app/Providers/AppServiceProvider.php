@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\Middleware\RecoverStatamicUserCache;
 use App\Http\Middleware\DricCpBrandingAuthenticatedInertiaRequests;
 use App\Http\Middleware\DricCpBrandingInertiaRequests;
 use Illuminate\Support\ServiceProvider;
@@ -26,6 +27,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $this->app['router']->prependMiddlewareToGroup('statamic.cp.authenticated', RecoverStatamicUserCache::class);
+
         Statamic::vite('app', [
             'input' => [
                 'resources/js/cp.js',

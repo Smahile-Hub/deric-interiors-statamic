@@ -4,54 +4,63 @@ sections:
     display: Hero
     fields:
       -
-        handle: title
+        handle: hero_eyebrow
         field:
           type: text
-          display: 'Page Title'
-          required: true
-      -
-        handle: title_text_style
-        field:
-          type: text_style
-          display: 'Page Title Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Eyebrow Label'
+          instructions: 'Small text above the main heading (e.g. "Shop from us")'
       -
         handle: hero_heading
         field:
           type: text
           display: Heading
+          required: true
       -
         handle: hero_heading_text_style
         field:
           type: text_style
-          display: 'Heading Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Heading Style'
       -
         handle: hero_subtext
         field:
           type: textarea
-          display: Subtext
+          display: Description
       -
-        handle: hero_subtext_text_style
+        handle: hero_bg_image
         field:
-          type: text_style
-          display: 'Subtext Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          type: assets
+          display: 'Background Image'
+          container: assets
+          max_files: 1
+          instructions: 'Full-width background photo for the hero section.'
+  intro:
+    display: 'Intro Section'
+    fields:
+      -
+        handle: intro_eyebrow
+        field:
+          type: text
+          display: 'Eyebrow Label'
+          instructions: 'Small text above the intro heading (e.g. "The Shop Edit")'
+      -
+        handle: intro_title
+        field:
+          type: text
+          display: Heading
+      -
+        handle: intro_description
+        field:
+          type: textarea
+          display: Description
   filters:
-    display: Filters
+    display: 'Category Chips'
     fields:
       -
         handle: shop_filters
         field:
           type: list
           display: 'Filter Categories'
-          instructions: 'Use product category names to control the filter order. The template adds All automatically, and any product category not listed here will still be added on the page.'
-      -
-        handle: shop_filters_text_style
-        field:
-          type: text_style
-          display: 'Filter Categories Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          instructions: 'These appear as pill chips in the intro section. Match your product category names exactly.'
   products:
     display: Products
     fields:
@@ -60,42 +69,30 @@ sections:
         field:
           type: grid
           display: Products
+          mode: stacked
+          fullscreen: true
           add_row: 'Add Product'
+          instructions: 'The first product will be displayed as the featured hero card. All products appear in the 4-column grid below.'
           fields:
             -
               handle: title
               field:
                 type: text
                 display: Title
-            -
-              handle: title_text_style
-              field:
-                type: text_style
-                display: 'Title Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
             -
               handle: price
               field:
                 type: text
                 display: Price
-            -
-              handle: price_text_style
-              field:
-                type: text_style
-                display: 'Price Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
             -
               handle: category
               field:
                 type: text
                 display: Category
-                instructions: 'Editable product category. Match a filter name above if you want it grouped under an existing filter.'
-            -
-              handle: category_text_style
-              field:
-                type: text_style
-                display: 'Category Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                instructions: 'Match a category chip above to enable filtering.'
+                width: 50
             -
               handle: image
               field:
@@ -103,69 +100,54 @@ sections:
                 display: Image
                 container: assets
                 max_files: 1
+                width: 50
             -
               handle: description
               field:
                 type: textarea
                 display: Description
-            -
-              handle: description_text_style
-              field:
-                type: text_style
-                display: 'Description Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
             -
               handle: cta_label
               field:
                 type: text
-                display: 'CTA Label'
-            -
-              handle: cta_label_text_style
-              field:
-                type: text_style
-                display: 'CTA Label Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                display: 'Link Label'
+                width: 50
             -
               handle: cta_href
               field:
                 type: text
-                display: 'CTA URL'
+                display: 'Link URL'
+                width: 50
   cta:
-    display: 'Final CTA'
+    display: 'Call to Action'
     fields:
+      -
+        handle: shop_cta_eyebrow
+        field:
+          type: text
+          display: 'Eyebrow Label'
+          instructions: 'Small text above the CTA heading (e.g. "Need Guidance?")'
       -
         handle: shop_cta_title
         field:
           type: text
-          display: Title
+          display: Heading
       -
         handle: shop_cta_title_text_style
         field:
           type: text_style
-          display: 'Title Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Heading Style'
       -
         handle: shop_cta_description
         field:
           type: textarea
           display: Description
       -
-        handle: shop_cta_description_text_style
-        field:
-          type: text_style
-          display: 'Description Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
-      -
         handle: shop_cta_button_label
         field:
           type: text
           display: 'Button Label'
-      -
-        handle: shop_cta_button_label_text_style
-        field:
-          type: text_style
-          display: 'Button Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: shop_cta_button_href
         field:

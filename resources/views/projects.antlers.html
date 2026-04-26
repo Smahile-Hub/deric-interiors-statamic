@@ -187,16 +187,24 @@
       });
 
       galleryGrid.classList.add('is-transitioning');
+      document.querySelector('.projects-filter-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
       window.setTimeout(() => {
         let visibleCount = 0;
+        let visibleIndex = 0;
 
         cards.forEach((card) => {
-          const matches = filter === 'All Projects' || card.dataset.category === filter;
+          const cats = card.dataset.category.split(',').map((c) => c.trim());
+          const matches = filter === 'All Projects' || cats.includes(filter);
           card.hidden = !matches;
 
           if (matches) {
             visibleCount += 1;
+            card.removeAttribute('data-visible');
+            const idx = visibleIndex++;
+            window.setTimeout(() => { card.dataset.visible = 'true'; }, idx * 60);
+          } else {
+            card.removeAttribute('data-visible');
           }
         });
 
@@ -204,9 +212,8 @@
           emptyState.hidden = visibleCount > 0;
         }
 
-        observeVisibleCards();
         galleryGrid.classList.remove('is-transitioning');
-      }, 180);
+      }, 150);
     };
 
     filterButtons.forEach((button) => {

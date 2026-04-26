@@ -13,8 +13,7 @@ sections:
         handle: title_text_style
         field:
           type: text_style
-          display: 'Title Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Title Style'
       -
         handle: category
         field:
@@ -24,8 +23,7 @@ sections:
         handle: category_text_style
         field:
           type: text_style
-          display: 'Category Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Category Style'
       -
         handle: excerpt
         field:
@@ -35,8 +33,7 @@ sections:
         handle: excerpt_text_style
         field:
           type: text_style
-          display: 'Excerpt Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Excerpt Style'
       -
         handle: content_blocks
         field:
@@ -65,8 +62,7 @@ sections:
                   handle: text_text_style
                   field:
                     type: text_style
-                    display: 'Content Text Controls'
-                    instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                    display: 'Content Style'
             image_block:
               display: Image
               fields:
@@ -87,8 +83,7 @@ sections:
                   handle: caption_text_style
                   field:
                     type: text_style
-                    display: 'Caption (optional) Text Controls'
-                    instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                    display: 'Caption (optional) Style'
       -
         handle: content
         field:
@@ -98,8 +93,7 @@ sections:
         handle: content_text_style
         field:
           type: text_style
-          display: 'Article Body (Legacy) Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Article Body (Legacy) Style'
   details:
     display: Details
     fields:
@@ -112,8 +106,7 @@ sections:
         handle: author_text_style
         field:
           type: text_style
-          display: 'Author Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Author Style'
       -
         handle: reading_minutes
         field:
@@ -123,8 +116,7 @@ sections:
         handle: reading_minutes_text_style
         field:
           type: text_style
-          display: 'Reading Time Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Reading Time Style'
       -
         handle: cover_image_url
         field:

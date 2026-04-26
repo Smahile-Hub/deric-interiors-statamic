@@ -13,8 +13,7 @@ sections:
         handle: title_text_style
         field:
           type: text_style
-          display: 'Page Title Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Page Title Style'
       -
         handle: hero_heading
         field:
@@ -24,8 +23,7 @@ sections:
         handle: hero_heading_text_style
         field:
           type: text_style
-          display: 'Heading Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Heading Style'
       -
         handle: hero_subtext
         field:
@@ -35,8 +33,7 @@ sections:
         handle: hero_subtext_text_style
         field:
           type: text_style
-          display: 'Subtext Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Subtext Style'
   testimonials:
     display: Testimonials
     fields:
@@ -45,6 +42,8 @@ sections:
         field:
           type: grid
           display: Testimonials
+          mode: stacked
+          fullscreen: true
           add_row: 'Add Testimonial'
           fields:
             -
@@ -52,56 +51,31 @@ sections:
               field:
                 type: textarea
                 display: Quote
-            -
-              handle: quote_text_style
-              field:
-                type: text_style
-                display: 'Quote Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 100
             -
               handle: author
               field:
                 type: text
                 display: Author
-            -
-              handle: author_text_style
-              field:
-                type: text_style
-                display: 'Author Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
             -
               handle: role
               field:
                 type: text
                 display: Role
-            -
-              handle: role_text_style
-              field:
-                type: text_style
-                display: 'Role Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
             -
               handle: location
               field:
                 type: text
                 display: Location
-            -
-              handle: location_text_style
-              field:
-                type: text_style
-                display: 'Location Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
             -
               handle: project
               field:
                 type: text
                 display: Project
-            -
-              handle: project_text_style
-              field:
-                type: text_style
-                display: 'Project Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
   cta:
     display: 'Final CTA'
     fields:
@@ -114,8 +88,7 @@ sections:
         handle: testimonials_cta_title_text_style
         field:
           type: text_style
-          display: 'Title Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Title Style'
       -
         handle: testimonials_cta_description
         field:
@@ -125,8 +98,7 @@ sections:
         handle: testimonials_cta_description_text_style
         field:
           type: text_style
-          display: 'Description Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Description Style'
       -
         handle: testimonials_cta_primary_label
         field:
@@ -136,8 +108,7 @@ sections:
         handle: testimonials_cta_primary_label_text_style
         field:
           type: text_style
-          display: 'Primary Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Primary Label Style'
       -
         handle: testimonials_cta_primary_href
         field:
@@ -152,8 +123,7 @@ sections:
         handle: testimonials_cta_secondary_label_text_style
         field:
           type: text_style
-          display: 'Secondary Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Secondary Label Style'
       -
         handle: testimonials_cta_secondary_href
         field:

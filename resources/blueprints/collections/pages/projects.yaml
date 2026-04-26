@@ -13,8 +13,7 @@ sections:
         handle: title_text_style
         field:
           type: text_style
-          display: 'Page Title Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Page Title Style'
       -
         handle: projects_hero_eyebrow
         field:
@@ -24,8 +23,7 @@ sections:
         handle: projects_hero_eyebrow_text_style
         field:
           type: text_style
-          display: 'Eyebrow Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Eyebrow Style'
       -
         handle: projects_hero_title_line_one
         field:
@@ -35,8 +33,7 @@ sections:
         handle: projects_hero_title_line_one_text_style
         field:
           type: text_style
-          display: 'Title Line One Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Title Line One Style'
       -
         handle: projects_hero_title_line_two
         field:
@@ -46,8 +43,7 @@ sections:
         handle: projects_hero_title_line_two_text_style
         field:
           type: text_style
-          display: 'Title Line Two Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Title Line Two Style'
       -
         handle: projects_hero_description
         field:
@@ -57,8 +53,7 @@ sections:
         handle: projects_hero_description_text_style
         field:
           type: text_style
-          display: 'Description Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Description Style'
       -
         handle: projects_hero_background_image
         field:
@@ -84,8 +79,7 @@ sections:
         handle: projects_filters_text_style
         field:
           type: text_style
-          display: 'Filter Labels Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Filter Labels Style'
   gallery:
     display: Gallery
     fields:
@@ -94,6 +88,8 @@ sections:
         field:
           type: grid
           display: 'Project Items'
+          mode: stacked
+          fullscreen: true
           add_row: 'Add Project'
           fields:
             -
@@ -101,39 +97,25 @@ sections:
               field:
                 type: text
                 display: ID
-            -
-              handle: id_text_style
-              field:
-                type: text_style
-                display: 'ID Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 25
             -
               handle: title
               field:
                 type: text
                 display: Title
-            -
-              handle: title_text_style
-              field:
-                type: text_style
-                display: 'Title Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
             -
               handle: excerpt
               field:
                 type: textarea
                 display: Excerpt
-            -
-              handle: excerpt_text_style
-              field:
-                type: text_style
-                display: 'Excerpt Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 100
             -
               handle: category
               field:
                 type: select
                 display: Category
+                width: 50
                 options:
                   Residential: Residential
                   Commercial: Commercial
@@ -144,6 +126,7 @@ sections:
                 type: select
                 display: 'Card Size'
                 default: medium
+                width: 50
                 options:
                   large: Large
                   medium: Medium
@@ -155,27 +138,25 @@ sections:
                 display: Image
                 container: assets
                 max_files: 1
+                width: 50
             -
               handle: image_alt
               field:
                 type: text
                 display: 'Image Alt'
+                width: 50
             -
               handle: link_label
               field:
                 type: text
                 display: 'Link Label'
-            -
-              handle: link_label_text_style
-              field:
-                type: text_style
-                display: 'Link Label Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
             -
               handle: link_href
               field:
                 type: text
                 display: 'Link URL'
+                width: 50
       -
         handle: projects_empty_state
         field:
@@ -185,8 +166,7 @@ sections:
         handle: projects_empty_state_text_style
         field:
           type: text_style
-          display: 'Empty State Message Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Empty State Message Style'
   cta:
     display: 'Final CTA'
     fields:
@@ -199,8 +179,7 @@ sections:
         handle: projects_cta_title_line_one_text_style
         field:
           type: text_style
-          display: 'CTA Title Line One Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'CTA Title Line One Style'
       -
         handle: projects_cta_title_line_two
         field:
@@ -210,8 +189,7 @@ sections:
         handle: projects_cta_title_line_two_text_style
         field:
           type: text_style
-          display: 'CTA Title Line Two Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'CTA Title Line Two Style'
       -
         handle: projects_cta_title_line_three
         field:
@@ -221,8 +199,7 @@ sections:
         handle: projects_cta_title_line_three_text_style
         field:
           type: text_style
-          display: 'CTA Title Line Three Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'CTA Title Line Three Style'
       -
         handle: projects_cta_button_label
         field:
@@ -232,8 +209,7 @@ sections:
         handle: projects_cta_button_label_text_style
         field:
           type: text_style
-          display: 'CTA Button Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'CTA Button Label Style'
       -
         handle: projects_cta_button_href
         field:

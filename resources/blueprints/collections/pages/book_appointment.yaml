@@ -13,8 +13,7 @@ sections:
         handle: title_text_style
         field:
           type: text_style
-          display: 'Page Title Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Page Title Style'
       -
         handle: book_hero_eyebrow
         field:
@@ -24,8 +23,7 @@ sections:
         handle: book_hero_eyebrow_text_style
         field:
           type: text_style
-          display: 'Eyebrow Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Eyebrow Style'
       -
         handle: book_hero_title_top
         field:
@@ -35,8 +33,7 @@ sections:
         handle: book_hero_title_top_text_style
         field:
           type: text_style
-          display: 'Title Top Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Title Top Style'
       -
         handle: book_hero_title_bottom
         field:
@@ -46,8 +43,7 @@ sections:
         handle: book_hero_title_bottom_text_style
         field:
           type: text_style
-          display: 'Title Bottom Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Title Bottom Style'
       -
         handle: book_hero_description
         field:
@@ -57,8 +53,7 @@ sections:
         handle: book_hero_description_text_style
         field:
           type: text_style
-          display: 'Description Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Description Style'
       -
         handle: book_hero_background_image
         field:
@@ -80,8 +75,7 @@ sections:
         handle: book_hero_button_label_text_style
         field:
           type: text_style
-          display: 'Button Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Button Label Style'
   expectation:
     display: 'What To Expect'
     fields:
@@ -94,8 +88,7 @@ sections:
         handle: book_expect_eyebrow_text_style
         field:
           type: text_style
-          display: 'Eyebrow Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Eyebrow Style'
       -
         handle: book_expect_title
         field:
@@ -105,13 +98,14 @@ sections:
         handle: book_expect_title_text_style
         field:
           type: text_style
-          display: 'Title Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Title Style'
       -
         handle: book_expect_items
         field:
           type: grid
           display: Items
+          mode: stacked
+          fullscreen: true
           add_row: 'Add Item'
           fields:
             -
@@ -119,6 +113,7 @@ sections:
               field:
                 type: select
                 display: Icon
+                width: 25
                 options:
                   user: User
                   clock: Clock
@@ -129,23 +124,13 @@ sections:
               field:
                 type: text
                 display: Title
-            -
-              handle: title_text_style
-              field:
-                type: text_style
-                display: 'Title Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 50
             -
               handle: body
               field:
                 type: textarea
                 display: Body
-            -
-              handle: body_text_style
-              field:
-                type: text_style
-                display: 'Body Text Controls'
-                instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+                width: 100
   form:
     display: 'Booking Form'
     fields:
@@ -158,8 +143,7 @@ sections:
         handle: book_form_eyebrow_text_style
         field:
           type: text_style
-          display: 'Eyebrow Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Eyebrow Style'
       -
         handle: book_form_title
         field:
@@ -169,8 +153,7 @@ sections:
         handle: book_form_title_text_style
         field:
           type: text_style
-          display: 'Title Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Title Style'
       -
         handle: book_success_icon
         field:
@@ -185,8 +168,7 @@ sections:
         handle: book_success_title_text_style
         field:
           type: text_style
-          display: 'Success Title Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Success Title Style'
       -
         handle: book_success_body
         field:
@@ -197,41 +179,22 @@ sections:
         handle: book_success_body_text_style
         field:
           type: text_style
-          display: 'Success Body Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Success Body Style'
       -
         handle: book_reset_button_label
         field:
           type: text
           display: 'Reset Button Label'
       -
-        handle: book_reset_button_label_text_style
-        field:
-          type: text_style
-          display: 'Reset Button Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
-      -
         handle: book_submit_label
         field:
           type: text
           display: 'Submit Label'
       -
-        handle: book_submit_label_text_style
-        field:
-          type: text_style
-          display: 'Submit Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
-      -
         handle: book_loading_label
         field:
           type: text
           display: 'Loading Label'
-      -
-        handle: book_loading_label_text_style
-        field:
-          type: text_style
-          display: 'Loading Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: book_whatsapp_phone
         field:
@@ -239,209 +202,95 @@ sections:
           display: 'WhatsApp Phone'
         instructions: 'Use digits only or an international number. Example: 2348135333616'
       -
-        handle: book_whatsapp_phone_text_style
-        field:
-          type: text_style
-          display: 'WhatsApp Phone Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
-      -
         handle: book_whatsapp_intro
         field:
           type: textarea
           display: 'WhatsApp Message Intro'
-      -
-        handle: book_whatsapp_intro_text_style
-        field:
-          type: text_style
-          display: 'WhatsApp Message Intro Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: book_name_label
         field:
           type: text
           display: 'Name Label'
       -
-        handle: book_name_label_text_style
-        field:
-          type: text_style
-          display: 'Name Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
-      -
         handle: book_name_placeholder
         field:
           type: text
           display: 'Name Placeholder'
-      -
-        handle: book_name_placeholder_text_style
-        field:
-          type: text_style
-          display: 'Name Placeholder Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: book_email_label
         field:
           type: text
           display: 'Email Label'
       -
-        handle: book_email_label_text_style
-        field:
-          type: text_style
-          display: 'Email Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
-      -
         handle: book_email_placeholder
         field:
           type: text
           display: 'Email Placeholder'
-      -
-        handle: book_email_placeholder_text_style
-        field:
-          type: text_style
-          display: 'Email Placeholder Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: book_phone_label
         field:
           type: text
           display: 'Phone Label'
       -
-        handle: book_phone_label_text_style
-        field:
-          type: text_style
-          display: 'Phone Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
-      -
         handle: book_phone_placeholder
         field:
           type: text
           display: 'Phone Placeholder'
-      -
-        handle: book_phone_placeholder_text_style
-        field:
-          type: text_style
-          display: 'Phone Placeholder Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: book_project_type_label
         field:
           type: text
           display: 'Project Type Label'
       -
-        handle: book_project_type_label_text_style
-        field:
-          type: text_style
-          display: 'Project Type Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
-      -
         handle: book_project_type_placeholder
         field:
           type: text
           display: 'Project Type Placeholder'
-      -
-        handle: book_project_type_placeholder_text_style
-        field:
-          type: text_style
-          display: 'Project Type Placeholder Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: book_project_type_options
         field:
           type: list
           display: 'Project Type Options'
       -
-        handle: book_project_type_options_text_style
-        field:
-          type: text_style
-          display: 'Project Type Options Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
-      -
         handle: book_preferred_date_label
         field:
           type: text
           display: 'Preferred Date Label'
-      -
-        handle: book_preferred_date_label_text_style
-        field:
-          type: text_style
-          display: 'Preferred Date Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: book_preferred_time_label
         field:
           type: text
           display: 'Preferred Time Label'
       -
-        handle: book_preferred_time_label_text_style
-        field:
-          type: text_style
-          display: 'Preferred Time Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
-      -
         handle: book_preferred_time_placeholder
         field:
           type: text
           display: 'Preferred Time Placeholder'
-      -
-        handle: book_preferred_time_placeholder_text_style
-        field:
-          type: text_style
-          display: 'Preferred Time Placeholder Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: book_time_slot_options
         field:
           type: list
           display: 'Time Slot Options'
       -
-        handle: book_time_slot_options_text_style
-        field:
-          type: text_style
-          display: 'Time Slot Options Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
-      -
         handle: book_location_label
         field:
           type: text
           display: 'Location Label'
-      -
-        handle: book_location_label_text_style
-        field:
-          type: text_style
-          display: 'Location Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: book_location_placeholder
         field:
           type: text
           display: 'Location Placeholder'
       -
-        handle: book_location_placeholder_text_style
-        field:
-          type: text_style
-          display: 'Location Placeholder Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
-      -
         handle: book_message_label
         field:
           type: text
           display: 'Message Label'
       -
-        handle: book_message_label_text_style
-        field:
-          type: text_style
-          display: 'Message Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
-      -
         handle: book_message_placeholder
         field:
           type: textarea
           display: 'Message Placeholder'
-      -
-        handle: book_message_placeholder_text_style
-        field:
-          type: text_style
-          display: 'Message Placeholder Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
   aside:
     display: Aside
     fields:
@@ -466,8 +315,7 @@ sections:
         handle: book_aside_note_eyebrow_text_style
         field:
           type: text_style
-          display: 'Note Eyebrow Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Note Eyebrow Style'
       -
         handle: book_aside_note_text
         field:
@@ -477,19 +325,12 @@ sections:
         handle: book_aside_note_text_text_style
         field:
           type: text_style
-          display: 'Note Text Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Note Text Style'
       -
         handle: book_aside_phone_label
         field:
           type: text
           display: 'Phone Label'
-      -
-        handle: book_aside_phone_label_text_style
-        field:
-          type: text_style
-          display: 'Phone Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
       -
         handle: book_aside_phone_href
         field:
@@ -519,8 +360,7 @@ sections:
         handle: book_cta_eyebrow_text_style
         field:
           type: text_style
-          display: 'Eyebrow Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Eyebrow Style'
       -
         handle: book_cta_title_prefix
         field:
@@ -530,8 +370,7 @@ sections:
         handle: book_cta_title_prefix_text_style
         field:
           type: text_style
-          display: 'Title Prefix Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Title Prefix Style'
       -
         handle: book_cta_title_accent
         field:
@@ -541,8 +380,7 @@ sections:
         handle: book_cta_title_accent_text_style
         field:
           type: text_style
-          display: 'Title Accent Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Title Accent Style'
       -
         handle: book_cta_button_label
         field:
@@ -552,8 +390,7 @@ sections:
         handle: book_cta_button_label_text_style
         field:
           type: text_style
-          display: 'Button Label Text Controls'
-          instructions: 'Use the plus and minus buttons to adjust this text. Reset returns it to the original design.'
+          display: 'Button Label Style'
       -
         handle: book_cta_button_href
         field:

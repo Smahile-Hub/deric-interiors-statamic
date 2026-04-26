@@ -1,7 +1,6 @@
 <script setup>
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { Fieldtype } from '@statamic/cms';
-import { Button } from '@statamic/cms/ui';
 
 const emit = defineEmits(Fieldtype.emits);
 const props = defineProps(Fieldtype.props);
@@ -17,6 +16,7 @@ const defaults = computed(() => props.meta.defaults || {
 
 const limits = computed(() => props.meta.limits || {});
 const labels = computed(() => props.meta.labels || {});
+const isExpanded = ref(false);
 
 const currentValue = computed(() => ({
     size: Number(props.value?.size ?? defaults.value.size ?? 0),
@@ -27,22 +27,30 @@ const currentValue = computed(() => ({
 const rows = computed(() => ([
     {
         key: 'size',
+        shortLabel: 'Size',
         label: labels.value.size || 'Text size',
-        help: 'Make this text smaller or larger.',
+        help: 'Smaller or larger',
     },
     {
         key: 'height',
+        shortLabel: 'Spacing',
         label: labels.value.height || 'Line spacing',
-        help: 'Tighten or loosen the space between lines.',
+        help: 'Tighter or looser lines',
     },
     {
         key: 'width',
+        shortLabel: 'Width',
         label: labels.value.width || 'Text width',
-        help: 'Make the text block narrower or wider.',
+        help: 'Narrower or wider text',
     },
 ]));
 
 const allDefaults = computed(() => rows.value.every((row) => currentValue.value[row.key] === (defaults.value[row.key] ?? 0)));
+const summaryRows = computed(() => rows.value.map((row) => ({
+    ...row,
+    amount: currentValue.value[row.key],
+    active: currentValue.value[row.key] !== (defaults.value[row.key] ?? 0),
+})));
 
 defineReplicatorPreview(() => {
     if (allDefaults.value) {
@@ -63,9 +71,7 @@ defineReplicatorPreview(() => {
 });
 
 function clampValue(key, nextValue) {
-    const fieldLimits = limits.value[key] || {};
-    const min = Number(fieldLimits.min ?? -6);
-    const max = Number(fieldLimits.max ?? 12);
+    const { min, max } = getLimits(key);
 
     return Math.min(max, Math.max(min, nextValue));
 }
@@ -89,6 +95,27 @@ function resetAll() {
     update({ ...defaults.value });
 }
 
+function getLimits(key) {
+    const fieldLimits = limits.value[key] || {};
+
+    return {
+        min: Number(fieldLimits.min ?? -6),
+        max: Number(fieldLimits.max ?? 12),
+        step: Number(fieldLimits.step ?? 1),
+    };
+}
+
+function getStep(key) {
+    return getLimits(key).step;
+}
+
+function canAdjust(key, direction) {
+    const { min, max } = getLimits(key);
+    const nextValue = currentValue.value[key] + (getStep(key) * direction);
+
+    return nextValue >= min && nextValue <= max;
+}
+
 function statusText(amount) {
     if (amount === 0) {
         return 'Default';
@@ -99,59 +126,92 @@ function statusText(amount) {
 </script>
 
 <template>
-    <div class="text-style-fieldtype">
-        <div
-            v-for="row in rows"
-            :key="row.key"
-            class="text-style-fieldtype__row"
-        >
-            <div class="text-style-fieldtype__copy">
-                <div class="text-style-fieldtype__label">{{ row.label }}</div>
-                <div class="text-style-fieldtype__help">{{ row.help }}</div>
+    <div
+        class="text-style-fieldtype"
+        :data-expanded="isExpanded"
+    >
+        <div class="text-style-fieldtype__header">
+            <div class="text-style-fieldtype__summary">
+                <div
+                    v-for="row in summaryRows"
+                    :key="row.key"
+                    class="text-style-fieldtype__chip"
+                    :data-active="row.active"
+                >
+                    <span>{{ row.shortLabel }}</span>
+                    <strong>{{ statusText(row.amount) }}</strong>
+                </div>
             </div>
 
-            <div class="text-style-fieldtype__controls">
-                <Button
-                    size="sm"
-                    class="text-style-fieldtype__button"
-                    @click.prevent="adjustValue(row.key, -1)"
-                >
-                    -
-                </Button>
-
-                <div class="text-style-fieldtype__value">
-                    {{ statusText(currentValue[row.key]) }}
-                </div>
-
-                <Button
-                    size="sm"
-                    class="text-style-fieldtype__button"
-                    @click.prevent="adjustValue(row.key, 1)"
-                >
-                    +
-                </Button>
-
+            <div class="text-style-fieldtype__header-actions">
                 <button
                     type="button"
-                    class="text-style-fieldtype__reset"
-                    :disabled="currentValue[row.key] === (defaults[row.key] ?? 0)"
-                    @click.prevent="resetValue(row.key)"
+                    class="text-style-fieldtype__toggle"
+                    :aria-expanded="isExpanded"
+                    @click="isExpanded = !isExpanded"
                 >
-                    Reset
+                    {{ isExpanded ? 'Hide controls' : 'Adjust text' }}
+                </button>
+
+                <button
+                    v-if="!allDefaults"
+                    type="button"
+                    class="text-style-fieldtype__reset-all"
+                    @click="resetAll"
+                >
+                    Reset all
                 </button>
             </div>
         </div>
 
-        <div class="text-style-fieldtype__footer">
-            <p>Use the buttons to fine-tune the text. Reset brings it back to the original design.</p>
-            <button
-                type="button"
-                class="text-style-fieldtype__reset-all"
-                :disabled="allDefaults"
-                @click.prevent="resetAll"
+        <div
+            v-if="isExpanded"
+            class="text-style-fieldtype__grid"
+        >
+            <div
+                v-for="row in rows"
+                :key="row.key"
+                class="text-style-fieldtype__card"
             >
-                Reset all to default
-            </button>
+                <div class="text-style-fieldtype__copy">
+                    <div class="text-style-fieldtype__eyebrow">{{ row.shortLabel }}</div>
+                    <div class="text-style-fieldtype__label">{{ row.label }}</div>
+                    <div class="text-style-fieldtype__help">{{ row.help }}</div>
+                </div>
+
+                <div class="text-style-fieldtype__controls">
+                    <button
+                        type="button"
+                        class="text-style-fieldtype__stepper"
+                        :disabled="!canAdjust(row.key, -1)"
+                        @click="adjustValue(row.key, -getStep(row.key))"
+                    >
+                        -
+                    </button>
+
+                    <div class="text-style-fieldtype__value">
+                        {{ statusText(currentValue[row.key]) }}
+                    </div>
+
+                    <button
+                        type="button"
+                        class="text-style-fieldtype__stepper"
+                        :disabled="!canAdjust(row.key, 1)"
+                        @click="adjustValue(row.key, getStep(row.key))"
+                    >
+                        +
+                    </button>
+
+                    <button
+                        type="button"
+                        class="text-style-fieldtype__reset"
+                        :disabled="currentValue[row.key] === (defaults[row.key] ?? 0)"
+                        @click="resetValue(row.key)"
+                    >
+                        Reset
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </template>
