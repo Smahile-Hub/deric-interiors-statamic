@@ -172,16 +172,34 @@ sections:
                 display: Value
                 width: 33
             -
+              handle: value_text_style
+              field:
+                type: text_style
+                display: 'Value Style'
+                width: 33
+            -
               handle: label
               field:
                 type: text
                 display: Label
                 width: 33
             -
+              handle: label_text_style
+              field:
+                type: text_style
+                display: 'Label Style'
+                width: 33
+            -
               handle: description
               field:
                 type: textarea
                 display: Description
+                width: 50
+            -
+              handle: description_text_style
+              field:
+                type: text_style
+                display: 'Description Style'
                 width: 50
             -
               handle: highlighted

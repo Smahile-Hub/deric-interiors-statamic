@@ -84,6 +84,26 @@ sections:
                   field:
                     type: text_style
                     display: 'Caption (optional) Style'
+            image_gallery:
+              display: 'Image Gallery'
+              fields:
+                -
+                  handle: images
+                  field:
+                    type: assets
+                    display: Images
+                    container: assets
+                    instructions: 'Add multiple images to show inside the article body.'
+                -
+                  handle: caption
+                  field:
+                    type: text
+                    display: 'Gallery Caption (optional)'
+                -
+                  handle: caption_text_style
+                  field:
+                    type: text_style
+                    display: 'Gallery Caption (optional) Style'
       -
         handle: content
         field:

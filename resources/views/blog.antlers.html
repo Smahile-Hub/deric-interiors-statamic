@@ -4,6 +4,7 @@
   <article>
     <section class="journal-post-hero">
       <div class="journal-post-hero-copy" data-reveal>
+        <a href="/projects" class="journal-post-back-link">Back to Projects</a>
         <p data-text-control data-text-size-step="{{ category_text_style:size }}" data-text-height-step="{{ category_text_style:height }}" data-text-width-step="{{ category_text_style:width }}">{{ category }}</p>
         <h1 data-text-control data-text-size-step="{{ title_text_style:size }}" data-text-height-step="{{ title_text_style:height }}" data-text-width-step="{{ title_text_style:width }}">{{ title }}</h1>
         <span data-text-control data-text-size-step="{{ excerpt_text_style:size }}" data-text-height-step="{{ excerpt_text_style:height }}" data-text-width-step="{{ excerpt_text_style:width }}">{{ excerpt }}</span>
@@ -32,7 +33,7 @@
         {{ content_blocks }}
           {{ if type == "text_block" }}
             <div class="journal-post-prose" data-reveal data-text-control data-text-size-step="{{ text_text_style:size }}" data-text-height-step="{{ text_text_style:height }}" data-text-width-step="{{ text_text_style:width }}">
-              {{ text }}
+              {{ text | markdown }}
             </div>
           {{ elseif type == "image_block" }}
             <figure class="journal-post-block-image" data-reveal>
@@ -43,11 +44,22 @@
                 <figcaption class="journal-post-block-caption" data-text-control data-text-size-step="{{ caption_text_style:size }}" data-text-height-step="{{ caption_text_style:height }}" data-text-width-step="{{ caption_text_style:width }}">{{ caption }}</figcaption>
               {{ /if }}
             </figure>
+          {{ elseif type == "image_gallery" }}
+            <figure class="journal-post-image-gallery" data-reveal>
+              <div class="journal-post-image-gallery-grid">
+                {{ images }}
+                  <img src="{{ url }}" alt="{{ alt ?? title }}" loading="lazy">
+                {{ /images }}
+              </div>
+              {{ if caption }}
+                <figcaption class="journal-post-block-caption" data-text-control data-text-size-step="{{ caption_text_style:size }}" data-text-height-step="{{ caption_text_style:height }}" data-text-width-step="{{ caption_text_style:width }}">{{ caption }}</figcaption>
+              {{ /if }}
+            </figure>
           {{ /if }}
         {{ /content_blocks }}
       {{ elseif content }}
         <div class="journal-post-prose" data-reveal data-text-control data-text-size-step="{{ content_text_style:size }}" data-text-height-step="{{ content_text_style:height }}" data-text-width-step="{{ content_text_style:width }}">
-          {{ content }}
+          {{ content | markdown }}
         </div>
       {{ /if }}
     </section>

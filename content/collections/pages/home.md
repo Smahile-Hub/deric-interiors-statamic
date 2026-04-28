@@ -6,7 +6,7 @@ template: home
 slug: home
 seo_title: 'Luxury Interior Design & Bespoke Home Styling'
 meta_description: 'Dric Interior creates refined residential and commercial interiors with bespoke furniture, thoughtful space planning, and curated decor.'
-seo_image: interior-hero.jpg
+seo_image: basin-cabinet-bathroom-4-850x520.jpg
 seo_image_alt: 'Luxury Dric Interior living room with warm lighting and bespoke furniture'
 hero_heading_lines:
   -
@@ -62,7 +62,7 @@ about_features:
       width: 0
 about_cta_label: 'Our Story'
 about_cta_href: /about
-about_image: interior-about-hero.jpg
+about_image: sofa-design.webp
 services_bg: '#111317'
 services_eyebrow: 'What We Do'
 services_heading: 'Our Services'
@@ -71,7 +71,7 @@ services_items:
     id: uHpkEhgU
     title: 'Furniture & Fittings'
     description: 'We take pride in our bespoke furniture production, creating pieces that perfectly complement your space and style.'
-    image: interior-hero.jpg
+    image: basin-cabinet-bathroom-4-850x520.jpg
     overlay: 'rgba(15,18,23,0.7)'
     href: /services
     title_text_style:
@@ -86,7 +86,7 @@ services_items:
     id: qtExlaAK
     title: 'Window Covering'
     description: 'We offer a wide range of window covering solutions designed to enhance the beauty and functionality of your space.'
-    image: interior-contact.jpg
+    image: royaal-curtain.jpg
     overlay: 'rgba(15,18,23,0.7)'
     href: /services
     title_text_style:
@@ -101,7 +101,7 @@ services_items:
     id: sgYpIbtM
     title: 'Wall Covering'
     description: 'We offer a diverse range of wall covering solutions to elevate the look and feel of your space.'
-    image: interior-about-hero.jpg
+    image: royaal-curtain.jpg
     overlay: 'rgba(15,18,23,0.7)'
     href: /services
     title_text_style:
@@ -116,7 +116,7 @@ services_items:
     id: a7pL31kD
     title: 'Ceiling Covering'
     description: 'We offer innovative ceiling covering solutions that enhance the ambiance of your space.'
-    image: interior-closet.jpg
+    image: stretch-ceiling-3-820x999.jpg
     overlay: 'rgba(15,18,23,0.7)'
     href: /services
     title_text_style:
@@ -131,7 +131,7 @@ services_items:
     id: bR2mNxT9
     title: 'Signage & Logo'
     description: 'We specialize in creating custom signage and logos that make a lasting impression.'
-    image: interior-kitchen.jpg
+    image: signage-logo-3-820x726.jpg
     overlay: 'rgba(15,18,23,0.7)'
     href: /services
     title_text_style:
@@ -146,7 +146,7 @@ services_items:
     id: cW4kPyU6
     title: 'Exterior Design'
     description: 'We specialize in transforming the exterior of homes with our expert design solutions.'
-    image: interior-about-hero.jpg
+    image: about_bg_01.jpg
     overlay: 'rgba(15,18,23,0.7)'
     href: /services
     title_text_style:
@@ -160,19 +160,19 @@ services_items:
 portfolio_bg: '#0d1016'
 portfolio_eyebrow: 'Our Work'
 portfolio_heading: 'Recent Projects'
-portfolio_featured_image: interior-kitchen.jpg
+portfolio_featured_image: kitchen-cabinet-0503-850x520.jpg
 portfolio_featured_href: /projects
 portfolio_featured_title: 'Kitchen Cabinet 0503'
 portfolio_featured_category: Residential
-portfolio_featured_description: 'A bespoke kitchen transformation featuring honed marble countertops and precision-crafted cabinetry — a space designed for both cooking and living.'
+portfolio_featured_description: 'We are excited to announce the completion and delivery of a beautifully designed kitchen project for our valued client.'
 portfolio_side_items:
   -
     id: 22obhZqx
-    title: 'The Adeyemi Residence'
+    title: 'Home Transformation'
     category: Residential
     href: /projects
-    image: interior-hero.jpg
-    description: 'A complete home transformation for a Lagos family.'
+    image: full-home-decor5-qyxyu7rme1r8a16er0o0cpz4s0mt0r52b4su34bqko.jpg
+    description: 'We are proud to showcase a recent project where we had the privilege of transforming this home into a stylish, functional living space.'
     title_text_style:
       size: 0
       height: 0
@@ -187,11 +187,11 @@ portfolio_side_items:
       width: 0
   -
     id: Oui9vJ4O
-    title: 'Azure Office Hub'
+    title: 'Small Space Closet'
     category: Commercial
     href: /projects
-    image: interior-closet.jpg
-    description: 'An inspiring workspace designed for a growing tech company.'
+    image: footer_bg_01.jpg
+    description: 'We recently designed and produced a stylish small-space walk-in closet for one of our clients, proving that even limited spaces can offer both luxury and practicality.'
     title_text_style:
       size: 0
       height: 0
@@ -289,7 +289,7 @@ products_items:
     title: 'Abstract Canvas — Series 7'
     price: '₦640,000'
     category: 'Art & Decor'
-    image: product-art.jpg
+    image: product-chair.jpg
     href: /shop
     title_text_style:
       size: 0
@@ -356,9 +356,9 @@ testimonials_heading: |-
 testimonials_items:
   -
     id: DrhKrj4b
-    quote: "Dric Interior completely transformed our home. Every room feels intentional, luxurious, and deeply personal. We couldn't be happier with the result."
-    author: 'Adaeze Okafor'
-    role: 'Homeowner, Lagos'
+    quote: 'Sincerely, they are very professional, I appreciate the way they used to relate with customers, it is just wonderful. The job they did for me is very very neat and good. Please keep it up, God bless you. I love you.'
+    author: 'Enoch Adeleke'
+    role: 'Residential Client'
     quote_text_style:
       size: 0
       height: 0
@@ -373,9 +373,9 @@ testimonials_items:
       width: 0
   -
     id: FpQ1EOD1
-    quote: 'Working with Dric was effortless. They listened, they understood, and they delivered beyond our expectations. Truly world-class.'
-    author: 'Tunde Adeyemi'
-    role: 'CEO, Lagos'
+    quote: 'Dric interior gives the best at affordable rate and has the picture of his customer status and assumption of what the customer suit and brings it to actualization. Dric brings out who you are in interior decor.'
+    author: 'Adeola Ayodele'
+    role: 'Private Client'
     quote_text_style:
       size: 0
       height: 0
@@ -410,12 +410,12 @@ cta_heading: |-
   Ready to Transform
   Your Space?
 cta_subtext: "Let's create something extraordinary together. Book your free consultation today and take the first step toward your dream interior."
-cta_primary_label: 'Book a Consultation'
+cta_primary_label: 'Contact Us'
 cta_primary_href: /contact
 cta_secondary_label: 'View Our Work'
 cta_secondary_href: /projects
 updated_by: d6dd0a8a-7ca8-4a10-a604-4db11f80080e
-updated_at: 1776937612
+updated_at: 1777291188
 noindex: false
 title_text_style:
   size: 0

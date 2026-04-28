@@ -47,9 +47,14 @@
     <div class="about-grid">
       <div class="about-visual">
         <div class="about-visual-inner">
-          <img src="{{ about_image }}" alt="{{ about_heading }}" loading="lazy">
+          <img src="{{ about_image }}" alt="{{ about_heading }}" loading="lazy" class="cover-img">
         </div>
-
+        {{ if about_years_value }}
+          <div class="stat-card">
+            <strong data-text-control data-text-size-step="{{ about_years_value_text_style:size }}" data-text-height-step="{{ about_years_value_text_style:height }}" data-text-width-step="{{ about_years_value_text_style:width }}">{{ about_years_value }}</strong>
+            <span data-text-control data-text-size-step="{{ about_years_label_text_style:size }}" data-text-height-step="{{ about_years_label_text_style:height }}" data-text-width-step="{{ about_years_label_text_style:width }}">{{ about_years_label }}</span>
+          </div>
+        {{ /if }}
       </div>
       <div class="about-content">
         <div>
@@ -92,7 +97,7 @@
       {{ services_items }}
         <a href="{{ href }}" class="service-card" data-carousel-item>
           <div class="service-media" style="--service-overlay:{{ overlay ?? 'rgba(15,18,23,0.7)' }};">
-            <img src="{{ image }}" alt="{{ title }}" loading="lazy">
+            <img src="{{ image }}" alt="{{ title }}" loading="lazy" class="cover-img">
           </div>
           <div class="service-copy">
             <h3 data-text-control data-text-size-step="{{ title_text_style:size }}" data-text-height-step="{{ title_text_style:height }}" data-text-width-step="{{ title_text_style:width }}">{{ title }}</h3>
@@ -115,7 +120,7 @@
       <div class="featured-project">
         {{ if portfolio_featured_image }}
           <a href="{{ portfolio_featured_href ?? '/projects' }}" class="featured-project-media">
-            <img src="{{ portfolio_featured_image }}" alt="{{ portfolio_featured_title }}" loading="lazy">
+            <img src="{{ portfolio_featured_image }}" alt="{{ portfolio_featured_title }}" loading="lazy" class="cover-img">
             <div class="featured-project-overlay"></div>
           </a>
           <div class="featured-project-copy">
@@ -130,7 +135,7 @@
         {{ portfolio_side_items }}
           <div class="side-project" data-reveal>
             <a href="{{ href }}" class="side-project-media">
-              <img src="{{ image }}" alt="{{ title }}" loading="lazy">
+              <img src="{{ image }}" alt="{{ title }}" loading="lazy" class="cover-img">
             </a>
             <div class="side-project-copy">
               <span class="eyebrow project-category" data-text-control data-text-size-step="{{ category_text_style:size }}" data-text-height-step="{{ category_text_style:height }}" data-text-width-step="{{ category_text_style:width }}">{{ category }}</span>
@@ -143,70 +148,6 @@
     </div>
     <div class="section-cta">
       <a href="/projects" class="btn-secondary">View All Projects</a>
-    </div>
-  </div>
-</section>
-
-{{# PRODUCTS #}}
-<section class="product-section" data-reveal style="--section-bg:{{ products_bg ?? '#0d0e12' }};">
-  <div class="shell">
-    <div class="product-header">
-      <div>
-        <span class="eyebrow" data-text-control data-text-size-step="{{ products_eyebrow_text_style:size }}" data-text-height-step="{{ products_eyebrow_text_style:height }}" data-text-width-step="{{ products_eyebrow_text_style:width }}">{{ products_eyebrow }}</span>
-        <h2 style="font-family:var(--font-display);font-size:clamp(3rem,5vw,3.9rem);color:#e5e1ea;font-weight:400;line-height:1.05;transform:scaleY(1.25);transform-origin:left top;display:block;margin-bottom:3.5rem;" data-text-control data-text-size-step="{{ products_heading_text_style:size }}" data-text-height-step="{{ products_heading_text_style:height }}" data-text-width-step="{{ products_heading_text_style:width }}">{{ products_heading }}</h2>
-      </div>
-      <div style="display:flex;align-items:center;gap:2rem;flex-shrink:0;">
-        <a href="/shop" style="font-size:0.82rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#c9a96e;">View All</a>
-        <div class="carousel-controls">
-          <button class="carousel-btn" data-carousel-prev="products" aria-label="Previous">&lt;-</button>
-          <button class="carousel-btn" data-carousel-next="products" aria-label="Next">-&gt;</button>
-        </div>
-      </div>
-    </div>
-    <div class="products-rail" data-carousel="products">
-      {{ products_items }}
-        <a href="{{ href ?? '/shop' }}" class="product-card" data-carousel-item>
-          <div class="product-img-wrap">
-            <div class="product-overlay"></div>
-            {{ if category }}
-              <span class="product-category-badge" data-text-control data-text-size-step="{{ category_text_style:size }}" data-text-height-step="{{ category_text_style:height }}" data-text-width-step="{{ category_text_style:width }}">{{ category }}</span>
-            {{ /if }}
-            <img src="{{ image }}" alt="{{ title }}" loading="lazy">
-          </div>
-          <div class="product-copy">
-            <span class="product-title" data-text-control data-text-size-step="{{ title_text_style:size }}" data-text-height-step="{{ title_text_style:height }}" data-text-width-step="{{ title_text_style:width }}">{{ title }}</span>
-            <span class="product-price" data-text-control data-text-size-step="{{ price_text_style:size }}" data-text-height-step="{{ price_text_style:height }}" data-text-width-step="{{ price_text_style:width }}">{{ price }}</span>
-          </div>
-        </a>
-      {{ /products_items }}
-    </div>
-  </div>
-</section>
-
-{{# MISSION #}}
-<section class="mission-section" data-reveal style="--section-bg:{{ mission_bg ?? '#161a20' }};">
-  <div class="shell">
-    <div class="mission-icon-row">
-      <span></span>
-      <strong data-text-control data-text-size-step="{{ mission_eyebrow_text_style:size }}" data-text-height-step="{{ mission_eyebrow_text_style:height }}" data-text-width-step="{{ mission_eyebrow_text_style:width }}">{{ mission_eyebrow }}</strong>
-      <span></span>
-    </div>
-    <div class="mission-statement">
-      <p data-text-control data-text-size-step="{{ mission_body_top_text_style:size }}" data-text-height-step="{{ mission_body_top_text_style:height }}" data-text-width-step="{{ mission_body_top_text_style:width }}">{{ mission_body_top }}</p>
-      <h2 data-text-control data-text-size-step="{{ mission_heading_text_style:size }}" data-text-height-step="{{ mission_heading_text_style:height }}" data-text-width-step="{{ mission_heading_text_style:width }}">{{ mission_heading }}</h2>
-    </div>
-    {{ if mission_items }}
-      <div class="mission-grid">
-        {{ mission_items }}
-          <div class="mission-card">
-            <h3 data-text-control data-text-size-step="{{ title_text_style:size }}" data-text-height-step="{{ title_text_style:height }}" data-text-width-step="{{ title_text_style:width }}">{{ title }}</h3>
-            <p data-text-control data-text-size-step="{{ description_text_style:size }}" data-text-height-step="{{ description_text_style:height }}" data-text-width-step="{{ description_text_style:width }}">{{ description }}</p>
-          </div>
-        {{ /mission_items }}
-      </div>
-    {{ /if }}
-    <div style="display:flex;justify-content:center;margin-top:3rem;">
-      <a href="{{ mission_cta_href ?? '/about' }}" class="btn-primary" data-text-control data-text-size-step="{{ mission_cta_label_text_style:size }}" data-text-height-step="{{ mission_cta_label_text_style:height }}" data-text-width-step="{{ mission_cta_label_text_style:width }}">{{ mission_cta_label ?? 'Our Approach' }}</a>
     </div>
   </div>
 </section>

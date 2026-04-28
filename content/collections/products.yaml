@@ -1,0 +1,7 @@
+title: Products
+route: /shop/{slug}
+template: product
+revisions: false
+sort_field: order
+sort_direction: asc
+propagate: true

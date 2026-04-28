@@ -22,7 +22,7 @@ Route::get('/sitemap.xml', function () {
         '/'
     );
 
-    $urls = Entry::whereInCollection(['pages', 'blog'])
+    $urls = Entry::whereInCollection(['pages', 'blog', 'products'])
         ->filter(fn ($entry) => $entry->published() && $entry->url() && ! $entry->get('noindex'))
         ->map(function ($entry) use ($baseUrl) {
             $path = $entry->url() === '/' ? '/' : '/'.ltrim($entry->url(), '/');
@@ -33,6 +33,8 @@ Route::get('/sitemap.xml', function () {
             if ($path === '/') {
                 $priority = '1.0';
             } elseif ($entry->collectionHandle() === 'blog') {
+                $priority = '0.7';
+            } elseif ($entry->collectionHandle() === 'products') {
                 $priority = '0.7';
             } elseif (in_array($path, $highPriorityPages)) {
                 $priority = '0.9';
@@ -45,7 +47,7 @@ Route::get('/sitemap.xml', function () {
             return [
                 'loc' => $baseUrl.$path,
                 'lastmod' => $entry->lastModified()->toAtomString(),
-                'changefreq' => $entry->collectionHandle() === 'blog' ? 'monthly' : 'weekly',
+                'changefreq' => in_array($entry->collectionHandle(), ['blog', 'products']) ? 'monthly' : 'weekly',
                 'priority' => $priority,
             ];
         })

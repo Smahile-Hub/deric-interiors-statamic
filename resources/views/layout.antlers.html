@@ -24,12 +24,12 @@
   <meta property="og:description" content="{{ meta_description ?? excerpt ?? hero_subtext ?? settings:site_description }}">
   <meta property="og:url" content="{{ canonical_url ?? settings:canonical_base_url }}{{ unless canonical_url }}{{ url }}{{ /unless }}">
   <meta property="og:type" content="{{ if collection == 'blog' }}article{{ else }}website{{ /if }}">
-  <meta property="og:image" content="{{ settings:canonical_base_url }}{{ seo_image ?? cover_image_url ?? hero_image ?? settings:default_og_image ?? settings:logo_url }}">
-  <meta property="og:image:alt" content="{{ seo_image_alt ?? cover_image_alt ?? hero_image_alt ?? settings:logo_alt ?? settings:site_title }}">
+  <meta property="og:image" content="{{ settings:canonical_base_url }}{{ seo_image ?? image ?? cover_image_url ?? hero_image ?? settings:default_og_image ?? settings:logo_url }}">
+  <meta property="og:image:alt" content="{{ seo_image_alt ?? cover_image_alt ?? hero_image_alt ?? title ?? settings:logo_alt ?? settings:site_title }}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ seo_title ?? title ?? settings:site_title }}">
   <meta name="twitter:description" content="{{ meta_description ?? excerpt ?? hero_subtext ?? settings:site_description }}">
-  <meta name="twitter:image" content="{{ settings:canonical_base_url }}{{ seo_image ?? cover_image_url ?? hero_image ?? settings:default_og_image ?? settings:logo_url }}">
+  <meta name="twitter:image" content="{{ settings:canonical_base_url }}{{ seo_image ?? image ?? cover_image_url ?? hero_image ?? settings:default_og_image ?? settings:logo_url }}">
   <meta property="og:locale" content="en_US">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -194,7 +194,7 @@
       "@type": "ItemList",
       "name": "{{ title }}",
       "itemListElement": [
-        {{ products }}
+        {{ collection:products sort="order:asc" }}
           {
             "@type": "ListItem",
             "position": {{ count }},
@@ -210,8 +210,31 @@
               }
             }
           }{{ unless last }},{{ /unless }}
-        {{ /products }}
+        {{ /collection:products }}
       ]
+    }
+    </script>
+  {{ /if }}
+  {{ if collection == "products" }}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "{{ title }}",
+      "image": "{{ settings:canonical_base_url }}{{ image }}",
+      "description": "{{ meta_description ?? description }}",
+      "category": "{{ category }}",
+      "brand": {
+        "@type": "Brand",
+        "name": "{{ settings:business_name ?? settings:site_title }}"
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "NGN",
+        "price": "{{ price | replace('NGN', '') | replace(',', '') }}",
+        "availability": "https://schema.org/InStock",
+        "url": "{{ settings:canonical_base_url }}{{ url }}"
+      }
     }
     </script>
   {{ /if }}
@@ -451,6 +474,37 @@
       </div>
     </div>
   </aside>
+
+  <aside
+    class="compare-drawer"
+    data-compare-drawer
+    data-open="false"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Compare products"
+  >
+    <div class="compare-drawer-inner">
+      <div class="compare-drawer-header">
+        <div>
+          <p class="compare-drawer-eyebrow">Compare</p>
+          <h2>Selected Products</h2>
+        </div>
+        <button type="button" class="cart-close-btn" data-compare-close aria-label="Close comparison">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="compare-empty" data-compare-empty>
+        <p>No products selected.</p>
+        <span>Add products to compare finishes, sizes, and price points.</span>
+      </div>
+      <div class="compare-list" data-compare-list></div>
+    </div>
+  </aside>
+
+  <button type="button" class="compare-fab" data-compare-open aria-label="Open comparison" hidden>
+    Compare
+    <span data-compare-count>0</span>
+  </button>
 
   <div
     id="page-transition-overlay"
@@ -761,6 +815,130 @@
       });
 
       renderCart();
+    })();
+
+    // Product comparison drawer.
+    (() => {
+      const STORAGE_KEY = 'dric-compare';
+      const drawer = document.querySelector('[data-compare-drawer]');
+      const list = document.querySelector('[data-compare-list]');
+      const empty = document.querySelector('[data-compare-empty]');
+      const openButtons = document.querySelectorAll('[data-compare-open]');
+      const closeButtons = document.querySelectorAll('[data-compare-close]');
+      const countBadges = document.querySelectorAll('[data-compare-count]');
+
+      if (!drawer || !list || !empty) {
+        return;
+      }
+
+      const escapeHtml = (value) => String(value || '').replace(/[&<>"']/g, (char) => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+      }[char]));
+
+      const readCompare = () => {
+        try {
+          return JSON.parse(window.localStorage.getItem(STORAGE_KEY) || '[]');
+        } catch (error) {
+          return [];
+        }
+      };
+
+      const writeCompare = (items) => {
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(items.slice(0, 4)));
+      };
+
+      const productKey = (product) => (
+        product.id ||
+        `${product.category}-${product.title}`
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/^-+|-+$/g, '')
+      );
+
+      const setOpen = (open) => {
+        drawer.dataset.open = open ? 'true' : 'false';
+        document.documentElement.classList.toggle('compare-is-open', open);
+      };
+
+      const renderCompare = () => {
+        const items = readCompare();
+        const count = items.length;
+
+        countBadges.forEach((badge) => {
+          badge.textContent = String(count);
+          const button = badge.closest('[data-compare-open]');
+          if (button) {
+            button.hidden = count === 0;
+          }
+        });
+
+        empty.hidden = count > 0;
+        list.innerHTML = items.map((item) => `
+          <article class="compare-item">
+            <div class="compare-item-image">
+              ${item.image ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}">` : ''}
+            </div>
+            <div class="compare-item-body">
+              <p class="compare-item-category">${escapeHtml(item.category)}</p>
+              <h3>${escapeHtml(item.title)}</h3>
+              <p class="compare-item-price">${escapeHtml(item.price)}</p>
+              <p class="compare-item-summary">${escapeHtml(item.summary)}</p>
+              <div class="compare-item-actions">
+                ${item.url ? `<a href="${escapeHtml(item.url)}">View Details</a>` : ''}
+                <button type="button" data-compare-remove="${escapeHtml(productKey(item))}">Remove</button>
+              </div>
+            </div>
+          </article>
+        `).join('');
+      };
+
+      document.addEventListener('click', (event) => {
+        const compareButton = event.target.closest('[data-compare-add]');
+        if (!compareButton) return;
+
+        const product = {
+          id: compareButton.dataset.productId || '',
+          title: compareButton.dataset.productTitle || '',
+          category: compareButton.dataset.productCategory || '',
+          price: compareButton.dataset.productPrice || '',
+          image: compareButton.dataset.productImage || '',
+          url: compareButton.dataset.productUrl || '',
+          summary: compareButton.dataset.productSummary || ''
+        };
+        const key = productKey(product);
+        const items = readCompare().filter((item) => productKey(item) !== key);
+        items.unshift(product);
+
+        writeCompare(items);
+        renderCompare();
+        setOpen(true);
+      });
+
+      list.addEventListener('click', (event) => {
+        const removeButton = event.target.closest('[data-compare-remove]');
+        if (!removeButton) return;
+
+        writeCompare(readCompare().filter((item) => productKey(item) !== removeButton.dataset.compareRemove));
+        renderCompare();
+      });
+
+      openButtons.forEach((button) => button.addEventListener('click', () => {
+        renderCompare();
+        setOpen(true);
+      }));
+
+      closeButtons.forEach((button) => button.addEventListener('click', () => setOpen(false)));
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          setOpen(false);
+        }
+      });
+
+      renderCompare();
     })();
 
     // Page transition overlay

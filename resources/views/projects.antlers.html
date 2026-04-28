@@ -53,35 +53,36 @@
   </section>
 
   <section class="projects-gallery-section">
-    <div class="projects-gallery-shell" data-reveal>
-      <div class="projects-gallery-grid" id="projects-gallery-grid">
+    <div class="projects-gallery-shell">
+      <div class="proj-grid" id="projects-gallery-grid">
         {{ project_items }}
           <article
-            class="projects-gallery-card{{ if count == 2 }} is-stagger{{ /if }}"
+            class="proj-card proj-card--{{ size }}"
             data-project-card
             data-category="{{ category }}"
           >
-            <div class="projects-gallery-media{{ if size == 'large' }} is-large{{ elseif size == 'small' }} is-small{{ else }} is-medium{{ /if }}">
-              <img
-                class="projects-gallery-image"
-                src="{{ image }}"
-                alt="{{ image_alt }}"
-                loading="lazy"
-              >
-              <div class="projects-gallery-overlay"></div>
-            </div>
-
-            <div class="projects-gallery-copy">
-              <div>
-                <p class="projects-gallery-category" data-text-control data-text-size-step="{{ category_text_style:size }}" data-text-height-step="{{ category_text_style:height }}" data-text-width-step="{{ category_text_style:width }}">{{ category }}</p>
-                <h3 class="projects-gallery-title" data-text-control data-text-size-step="{{ title_text_style:size }}" data-text-height-step="{{ title_text_style:height }}" data-text-width-step="{{ title_text_style:width }}">{{ title }}</h3>
-                <p class="projects-gallery-excerpt" data-text-control data-text-size-step="{{ excerpt_text_style:size }}" data-text-height-step="{{ excerpt_text_style:height }}" data-text-width-step="{{ excerpt_text_style:width }}">{{ excerpt }}</p>
+            <a href="{{ link_href }}" class="proj-card__link">
+              <div class="proj-card__img-wrap">
+                <img
+                  class="proj-card__img"
+                  src="{{ image }}"
+                  alt="{{ image_alt }}"
+                  loading="lazy"
+                >
               </div>
-
-              <a href="{{ link_href }}" class="projects-gallery-link" data-text-control data-text-size-step="{{ link_label_text_style:size }}" data-text-height-step="{{ link_label_text_style:height }}" data-text-width-step="{{ link_label_text_style:width }}">
-                {{ link_label }} <span aria-hidden="true">-&gt;</span>
-              </a>
-            </div>
+              <div class="proj-card__overlay"></div>
+              <div class="proj-card__content">
+                <span class="proj-card__badge">{{ category }}</span>
+                <div class="proj-card__body">
+                  <h3 class="proj-card__title">{{ title }}</h3>
+                  <p class="proj-card__excerpt">{{ excerpt }}</p>
+                  <span class="proj-card__cta">
+                    {{ link_label ?? 'View Project' }}
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </span>
+                </div>
+              </div>
+            </a>
           </article>
         {{ /project_items }}
       </div>
@@ -109,125 +110,102 @@
 
 <script>
   (() => {
-    const pageRoot = document.querySelector('.projects-page');
-    const hero = document.querySelector('.projects-hero');
-    const filterButtons = Array.from(document.querySelectorAll('.projects-filter-btn'));
-    const galleryGrid = document.getElementById('projects-gallery-grid');
-    const cards = Array.from(document.querySelectorAll('[data-project-card]'));
+    const pageRoot   = document.querySelector('.projects-page');
+    const hero       = document.querySelector('.projects-hero');
+    const filterBtns = Array.from(document.querySelectorAll('.projects-filter-btn'));
+    const grid       = document.getElementById('projects-gallery-grid');
+    const cards      = Array.from(document.querySelectorAll('[data-project-card]'));
     const emptyState = document.getElementById('projects-empty-state');
 
-    if (!pageRoot || !hero || !galleryGrid || !filterButtons.length || !cards.length) {
-      return;
-    }
+    if (!pageRoot || !hero) return;
 
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    /* ── Hero parallax ── */
+    const noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const applyParallax = () => {
+      if (noMotion) return;
+      const p = Math.max(0, Math.min(window.scrollY / 620, 1));
+      hero.style.setProperty('--hero-image-shift',    `${p * -68}px`);
+      hero.style.setProperty('--hero-image-scale',    `${1.1 - p * 0.08}`);
+      hero.style.setProperty('--hero-shell-shift',    `${p * -96}px`);
+      hero.style.setProperty('--hero-shell-opacity',  `${1 - p * 0.5}`);
+      hero.style.setProperty('--hero-overlay-opacity',`${0.76 + p * 0.12}`);
+    };
+    let rafId = 0;
+    window.addEventListener('scroll', () => {
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => { rafId = 0; applyParallax(); });
+    }, { passive: true });
+    applyParallax();
 
-    const applyHeroParallax = () => {
-      if (reduceMotion) {
-        return;
-      }
+    if (!grid || !cards.length) return;
 
-      const progress = Math.max(0, Math.min(window.scrollY / 620, 1));
-      hero.style.setProperty('--hero-image-shift', `${progress * -68}px`);
-      hero.style.setProperty('--hero-image-scale', `${1.1 - progress * 0.08}`);
-      hero.style.setProperty('--hero-shell-shift', `${progress * -96}px`);
-      hero.style.setProperty('--hero-shell-opacity', `${1 - progress * 0.5}`);
-      hero.style.setProperty('--hero-overlay-opacity', `${0.76 + progress * 0.12}`);
+    /* ── Featured card: first visible spans 2 columns ── */
+    const applyFeatured = (visibleCards) => {
+      cards.forEach(c => delete c.dataset.featured);
+      if (visibleCards.length > 0) visibleCards[0].dataset.featured = '';
     };
 
-    let heroFrame = 0;
-    const onScroll = () => {
-      if (heroFrame) {
-        return;
-      }
-
-      heroFrame = window.requestAnimationFrame(() => {
-        heroFrame = 0;
-        applyHeroParallax();
-      });
-    };
-
-    applyHeroParallax();
-    window.addEventListener('scroll', onScroll, { passive: true });
-
-    const revealObserver = typeof IntersectionObserver === 'undefined'
-      ? null
-      : new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.dataset.visible = 'true';
-              revealObserver.unobserve(entry.target);
+    /* ── Reveal observer (low threshold so cards show quickly) ── */
+    const revealObs = typeof IntersectionObserver !== 'undefined'
+      ? new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) {
+              e.target.dataset.visible = 'true';
+              revealObs.unobserve(e.target);
             }
           });
-        }, {
-          threshold: 0.18,
-          rootMargin: '0px 0px -10% 0px'
-        });
+        }, { threshold: 0.04, rootMargin: '0px 0px -4% 0px' })
+      : null;
 
-    const observeVisibleCards = () => {
-      cards.forEach((card) => {
-        if (card.hidden) {
-          card.removeAttribute('data-visible');
-          return;
-        }
-
-        if (!revealObserver || reduceMotion) {
-          card.dataset.visible = 'true';
-          return;
-        }
-
+    const revealCards = (list) => {
+      list.forEach((card, i) => {
         card.removeAttribute('data-visible');
-        revealObserver.observe(card);
-      });
-    };
-
-    const setActiveFilter = (filter) => {
-      filterButtons.forEach((button) => {
-        button.classList.toggle('is-active', button.dataset.filter === filter);
-      });
-
-      galleryGrid.classList.add('is-transitioning');
-      document.querySelector('.projects-filter-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-      window.setTimeout(() => {
-        let visibleCount = 0;
-        let visibleIndex = 0;
-
-        cards.forEach((card) => {
-          const cats = card.dataset.category.split(',').map((c) => c.trim());
-          const matches = filter === 'All Projects' || cats.includes(filter);
-          card.hidden = !matches;
-
-          if (matches) {
-            visibleCount += 1;
-            card.removeAttribute('data-visible');
-            const idx = visibleIndex++;
-            window.setTimeout(() => { card.dataset.visible = 'true'; }, idx * 60);
-          } else {
-            card.removeAttribute('data-visible');
-          }
-        });
-
-        if (emptyState) {
-          emptyState.hidden = visibleCount > 0;
-        }
-
-        galleryGrid.classList.remove('is-transitioning');
-      }, 150);
-    };
-
-    filterButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const nextFilter = button.dataset.filter;
-
-        if (!nextFilter || button.classList.contains('is-active')) {
+        if (noMotion) { card.dataset.visible = 'true'; return; }
+        if (!revealObs) {
+          window.setTimeout(() => { card.dataset.visible = 'true'; }, i * 65);
           return;
         }
+        revealObs.observe(card);
+      });
+    };
 
-        setActiveFilter(nextFilter);
+    const initVisible = cards.filter(c => !c.hidden);
+    applyFeatured(initVisible);
+    revealCards(initVisible);
+
+    /* ── Filter ── */
+    if (!filterBtns.length) return;
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        if (!filter || btn.classList.contains('is-active')) return;
+
+        filterBtns.forEach(b => b.classList.toggle('is-active', b === btn));
+        document.querySelector('.projects-filter-section')
+          ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        grid.classList.add('is-transitioning');
+
+        window.setTimeout(() => {
+          const matching = [];
+          cards.forEach(card => {
+            const cats = card.dataset.category.split(',').map(c => c.trim());
+            const show = filter === 'All Projects' || cats.includes(filter);
+            card.hidden = !show;
+            if (show) matching.push(card);
+          });
+
+          applyFeatured(matching);
+          matching.forEach((card, i) => {
+            card.removeAttribute('data-visible');
+            window.setTimeout(() => { card.dataset.visible = 'true'; }, i * 75);
+          });
+
+          if (emptyState) emptyState.hidden = matching.length > 0;
+          grid.classList.remove('is-transitioning');
+        }, 160);
       });
     });
-
-    observeVisibleCards();
   })();
 </script>

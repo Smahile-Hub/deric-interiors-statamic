@@ -1,0 +1,102 @@
+title: Product
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              display: Title
+              required: true
+              width: 50
+          -
+            handle: price
+            field:
+              type: text
+              display: Price
+              width: 50
+          -
+            handle: category
+            field:
+              type: text
+              display: Category
+              instructions: 'Match the shop page filter category if this product should appear under a chip.'
+              width: 50
+          -
+            handle: image
+            field:
+              type: assets
+              display: Main Image
+              container: assets
+              max_files: 1
+              instructions: 'This is the main product image used on the shop card and at the top of the product page. You can replace it safely from the Media Library.'
+              width: 50
+          -
+            handle: gallery
+            field:
+              type: assets
+              display: 'Gallery / Thumbnail Images'
+              container: assets
+              instructions: 'Add extra product photos here. They appear as thumbnails below the main image and can be clicked to replace the large image.'
+          -
+            handle: description
+            field:
+              type: textarea
+              display: Short Description
+          -
+            handle: details
+            field:
+              type: markdown
+              display: Full Details
+              instructions: 'Add the longer product description shown on the product page.'
+          -
+            handle: materials
+            field:
+              type: list
+              display: Materials / Finishes
+          -
+            handle: dimensions
+            field:
+              type: text
+              display: Dimensions
+              width: 50
+          -
+            handle: availability
+            field:
+              type: text
+              display: Availability
+              width: 50
+          -
+            handle: compare_summary
+            field:
+              type: textarea
+              display: Compare Summary
+              instructions: 'Short comparison note used in the compare drawer.'
+          -
+            handle: order
+            field:
+              type: integer
+              display: Sort Order
+              width: 33
+          -
+            handle: cta_label
+            field:
+              type: text
+              display: Enquiry Link Label
+              width: 33
+          -
+            handle: cta_href
+            field:
+              type: text
+              display: Enquiry Link URL
+              width: 33
+  seo:
+    display: SEO
+    sections:
+      -
+        fields:
+          -
+            import: seo

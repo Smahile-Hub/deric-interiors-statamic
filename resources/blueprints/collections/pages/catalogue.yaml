@@ -136,8 +136,12 @@ sections:
             -
               handle: file_url
               field:
-                type: text
-                display: 'PDF / File URL'
+                type: assets
+                display: 'PDF File'
+                container: assets
+                max_files: 1
+                mode: list
+                instructions: 'Upload the catalogue PDF customers should download.'
                 width: 50
             -
               handle: file_label

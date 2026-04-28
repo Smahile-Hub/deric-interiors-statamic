@@ -1,6 +1,5 @@
 <div class="catalogue-page" id="catalogue-root">
 
-  {{# ── HERO ── #}}
   <section class="cat-hero" id="cat-hero">
     {{ if hero_background_image }}
       <div class="cat-hero-bg-wrap">
@@ -27,7 +26,6 @@
     </div>
   </section>
 
-  {{# ── INTRO ── #}}
   {{ if intro_title or intro_description }}
     <section class="cat-intro-section">
       <div class="shell">
@@ -44,7 +42,6 @@
     </section>
   {{ /if }}
 
-  {{# ── CATALOGUE GRID ── #}}
   {{ if catalog_items }}
     <section class="cat-grid-section">
       <div class="shell">
@@ -66,9 +63,11 @@
                 {{ /if }}
               </div>
               <div class="cat-card-body">
-                <h3 class="cat-card-title" data-text-control data-text-size-step="{{ title_text_style:size }}" data-text-height-step="{{ title_text_style:height }}" data-text-width-step="{{ title_text_style:width }}">{{ title }}</h3>
-                <p class="cat-card-desc" data-text-control data-text-size-step="{{ description_text_style:size }}" data-text-height-step="{{ description_text_style:height }}" data-text-width-step="{{ description_text_style:width }}">{{ description }}</p>
-                {{ if file_url }}
+                <div class="cat-card-copy">
+                  <h3 class="cat-card-title" data-text-control data-text-size-step="{{ title_text_style:size }}" data-text-height-step="{{ title_text_style:height }}" data-text-width-step="{{ title_text_style:width }}">{{ title }}</h3>
+                  <p class="cat-card-desc" data-text-control data-text-size-step="{{ description_text_style:size }}" data-text-height-step="{{ description_text_style:height }}" data-text-width-step="{{ description_text_style:width }}">{{ description }}</p>
+                </div>
+                {{ if file_url && file_url != '#' }}
                   <a
                     href="{{ file_url }}"
                     class="cat-download-btn"
@@ -87,6 +86,14 @@
                     </svg>
                     {{ file_label ?? 'Download PDF' }}
                   </a>
+                {{ else }}
+                  <span class="cat-download-btn cat-download-btn--disabled" aria-disabled="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                      <path d="M14 2v6h6"/>
+                    </svg>
+                    PDF Coming Soon
+                  </span>
                 {{ /if }}
               </div>
             </article>
@@ -96,7 +103,6 @@
     </section>
   {{ /if }}
 
-  {{# ── CTA ── #}}
   {{ if cta_title or cta_description }}
     <section class="cat-cta-section" data-reveal>
       <div class="shell">
@@ -123,7 +129,6 @@
     const hero = document.getElementById('cat-hero');
     if (!root) return;
 
-    // Hero parallax
     if (hero) {
       let frame = 0;
       const applyParallax = () => {
@@ -142,11 +147,11 @@
       applyParallax();
     }
 
-    // Reveal on scroll
     if (typeof IntersectionObserver === 'undefined') {
       root.querySelectorAll('[data-reveal]').forEach(el => { el.dataset.visible = 'true'; });
       return;
     }
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {

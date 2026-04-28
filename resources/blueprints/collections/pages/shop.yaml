@@ -61,64 +61,6 @@ sections:
           type: list
           display: 'Filter Categories'
           instructions: 'These appear as pill chips in the intro section. Match your product category names exactly.'
-  products:
-    display: Products
-    fields:
-      -
-        handle: products
-        field:
-          type: grid
-          display: Products
-          mode: stacked
-          fullscreen: true
-          add_row: 'Add Product'
-          instructions: 'The first product will be displayed as the featured hero card. All products appear in the 4-column grid below.'
-          fields:
-            -
-              handle: title
-              field:
-                type: text
-                display: Title
-                width: 50
-            -
-              handle: price
-              field:
-                type: text
-                display: Price
-                width: 50
-            -
-              handle: category
-              field:
-                type: text
-                display: Category
-                instructions: 'Match a category chip above to enable filtering.'
-                width: 50
-            -
-              handle: image
-              field:
-                type: assets
-                display: Image
-                container: assets
-                max_files: 1
-                width: 50
-            -
-              handle: description
-              field:
-                type: textarea
-                display: Description
-                width: 50
-            -
-              handle: cta_label
-              field:
-                type: text
-                display: 'Link Label'
-                width: 50
-            -
-              handle: cta_href
-              field:
-                type: text
-                display: 'Link URL'
-                width: 50
   cta:
     display: 'Call to Action'
     fields:

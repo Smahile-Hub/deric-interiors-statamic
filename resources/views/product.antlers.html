@@ -1,0 +1,225 @@
+{{ current_entry_id = id }}
+
+<article class="product-detail-page">
+  <section class="pd-hero">
+    <div class="pd-shell pd-hero__grid">
+      <div class="pd-visual" data-reveal>
+        <div class="pd-media">
+          {{ if image }}
+            <img
+              src="{{ image }}"
+              alt="{{ title }}"
+              class="pd-media__image"
+              data-product-main-image
+              loading="eager"
+              fetchpriority="high"
+            >
+          {{ /if }}
+        </div>
+
+        {{ if gallery }}
+          <div class="pd-thumbs" aria-label="Product images">
+            {{ if image }}
+              <button
+                type="button"
+                class="pd-thumb is-active"
+                data-product-thumb
+                data-full-src="{{ image }}"
+                data-full-alt="{{ title }}"
+                aria-label="Show main image for {{ title }}"
+                aria-pressed="true"
+              >
+                <img src="{{ image }}" alt="{{ title }}" loading="lazy">
+              </button>
+            {{ /if }}
+            {{ gallery }}
+              <button
+                type="button"
+                class="pd-thumb"
+                data-product-thumb
+                data-full-src="{{ url }}"
+                data-full-alt="{{ alt ?? title }}"
+                aria-label="Show product image {{ count }} for {{ title }}"
+                aria-pressed="false"
+              >
+                <img src="{{ url }}" alt="{{ alt ?? title }}" loading="lazy">
+              </button>
+            {{ /gallery }}
+          </div>
+        {{ /if }}
+      </div>
+
+      <div class="pd-summary" data-reveal>
+        <a href="/shop" class="pd-back-link">Back to Shop</a>
+        <p class="pd-category">{{ category }}</p>
+        <h1>{{ title }}</h1>
+        <p class="pd-description">{{ description }}</p>
+        <div class="pd-price-row">
+          <span class="pd-price">{{ price }}</span>
+          {{ if availability }}
+            <span class="pd-availability">{{ availability }}</span>
+          {{ /if }}
+        </div>
+        <div class="pd-actions">
+          <button
+            type="button"
+            class="sp-add-to-cart pd-main-action"
+            data-cart-add
+            data-product-id="{{ id }}"
+            data-product-title="{{ title }}"
+            data-product-category="{{ category }}"
+            data-product-price="{{ price }}"
+            data-product-image="{{ image }}"
+          >Add to Cart</button>
+          <button
+            type="button"
+            class="sp-compare-btn pd-compare-action"
+            data-compare-add
+            data-product-id="{{ id }}"
+            data-product-title="{{ title }}"
+            data-product-category="{{ category }}"
+            data-product-price="{{ price }}"
+            data-product-image="{{ image }}"
+            data-product-url="{{ url }}"
+            data-product-summary="{{ compare_summary ?? description }}"
+          >Compare</button>
+          <a href="{{ cta_href ?? '/contact' }}" class="sp-inline-link">{{ cta_label ?? 'Enquire Now' }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (() => {
+      const page = document.querySelector('.product-detail-page');
+      const mainImage = page?.querySelector('[data-product-main-image]');
+      const thumbs = page ? Array.from(page.querySelectorAll('[data-product-thumb]')) : [];
+
+      if (!mainImage || !thumbs.length) {
+        return;
+      }
+
+      thumbs.forEach((thumb) => {
+        thumb.addEventListener('click', () => {
+          const nextSrc = thumb.dataset.fullSrc;
+          if (!nextSrc || mainImage.getAttribute('src') === nextSrc) {
+            return;
+          }
+
+          mainImage.src = nextSrc;
+          mainImage.alt = thumb.dataset.fullAlt || mainImage.alt;
+
+          thumbs.forEach((item) => {
+            const active = item === thumb;
+            item.classList.toggle('is-active', active);
+            item.setAttribute('aria-pressed', active ? 'true' : 'false');
+          });
+        });
+      });
+    })();
+  </script>
+
+  <section class="pd-info-section">
+    <div class="pd-shell pd-info-grid">
+      <div class="pd-detail-copy" data-reveal>
+        <p class="sp-eyebrow">Product Details</p>
+        <div class="pd-richtext">
+          {{ if details }}
+            {{ details | markdown }}
+          {{ else }}
+            <p>{{ description }}</p>
+          {{ /if }}
+        </div>
+      </div>
+
+      <aside class="pd-spec-panel" data-reveal>
+        <p class="sp-eyebrow">Specifications</p>
+        <dl class="pd-spec-list">
+          {{ if category }}
+            <div>
+              <dt>Category</dt>
+              <dd>{{ category }}</dd>
+            </div>
+          {{ /if }}
+          {{ if dimensions }}
+            <div>
+              <dt>Dimensions</dt>
+              <dd>{{ dimensions }}</dd>
+            </div>
+          {{ /if }}
+          {{ if availability }}
+            <div>
+              <dt>Availability</dt>
+              <dd>{{ availability }}</dd>
+            </div>
+          {{ /if }}
+        </dl>
+        {{ if materials }}
+          <div class="pd-materials">
+            <h2>Materials</h2>
+            <ul>
+              {{ materials }}
+                <li>{{ value }}</li>
+              {{ /materials }}
+            </ul>
+          </div>
+        {{ /if }}
+      </aside>
+    </div>
+  </section>
+
+  {{ if gallery }}
+    <section class="pd-gallery-section">
+      <div class="pd-shell">
+        <div class="pd-gallery">
+          {{ gallery }}
+            <figure class="pd-gallery__item" data-reveal style="--stagger-index: {{ index - 1 }};">
+              <img src="{{ url }}" alt="{{ alt ?? title }}" loading="lazy">
+            </figure>
+          {{ /gallery }}
+        </div>
+      </div>
+    </section>
+  {{ /if }}
+
+  <section class="pd-related-section">
+    <div class="pd-shell">
+      <div class="pd-related-header">
+        <p class="sp-eyebrow">You May Also Like</p>
+        <a href="/shop" class="sp-inline-link">View All</a>
+      </div>
+      <div class="sp-product-grid">
+        {{ collection:products sort="order:asc" limit="4" }}
+          {{ if id != current_entry_id }}
+            <article class="sp-product-card" data-category="{{ category }}">
+              <a href="{{ url }}" class="sp-product__media" aria-label="View details for {{ title }}">
+                <img src="{{ image }}" alt="{{ title }}" class="sp-cover-img" loading="lazy">
+              </a>
+              <div class="sp-product__content">
+                <p class="sp-product-category">{{ category }}</p>
+                <h3><a href="{{ url }}">{{ title }}</a></h3>
+                <p class="sp-product-desc">{{ description }}</p>
+                <div class="sp-product__footer">
+                  <span class="sp-product-price">{{ price }}</span>
+                  <div class="sp-product__actions">
+                    <a href="{{ url }}" class="sp-inline-link">Details</a>
+                    <button
+                      type="button"
+                      class="sp-add-to-cart"
+                      data-cart-add
+                      data-product-id="{{ id }}"
+                      data-product-title="{{ title }}"
+                      data-product-category="{{ category }}"
+                      data-product-price="{{ price }}"
+                      data-product-image="{{ image }}"
+                    >Add to Cart</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+          {{ /if }}
+        {{ /collection:products }}
+      </div>
+    </div>
+  </section>
+</article>

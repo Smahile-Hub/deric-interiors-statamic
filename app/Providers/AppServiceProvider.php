@@ -63,30 +63,35 @@ class AppServiceProvider extends ServiceProvider
                 ->icon('collections')
                 ->order(20);
 
+            $nav->content('Products')
+                ->url("{$cp}/collections/products")
+                ->icon('collections')
+                ->order(30);
+
             $nav->content('Shop Page')
                 ->url("{$cp}/collections/pages/entries/shop")
                 ->icon('collections')
-                ->order(30);
+                ->order(40);
 
             $nav->content('Catalogue Page')
                 ->url("{$cp}/collections/pages/entries/catalogue")
                 ->icon('assets')
-                ->order(40);
+                ->order(50);
 
             $nav->content('Media Library')
                 ->url("{$cp}/assets")
                 ->icon('assets')
-                ->order(50);
+                ->order(60);
 
             $nav->content('Site Settings')
                 ->url("{$cp}/globals/settings")
                 ->icon('globals')
-                ->order(60);
+                ->order(70);
 
             $nav->content('Enquiries')
                 ->url("{$cp}/forms/contact")
                 ->icon('forms')
-                ->order(70);
+                ->order(80);
         });
     }
 }
