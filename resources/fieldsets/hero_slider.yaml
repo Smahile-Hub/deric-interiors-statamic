@@ -1,0 +1,39 @@
+title: 'Hero Slider'
+fields:
+  -
+    handle: hero_slides
+    field:
+      type: assets
+      display: 'Hero Slider Images'
+      container: assets
+      instructions: 'Add two or more photos if you want this hero to rotate. Leave this empty to keep the single hero photo.'
+      mode: grid
+  -
+    handle: hero_slide_duration
+    field:
+      type: integer
+      display: 'Slide Duration (ms)'
+      default: 5000
+      min: 1500
+      max: 12000
+      instructions: 'How long each photo stays on screen before the next one appears. Example: 5000 means 5 seconds.'
+      width: 50
+  -
+    handle: hero_transition_duration
+    field:
+      type: integer
+      display: 'Transition Duration (ms)'
+      default: 900
+      min: 0
+      max: 3000
+      instructions: 'How long the fade between photos takes. Example: 900 means just under 1 second.'
+      width: 50
+  -
+    handle: hero_tint_opacity
+    field:
+      type: integer
+      display: 'Dark Tint Opacity'
+      default: 40
+      min: 0
+      max: 90
+      instructions: 'Controls how much the photo is darkened behind the hero text. This only affects the image, not the words or buttons. Use 0 for no darkening, 40 for the design preview look, and a higher number when a photo is too bright.'

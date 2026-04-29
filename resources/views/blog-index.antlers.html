@@ -1,5 +1,29 @@
 <div class="journal-page">
   <section class="journal-hero">
+    <div class="journal-hero-slider" data-hero-slider data-hero-slide-duration="{{ hero_slide_duration ?? 5000 }}" data-hero-transition-duration="{{ hero_transition_duration ?? 900 }}" style="--hero-tint-opacity: {{ hero_tint_opacity ?? 40 }};">
+      {{ if hero_slides }}
+        {{ hero_slides }}
+          <img
+            class="journal-hero-image hero-slide{{ if first }} is-active{{ /if }}"
+            src="{{ url }}"
+            alt="{{ alt ?? blog_hero_title }}"
+            loading="{{ if first }}eager{{ else }}lazy{{ /if }}"
+            data-hero-slide
+            aria-hidden="{{ if first }}false{{ else }}true{{ /if }}"
+          >
+        {{ /hero_slides }}
+      {{ else }}
+        <img
+          class="journal-hero-image hero-slide is-active"
+          src="{{ seo_image ?? settings:default_og_image ?? '/assets/interior-hero.jpg' }}"
+          alt="{{ seo_image_alt ?? blog_hero_title }}"
+          loading="eager"
+          data-hero-slide
+          aria-hidden="false"
+        >
+      {{ /if }}
+    </div>
+    <div class="journal-hero-overlay"></div>
     <div class="journal-hero-inner" data-reveal>
       <p data-text-control data-text-size-step="{{ blog_hero_eyebrow_text_style:size }}" data-text-height-step="{{ blog_hero_eyebrow_text_style:height }}" data-text-width-step="{{ blog_hero_eyebrow_text_style:width }}">{{ blog_hero_eyebrow }}</p>
       <h1 data-text-control data-text-size-step="{{ blog_hero_title_text_style:size }}" data-text-height-step="{{ blog_hero_title_text_style:height }}" data-text-width-step="{{ blog_hero_title_text_style:width }}">{{ blog_hero_title }}</h1>

@@ -89,15 +89,19 @@ sections:
           type: text
           display: 'Hero Image Alt'
       -
+        import: hero_slider
+      -
         handle: hero_overlay_start
         field:
           type: text
-          display: 'Overlay Start'
+          display: 'Top Tint Colour'
+          instructions: 'Sets the tint colour near the top of the hero photo. Leave this as it is unless you want to change the mood of the image.'
       -
         handle: hero_overlay_end
         field:
           type: text
-          display: 'Overlay End'
+          display: 'Bottom Tint Colour'
+          instructions: 'Sets the tint colour near the bottom of the hero photo. Leave this as it is unless the image needs a warmer, cooler, lighter, or darker finish.'
   about:
     display: About
     fields:

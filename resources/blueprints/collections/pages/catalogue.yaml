@@ -66,6 +66,8 @@ sections:
         field:
           type: text
           display: 'Background Image Alt'
+      -
+        import: hero_slider
   intro:
     display: Intro
     fields:

@@ -475,36 +475,59 @@
     </div>
   </aside>
 
-  <aside
-    class="compare-drawer"
-    data-compare-drawer
-    data-open="false"
-    role="dialog"
-    aria-modal="true"
-    aria-label="Compare products"
-  >
-    <div class="compare-drawer-inner">
-      <div class="compare-drawer-header">
+  {{# ── Full-Screen Compare Modal ── #}}
+  <div class="cmp-overlay" data-cmp-overlay role="dialog" aria-modal="true" aria-label="Compare products" hidden>
+    <div class="cmp-modal">
+      <div class="cmp-modal-head">
         <div>
-          <p class="compare-drawer-eyebrow">Compare</p>
-          <h2>Selected Products</h2>
+          <p class="cmp-modal-eyebrow">Side-by-side</p>
+          <h2 class="cmp-modal-title">Product Comparison</h2>
         </div>
-        <button type="button" class="cart-close-btn" data-compare-close aria-label="Close comparison">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <button type="button" class="cmp-modal-close" data-cmp-close aria-label="Close comparison">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
       </div>
-      <div class="compare-empty" data-compare-empty>
-        <p>No products selected.</p>
-        <span>Add products to compare finishes, sizes, and price points.</span>
-      </div>
-      <div class="compare-list" data-compare-list></div>
+      <div class="cmp-table-wrap" data-cmp-table-wrap></div>
     </div>
-  </aside>
+  </div>
 
-  <button type="button" class="compare-fab" data-compare-open aria-label="Open comparison" hidden>
-    Compare
-    <span data-compare-count>0</span>
-  </button>
+  {{# ── Compare Search Popup ── #}}
+  <div class="cmp-search-overlay" data-cmp-search-overlay hidden>
+    <div class="cmp-search-card">
+      <button type="button" class="cmp-search-dismiss" data-cmp-search-close aria-label="Close search">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <input class="cmp-search-input" data-cmp-search-input type="text" placeholder="Type any keyword to search..." autocomplete="off" spellcheck="false" aria-label="Search products">
+      <div class="cmp-search-list" data-cmp-search-list role="list"></div>
+    </div>
+  </div>
+
+  {{# ── Compare Bottom Bar ── #}}
+  <div class="cmp-bar" data-cmp-bar hidden>
+    <div class="cmp-bar-inner">
+      <div class="cmp-bar-left">
+        <button type="button" class="cmp-bar-btn" data-cmp-print aria-label="Print comparison">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        </button>
+        <button type="button" class="cmp-bar-btn" data-cmp-share aria-label="Share comparison">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        </button>
+        <button type="button" class="cmp-bar-btn cmp-bar-add-btn" data-cmp-search-open aria-label="Add product to compare">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </div>
+      <div class="cmp-bar-thumbs" data-cmp-bar-thumbs></div>
+      <div class="cmp-bar-right">
+        <button type="button" class="cmp-bar-clear" data-cmp-clear aria-label="Clear all comparisons">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <button type="button" class="cmp-bar-compare" data-cmp-open>
+          Compare
+          <span class="cmp-bar-count" data-cmp-bar-count>0</span>
+        </button>
+      </div>
+    </div>
+  </div>
 
   <div
     id="page-transition-overlay"
@@ -587,6 +610,80 @@
     };
 
     applyTextControls();
+
+    // CMS-controlled hero image sliders
+    (() => {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      document.querySelectorAll('[data-hero-slider]').forEach((slider) => {
+        const slides = Array.from(slider.querySelectorAll('[data-hero-slide]'));
+        const transitionDuration = Math.max(0, parseInt(slider.dataset.heroTransitionDuration || '900', 10) || 900);
+        const requestedSlideDuration = Math.max(1500, parseInt(slider.dataset.heroSlideDuration || '5000', 10) || 5000);
+        const slideDuration = Math.max(requestedSlideDuration, transitionDuration + 250);
+
+        slider.style.setProperty('--hero-slide-transition', `${transitionDuration}ms`);
+
+        if (!slides.length) {
+          return;
+        }
+
+        slides.forEach((slide, index) => {
+          slide.classList.toggle('is-active', index === 0);
+          slide.setAttribute('aria-hidden', index === 0 ? 'false' : 'true');
+        });
+
+        if (slides.length < 2 || reduceMotion) {
+          return;
+        }
+
+        slides.slice(1).forEach((slide) => {
+          if (!(slide instanceof HTMLImageElement) || slide.complete) {
+            return;
+          }
+
+          const preloader = new Image();
+          preloader.decoding = 'async';
+          preloader.src = slide.currentSrc || slide.src;
+        });
+
+        let activeIndex = 0;
+        let timerId = 0;
+        const showNextSlide = () => {
+          slides[activeIndex].classList.remove('is-active');
+          slides[activeIndex].setAttribute('aria-hidden', 'true');
+          activeIndex = (activeIndex + 1) % slides.length;
+          slides[activeIndex].classList.add('is-active');
+          slides[activeIndex].setAttribute('aria-hidden', 'false');
+        };
+
+        const startSlider = () => {
+          if (timerId || document.hidden) {
+            return;
+          }
+
+          timerId = window.setInterval(showNextSlide, slideDuration);
+        };
+
+        const stopSlider = () => {
+          if (!timerId) {
+            return;
+          }
+
+          window.clearInterval(timerId);
+          timerId = 0;
+        };
+
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) {
+            stopSlider();
+          } else {
+            startSlider();
+          }
+        });
+
+        startSlider();
+      });
+    })();
 
     // Mobile drawer
     const toggle = document.getElementById('mobile-toggle');
@@ -817,128 +914,391 @@
       renderCart();
     })();
 
-    // Product comparison drawer.
+    // ── Advanced Compare Feature ──────────────────────────────
     (() => {
       const STORAGE_KEY = 'dric-compare';
-      const drawer = document.querySelector('[data-compare-drawer]');
-      const list = document.querySelector('[data-compare-list]');
-      const empty = document.querySelector('[data-compare-empty]');
-      const openButtons = document.querySelectorAll('[data-compare-open]');
-      const closeButtons = document.querySelectorAll('[data-compare-close]');
-      const countBadges = document.querySelectorAll('[data-compare-count]');
+      const MAX_ITEMS = 4;
 
-      if (!drawer || !list || !empty) {
-        return;
-      }
+      const overlay      = document.querySelector('[data-cmp-overlay]');
+      const tableWrap    = document.querySelector('[data-cmp-table-wrap]');
+      const searchOvl    = document.querySelector('[data-cmp-search-overlay]');
+      const searchInput  = document.querySelector('[data-cmp-search-input]');
+      const searchList   = document.querySelector('[data-cmp-search-list]');
+      const bar          = document.querySelector('[data-cmp-bar]');
+      const barThumbs    = document.querySelector('[data-cmp-bar-thumbs]');
+      const barCount     = document.querySelector('[data-cmp-bar-count]');
 
-      const escapeHtml = (value) => String(value || '').replace(/[&<>"']/g, (char) => ({
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;',
-        '"': '&quot;',
-        "'": '&#039;'
-      }[char]));
+      if (!overlay || !bar) return;
+
+      const esc = (v) => String(v || '').replace(/[&<>"']/g, (c) => (
+        { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[c]
+      ));
+
+      const productKey = (p) => (
+        p.id || `${p.category}-${p.title}`.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
+      );
+
+      const extractProduct = (btn) => ({
+        id:           btn.dataset.productId           || '',
+        title:        btn.dataset.productTitle        || '',
+        category:     btn.dataset.productCategory     || '',
+        price:        btn.dataset.productPrice        || '',
+        image:        btn.dataset.productImage        || '',
+        url:          btn.dataset.productUrl          || '',
+        summary:      btn.dataset.productSummary      || '',
+        availability: btn.dataset.productAvailability || '',
+        dimensions:   btn.dataset.productDimensions   || '',
+      });
+
+      // Build product registry from all compare buttons present on this page load
+      const registry = {};
+      document.querySelectorAll('[data-compare-add]').forEach((btn) => {
+        const p = extractProduct(btn);
+        const k = productKey(p);
+        if (k) registry[k] = p;
+      });
 
       const readCompare = () => {
-        try {
-          return JSON.parse(window.localStorage.getItem(STORAGE_KEY) || '[]');
-        } catch (error) {
-          return [];
-        }
+        try { return JSON.parse(window.localStorage.getItem(STORAGE_KEY) || '[]'); }
+        catch (e) { return []; }
       };
 
       const writeCompare = (items) => {
-        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(items.slice(0, 4)));
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(items.slice(0, MAX_ITEMS)));
       };
 
-      const productKey = (product) => (
-        product.id ||
-        `${product.category}-${product.title}`
-          .toLowerCase()
-          .replace(/[^a-z0-9]+/g, '-')
-          .replace(/^-+|-+$/g, '')
-      );
-
-      const setOpen = (open) => {
-        drawer.dataset.open = open ? 'true' : 'false';
-        document.documentElement.classList.toggle('compare-is-open', open);
+      const getPhone = () => {
+        const d = document.querySelector('[data-cart-drawer]');
+        return (d?.dataset.checkoutPhone || '').replace(/\D/g, '');
       };
 
-      const renderCompare = () => {
-        const items = readCompare();
-        const count = items.length;
+      const waUrl = (p) => {
+        const phone = getPhone();
+        const text = `Hello Dric Interior!\n\nI'm interested in:\n${p.title}${p.price ? ' — ' + p.price : ''}\n\nKindly send payment and delivery details. Thank you!`;
+        return `https://api.whatsapp.com/send/?phone=${phone}&text=${encodeURIComponent(text)}&type=phone_number&app_absent=0`;
+      };
 
-        countBadges.forEach((badge) => {
-          badge.textContent = String(count);
-          const button = badge.closest('[data-compare-open]');
-          if (button) {
-            button.hidden = count === 0;
-          }
+      // ── Open / Close ─────────────────────────────────────────
+      const setOverlayOpen = (open) => {
+        if (open) { overlay.removeAttribute('hidden'); renderTable(); }
+        else       { overlay.setAttribute('hidden', ''); }
+        document.documentElement.classList.toggle('cmp-is-open', open);
+      };
+
+      const setSearchOpen = (open) => {
+        if (open) {
+          searchOvl.removeAttribute('hidden');
+          if (searchInput) { searchInput.value = ''; searchInput.focus(); }
+          renderSearch('');
+        } else {
+          searchOvl.setAttribute('hidden', '');
+          if (!overlay.hidden) renderTable();
+        }
+      };
+
+      // ── Bottom Bar ────────────────────────────────────────────
+      const updateCompareBtns = (items) => {
+        const keys = items.map(productKey);
+        document.querySelectorAll('[data-compare-add]').forEach((btn) => {
+          const inList = keys.includes(productKey(extractProduct(btn)));
+          btn.classList.toggle('is-comparing', inList);
+          btn.textContent = inList ? 'In Compare' : 'Compare';
         });
-
-        empty.hidden = count > 0;
-        list.innerHTML = items.map((item) => `
-          <article class="compare-item">
-            <div class="compare-item-image">
-              ${item.image ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}">` : ''}
-            </div>
-            <div class="compare-item-body">
-              <p class="compare-item-category">${escapeHtml(item.category)}</p>
-              <h3>${escapeHtml(item.title)}</h3>
-              <p class="compare-item-price">${escapeHtml(item.price)}</p>
-              <p class="compare-item-summary">${escapeHtml(item.summary)}</p>
-              <div class="compare-item-actions">
-                ${item.url ? `<a href="${escapeHtml(item.url)}">View Details</a>` : ''}
-                <button type="button" data-compare-remove="${escapeHtml(productKey(item))}">Remove</button>
-              </div>
-            </div>
-          </article>
-        `).join('');
       };
 
-      document.addEventListener('click', (event) => {
-        const compareButton = event.target.closest('[data-compare-add]');
-        if (!compareButton) return;
+      const renderBar = () => {
+        const items = readCompare();
+        if (items.length === 0) { bar.setAttribute('hidden', ''); }
+        else                     { bar.removeAttribute('hidden'); }
+        if (barCount) barCount.textContent = String(items.length);
+        if (barThumbs) {
+          barThumbs.innerHTML = items.map((item) => {
+            const k = esc(productKey(item));
+            return `<div class="cmp-bar-thumb" title="${esc(item.title)}">
+              ${item.image ? `<img src="${esc(item.image)}" alt="${esc(item.title)}" loading="lazy">` : '<div class="cmp-bar-thumb-placeholder"></div>'}
+              <button type="button" class="cmp-bar-thumb-remove" data-cmp-remove="${k}" aria-label="Remove ${esc(item.title)}">×</button>
+            </div>`;
+          }).join('');
+        }
+        updateCompareBtns(items);
+      };
 
-        const product = {
-          id: compareButton.dataset.productId || '',
-          title: compareButton.dataset.productTitle || '',
-          category: compareButton.dataset.productCategory || '',
-          price: compareButton.dataset.productPrice || '',
-          image: compareButton.dataset.productImage || '',
-          url: compareButton.dataset.productUrl || '',
-          summary: compareButton.dataset.productSummary || ''
+      // ── Table ─────────────────────────────────────────────────
+      const renderTable = () => {
+        const items = readCompare();
+        if (!tableWrap || !items.length) return;
+
+        const showAdd = items.length < MAX_ITEMS;
+
+        const rows = [
+          { label: 'Image',       type: 'image' },
+          { label: 'Price',       type: 'price' },
+          { label: 'Add to Cart', type: 'order' },
+          { label: 'Description', type: 'summary' },
+        ];
+        if (items.some((p) => p.availability)) rows.push({ label: 'Availability', type: 'availability' });
+        if (items.some((p) => p.dimensions))   rows.push({ label: 'Dimensions',   type: 'dimensions'   });
+
+        const addHead = showAdd ? `<th class="cmp-head-add" scope="col"></th>` : '';
+
+        const thead = `<thead><tr class="cmp-head-row">
+          <th class="cmp-label-cell cmp-head-label" scope="col">Settings</th>
+          ${items.map((item) => `
+            <th class="cmp-head-product" scope="col">
+              <div class="cmp-head-product-inner">
+                <p class="cmp-head-cat">${esc(item.category)}</p>
+                <p class="cmp-head-name">${esc(item.title)}</p>
+                <button type="button" class="cmp-head-remove" data-cmp-remove="${esc(productKey(item))}">remove</button>
+              </div>
+            </th>`).join('')}
+          ${addHead}
+        </tr></thead>`;
+
+        const waIcon = `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>`;
+
+        const imgPlaceholder = `<div class="cmp-img-placeholder"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>`;
+
+        const renderCell = (row, item) => {
+          if (row.type === 'image') return `<td class="cmp-cell cmp-cell-image">
+            <div class="cmp-product-img">${item.image ? `<img src="${esc(item.image)}" alt="${esc(item.title)}" loading="lazy">` : imgPlaceholder}</div>
+            ${item.url ? `<a href="${esc(item.url)}" class="cmp-view-link">View Details →</a>` : ''}
+          </td>`;
+
+          if (row.type === 'price') return `<td class="cmp-cell">
+            ${item.price ? `<span class="cmp-price">${esc(item.price)}</span>` : '<span class="cmp-cell-empty">—</span>'}
+          </td>`;
+
+          if (row.type === 'order') return `<td class="cmp-cell">
+            <a href="${esc(waUrl(item))}" target="_blank" rel="noopener noreferrer" class="cmp-wa-btn">${waIcon} Order via WhatsApp</a>
+          </td>`;
+
+          const val = item[row.type] || '';
+          return `<td class="cmp-cell">${val ? esc(val) : '<span class="cmp-cell-empty">—</span>'}</td>`;
         };
-        const key = productKey(product);
-        const items = readCompare().filter((item) => productKey(item) !== key);
-        items.unshift(product);
 
-        writeCompare(items);
-        renderCompare();
-        setOpen(true);
-      });
+        const addCell = (row) => {
+          if (!showAdd) return '';
+          if (row.type === 'image') return `<td class="cmp-cell cmp-add-cell">
+            <button type="button" class="cmp-add-slot-btn" data-cmp-search-open aria-label="Add product">
+              <span class="cmp-add-slot-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              Add Product
+            </button>
+          </td>`;
+          return `<td class="cmp-cell"><span class="cmp-cell-empty">—</span></td>`;
+        };
 
-      list.addEventListener('click', (event) => {
-        const removeButton = event.target.closest('[data-compare-remove]');
-        if (!removeButton) return;
+        const tbody = `<tbody>${rows.map((row) => `
+          <tr>
+            <td class="cmp-label-cell">${esc(row.label)}</td>
+            ${items.map((item) => renderCell(row, item)).join('')}
+            ${addCell(row)}
+          </tr>`).join('')}
+        </tbody>`;
 
-        writeCompare(readCompare().filter((item) => productKey(item) !== removeButton.dataset.compareRemove));
-        renderCompare();
-      });
+        tableWrap.innerHTML = `<table class="cmp-table">${thead}${tbody}</table>`;
+      };
 
-      openButtons.forEach((button) => button.addEventListener('click', () => {
-        renderCompare();
-        setOpen(true);
-      }));
+      // ── Search ────────────────────────────────────────────────
+      const renderSearch = (query) => {
+        if (!searchList) return;
+        const q = query.trim().toLowerCase();
+        const currentKeys = readCompare().map(productKey);
+        const isFull = currentKeys.length >= MAX_ITEMS;
 
-      closeButtons.forEach((button) => button.addEventListener('click', () => setOpen(false)));
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
-          setOpen(false);
+        const results = Object.values(registry).filter((p) =>
+          !q ||
+          p.title.toLowerCase().includes(q) ||
+          p.category.toLowerCase().includes(q) ||
+          (p.summary || '').toLowerCase().includes(q)
+        );
+
+        if (!results.length) {
+          searchList.innerHTML = '<p class="cmp-search-empty">No products found.</p>';
+          return;
+        }
+
+        searchList.innerHTML = results.map((p) => {
+          const k = productKey(p);
+          const inList = currentKeys.includes(k);
+          const disabled = inList || isFull;
+          return `<div class="cmp-search-item" role="listitem">
+            <div class="cmp-search-thumb">${p.image ? `<img src="${esc(p.image)}" alt="${esc(p.title)}" loading="lazy">` : ''}</div>
+            <span class="cmp-search-name">${esc(p.title)}</span>
+            <button type="button" class="cmp-search-add-btn${inList ? ' is-added' : ''}"
+              data-cmp-search-add="${esc(k)}"
+              ${disabled ? 'disabled' : ''}
+              aria-label="${inList ? 'Already in comparison' : isFull ? 'Compare list is full' : 'Add ' + esc(p.title)}"
+            >${inList ? '✓' : '+'}</button>
+          </div>`;
+        }).join('');
+      };
+
+      // ── Add / Remove ──────────────────────────────────────────
+      const addProduct = (p) => {
+        const k = productKey(p);
+        registry[k] = p;
+        const list = readCompare().filter((x) => productKey(x) !== k);
+        list.unshift(p);
+        writeCompare(list);
+        renderBar();
+      };
+
+      const removeProduct = (k) => {
+        writeCompare(readCompare().filter((p) => productKey(p) !== k));
+        renderBar();
+        if (!overlay.hidden) {
+          if (readCompare().length === 0) setOverlayOpen(false);
+          else renderTable();
+        }
+      };
+
+      // ── Event delegation ──────────────────────────────────────
+      document.addEventListener('click', (event) => {
+        const t = event.target;
+
+        const addBtn = t.closest('[data-compare-add]');
+        if (addBtn) {
+          addProduct(extractProduct(addBtn));
+          if (!overlay.hidden) renderTable();
+          return;
+        }
+
+        if (t.closest('[data-cmp-open]')) {
+          if (readCompare().length > 0) setOverlayOpen(true);
+          return;
+        }
+
+        if (t.closest('[data-cmp-close]') || t === overlay) { setOverlayOpen(false); return; }
+
+        if (t.closest('[data-cmp-search-open]')) { setSearchOpen(true); return; }
+
+        if (t.closest('[data-cmp-search-close]') || t === searchOvl) {
+          setSearchOpen(false);
+          return;
+        }
+
+        const searchAddBtn = t.closest('[data-cmp-search-add]');
+        if (searchAddBtn && !searchAddBtn.disabled) {
+          const p = registry[searchAddBtn.dataset.cmpSearchAdd];
+          if (p) {
+            addProduct(p);
+            renderSearch(searchInput?.value || '');
+            if (!overlay.hidden) renderTable();
+            if (readCompare().length >= MAX_ITEMS) {
+              setSearchOpen(false);
+            }
+          }
+          return;
+        }
+
+        const removeBtn = t.closest('[data-cmp-remove]');
+        if (removeBtn) { removeProduct(removeBtn.dataset.cmpRemove); return; }
+
+        if (t.closest('[data-cmp-clear]')) {
+          writeCompare([]);
+          renderBar();
+          setOverlayOpen(false);
+          return;
+        }
+
+        if (t.closest('[data-cmp-print]')) {
+          const items = readCompare();
+          if (!items.length) return;
+          const hasAvail = items.some((p) => p.availability);
+          const hasDims  = items.some((p) => p.dimensions);
+          const colW = Math.floor(80 / items.length);
+          const imgPlaceholderPrint = `<div style="width:100%;aspect-ratio:1;background:#eee;display:flex;align-items:center;justify-content:center;font-size:12px;color:#999;">No image</div>`;
+          const colHeaders = items.map((p) => `<th style="width:${colW}%;padding:10px 12px;border:1px solid #ddd;background:#f5f0ea;text-align:left;vertical-align:top;">
+            <div style="font-size:11px;color:#888;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">${esc(p.category)}</div>
+            <div style="font-size:15px;font-weight:700;color:#1a1200;">${esc(p.title)}</div>
+          </th>`).join('');
+          const imgRow = items.map((p) => `<td style="padding:10px 12px;border:1px solid #ddd;vertical-align:top;text-align:center;">
+            ${p.image ? `<img src="${esc(p.image)}" alt="${esc(p.title)}" style="max-width:100%;max-height:180px;object-fit:cover;border-radius:4px;">` : imgPlaceholderPrint}
+            ${p.url ? `<div style="margin-top:6px;font-size:11px;color:#888;">${esc(p.url)}</div>` : ''}
+          </td>`).join('');
+          const priceRow = items.map((p) => `<td style="padding:10px 12px;border:1px solid #ddd;vertical-align:top;">
+            <span style="font-size:16px;font-weight:700;color:#8a6800;">${p.price ? esc(p.price) : '—'}</span>
+          </td>`).join('');
+          const descRow = items.map((p) => `<td style="padding:10px 12px;border:1px solid #ddd;vertical-align:top;font-size:13px;color:#333;line-height:1.5;">
+            ${p.summary ? esc(p.summary) : '—'}
+          </td>`).join('');
+          const availRow = hasAvail ? `<tr>
+            <td style="padding:10px 12px;border:1px solid #ddd;font-weight:600;background:#faf7f3;white-space:nowrap;font-size:13px;">Availability</td>
+            ${items.map((p) => `<td style="padding:10px 12px;border:1px solid #ddd;vertical-align:top;font-size:13px;">${p.availability ? esc(p.availability) : '—'}</td>`).join('')}
+          </tr>` : '';
+          const dimsRow = hasDims ? `<tr>
+            <td style="padding:10px 12px;border:1px solid #ddd;font-weight:600;background:#faf7f3;white-space:nowrap;font-size:13px;">Dimensions</td>
+            ${items.map((p) => `<td style="padding:10px 12px;border:1px solid #ddd;vertical-align:top;font-size:13px;">${p.dimensions ? esc(p.dimensions) : '—'}</td>`).join('')}
+          </tr>` : '';
+          const labelCol = `<td style="width:120px;padding:10px 12px;border:1px solid #ddd;font-weight:600;background:#faf7f3;white-space:nowrap;font-size:13px;">`;
+          const printHtml = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Product Comparison — Dric Interiors</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Georgia,serif;color:#1a1a1a;background:#fff;padding:28px 32px}
+  h1{font-size:22px;font-weight:700;color:#1a1200;margin-bottom:4px}
+  .sub{font-size:13px;color:#888;margin-bottom:24px}
+  table{width:100%;border-collapse:collapse;table-layout:fixed}
+  @media print{body{padding:12px}button{display:none}}
+</style></head><body>
+<h1>Product Comparison</h1>
+<p class="sub">Dric Interiors &mdash; ${items.length} item${items.length !== 1 ? 's' : ''}</p>
+<table>
+  <thead><tr>
+    <th style="width:120px;padding:10px 12px;border:1px solid #ddd;background:#f5f0ea;"></th>
+    ${colHeaders}
+  </tr></thead>
+  <tbody>
+    <tr>
+      ${labelCol}Image</td>
+      ${imgRow}
+    </tr>
+    <tr>
+      ${labelCol}Price</td>
+      ${priceRow}
+    </tr>
+    <tr>
+      ${labelCol}Description</td>
+      ${descRow}
+    </tr>
+    ${availRow}
+    ${dimsRow}
+  </tbody>
+</table>
+<p style="margin-top:20px;font-size:11px;color:#aaa;text-align:right;">Printed from dricinteriors.com</p>
+</body></html>`;
+          const win = window.open('', '_blank', 'width=900,height=700');
+          if (win) { win.document.write(printHtml); win.document.close(); win.focus(); win.print(); }
+          return;
+        }
+
+        if (t.closest('[data-cmp-share]')) {
+          const items = readCompare();
+          const text = ['Dric Interior — Product Comparison', '',
+            ...items.map((p) => `${p.title} (${p.category}) — ${p.price}`),
+            '', window.location.href].join('\n');
+          if (navigator.share) {
+            navigator.share({ title: 'Product Comparison — Dric Interior', text, url: window.location.href }).catch(() => {});
+          } else if (navigator.clipboard) {
+            navigator.clipboard.writeText(text).then(() => {
+              const btn = document.querySelector('[data-cmp-share]');
+              if (btn) { const h = btn.innerHTML; btn.textContent = '✓ Copied'; setTimeout(() => { btn.innerHTML = h; }, 1800); }
+            });
+          }
+          return;
         }
       });
 
-      renderCompare();
+      if (searchInput) {
+        searchInput.addEventListener('input', () => renderSearch(searchInput.value));
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key !== 'Escape') return;
+        if (searchOvl && !searchOvl.hidden) setSearchOpen(false);
+        else if (!overlay.hidden) setOverlayOpen(false);
+      });
+
+      renderBar();
     })();
 
     // Page transition overlay
@@ -988,6 +1348,32 @@
       } else {
         snapBelow();
       }
+
+      // Layer 1: When navigating AWAY, reset the overlay so if this page is
+      // restored from bfcache (Back/Forward) it starts with overlay hidden.
+      window.addEventListener('pagehide', () => {
+        navigating = false;
+        overlay.style.transition = 'none';
+        overlay.style.transform = 'translateY(100%)';
+        overlay.dataset.state = 'idle';
+      });
+
+      // Layer 2: bfcache restore fallback — pageshow fires after pagehide reset,
+      // double-ensure the overlay is gone.
+      window.addEventListener('pageshow', (event) => {
+        if (event.persisted) {
+          navigating = false;
+          snapBelow();
+        }
+      });
+
+      // Layer 3: Safety net — if the overlay is still covering after the reveal
+      // animation should have finished (>900ms), force-hide it.
+      window.setTimeout(() => {
+        if (overlay.dataset.state !== 'idle') {
+          snapBelow();
+        }
+      }, 900);
 
       const isModifiedClick = (event) => (
         event.metaKey ||

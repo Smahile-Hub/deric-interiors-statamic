@@ -1,12 +1,27 @@
 <div class="services-page">
   <section class="services-hero">
-    <div class="hero-image-wrap">
-      <img
-        class="hero-image"
-        src="{{ services_hero_background_image }}"
-        alt="{{ services_hero_background_alt }}"
-        loading="eager"
-      >
+    <div class="hero-image-wrap" data-hero-slider data-hero-slide-duration="{{ hero_slide_duration ?? 5000 }}" data-hero-transition-duration="{{ hero_transition_duration ?? 900 }}" style="--hero-tint-opacity: {{ hero_tint_opacity ?? 40 }};">
+      {{ if hero_slides }}
+        {{ hero_slides }}
+          <img
+            class="hero-image hero-slide{{ if first }} is-active{{ /if }}"
+            src="{{ url }}"
+            alt="{{ alt ?? services_hero_background_alt }}"
+            loading="{{ if first }}eager{{ else }}lazy{{ /if }}"
+            data-hero-slide
+            aria-hidden="{{ if first }}false{{ else }}true{{ /if }}"
+          >
+        {{ /hero_slides }}
+      {{ else }}
+        <img
+          class="hero-image hero-slide is-active"
+          src="{{ services_hero_background_image }}"
+          alt="{{ services_hero_background_alt }}"
+          loading="eager"
+          data-hero-slide
+          aria-hidden="false"
+        >
+      {{ /if }}
     </div>
     <div class="services-hero-overlay"></div>
 

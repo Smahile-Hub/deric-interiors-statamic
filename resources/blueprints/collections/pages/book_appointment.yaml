@@ -67,6 +67,8 @@ sections:
           type: text
           display: 'Background Image Alt'
       -
+        import: hero_slider
+      -
         handle: book_hero_button_label
         field:
           type: text

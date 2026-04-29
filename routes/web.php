@@ -9,6 +9,14 @@ use Statamic\Facades\GlobalSet;
 //    'title' => 'Example'
 // ]);
 
+Route::get('/products/{slug?}', function (?string $slug = null) {
+    return redirect($slug ? "/shop/{$slug}" : '/shop', 301);
+})->where('slug', '.*');
+
+Route::get('/product/{slug?}', function (?string $slug = null) {
+    return redirect($slug ? "/shop/{$slug}" : '/shop', 301);
+})->where('slug', '.*');
+
 Route::get('/sitemap.xml', function () {
     $settings = GlobalSet::findByHandle('settings')?->inDefaultSite();
     $settingsFile = file_exists(base_path('content/globals/default/settings.yaml'))

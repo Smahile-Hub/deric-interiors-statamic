@@ -77,6 +77,8 @@ sections:
           type: text
           display: 'Background Image Alt'
       -
+        import: hero_slider
+      -
         handle: services_hero_cta_label
         field:
           type: text

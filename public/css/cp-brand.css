@@ -20,3 +20,11 @@
 [href*="statamic.com"] {
     display: none !important;
 }
+
+[class*="license" i],
+[class*="licensing" i],
+[class*="trial" i],
+[aria-label*="license" i],
+[aria-label*="licensing" i] {
+    display: none !important;
+}

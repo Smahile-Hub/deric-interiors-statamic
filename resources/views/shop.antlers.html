@@ -1,11 +1,29 @@
 <section class="sp-hero">
-  <img
-    src="{{ hero_bg_image ?? '/assets/shop-hero.jpg' }}"
-    alt="{{ hero_heading }}"
-    class="sp-hero__img"
-    loading="eager"
-    fetchpriority="high"
-  >
+  <div class="sp-hero__slider" data-hero-slider data-hero-slide-duration="{{ hero_slide_duration ?? 5000 }}" data-hero-transition-duration="{{ hero_transition_duration ?? 900 }}" style="--hero-tint-opacity: {{ hero_tint_opacity ?? 40 }};">
+    {{ if hero_slides }}
+      {{ hero_slides }}
+        <img
+          src="{{ url }}"
+          alt="{{ alt ?? hero_heading }}"
+          class="sp-hero__img hero-slide{{ if first }} is-active{{ /if }}"
+          loading="{{ if first }}eager{{ else }}lazy{{ /if }}"
+          fetchpriority="{{ if first }}high{{ else }}auto{{ /if }}"
+          data-hero-slide
+          aria-hidden="{{ if first }}false{{ else }}true{{ /if }}"
+        >
+      {{ /hero_slides }}
+    {{ else }}
+      <img
+        src="{{ hero_bg_image ?? '/assets/shop-hero.jpg' }}"
+        alt="{{ hero_heading }}"
+        class="sp-hero__img hero-slide is-active"
+        loading="eager"
+        fetchpriority="high"
+        data-hero-slide
+        aria-hidden="false"
+      >
+    {{ /if }}
+  </div>
   <div class="sp-hero__overlay"></div>
   <div class="sp-hero__shell">
     <div class="sp-hero__content">
@@ -56,6 +74,8 @@
                 data-product-image="{{ image }}"
                 data-product-url="{{ url }}"
                 data-product-summary="{{ compare_summary ?? description }}"
+                data-product-availability="{{ availability }}"
+                data-product-dimensions="{{ dimensions }}"
               >Compare</button>
             </div>
           </div>
@@ -113,6 +133,8 @@
                     data-product-image="{{ image }}"
                     data-product-url="{{ url }}"
                     data-product-summary="{{ compare_summary ?? description }}"
+                    data-product-availability="{{ availability }}"
+                    data-product-dimensions="{{ dimensions }}"
                   >Compare</button>
                 </div>
               </div>

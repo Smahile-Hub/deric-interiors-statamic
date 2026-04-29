@@ -44,6 +44,8 @@ sections:
         field:
           type: text_style
           display: 'Description Style'
+      -
+        import: hero_slider
   seo:
     display: SEO
     fields:

@@ -33,6 +33,8 @@ sections:
           container: assets
           max_files: 1
           instructions: 'Full-width background photo for the hero section.'
+      -
+        import: hero_slider
   intro:
     display: 'Intro Section'
     fields:

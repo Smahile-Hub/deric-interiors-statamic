@@ -1,12 +1,25 @@
 <div class="book-page">
   <section class="book-hero" id="book-hero" style="{{ if !book_hero_background_image }}--hero-bg-color:#1a1410;{{ /if }}">
-    <div class="book-hero-bg-wrap">
-      {{ if book_hero_background_image }}
+    <div class="book-hero-bg-wrap" data-hero-slider data-hero-slide-duration="{{ hero_slide_duration ?? 5000 }}" data-hero-transition-duration="{{ hero_transition_duration ?? 900 }}" style="--hero-tint-opacity: {{ hero_tint_opacity ?? 40 }};">
+      {{ if hero_slides }}
+        {{ hero_slides }}
+          <img
+            class="book-hero-bg hero-slide{{ if first }} is-active{{ /if }}"
+            src="{{ url }}"
+            alt="{{ alt ?? book_hero_background_alt }}"
+            loading="{{ if first }}eager{{ else }}lazy{{ /if }}"
+            data-hero-slide
+            aria-hidden="{{ if first }}false{{ else }}true{{ /if }}"
+          >
+        {{ /hero_slides }}
+      {{ elseif book_hero_background_image }}
         <img
-          class="book-hero-bg"
+          class="book-hero-bg hero-slide is-active"
           src="{{ book_hero_background_image }}"
           alt="{{ book_hero_background_alt }}"
           loading="eager"
+          data-hero-slide
+          aria-hidden="false"
         >
       {{ /if }}
     </div>

@@ -11,7 +11,7 @@ seo_image_alt: 'Luxury Dric Interior living room with warm lighting and bespoke 
 hero_heading_lines:
   -
     id: 7NX1IEs6
-    line: 'Elevated Living Space'
+    line: 'Elevated Living Spaces'
     line_text_style:
       size: 0
       height: 0
@@ -415,7 +415,7 @@ cta_primary_href: /contact
 cta_secondary_label: 'View Our Work'
 cta_secondary_href: /projects
 updated_by: d6dd0a8a-7ca8-4a10-a604-4db11f80080e
-updated_at: 1777291188
+updated_at: 1777484044
 noindex: false
 title_text_style:
   size: 0
@@ -541,4 +541,10 @@ cta_secondary_label_text_style:
   size: 0
   height: 0
   width: 0
+hero_slides:
+  - 2pieceupholsteredsectionalwithpillow.webp
+  - about_09.jpg
+hero_slide_duration: 5000
+hero_transition_duration: 900
+hero_tint_opacity: 40
 ---
