@@ -21,9 +21,14 @@ tabs:
           -
             handle: category
             field:
-              type: text
+              type: select
               display: Category
-              instructions: 'Match the shop page filter category if this product should appear under a chip.'
+              instructions: 'Choose where this product should appear in the shop filters.'
+              options:
+                Seating: Seating
+                Lighting: Lighting
+                Tables: Tables
+                Accessories: Accessories
               width: 50
           -
             handle: image
