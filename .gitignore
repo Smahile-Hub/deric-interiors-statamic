@@ -17,7 +17,7 @@
 /public/hot
 /public/static
 /public/storage
-/public/vendor/statamic
+# /public/vendor/statamic — included in repo so CP works out of the box
 /storage/*.key
 /storage/pail
 _ide_helper.php
