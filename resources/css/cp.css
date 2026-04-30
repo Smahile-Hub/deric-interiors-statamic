@@ -37,6 +37,32 @@
     flex-wrap: wrap;
 }
 
+.text-style-fieldtype__intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+}
+
+.text-style-fieldtype__intro-copy {
+    display: grid;
+    gap: 0.12rem;
+    min-width: 0;
+}
+
+.text-style-fieldtype__intro-copy strong {
+    color: var(--text-style-copy);
+    font-size: 0.84rem;
+    font-weight: 700;
+}
+
+.text-style-fieldtype__intro-copy span {
+    color: var(--text-style-muted);
+    font-size: 0.78rem;
+    line-height: 1.4;
+}
+
 .text-style-fieldtype__summary {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -81,6 +107,7 @@
     flex-wrap: wrap;
 }
 
+.text-style-fieldtype__visibility-toggle,
 .text-style-fieldtype__toggle,
 .text-style-fieldtype__reset-all,
 .text-style-fieldtype__reset,
@@ -96,6 +123,7 @@
     transition: border-color 140ms ease, background 140ms ease, color 140ms ease;
 }
 
+.text-style-fieldtype__visibility-toggle,
 .text-style-fieldtype__toggle,
 .text-style-fieldtype__reset-all {
     min-height: 2.4rem;
@@ -104,10 +132,15 @@
     font-size: 0.8rem;
 }
 
+.text-style-fieldtype__visibility-toggle {
+    background: var(--text-style-panel-bg);
+}
+
 .text-style-fieldtype__reset-all {
     color: var(--text-style-accent);
 }
 
+.text-style-fieldtype__visibility-toggle:hover,
 .text-style-fieldtype__toggle:hover,
 .text-style-fieldtype__reset-all:hover,
 .text-style-fieldtype__reset:hover,
@@ -199,6 +232,7 @@
     color: rgba(255, 255, 255, 0.34);
 }
 
+.text-style-fieldtype[data-expanded="true"] .text-style-fieldtype__visibility-toggle,
 .text-style-fieldtype[data-expanded="true"] .text-style-fieldtype__toggle {
     color: var(--text-style-accent);
     border-color: var(--text-style-active-border);
@@ -216,6 +250,7 @@
         padding: 0.8rem;
     }
 
+    .text-style-fieldtype__intro,
     .text-style-fieldtype__header,
     .text-style-fieldtype__header-actions,
     .text-style-fieldtype__controls {
@@ -226,6 +261,7 @@
         width: 100%;
     }
 
+    .text-style-fieldtype__visibility-toggle,
     .text-style-fieldtype__toggle,
     .text-style-fieldtype__reset-all {
         flex: 1 1 0;

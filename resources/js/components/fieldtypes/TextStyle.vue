@@ -130,7 +130,26 @@ function statusText(amount) {
         class="text-style-fieldtype"
         :data-expanded="isExpanded"
     >
-        <div class="text-style-fieldtype__header">
+        <div class="text-style-fieldtype__intro">
+            <div class="text-style-fieldtype__intro-copy">
+                <strong>{{ allDefaults ? 'Text adjustments hidden' : 'Custom text adjustments' }}</strong>
+                <span>{{ allDefaults ? 'Enable only when this text needs custom sizing, spacing, or width.' : 'This text has custom sizing, spacing, or width.' }}</span>
+            </div>
+
+            <button
+                type="button"
+                class="text-style-fieldtype__visibility-toggle"
+                :aria-expanded="isExpanded"
+                @click="isExpanded = !isExpanded"
+            >
+                {{ isExpanded ? 'Hide controls' : 'Show controls' }}
+            </button>
+        </div>
+
+        <div
+            v-if="isExpanded"
+            class="text-style-fieldtype__header"
+        >
             <div class="text-style-fieldtype__summary">
                 <div
                     v-for="row in summaryRows"
@@ -144,15 +163,6 @@ function statusText(amount) {
             </div>
 
             <div class="text-style-fieldtype__header-actions">
-                <button
-                    type="button"
-                    class="text-style-fieldtype__toggle"
-                    :aria-expanded="isExpanded"
-                    @click="isExpanded = !isExpanded"
-                >
-                    {{ isExpanded ? 'Hide controls' : 'Adjust text' }}
-                </button>
-
                 <button
                     v-if="!allDefaults"
                     type="button"
